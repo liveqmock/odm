@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="b45d32f4-da1e-4170-9850-66bf35a24898" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" readonly="true" id="b45d32f4-da1e-4170-9850-66bf35a24898" name="Default" comment="testit">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="odm.iws" />
@@ -25,7 +24,7 @@
     <file path="/SCGLServiceImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361878902116" ignored="false" />
     <file path="/SCGLDao.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361880911573" ignored="false" />
     <file path="/BCPKJ_Apply.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357092665820" ignored="false" />
-    <file path="/Dummy.txt" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362748653718" ignored="false" />
+    <file path="/Dummy.txt" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362748690993" ignored="false" />
     <file path="F:/sunyard_android_bld_1.00/sdk_bld_1.00/i60api/obj/local/armeabi/objs/sunyardi60a/sunyardi60a.o.d" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356683295643" ignored="false" />
     <file path="/BCPKJ_DO.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357090690963" ignored="false" />
     <file path="/UserFilter.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361884751619" ignored="false" />
@@ -158,7 +157,7 @@
       <file leaf-file-name="BaseAction.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jiang/action/BaseAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="68" selection-start="480" selection-end="480" vertical-scroll-proportion="0.62096775">
+            <state line="26" column="39" selection-start="678" selection-end="678" vertical-scroll-proportion="0.89873415">
               <folding />
             </state>
           </provider>
@@ -733,7 +732,11 @@
       <created>1362748668687</created>
       <updated>1362748668687</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="testit">
+      <created>1362748684288</created>
+      <updated>1362748684288</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -767,7 +770,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2498096" sideWeight="0.761578" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38423645" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50874126" sideWeight="0.23170732" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38986015" sideWeight="0.23170732" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23094513" sideWeight="0.24300699" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.69982845" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2957265" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -778,7 +781,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953683" sideWeight="0.57632935" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18521342" sideWeight="0.7622378" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27622378" sideWeight="0.47865853" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24314025" sideWeight="0.49125874" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24314025" sideWeight="0.61013985" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32554257" sideWeight="0.76295733" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="92" y="92" width="1178" height="544" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30136988" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -977,7 +980,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jiang/action/BaseAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="68" selection-start="480" selection-end="480" vertical-scroll-proportion="0.62096775">
+        <state line="26" column="39" selection-start="678" selection-end="678" vertical-scroll-proportion="0.89873415">
           <folding />
         </state>
       </provider>
