@@ -1,0 +1,8 @@
+
+body {margin:0; background:#d1d9e6}
+#container {margin:0 auto; width:1000px;}
+#header { height:60px; margin-bottom:20px;}
+#mainContent { margin-bottom:0px;}
+#main{float:left; height:13px; width:1024px;}
+#sidebar { float:left; width:1024px; height:672px;}
+#footer { float:left; width:1024px;height:20px;}

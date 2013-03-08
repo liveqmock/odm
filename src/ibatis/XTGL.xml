@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+        "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="XTGL">
+	<typeAlias alias="YHGL" type="com.jiang.bean.YHGL" />
+	<resultMap id="yhglResult" class="YHGL">
+		<result property="id" column="id" />
+		<result property="username" column="username" />
+		<result property="pwd" column="pwd" />
+		<result property="quanxian" column="quanxian" />
+		<result property="realName" column="realName" />
+		<result property="bumen" column="bumen" />
+		<result property="ZGpwd" column="ZGpwd" />
+		<result property="company" column="company" />
+	</resultMap>
+	
+	<typeAlias alias="LSJL" type="com.jiang.bean.LSJL" />
+	<resultMap id="lsjlResult" class="LSJL">
+		<result property="id" column="id" />
+		<result property="realName" column="realName" />
+		<result property="username" column="username" />
+		<result property="bumen" column="bumen" />
+		<result property="operatetime" column="operatetime" />
+		<result property="neirong" column="neirong" />
+	</resultMap>
+	
+	<typeAlias alias="XTCS" type="com.jiang.bean.XTCS" />
+	<resultMap id="xtcsResult" class="XTCS">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="zhonglei" column="zhonglei" />
+	</resultMap>
+
+	<select id="getYHGLBypage" resultMap="yhglResult"
+		parameterClass="HashMap">
+		select
+		id,username,pwd,quanxian,realName,bumen,ZGpwd,company
+		from ( select
+		TOP $psize$ *
+		FROM (
+		SELECT TOP
+		$pend$ *
+		from
+		[user]   as f
+		<dynamic prepend="where">
+			<isNotEmpty property="username" prepend="and">
+				f.username like '%'+ #username# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="realName" prepend="and">
+				f.realName like  '%'+ #realName# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="bumen" prepend="and">
+				f.bumen = #bumen# 
+			</isNotEmpty>
+			<isNotEmpty property="ZGpwd" prepend="and">
+				f.ZGpwd is not NULL
+			</isNotEmpty>
+			<isEmpty property="ZGpwd" prepend="and">
+				f.ZGpwd is NULL
+			</isEmpty>
+		</dynamic>
+		ORDER
+		BY id ASC
+		) as aSysTable
+		ORDER BY id
+		DESC )
+		as
+		bSysTable
+		ORDER BY id
+		ASC
+	</select>
+	
+		<select id="getYHGLBypage2" resultMap="yhglResult"
+		parameterClass="HashMap">
+		select
+		id,username,pwd,quanxian,realName,bumen,ZGpwd,company
+		from ( select
+		TOP $psize$ *
+		FROM (
+		SELECT TOP
+		$pend$ *
+		from
+		[user]   as f
+		<dynamic prepend="where">
+			<isNotEmpty property="username" prepend="and">
+				f.username like '%'+ #username# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="realName" prepend="and">
+				f.realName like  '%'+ #realName# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="bumen" prepend="and">
+				f.bumen = #bumen# 
+			</isNotEmpty>
+		</dynamic>
+		ORDER
+		BY id ASC
+		) as aSysTable
+		ORDER BY id
+		DESC )
+		as
+		bSysTable
+		ORDER BY id
+		ASC
+	</select>
+	
+	<select id="getZGpwdbybumen" resultClass="java.lang.String" parameterClass="java.lang.String">
+		select ZGpwd from
+		[user]  where  bumen=#bumen# and ZGpwd is not NULL
+	</select>
+	
+
+	<select id="getYHGLCount" resultClass="java.lang.Integer">
+		select count(*) from
+		[user]    as f
+		<dynamic prepend="where">
+			<isNotEmpty property="username" prepend="and">
+				f.username like '%'+ #username# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="realName" prepend="and">
+				f.realName like  '%'+ #realName# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="bumen" prepend="and">
+				f.bumen = #bumen# 
+			</isNotEmpty>
+			<isNotEmpty property="ZGpwd" prepend="and">
+				f.ZGpwd is not NULL
+			</isNotEmpty>
+			<isEmpty property="ZGpwd" prepend="and">
+				f.ZGpwd is NULL
+			</isEmpty>
+		</dynamic>
+	</select>
+	<select id="getYHGLCount2" resultClass="java.lang.Integer">
+		select count(*) from
+		[user]    as f
+		<dynamic prepend="where">
+			<isNotEmpty property="username" prepend="and">
+				f.username like '%'+ #username# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="realName" prepend="and">
+				f.realName like  '%'+ #realName# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="bumen" prepend="and">
+				f.bumen = #bumen# 
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<select id="getYHGLByID" resultMap="yhglResult" parameterClass="Integer">
+		select 
+		id,username,pwd,quanxian,realName,bumen,ZGpwd,company
+		 from
+		[user]   as f where f.id = #valueOf#
+	</select>
+	
+	<delete id="deleteYHGLById" parameterClass="java.util.List">
+		delete
+		from
+		[user]
+		<iterate prepend="where" open="(" close=")" conjunction="or">
+			id=#ids[]#
+		</iterate>
+	</delete>
+	<select id="checkUniqueness"  resultClass="java.lang.Integer" parameterClass="com.jiang.bean.YHGL">
+		select 
+		count(*)
+		 from
+		[user]  as f
+		<dynamic prepend="where">
+			<isNotEmpty property="username" prepend="and">
+				f.username = #username# 
+			</isNotEmpty>
+			<isNotEmpty property="bumen" prepend="and">
+				f.bumen = #bumen# 
+			</isNotEmpty>
+			<isNotEmpty property="id" prepend="and">
+				f.id != #id# 
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<update id="updateYHGL" parameterClass="com.jiang.bean.YHGL">
+		update [user]
+		<dynamic prepend="set">
+	       <isNotNull property="username" prepend=",">
+	              username=#username#
+	       </isNotNull>
+	        <isNotNull property="pwd" prepend=",">
+	              pwd=#pwd#
+	       </isNotNull>
+	        <isNotNull property="quanxian" prepend=",">
+	              quanxian=#quanxian#
+	       </isNotNull>
+	        <isNotNull property="company" prepend=",">
+	              company=#company#
+	       </isNotNull>
+	        <isNotNull property="realName" prepend=",">
+	              realName=#realName#
+	       </isNotNull>
+	        <isNotNull property="bumen" prepend=",">
+	              bumen=#bumen#
+	       </isNotNull>
+	       <isNotNull property="ZGpwd" prepend=",">
+	              ZGpwd=#ZGpwd#
+	       </isNotNull>
+	       <isNull property="ZGpwd" prepend=",">
+	              ZGpwd=NULL
+	       </isNull>
+	       where id=#id#
+  		 </dynamic>
+	</update>
+	<insert id="addYHGL" parameterClass="com.jiang.bean.YHGL">
+		insert into [user]
+		(
+		username,
+		pwd,
+		quanxian,
+		realName,
+		bumen,
+		ZGpwd,
+		company
+		)
+		values(
+		#username#,
+		#pwd#,
+		#quanxian#,
+		#realName#,
+		#bumen#,
+		#ZGpwd#,
+		#company#
+		)
+	</insert>
+	
+	
+<select id="getLSJLBypage" resultMap="lsjlResult"
+		parameterClass="HashMap">
+		select
+		id,realName,username,bumen,operatetime,neirong
+		from ( select
+		TOP $psize$ *
+		FROM (
+		SELECT TOP
+		$pend$ *
+		from
+		[record]
+		ORDER
+		BY id ASC
+		) as aSysTable
+		ORDER BY id
+		DESC )
+		as
+		bSysTable
+		ORDER BY id
+		ASC
+	</select>
+
+	<select id="getLSJLCount" resultClass="java.lang.Integer">
+		select count(*) from
+		[record]
+	</select>
+	<delete id="deleteLSJLById" parameterClass="java.util.List">
+		delete
+		from
+		[record]
+		<iterate prepend="where" open="(" close=")" conjunction="or">
+			id=#ids[]#
+		</iterate>
+	</delete>
+	
+	
+	<select id="getXTCSBypage" resultMap="xtcsResult"
+		parameterClass="HashMap">
+		select
+		id,name,zhonglei
+		from ( select
+		TOP $psize$ *
+		FROM (
+		SELECT TOP
+		$pend$ *
+		from
+		[select] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="name" prepend="and">
+				f.name = #name#
+			</isNotEmpty>
+		</dynamic>
+		ORDER
+		BY id ASC
+		) as aSysTable
+		ORDER BY id
+		DESC )
+		as
+		bSysTable
+		ORDER BY id
+		ASC
+	</select>
+
+	<select id="getXTCSCount" resultClass="java.lang.Integer"
+		parameterClass="HashMap">
+		select count(*) from
+		[select] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="name" prepend="and">
+				f.name = #name#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<delete id="deleteXTCSByIds" parameterClass="java.util.List">
+		delete from [select]
+		<iterate prepend="where" open="(" close=")" conjunction="or">
+			id=#ids[]#
+		</iterate>
+	</delete>
+
+
+	<select id="getXTCSById" resultMap="xtcsResult" parameterClass="java.lang.Integer">
+		select id,name,zhonglei from
+		[select] as f where f.id = #id#
+	</select>
+
+
+	<select id="getXTCSByOhter" resultMap="xtcsResult"
+		parameterClass="HashMap">
+		select id,name,zhonglei from
+		[select] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="name" prepend="and">
+				f.name = #name#
+			</isNotEmpty>
+			<isNotEmpty property="zhonglei" prepend="and">
+				f.zhonglei =
+				#zhonglei#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+
+	<update id="updateXTCS" parameterClass="XTCS">
+		update [select] set
+		name=#name#,
+		zhonglei=#zhonglei#
+		where id=#id#
+	</update>
+
+	<insert id="addXTCS" parameterClass="XTCS">
+		insert into [select]
+		(
+		name,
+		zhonglei
+		)
+		values(
+		#name#,
+		#zhonglei#
+		)
+	</insert>
+	<!-- 
+	backup database Fabrics to disk='C:/a.bak';
+    restore database Fabrics from disk='C:/a.bak';
+   -->
+	
+</sqlMap>

@@ -1,0 +1,54 @@
+.a1{
+	font-size: 12px;
+	color: #484846;
+}
+.a1:link {
+	text-decoration: none;
+	color:  Blue;
+}
+.a1:visited {
+	text-decoration: none;
+	color: Blue;
+}
+.a1:hover {
+	text-decoration: none;
+	color: Blue;
+}
+.a1:active {
+	text-decoration: none;
+	color: Blue;
+}
+.a2{
+	font-size: 14px;
+	color: #484846;
+}
+/*Ê±¼ä */
+.time{
+	font-size: 12px;
+	
+	font-weight:900;
+	color:Black;
+}
+ .CurledLineMiddle { BORDER-RIGHT: medium none; BORDER-TOP: medium none; FONT-SIZE: 9pt; BORDER-LEFT: medium none; BORDER-BOTTOM: #a0a0a0 1px solid; BACKGROUND-COLOR: transparent; TEXT-ALIGN: center }
+.a3{
+	font-size: 12px;
+	color: Red;
+	z-index:1000;	 
+	
+}
+.a3:link {
+	text-decoration: none;
+	color:  Red;
+}
+.a3:visited {
+	text-decoration: none;
+	color: Red;
+}
+.a3:hover {
+	text-decoration: none;
+	color: Red;
+}
+.a3:active {
+	text-decoration: none;
+	color: Red;
+}

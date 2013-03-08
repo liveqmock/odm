@@ -1,0 +1,38 @@
+BODY {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 13px; PADDING-TOP: 0px
+}
+.erjidaohang {
+	FLOAT: left; LEFT: -1.1%
+}
+.tabsBox {
+	POSITION: relative; WIDTH: 720px; FLOAT: left; LEFT: -4.6%
+}
+
+.tabs {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #4066ad; HEIGHT: 30px; VERTICAL-ALIGN: middle; CURSOR: pointer;
+}
+.cur {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #4066ad; HEIGHT: 30px; VERTICAL-ALIGN: middle; CURSOR: pointer; FONT-WEIGHT: bold
+}
+.cur1 {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #4066ad; HEIGHT: 30px; VERTICAL-ALIGN: middle; CURSOR: pointer; FONT-WEIGHT: bold
+}
+A {
+	COLOR: #ffffff; FONT-SIZE: 13px; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+
+.tabs SPAN {
+	DISPLAY: none
+}
+.cur1 SPAN {
+	DISPLAY: none
+}
+.cur SPAN {
+	Z-INDEX: -1; BORDER-BOTTOM: #fff 8px solid; POSITION: absolute; BORDER-LEFT: #fff 8px solid; MARGIN-TOP: 8px; WIDTH: 1px; DISPLAY: block; HEIGHT: 1px; COLOR: #ffffff; MARGIN-LEFT: 40px; OVERFLOW: hidden; BORDER-TOP: #000000 8px solid; BORDER-RIGHT: #fff 8px solid
+}

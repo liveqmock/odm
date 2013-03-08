@@ -1,0 +1,27 @@
+label {
+	width: 0px;
+	float: left;
+	hight:25px;
+}
+
+label.haha {
+	color: red;
+	padding-left: 18px;
+	vertical-align: top;
+	width: 120px;
+	hight:25px;
+	background: url("../../images/error.png") no-repeat;
+}
+
+input.haha {
+	border: 1px solid red;
+}
+
+label.valid {
+	background: url("../../images/ok.png") no-repeat;
+	color: #065FB9;
+}
+
+input.focus {
+	border: 2px solid green;
+}

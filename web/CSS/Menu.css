@@ -1,0 +1,13 @@
+body{ padding:0;font:14px "宋体";text-align:center;  }
+a{color: #30373f;  text-decoration: none;}
+/*选项卡1*/
+#lib_Tab1_sx{width:1024px;margin:0px;padding:0px;overflow:hidden;list-style-type: none;}
+/*菜单class*/
+.lib_tabborder_sx{border:0px;}
+.lib_Menubox_sx {line-height:31px;position:relative; float:left; width:190px; height:31px;}
+.lib_Menubox_sx ul{margin:0px;padding:0px;list-style:none; position:absolute; height:31px;text-align:center;list-style:none;}
+.lib_Menubox_sx li{display:block;cursor:pointer;color:#30373f; height:31px;line-height:31px; background:  url(images/menu.gif) no-repeat left bottom; width:188px}
+.lib_Menubox_sx li.hover{padding:0px;background:#FFFFFF url(images/menuChange.gif);width:116px;border:0px; border-right:0;color: #2e3841; width:188px; font-weight:bold;height:31px;line-height:31px;}
+.lib_Contentbox_sx{margin-top:0px; border-top:none;padding:20px; border-left:0; margin-left:130px ; margin-left:190px}
+.lib_Contentbox_sx_1{margin-top:0px; border-top:none;padding:20px; border-left:0; margin-left:130px; margin-left:190px}
+

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+        "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="XXGL">
+
+	<typeAlias alias="Message" type="com.jiang.bean.Message" />
+	<resultMap id="message" class="Message">
+		<result property="id" column="id" />
+		<result property="send_man" column="send_man" />
+		<result property="receive_man" column="receive_man" />
+		<result property="sendTime" column="sendTime" />
+		<result property="danhao" column="danhao" />
+		<result property="xinghao" column="xinghao" />
+		<result property="message" column="message" />
+		<result property="mudibumen" column="mudibumen" />
+		<result property="laiyuanbumen" column="laiyuanbumen" />
+		<result property="sendtype" column="sendtype" />
+		<result property="duqu_or_not" column="duqu_or_not" />
+	</resultMap>
+	<typeAlias alias="Uname" type="com.jiang.bean.UserNames" />
+
+	<typeAlias alias="YHGL" type="com.jiang.bean.YHGL" />
+	<resultMap id="yhglResult" class="YHGL">
+			<result property="realName" column="realName" />
+	</resultMap>
+
+	<select id="getXXGLBypage" resultMap="message" parameterClass="HashMap">
+		select
+		id,send_man,receive_man,sendTime,danhao,xinghao,message,mudibumen
+		,laiyuanbumen
+		,sendtype
+		,duqu_or_not
+		from ( select TOP $psize$ * FROM (
+		SELECT TOP $pend$
+		* from [message] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="laiyuanbumen" prepend="and">
+				f.laiyuanbumen = #laiyuanbumen#
+			</isNotEmpty>
+			<isNotEmpty property="beginTime" prepend="and">
+				f.sendTime  &gt;=
+				#beginTime#
+			</isNotEmpty>
+			<isNotEmpty property="endTime" prepend="and">
+				f.sendTime &lt;=
+				#endTime#
+			</isNotEmpty>
+			<isNotEmpty property="duqu_or_not" prepend="and">
+				f.duqu_or_not  = #duqu_or_not#
+			</isNotEmpty>
+			<isEmpty property="duqu_or_not" prepend="and">
+				f.duqu_or_not  = 0
+			</isEmpty>
+			 <isNotEmpty property="receive_man" prepend="and">
+				f.receive_man  = #receive_man#
+			</isNotEmpty>
+		</dynamic>
+		
+		ORDER BY id ASC ) as aSysTable
+		ORDER BY id DESC) as bSysTable ORDER BY
+		id ASC
+	</select>
+	
+	<select id="queryUserbyBumen"  resultMap="yhglResult"
+		parameterClass="Map">
+		select realName
+		from
+		[user] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="bumen" prepend="and">
+				f.bumen = #bumen#
+			</isNotEmpty>
+		 </dynamic>
+	 </select>
+	<select id="getXXGLCount" resultClass="java.lang.Integer"
+		parameterClass="HashMap">
+		select count(*)
+		from
+		[message] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="laiyuanbumen" prepend="and">
+				f.laiyuanbumen = #laiyuanbumen#
+			</isNotEmpty>
+			<isNotEmpty property="beginTime" prepend="and">
+				f.sendTime &gt;=
+				#beginTime#
+			</isNotEmpty>
+			<isNotEmpty property="endTime" prepend="and">
+				f.sendTime &lt;=
+				#endTime#
+			</isNotEmpty>
+			<isNotEmpty property="duqu_or_not" prepend="and">
+				f.duqu_or_not  = #duqu_or_not#
+			</isNotEmpty>
+			 <isNotEmpty property="receive_man" prepend="and">
+				f.receive_man  = #receive_man#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<delete id="deleteXXGLById" parameterClass="java.util.List">
+		delete
+		from
+		[message]
+		<iterate prepend="where" open="(" close=")" conjunction="or">
+			id=#ids[]#
+		</iterate>
+	</delete>
+	<delete id="setReadedXXGLById" parameterClass="java.util.List">
+		update [message] set duqu_or_not = 1
+		<iterate prepend="where" open="(" close=")" conjunction="or">
+			id=#ids[]#
+		</iterate>
+	</delete>
+	
+<insert id="insertXXGL" parameterClass="com.jiang.bean.Message">
+		insert into [message]
+		(
+		send_man,receive_man,sendTime,danhao,xinghao,message,mudibumen
+		,laiyuanbumen
+		,sendtype
+		,duqu_or_not
+		)
+		values(
+		#send_man#,
+		#receive_man#,
+		#sendTime#,
+		#danhao#,
+		#xinghao#,
+		#message#,
+		#mudibumen#,
+		#laiyuanbumen#,
+		#sendtype#,
+		0
+		)
+	</insert>
+	
+</sqlMap>

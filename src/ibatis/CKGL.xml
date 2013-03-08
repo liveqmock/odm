@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+        "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="CKGL"> 
+	<typeAlias alias="KJGL" type="com.jiang.bean.KJGL" />
+	<resultMap id="kjglResult" class="KJGL">
+		<result property="id" column="id" />
+		<result property="kaijian_man" column="kaijian_man" />
+		<result property="kaijian_time" column="kaijian_time" />
+		<result property="type_num" column="type_num" />
+		<result property="tiaoxingma" column="tiaoxingma" />
+		<result property="yuanmishu" column="yuanmishu" />
+		<result property="mishu" column="mishu" />
+		<result property="shunhao_id" column="shunhao_id" />
+		<result property="his_Tiaoxingma" column="his_Tiaoxingma" />
+		<result property="zhijian_reasult" column="zhijian_reasult" />
+	</resultMap>
+
+	<typeAlias alias="CGRK"  type="com.jiang.bean.RKQR" />
+	<resultMap id="cgrkResult" class="CGRK">
+		<result property="id" column="id" />
+		<result property="caigou_id" column="caigou_id" />
+		<result property="bupi_id" column="bupi_id" />
+		<result property="price" column="price" />
+		<result property="mishu" column="mishu" />
+		<result property="gongyingname" column="gongyingname" />
+		<result property="apply_man" column="apply_man" />
+		<result property="apply_time" column="apply_time" />
+		<result property="queren_man" column="queren_man" />
+        <result property="queren_time" column="queren_time" />
+        <result property="zhijian_or_not" column="zhijian_or_not" />
+        <result property="beizhu" column="beizhu" />
+    </resultMap>
+
+    <typeAlias alias="SCRK"  type="com.jiang.bean.SCRK" />
+    <resultMap id="scrkResult" class="SCRK">
+        <result property="id" column="id" />
+        <result property="gongyidan_id" column="gongyidan_id" />
+        <result property="bupi_id" column="bupi_id" />
+        <result property="price" column="price" />
+        <result property="mishu" column="mishu" />
+        <result property="gongyingname" column="gongyingname" />
+        <result property="apply_man" column="apply_man" />
+        <result property="apply_time" column="apply_time" />
+        <result property="queren_man" column="queren_man" />
+        <result property="queren_time" column="queren_time" />
+        <result property="zhijian_or_not" column="zhijian_or_not" />
+        <result property="beizhu" column="beizhu" />
+    </resultMap>
+
+    <typeAlias alias="RuKuDan"  type="com.jiang.bean.RuKuDan" />
+    <resultMap id="rkdResult" class="RuKuDan">
+        <result property="id" column="id" />
+        <result property="ruku_id" column="ruku_id" />
+        <result property="inck_man" column="inck_man" />
+        <result property="inck_time" column="inck_time" />
+        <result property="ruku_leixing" column="ruku_leixing" />
+        <result property="mudidanhao" column="mudidanhao" />
+        <result property="num" column="num" />
+        <result property="type_num" column="type_num" />
+        <result property="zhijian_id" column="zhijian_id" />
+    </resultMap>
+
+	<typeAlias alias="CKCX" type="com.jiang.bean.CangKu" />
+	<resultMap id="ckcxResult" class="CKCX">
+		<result property="id" column="id" />
+		<result property="bupi_id" column="bupi_id" />
+		<result property="ckname" column="ckname" />
+		<result property="bptype" column="bptype" />
+		<result property="num" column="num" />
+		<result property="KJ_num" column="KJ_num" />
+		<result property="KY_num" column="KY_num" />
+		<result property="type_num" column="type_num" />
+		<result property="inck_time" column="inck_time" />
+		<result property="inck_man" column="inck_man" />
+		<result property="zhiliangdengji" column="zhiliangdengji" />
+		<result property="pinji" column="pinji" />
+		<result property="dengji" column="dengji" />
+		<result property="mudidanhao" column="mudidanhao" />
+		<result property="ruku_leixing" column="ruku_leixing" />
+		<result property="weizhi" column="weizhi" />
+		<result property="beizhu" column="beizhu" />
+		<result property="rukdan_id" column="rukdan_id" />
+	</resultMap>
+	<select id="getKJGLBypage" resultMap="kjglResult"
+		parameterClass="HashMap">
+		select
+		id,kaijian_man,kaijian_time,type_num,tiaoxingma,yuanmishu,mishu,
+		shunhao_id,his_Tiaoxingma,zhijian_reasult
+		from ( select
+		TOP $psize$ *
+		FROM (
+		SELECT TOP
+		$pend$ *
+		from
+		[kaijian]
+		ORDER
+		BY id ASC
+		) as aSysTable
+		ORDER BY id
+		DESC )
+		as
+		bSysTable
+		ORDER BY id
+		ASC
+	</select>
+
+	<select id="getKJGLCount" resultClass="java.lang.Integer">
+		select count(*) from
+		[kaijian]
+	</select>
+	<delete id="deleteKJGLById" parameterClass="java.util.List">
+		delete
+		from
+		[kaijian]
+		<iterate prepend="where" open="(" close=")" conjunction="or">
+			id=#ids[]#
+		</iterate>
+	</delete>
+	
+	
+	<!-- 仓库采购入库 -->
+	<select id="findCGRKByPage" resultMap="cgrkResult" parameterClass="HashMap">
+		select
+		id,caigou_id,bupi_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,
+		zhijian_or_not,beizhu
+		from	
+		(
+		SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
+		BY ID ASC) AS ROWID,*
+		from
+		[CGruku_apply] as f where caigou_id=#cgid#
+		) AS TEMP1
+		WHERE ROWID >$pstart$
+	</select>
+    <select id="findSCZJGRKByPage" resultMap="scrkResult" parameterClass="HashMap">
+        select
+        id,caigou_id,gongyidan_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,
+        zhijian_or_not,beizhu
+        from
+        (
+        SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
+        BY ID ASC) AS ROWID,*
+        from
+        [SCZJGruku_apply] as f where gongyidan_id=#scdid#
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+    <select id="findSCWJGRKByPage" resultMap="scrkResult" parameterClass="HashMap">
+        select
+        id,caigou_id,gongyidan_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,
+        zhijian_or_not,beizhu
+        from
+        (
+        SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
+        BY ID ASC) AS ROWID,*
+        from
+        [SCWJGruku_apply] as f where gongyidan_id=#scdid#
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+
+	<select id="getCGRKCount" resultClass="java.lang.Integer"
+		parameterClass="HashMap">
+		select count(*) from [CGruku_apply] where caigou_id=#cgid#
+	</select>
+    <select id="getSCZJGRKCount" resultClass="java.lang.Integer"
+            parameterClass="HashMap">
+        select count(*) from [SCZJGruku_apply] where gongyidan_id=#scdid#
+    </select>
+    <select id="getSCWJGRKCount" resultClass="java.lang.Integer"
+            parameterClass="HashMap">
+        select count(*) from [SCWJGruku_apply] where gongyidan_id=#scdid#
+    </select>
+	<select id="getCountByCGID" resultClass="Integer"  parameterClass="String">
+		select
+		count(*)
+		from	
+		[CGruku_apply] 
+		WHERE caigou_id=#caigou_id#
+	</select>
+    <select id="getCountBySCWJGID" resultClass="Integer"  parameterClass="String">
+        select
+        count(*)
+        from
+        [SCWJGruku_apply]
+        WHERE gongyidan_id=#scid#
+    </select>
+    <select id="getCountBySCZJGID" resultClass="Integer"  parameterClass="String">
+        select
+        count(*)
+        from
+        [SCWJGruku_apply]
+        WHERE gongyidan_id=#scid#
+    </select>
+
+	<select id="getZHIJIANCountByCGID" resultClass="Integer"  parameterClass="String">
+		select
+		count(*)
+		from	
+		[CGruku_apply] 
+		WHERE caigou_id=#caigou_id# and zhijian_or_not='1'
+	</select>
+
+    <select id="getZHIJIANCountBySCZJGID" resultClass="Integer"  parameterClass="String">
+        select
+        count(*)
+        from
+        [SCZJGruku_apply]
+        WHERE gongyidan_id=#gongyidan_id# and zhijian_or_not='1'
+    </select>
+
+    <select id="getZHIJIANCountBySCWJGID" resultClass="Integer"  parameterClass="String">
+        select
+        count(*)
+        from
+        [SCWJGruku_apply]
+        WHERE gongyidan_id=#gongyidan_id# and zhijian_or_not='1'
+    </select>
+	<!-- 入库单号是否唯一 -->
+	<select id="checkUniquessRKDanhao" resultClass="java.lang.Integer"
+		parameterClass="String">
+		select
+		count(*)
+		from
+		[rukudan]  where  ruku_id = #danhao#
+	</select>
+	
+	
+	<!-- 采购入库条码是否唯一 -->
+	<select id="checkCGRKQRUniqueness" resultClass="java.lang.Integer"
+		parameterClass="CGRK">
+		select
+		count(*)
+		from
+		[CGruku_apply] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="bupi_id" prepend="and">
+				f.bupi_id = #bupi_id#
+			</isNotEmpty>
+			<isNotEmpty property="id" prepend="and">
+				f.id != #id#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<!-- 采购入库申请添加布匹 -->
+	<insert id="insertCGRKQR" parameterClass="CGRK">
+			insert into
+			[CGruku_apply]
+			(caigou_id,bupi_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,zhijian_or_not,beizhu)
+			values
+			(#caigou_id#,#bupi_id#,#price#,#mishu#,#gongyingname#,
+			#apply_man#,#apply_time#,#queren_man#,#queren_time#,#zhijian_or_not#,#beizhu#)
+	</insert>
+	
+	<!-- 查询仓库中半成品布匹 -->
+	<select id="findChangKuByCKname" resultMap="ckcxResult" parameterClass="String">
+		select
+		id,bupi_id,ckname,bptype,num,KJ_num,KY_num,type_num,inck_time,inck_man,
+		zhiliangdengji,pinji,dengji,mudidanhao,ruku_leixing,weizhi,beizhu,rukdan_id
+		from [cangku]  where ckname=#ckname#
+	</select>
+	<!-- 得到布匹通过ID -->
+	<select id="findChangKuById" resultMap="ckcxResult" parameterClass="Integer">
+		select
+		id,bupi_id,ckname,bptype,num,KJ_num,KY_num,type_num,inck_time,inck_man,
+		zhiliangdengji,pinji,dengji,mudidanhao,ruku_leixing,weizhi,beizhu,rukdan_id
+		from [cangku]  where id=#id#
+	</select>
+    <update id="setKJFinish" parameterClass="Integer">
+        update cangku set num -= KJ_num,  KJ_num=0 from cangku as a, BCPKJ_apply as b where b.id=#id# and a.bupi_id=b.bupi_id
+        insert into cangku (ckname,bptype,type_num,inck_time,inck_man,zhiliangdengji,pinji,dengji
+        ,mudidanhao,ruku_leixing,weizhi,beizhu,rukdan_id)  (select ckname,bptype,b.type_num,inck_time,inck_man,zhiliangdengji,pinji,dengji
+        ,mudidanhao,ruku_leixing,weizhi,b.beizhu,rukdan_id from cangku As a,BCPKJ_apply as b where b.id=#id# and a.bupi_id=b.bupi_id);
+        SELECT SCOPE_IDENTITY() AS 'SCOPE_IDENTITY'
+        update cangku set num=B.jianchumishu,KY_num=B.jianchumishu,bupi_id=B.new_bupi_id
+        FROM CANGKU AS A, BCPKJ_apply AS B  WHERE A.ID = (SELECT SCOPE_IDENTITY() AS 'SCOPE_IDENTITY') AND B.id=#id#
+    </update>
+    <update id="setKJCPFinish" parameterClass="Integer">
+        update cangku set num -= KJ_num,  KJ_num=0 from cangku as a, CPKJ_apply as b where b.id=#id# and a.bupi_id=b.bupi_id
+        insert into cangku (ckname,bptype,type_num,inck_time,inck_man,zhiliangdengji,pinji,dengji
+        ,mudidanhao,ruku_leixing,weizhi,beizhu,rukdan_id)  (select ckname,bptype,b.type_num,inck_time,inck_man,zhiliangdengji,pinji,dengji
+        ,mudidanhao,ruku_leixing,weizhi,b.beizhu,rukdan_id from cangku As a,CPKJ_apply as b where b.id=#id# and a.bupi_id=b.bupi_id);
+        SELECT SCOPE_IDENTITY() AS 'SCOPE_IDENTITY'
+        update cangku set num=B.jianchumishu,KY_num=B.jianchumishu,bupi_id=B.new_bupi_id
+        FROM CANGKU AS A, CPKJ_apply AS B  WHERE A.ID = (SELECT SCOPE_IDENTITY() AS 'SCOPE_IDENTITY') AND B.id=#id#
+    </update>
+    <!--查询入库单id通过目的单号-->
+    <select id="getRuKuDanIDByMudiID" resultClass="String" parameterClass="String">
+        select ruku_id from rukudan where mudidanhao=#mudiid#
+    </select>
+    <insert id="insertRuKuDan" parameterClass="RuKuDan">
+        insert into
+        [rukudan]
+        (ruku_id,inck_man,inck_time,ruku_leixing,mudidanhao,num,type_num,zhijian_id)
+        values
+        (#ruku_id#,#inck_man#,#inck_time#,
+        #ruku_leixing#,#mudidanhao#,#num#,#type_num#,#zhijian_id#)
+    </insert>
+    <select id="getTotalNum" resultClass="Float" parameterClass="String">
+        select SUM(mishu) from CGruku_apply where caigou_id=#mudidanhao#
+    </select>
+    <delete id="deleteCGRKSQById" parameterClass="java.util.List">
+        delete
+        from
+        [CGruku_apply]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+</sqlMap>

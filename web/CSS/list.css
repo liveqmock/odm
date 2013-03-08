@@ -1,0 +1,150 @@
+HTML {
+	WIDTH: 100%; WHITE-SPACE: nowrap; HEIGHT: 100%; OVERFLOW: hidden
+}
+BODY {
+	WIDTH: 100%; WHITE-SPACE: nowrap; HEIGHT: 100%; OVERFLOW: hidden
+}
+HTML {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+BODY {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DIV {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DT {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DD {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+OL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+LI {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H1 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H2 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H3 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H4 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H5 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+H6 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+PRE {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+FORM {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+FIELDSET {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+INPUT {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+P {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+BLOCKQUOTE {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+TH {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+TD {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+* {
+	FONT-FAMILY: Verdana, Geneva, sans-serif; FONT-SIZE: 12px
+}
+.table {
+	WIDTH: 100%
+}
+.tableColumn {
+	BACKGROUND: url(tb-bg.gif) repeat-x; OVERFLOW: hidden
+}
+.tableColumn TABLE {
+	WIDTH: 100%
+}
+.tableContent TABLE {
+	WIDTH: 100%
+}
+.tableColumn TABLE TR TD {
+	TEXT-ALIGN: center; BORDER-LEFT: #eeeeee 1px solid; LINE-HEIGHT: 26px; WHITE-SPACE: nowrap; OVERFLOW: hidden; FONT-WEIGHT: bold; BORDER-RIGHT: #d0d0d0 1px solid
+}
+.tableColumn .sortable {
+	CURSOR: pointer
+}
+.tableColumn .sortable DIV {
+	Z-INDEX: 1; POSITION: absolute; WIDTH: 7px; HEIGHT: 9px
+}
+.tableColumn TABLE TR TD INPUT {
+	WIDTH: 13px; HEIGHT: 13px
+}
+.tableContent {
+	OVERFLOW-X: hidden; BACKGROUND-COLOR: #ffffff; OVERFLOW: auto
+}
+.tableContent TABLE {
+	
+}
+.tableContent TABLE TR.row {
+	
+}
+.tableContent TABLE TR.high TD {
+	BACKGROUND-COLOR: #eff4fa
+}
+.tableContent TABLE TR.group {
+	BACKGROUND-COLOR: #f5f5f5; COLOR: #3764b0; FONT-WEIGHT: bold
+}
+.tableContent TABLE TR.group TD {
+	BORDER-BOTTOM: #99bbe8 2px solid; BORDER-LEFT: medium none; BORDER-RIGHT: medium none
+}
+.tableContent TABLE TR.group TD INPUT {
+	VERTICAL-ALIGN: text-bottom
+}
+.tableContent TABLE TR TD {
+	BORDER-BOTTOM: #eaeaea 1px solid; BORDER-LEFT: #ffffff 1px solid; LINE-HEIGHT: 22px; WHITE-SPACE: nowrap; HEIGHT: 22px; OVERFLOW: hidden; BORDER-RIGHT: #ffffff 1px solid
+}
+.tableContent TABLE TR TD SPAN {
+	DISPLAY: block; WHITE-SPACE: nowrap; MARGIN-LEFT: 5px; OVERFLOW: hidden; MARGIN-RIGHT: 5px
+}
+.tableContent TABLE TR TD.box {
+	TEXT-ALIGN: center; BORDER-LEFT: #f9f9f9 1px solid; BACKGROUND: url(checkbox-row-bg.gif) repeat-y 0px 0px
+}
+.tableContent TABLE TR TD.box INPUT {
+	WIDTH: 13px; HEIGHT: 13px
+}
+.tableContent TABLE TR TD.box .more-operate {
+	CURSOR: pointer
+}
+.tableContent TABLE TR TD.num {
+	TEXT-ALIGN: center; BORDER-LEFT: #bed1ed 1px solid; BACKGROUND-COLOR: #bed1ed; BORDER-RIGHT: #d0d0d0 1px solid
+}
+.tableContent .selected TD {
+	BORDER-BOTTOM: #a3bae9 1px dotted; BORDER-LEFT: #e7edf8 1px solid; BACKGROUND-COLOR: #b7c9e9 !important; BORDER-RIGHT: #e7edf8 1px solid
+}
+.tableContent .selected TD.num {
+	BORDER-LEFT: #85aadd 1px solid; BACKGROUND-COLOR: #447dcb !important; COLOR: #ffffff; FONT-WEIGHT: bold
+}
+.tableContent TABLE TR TD.cantDelete {
+	BORDER-LEFT: #ff9999 1px solid; BACKGROUND: url(checkbox-red-row-bg.gif) repeat-y 0px 0px
+}

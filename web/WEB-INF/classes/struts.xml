@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+
+	<package name="a"  extends="struts-default">
+		<default-action-ref name="pagenotfound"></default-action-ref>
+		<action name="pagenotfound">
+			<result  type="redirect">/main.jsp</result>
+		</action>
+	</package>
+
+	<package name="default" namespace="/" extends="struts-default">
+  <!--   <interceptors>
+            <interceptor name="login" class="com.jiang.filter.CheckLoginInterceptor"/>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="login"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+	</interceptors>
+    <default-interceptor-ref name="myStack"/>
+
+ 	<global-results>
+         <result name="relogin" >/index.jsp</result>
+    </global-results>-->
+	
+		<action name="Login_*" method="{1}" class="loginAction">
+			<result name="success" type="redirect">/main.jsp</result>
+			<result name="error" type="redirect">/index.jsp</result>
+		</action>
+		<action name="DisPatch_*" method="{1}" class="disPatchUrlAction">
+			<result name="xxgl">/XXGL/XXGL.jsp</result>
+			<result name="fsxx">/XXGL/FSXX.jsp</result>
+			<result name="djgl">/CGGL/DJGL.jsp</result>
+			<result name="jhcgdjgl">/CGGL/JHCGDJGL.jsp</result>
+			
+			<result name="cgkd">/CGGL/DJGL_ADD.jsp</result>
+			<result name="rkqr">/CGGL/RKQR.jsp</result>
+			<result name="cgth">/CGGL/CGTH.jsp</result>
+			<result name="ckcx">/CGGL/CKCX.jsp</result>
+	       <result name="gysgl">/CGGL/GYSGL.jsp</result>
+			<result name="zlgl">/CGGL/ZLGL.jsp</result>
+			<result name="showdk">/CGGL/ShowKD.jsp</result>
+			<result name="fhgl">/FHGL/FHGL.jsp</result>
+			
+			<result name="gys_gl">/CGGL/GYSGL/GYS_GL.jsp</result>
+			<result name="gys_xhgl">/CGGL/GYSGL/GYS_XHGL.jsp</result>
+
+            <result name="khgl_base">/XSGL/KHGL_BASE.jsp</result>
+            <result name="khgl_fh">/XSGL/KHGL_FH.jsp</result>
+
+
+			<result name="zlgl_yl">/CGGL/ZLGL/ZLGL_YL.jsp</result>
+			<result name="zlgl_bcp">/CGGL/ZLGL/ZLGL_BCP.jsp</result>
+			<result name="zlgl_cp">/CGGL/ZLGL/ZLGL_CP.jsp</result>
+			<result name="zlgl_sp">/CGGL/ZLGL/ZLGL_SP.jsp</result>
+
+			<result name="rksq">/CKGL/RKSQ.jsp</result>
+            <result name="scrk">/SCGL/SCRK.jsp</result>
+			<result name="kjgl">/CKGL/KJGL.jsp</result>
+            <result name="kjgl_cp">/CKGL/KJGL_CP.jsp</result>
+			<result name="ckqr">/CKGL/CKQR.jsp</result>
+			<result name="scgl">/SCGL/SCGYD.jsp</result>
+			<result name="scgyd_zjg1">/SCGL/SCGYD/ZJG1.jsp</result>
+			<result name="scgyd_zjg2">/SCGL/SCGYD/ZJG2.jsp</result>
+			<result name="scgyd_wjg">/SCGL/SCGYD/WJG.jsp</result>
+			<result name="jhzjg1">/SCGL/SCGYD/JHZJG1.jsp</result>
+			<result name="jhzjg2">/SCGL/SCGYD/JHZJG2.jsp</result>
+			<result name="jhwjg">/SCGL/SCGYD/JHWJG.jsp</result>
+			<result name="scgyd_yb">/SCGL/SCGYD/YB.jsp</result>
+			<result name="sgzlgl">/SCGL/SGZLGL.jsp</result>
+			<result name="scdcheck">/SCGL/SCDCHECK.jsp</result>
+			<result name="cangkuchaxun">/SCGL/CangKuChaXun.jsp</result>
+			<result name="scruku">/SCGL/SCRuKu.jsp</result>
+			<result name="zhijian">/SCGL/ZHIJIAN.jsp</result>
+			<result name="zhijianlist">/SCGL/ZHIJIAN/ZHIJIANLIST.jsp</result>
+			<result name="zhijianreport">/SCGL/ZHIJIAN/ZHIJIANREPORT.jsp</result>
+			<result name="bcpkjapply">/SCGL/BCPKJ_Apply.jsp</result>
+			<result name="danweigl">/SCGL/DANWEIGL.jsp</result>
+			<!--  重复了
+			<result name="gysgl">/SCGL/DANWEIGL/GYSGL.jsp</result>
+			-->
+			<result name="wjgdwgl">/SCGL/DANWEIGL/WJGGL.jsp</result>
+
+			<result name="scckqr">/CKGL/CKQR/SCCKQR.jsp</result>
+			<result name="xsckqr">/CKGL/CKQR/XSCKQR.jsp</result>
+			<result name="thckqr">/CKGL/CKQR/THCKQR.jsp</result>
+			
+			<result name="ydd">/XSGL/YDD_ADD.jsp</result>
+            <result name="yddgl">/XSGL/YDDGL.jsp</result>
+            <result name="zhddgl">/XSGL/ZHDDGL.jsp</result>
+			<result name="xsdgl">/XSGL/DDGL.jsp</result>
+			<result name="xsdcx">/XSGL/XSDCX.jsp</result>
+			<result name="xsdthrk">/XSGL/XSDTHRK.jsp</result>
+			<result name="khgl">/XSGL/KHGL.jsp</result>
+			
+			<result name="yhgl">/XTGL/YHGL.jsp</result>
+			<result name="lsjl">/XTGL/LSJL.jsp</result>
+			<result name="xtbf">/XTGL/XTBF.jsp</result>
+			<result name="xthf">/XTGL/XTHF.jsp</result>
+			<result name="xtrz">/XTGL/XTRZ.jsp</result>
+			<result name="xtcs">/XTGL/XTCS.jsp</result>
+			<result name="fzsz">/XTGL/FZSZ.jsp</result>
+			
+			<result name="zhxd">/ZHDD/ZHXD.jsp</result>
+			
+			<result name="addXTCS">/XTGL/addXTCS.jsp</result>
+			<result name="addYHGL">/XTGL/addYHGL.jsp</result>
+			<result name="addGYSGL">/CGGL/GYSGL/GYS_GL_ADD.jsp</result>
+			<result name="addDJGL">/CGGL/DJGL_ADD.jsp</result>
+			<result name="addGYSXH">/CGGL/GYSGL/GYS_XHGL_ADD.jsp</result>
+			<result name="addZLGL_YL">/CGGL/ZLGL/ZLGL_YL_ADD.jsp</result>
+			<result name="addZLGL_BCP">/CGGL/ZLGL/ZLGL_BCP_ADD.jsp</result>
+			<result name="addZLGL_CP">/CGGL/ZLGL/ZLGL_CP_ADD.jsp</result>
+			<result name="addZLGL_SP">/CGGL/ZLGL/ZLGL_SP_ADD.jsp</result>
+			<result name="addCGTH">/CGGL/CGTH_ADD.jsp</result>
+			<result name="addCGTH">/CGGL/CGTH_ADD.jsp</result>
+			<result name="error">error.jsp</result>
+			
+			<result name="printdjgl">/print/printDJGL.jsp</result>
+			
+			<result name="addSCGLZJG">/SCGL/SCGYD/ZJG_ADD.jsp</result>
+			<result name="addSCGLWJG">/SCGL/SCGYD/WJG_ADD.jsp</result>
+			<result name="addSCGLYB">/SCGL/SCGYD/YB_ADD.jsp</result>
+			<result name="addWJGDWGL">/SCGL/DANWEIGL_ADD.jsp</result>
+			
+			<result name="BCPKJAPPLY">/SCGL/BCPKJ_Apply.jsp</result>
+			<result name="bcpckcx">/SCGL/JHBCPCKCX.jsp</result>
+            <result name="cpckcx">/SCGL/JHCPCKCX.jsp</result>
+			<result name="addBCPKJAPPLY_CKCX">/SCGL/BCPKJ_CKCX.jsp</result>
+			<result name="addBCPKJAPPLY">/SCGL/BCPKJ_Apply_ADD.jsp</result>
+			<result name="modifyBCPKJAPPLY">/SCGL/BCPKJ_Apply_MODIFY.jsp</result>
+
+
+            <result name="cpkjapply">/SCGL/CPKJ_Apply.jsp</result>
+            <result name="addCPKJAPPLY_CKCX">/SCGL/CPKJ_CKCX.jsp</result>
+            <result name="addCPKJAPPLY">/SCGL/CPKJ_Apply_ADD.jsp</result>
+
+			<result name="addCGZHIJIAN">/SCGL/ZHIJIAN/ZHIJIAN_CG.jsp</result>
+            <result name="addSCZJGZHIJIAN">/SCGL/ZHIJIAN/ZHIJIAN_SCZJG.jsp</result>
+            <result name="addSCWJGZHIJIAN">/SCGL/ZHIJIAN/ZHIJIAN_SCWJG.jsp</result>
+
+
+            <result name="addCGRUKU">/SCGL/RUKU/RUKU_CG.jsp</result>
+            <result name="addSCZJGRUKU">/SCGL/RUKU/RUKU_SCZJG.jsp</result>
+            <result name="addSCWJGRUKU">/SCGL/RUKU/RUKU_SCWJG.jsp</result>
+
+
+            <result name="addKHGL_BASE">/XSGL/KHGL_BASE_ADD.jsp</result>
+            <result name="addKHGL_FH">/XSGL/KHGL_FH_ADD.jsp</result>
+
+            <result name="addtypenums">/ZHDD/AddTypeNums.jsp</result>
+            <result name="OrderDetail">/ZHDD/OrderDetail.jsp</result>
+            <result name="editmishu">/ZHDD/EditMishu.jsp</result>
+
+
+            <result name="ddgl_detail">/XSGL/DDGL_Detail.jsp</result>
+			
+		</action>
+
+	</package>
+
+	<package name="com.json" namespace="/" extends="json-default">
+	   <!--  <interceptors>
+            <interceptor name="login" class="com.jiang.filter.CheckLoginInterceptor"/>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="login"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+	</interceptors>
+    <default-interceptor-ref name="myStack"/>
+ 	<global-results>
+         <result name="relogin" >/index.jsp</result>              
+    </global-results> -->
+    
+		<action name="CGGL_dolist*" class="com.jiang.action.CGGLAction"
+			method="dolist">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+			<result name="gysgl">/CGGL/GYSGL/GYS_GL.jsp</result>
+			<result name="gysgl_modify">/CGGL/GYSGL/GYS_GL_MODIFY.jsp</result>
+			<result name="gys_xhgl">/CGGL/GYSGL/GYS_XHGL.jsp</result>
+			<result name="gysxhgl_modify">/CGGL/GYSGL/GYS_XHGL_MODIFY.jsp</result>
+			<result name="addGYSGL">/CGGL/GYSGL/GYS_GL_ADD.jsp</result>
+			<result name="djgl_modify">/CGGL/DJGL_MODIFY.jsp</result>
+			<result name="djgl_modify2">/CGGL/DJGL_MODIFY2.jsp</result>
+			<result name="djgl">/CGGL/JHCGDJGL.jsp</result>
+			<result name="djgl_cg">/CGGL/DJGL.jsp</result>
+			<result name="addDJGL">/CGGL/DJGL_ADD.jsp</result>
+			<result name="addGYSXHGL">/CGGL/GYSGL/GYS_XHGL_ADD.jsp</result>
+			 <result name="zlgl_yl">/CGGL/ZLGL/ZLGL_YL.jsp</result>
+			<result name="addZLGL_YL">/CGGL/ZLGL/ZLGL_YL_ADD.jsp</result>
+			<result name="zlglyl_modify">/CGGL/ZLGL/ZLGL_YL_MODIFY.jsp</result>
+			
+			<result name="zlgl_bcp">/CGGL/ZLGL/ZLGL_BCP.jsp</result>
+			<result name="addZLGL_BCP">/CGGL/ZLGL/ZLGL_BCP_ADD.jsp</result>
+			<result name="zlglbcp_modify">/CGGL/ZLGL/ZLGL_BCP_MODIFY.jsp</result>
+			
+			 <result name="zlgl_cp">/CGGL/ZLGL/ZLGL_CP.jsp</result>
+			<result name="addZLGL_CP">/CGGL/ZLGL/ZLGL_CP_ADD.jsp</result>
+			<result name="zlglcp_modify">/CGGL/ZLGL/ZLGL_CP_MODIFY.jsp</result>
+			
+			 <result name="zlgl_sp">/CGGL/ZLGL/ZLGL_SP.jsp</result>
+			<result name="addZLGL_SP">/CGGL/ZLGL/ZLGL_SP_ADD.jsp</result>
+			<result name="zlglsp_modify">/CGGL/ZLGL/ZLGL_SP_MODIFY.jsp</result>
+			
+			
+			<result name="cgth">/CGGL/CGTH.jsp</result>
+			<result name="cgth_modify">/CGGL/CGTH_MODIFY.jsp</result>
+			
+		</action>
+		<action name="XXGL_dolist*" class="com.jiang.action.XXGLAction"
+			method="dolist">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+
+			<result name="xxgl">/XXGL/XXGL.jsp</result>
+		</action>
+		<action name="CKGL_dolist*" class="com.jiang.action.CKGLAction"
+			method="dolist">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+			<result name="rkqr_cg">/CKGL/RKSQ_CG.jsp</result>
+			<result name="rkqr" >/CKGL/RKSQ.jsp</result>
+
+		</action>
+		<action name="FHGL_dolist*" class="com.jiang.action.FHGLAction"
+			method="dolist">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+
+		</action>
+		<action name="SCGL_dolist*" class="com.jiang.action.SCGLAction"
+			method="dolist">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+			<result name="SCGLZJG">/SCGL/SCGYD/JHZJG1.jsp</result>
+			<result name="addSCGLZJG">/SCGL/SCGYD/ZJG_ADD.jsp</result>
+			<result name="modifySCGLZJG">/SCGL/SCGYD/ZJG_MODIFY.jsp</result>
+			
+			<result name="SCGLWJG">/SCGL/SCGYD/JHWJG.jsp</result>
+			<result name="addSCGLWJG">/SCGL/SCGYD/WJG_ADD.jsp</result>
+			<result name="modifySCGLWJG">/SCGL/SCGYD/WJG_MODIFY.jsp</result>
+			
+			<result name="SCGLYB">/SCGL/SCGYD/YB.jsp</result>
+			<result name="addSCGLYB">/SCGL/SCGYD/YB_ADD.jsp</result>
+			<result name="modifySCGLYB">/SCGL/SCGYD/YB_MODIFY.jsp</result>
+			
+			<result name="WJGDWGL">/SCGL/DANWEIGL.jsp</result>
+			<result name="addWJGDWGL">/SCGL/DANWEIGL_ADD.jsp</result>
+			<result name="modifyWJGDWGL">/SCGL/DANWEIGL_MODIFY.jsp</result>
+			
+			
+			<result name="BCPKJAPPLY">/SCGL/BCPKJ_Apply.jsp</result>
+			<result name="addBCPKJAPPLY">/SCGL/BCPKJ_Apply_ADD.jsp</result>
+			<result name="modifyBCPKJAPPLY">/SCGL/BCPKJ_Apply_MODIFY.jsp</result>
+
+            <result name="cpkjapply">/SCGL/CPKJ_Apply.jsp</result>
+            <result name="addCPKJAPPLY">/SCGL/CPKJ_Apply_ADD.jsp</result>
+            <result name="modifyCPKJAPPLY">/SCGL/CPKJ_Apply_MODIFY.jsp</result>
+
+			<result name="addCGZHIJIAN">/SCGL/ZHIJIAN/ZHIJIAN_CG.jsp</result>
+
+		</action>
+		<action name="XSGL_dolist*" class="com.jiang.action.XSGLAction"
+			method="dolist">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+
+			<result name="KHGL">/XSGL/KHGL_BASE.jsp</result>
+			<result name="addKHGL_BASE">/XSGL/KHGL_BASE_ADD.jsp</result>
+			<result name="modifyKHGL_BASE">/XSGL/KHGL_BASE_MODIFY.jsp</result>
+
+            <result name="KHGL_FH">/XSGL/KHGL_FH.jsp</result>
+            <result name="addKHGL_FH">/XSGL/KHGL_FH_ADD.jsp</result>
+            <result name="modifyKHGL_FH">/XSGL/KHGL_FH_MODIFY.jsp</result>
+            <result name="OrderDetail">/ZHDD/OrderDetail.jsp</result>
+            <result name="zhxd">/ZHDD/ZHXD.jsp</result>
+            <result name="ordersuccess">/ZHDD/ordersuccess.jsp</result>
+
+		</action>
+		<action name="XTGL_dolist*" class="com.jiang.action.XTGLAction"
+			method="dolist">
+			<result name="modifyXTCS">/XTGL/modifyXTCS.jsp</result>
+			<result name="xtcs">/XTGL/XTCS.jsp</result>
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+			<result name="modifyYHGL">/XTGL/modifyYHGL.jsp</result>
+			<result name="yhgl">/XTGL/YHGL.jsp</result>
+			<result name="addYHGL">/XTGL/addYHGL.jsp</result>
+			<result name="xtbf">/XTGL/XTBF.jsp</result>
+		</action>
+		
+	</package>
+	
+
+</struts>

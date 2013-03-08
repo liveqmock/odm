@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+        "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="User">
+
+	<typeAlias alias="User" type="com.jiang.bean.User" />
+
+	<resultMap id="UserResult" class="User">
+		<result property="id" column="id" />
+		<result property="userName" column="username" />
+		<result property="passWord" column="pwd" />
+		<result property="quanxian" column="quanxian" />
+		<result property="realName" column="realName" />
+		<result property="bumen" column="bumen" />
+		<result property="ZGpwd" column="ZGpwd" />
+		<result property="company" column="company" />
+	</resultMap>
+
+
+	<!-- 新增用户 -->
+	<insert id="addUser" parameterClass="User">
+		insert into [user]
+		(
+		user_name
+		,pass_word
+		)
+		values
+		(
+		 #userName#
+		,#passWord#
+		)
+		
+	</insert>
+
+	<select id="getAllUsers" resultMap="UserResult">
+		select id,username,pwd,quanxian,realName,bumen,
+		ZGpwd,company
+		from [user]
+	</select>
+	<select id="getUserByPWD" resultMap="UserResult" parameterClass="User">
+		select id,username,pwd,quanxian,realName,bumen,
+		ZGpwd,company
+		from [user] where username=#userName# and pwd=#passWord# and company=#company#
+	</select>
+</sqlMap>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+        "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="FHGL">
+
+	<typeAlias alias="FHGL" type="com.jiang.bean.FHGL" />
+
+	<resultMap id="fhglResult" class="FHGL">
+		<result property="id" column="Id" />
+		<result property="XiaoshoudanId" column="XiaoshoudanId" />
+		<result property="KuaididanId" column="KuaididanId" />
+		<result property="Fahuoren" column="Fahuoren" />
+		<result property="FahuoTime" column="FahuoTime" />
+		<result property="Zhuangtai" column="Zhuangtai" />
+	</resultMap>
+
+
+	<select id="getFHGLBypage" resultMap="fhglResult"
+		parameterClass="HashMap">
+		select
+		Id,XiaoshoudanId,KuaididanId,Fahuoren,FahuoTime,Zhuangtai from (
+		SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY ID ASC) AS ROWID,*
+		from [fahuo] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="XiaoshoudanId" prepend="and">
+				f.XiaoshoudanId like '%' + #XiaoshoudanId# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="KuaididanId" prepend="and">
+				f.KuaididanId
+				like '%' + #KuaididanId# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="Fahuoren" prepend="and">
+				f.Fahuoren like
+				'%' + #Fahuoren# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="Zhuangtai" prepend="and">
+				f.Zhuangtai like
+				'%' + #Zhuangtai# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="FahuoTime" prepend="and">
+				f.FahuoTime
+				&lt;=#FahuoTime#
+			</isNotEmpty>
+		</dynamic>
+		) AS TEMP1
+		WHERE ROWID >$pstart$
+	</select>
+
+	<select id="getFHGLCount" parameterClass="HashMap" resultClass="java.lang.Integer">
+		select count(*) from [fahuo] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="XiaoshoudanId" prepend="and">
+				f.XiaoshoudanId like '%' + #XiaoshoudanId# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="KuaididanId" prepend="and">
+				f.KuaididanId
+				like '%' + #KuaididanId# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="Fahuoren" prepend="and">
+				f.Fahuoren like
+				'%' + #Fahuoren# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="Zhuangtai" prepend="and">
+				f.Zhuangtai like
+				'%' + #Zhuangtai# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="FahuoTime" prepend="and">
+				f.FahuoTime
+				&lt;=#FahuoTime#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<delete id="deleteFHGLByIds" parameterClass="java.util.List">
+		delete from [fahuo]
+		<iterate prepend="where" open="(" close=")" conjunction="or">
+			id=#ids[]#
+		</iterate>
+	</delete>
+</sqlMap>

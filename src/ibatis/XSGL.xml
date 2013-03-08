@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+        "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="XSGL">
+	<typeAlias alias="YDDGL" type="com.jiang.bean.YDDGL" />
+	<resultMap id="yddglResult" class="YDDGL">
+		<result property="id" column="id" />
+		<result property="dingdan_id" column="dingdan_id" />
+		<result property="dingdan_name" column="KeHuname" />
+		<result property="pay_way" column="pay_way" />
+		<result property="fh_address" column="fh_address" />
+		<result property="fh_way" column="fh_way" />
+		<result property="finish_or_not" column="finish_or_not" />
+		<result property="zongjine" column="zongjine" />
+		<result property="kaidan_time" column="kaidan_time" />
+		<result property="kaidanren" column="kaidanren" />
+		<result property="dingjin" column="dingjin" />
+		<result property="yewuyuan" column="yewuyuan" />
+		<result property="beizhu" column="beizhu" />
+		<result property="zhuangtai" column="zhuangtai" />
+	</resultMap>
+	<typeAlias alias="XSDGL" type="com.jiang.bean.XSDGL" />
+	<resultMap id="xsdglResult" class="XSDGL">
+		<result property="id" column="id" />
+		<result property="xiaoshoudan_id" column="xiaoshoudan_id" />
+		<result property="dingdan_id" column="dingdan_id" />
+		<result property="mingxi_id" column="mingxi_id" />
+		<result property="type_num" column="type_num" />
+		<result property="mishu" column="mishu" />
+		<result property="apply_man" column="apply_man" />
+		<result property="apply_time" column="apply_time" />
+		<result property="queren_time" column="queren_time" />
+		<result property="queren_man" column="queren_man" />
+		<result property="fahuo_or_not" column="fahuo_or_not" />
+	</resultMap>
+	<typeAlias alias="KHGL" type="com.jiang.bean.KHGL" />
+	<resultMap id="khglResult" class="KHGL">
+		<result property="id" column="id" />
+		<result property="kehu_id" column="kehu_id" />
+		<result property="KeHuname" column="KeHuname" />
+		<result property="suoxie" column="suoxie" />
+		<result property="telephone" column="telephone" />
+		<result property="telephone2" column="telephone2" />
+		<result property="seller" column="seller" />
+		<result property="phone" column="phone" />
+		<result property="chuanzhen" column="chuanzhen" />
+		<result property="email" column="email" />
+		<result property="suoshuquyu" column="suoshuquyu" />
+		<result property="address" column="address" />
+		<result property="web" column="web" />
+		<result property="yewuyuan" column="yewuyuan" />
+		<result property="VIPkeHu" column="VIPkeHu" />
+		<result property="jiesuanfangshi" column="jiesuanfangshi" />
+		<result property="qiankuanshangxian" column="qiankuanshangxian" />
+		<result property="beizhu" column="beizhu" />
+	</resultMap>
+
+    <!--客户收获地址-->
+    <typeAlias alias="KHGL_FH" type="com.jiang.bean.KHGL_FH" />
+    <resultMap id="khgl_fhResult" class="KHGL_FH">
+        <result property="id" column="id" />
+        <result property="kehu_id" column="kehu_id" />
+        <result property="fahuofangshi" column="fahuofangshi" />
+        <result property="lianxiren" column="lianxiren" />
+        <result property="dianhua" column="dianhua" />
+        <result property="yidongdianhua" column="yidongdianhua" />
+        <result property="dizhi" column="dizhi" />
+    </resultMap>
+
+    <!--订单明细表-->
+    <typeAlias alias="DingDanmingxi" type="com.jiang.bean.DingDanmingxi" />
+    <resultMap id="DingDanresult" class="DingDanmingxi">
+        <result property="id" column="id" />
+        <result property="dingdan_id" column="dingdan_id" />
+        <result property="type_num" column="type_num" />
+        <result property="color" column="color" />
+        <result property="num" column="num" />
+        <result property="danjia" column="danjia" />
+        <result property="jine" column="jine" />
+        <result property="fahuo_time" column="fahuo_time" />
+        <result property="finish_or_not" column="finish_or_not" />
+        <result property="jiaohuo_time" column="jiaohuo_time" />
+        <result property="jiageleixing" column="jiageleixing" />
+        <result property="liuhuo_time" column="liuhuo_time" />
+        <result property="beizhu" column="beizhu" />
+        <result property="guige" column="guige" />
+    </resultMap>
+	<!-- 订单管理 -->
+     <select id="getYDDGLBypage" resultMap="yddglResult"
+		parameterClass="HashMap">
+		SELECT
+         TEMP1.id,dingdan_id,KeHuname,pay_way,fh_address,fh_way,
+		finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,yewuyuan,beizhu,zhuangtai
+		FROM(
+		SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
+		kaidan_time DESC) AS ROWID,f.*,b.KeHuname as KeHuname
+		FROM [sale_dingdan] as f,kehuziliao as b where  b.kehu_id=f.dingdan_name
+		<dynamic prepend="where">
+			<isNotEmpty property="kehuname" prepend="and">
+                KeHuname like
+				'%' + #kehuname# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="dingdanhao" prepend="and">
+				f.dingdan_id like
+				'%' + #dingdanhao# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="dateStartText" prepend="and">
+				f.kaidan_time
+				&gt;=
+				#dateStartText#
+			</isNotEmpty>
+			<isNotEmpty property="dateEndText" prepend="and">
+				f.kaidan_time &lt;=
+				#dateEndText#
+			</isNotEmpty>
+			<isNotEmpty property="zhuangtai" prepend="and">
+				f.zhuangtai =  #zhuangtai# 
+			</isNotEmpty>
+            <isNotEmpty property="finish_or_not" prepend="and">
+                f.finish_or_not =  #finish_or_not#
+            </isNotEmpty>
+		</dynamic>
+		
+		) AS TEMP1
+		WHERE ROWID >$pstart$
+	</select>
+	<select id="getYDDGLCount" resultClass="java.lang.Integer" 
+		parameterClass="HashMap">
+		select count(*) from
+		[sale_dingdan] as f, kehuziliao as b where b.kehu_id=f.dingdan_name
+		
+		<dynamic prepend="where">
+			<isNotEmpty property="kehuname" prepend="and">
+				f.dingdan_name like
+				'%' + #kehuname# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="dingdanhao" prepend="and">
+				f.dingdan_id like
+				'%' + #dingdanhao# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="dateStartText" prepend="and">
+				f.kaidan_time
+				&gt;=
+				#dateStartText#
+			</isNotEmpty>
+			<isNotEmpty property="dateEndText" prepend="and">
+				f.kaidan_time &lt;=
+				#dateEndText#
+			</isNotEmpty>
+			<isNotEmpty property="zhuangtai" prepend="and">
+				f.zhuangtai =  #zhuangtai# 
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<delete id="deleteYDDGLById" parameterClass="java.util.List">
+		delete
+		from
+		[sale_dingdan]
+		<iterate prepend="where" open="(" close=")" conjunction="or">
+			id=#ids[]#
+		</iterate>
+	</delete>
+		
+	<!--客户管理 -->
+	<select id="getKHGLBypage" resultMap="khglResult"
+		parameterClass="HashMap">
+		SELECT
+		id,kehu_id,KeHuname,suoxie,telephone,telephone2,
+		seller,phone,chuanzhen,email,suoshuquyu,address,
+		web,yewuyuan,VIPkeHu,jiesuanfangshi,qiankuanshangxian,
+		beizhu
+		FROM(
+		SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
+		KeHuname ASC) AS ROWID,*
+		FROM [kehuziliao] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="kehu_id" prepend="and">
+				f.kehu_id like
+				'%' + #kehu_id# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="KeHuname" prepend="and">
+				f.KeHuname like
+				'%' + #KeHuname# + '%'
+			</isNotEmpty>
+		</dynamic>
+		) AS TEMP1
+		WHERE ROWID >$pstart$
+	</select>
+
+    <select id="getAllKHGL" resultMap="khglResult">
+        SELECT
+        id,kehu_id,KeHuname,suoxie,telephone,telephone2,
+        seller,phone,chuanzhen,email,suoshuquyu,address,
+        web,yewuyuan,VIPkeHu,jiesuanfangshi,qiankuanshangxian,
+        beizhu
+        FROM [kehuziliao]
+    </select>
+
+	<select id="getKHGLCount" resultClass="java.lang.Integer"
+		parameterClass="HashMap">
+		select count(*) from
+		[kehuziliao] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="kehu_id" prepend="and">
+				f.kehu_id like
+				'%' + #kehu_id# + '%'
+			</isNotEmpty>
+			<isNotEmpty property="KeHuname" prepend="and">
+				f.KeHuname like
+				'%' + #KeHuname# + '%'
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<delete id="deleteKHGLById" parameterClass="java.util.List">
+		delete
+		from
+		[kehuziliao]
+		<iterate prepend="where" open="(" close=")" conjunction="or">
+			id=#ids[]#
+		</iterate>
+	</delete>
+	<select id="checkKHGLUniqueness" resultClass="java.lang.Integer"
+		parameterClass="KHGL">
+		select
+		count(*)
+		from
+		[kehuziliao] as f
+		<dynamic prepend="where">
+			<isNotEmpty property="kehu_id" prepend="and">
+				f.kehu_id = #kehu_id#
+			</isNotEmpty>
+			<isNotEmpty property="id" prepend="and">
+				f.id != #id#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<insert id="insertKHGL" parameterClass="KHGL">
+		insert into  [kehuziliao]
+		( kehu_id,KeHuname,suoxie,telephone,telephone2,
+		seller,phone,chuanzhen,email,suoshuquyu,address,
+		web,yewuyuan,VIPkeHu,jiesuanfangshi,qiankuanshangxian,
+		beizhu )
+		values(#kehu_id#,#KeHuname#,#suoxie#,#telephone#,#telephone2#,
+		#seller#,#phone#,#chuanzhen#,#email#,#suoshuquyu#,#address#,
+		#web#,#yewuyuan#,#VIPkeHu#,#jiesuanfangshi#,#qiankuanshangxian#,
+		#beizhu# )
+	</insert>
+	<select id="getKHGLById" resultClass="KHGL"
+		parameterClass="Integer">
+		select
+		id,kehu_id,KeHuname,suoxie,telephone,telephone2,
+		seller,phone,chuanzhen,email,suoshuquyu,address,
+		web,yewuyuan,VIPkeHu,jiesuanfangshi,qiankuanshangxian,
+		beizhu
+		from 
+		[kehuziliao]
+		WHERE id=#id#
+	</select>
+    <select id="getKHGLByName" resultClass="KHGL"
+            parameterClass="String">
+        select
+        id,kehu_id,KeHuname,suoxie,telephone,telephone2,
+        seller,phone,chuanzhen,email,suoshuquyu,address,
+        web,yewuyuan,VIPkeHu,jiesuanfangshi,qiankuanshangxian,
+        beizhu
+        from
+        [kehuziliao]
+        WHERE KeHuname=#kehuid#
+    </select>
+	<update  id="updateKHGL" parameterClass="KHGL">
+	    update [kehuziliao] set
+	    KeHuname=#KeHuname#,  suoxie=#suoxie#,telephone=#telephone#,
+	    telephone2=#telephone2#, seller=#seller#,phone=#phone#,
+	    chuanzhen=#chuanzhen#,email=#email#,suoshuquyu=#suoshuquyu#,
+	    address=#address#, web=#web#,yewuyuan=#yewuyuan#,
+	    VIPkeHu=#VIPkeHu#,jiesuanfangshi=#jiesuanfangshi#,qiankuanshangxian=#qiankuanshangxian#,
+		beizhu=#beizhu#
+		where id=#id#
+	</update>
+
+    <!--khgl_fhResult客户收货地址管理-->
+    <select id="getKHGL_FHBypage" resultMap="khgl_fhResult"
+            parameterClass="HashMap">
+        SELECT
+         id, kehu_id,fahuofangshi, lianxiren, dianhua,yidongdianhua,dizhi
+        FROM(
+        SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
+        kehu_id ASC) AS ROWID,*
+        FROM [fahuoaddress] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="kehu_id" prepend="and">
+                f.kehu_id  = #kehu_id#
+            </isNotEmpty>
+            <isNotEmpty property="lianxiren" prepend="and">
+                f.lianxiren like
+                '%' + #lianxiren# + '%'
+            </isNotEmpty>
+        </dynamic>
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+    <select id="getKHGL_FHCount" resultClass="java.lang.Integer"
+            parameterClass="HashMap">
+        select count(*) from
+        [fahuoaddress] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="kehu_id" prepend="and">
+                f.kehu_id  = #kehu_id#
+            </isNotEmpty>
+            <isNotEmpty property="lianxiren" prepend="and">
+                f.lianxiren like
+                '%' + #lianxiren# + '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+    <delete id="deleteKHGLFHById" parameterClass="java.util.List">
+        delete
+        from
+        [fahuoaddress]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+
+    <insert id="insertKHGLFH" parameterClass="KHGL_FH">
+        insert into  [fahuoaddress]
+        ( kehu_id,fahuofangshi,lianxiren,dianhua,
+        yidongdianhua,dizhi)
+        values(#kehu_id#,#fahuofangshi#,#lianxiren#,#dianhua#,#yidongdianhua#,
+        #dizhi# )
+    </insert>
+    <select id="getKHGLFHById" resultClass="KHGL_FH"
+            parameterClass="Integer">
+        select
+        id,kehu_id,fahuofangshi,lianxiren,dianhua,
+        yidongdianhua,dizhi
+        from
+        [fahuoaddress]
+        WHERE id=#id#
+    </select>
+    <update  id="updateKHGLFH" parameterClass="KHGL_FH">
+        update [fahuoaddress]
+        <dynamic prepend="set">
+            <isNotNull property="kehu_id" prepend=",">kehu_id=#kehu_id#</isNotNull>
+            <isNotNull property="fahuofangshi" prepend=",">fahuofangshi=#fahuofangshi#</isNotNull>
+            <isNotNull property="lianxiren" prepend=",">lianxiren=#lianxiren#</isNotNull>
+            <isNotNull property="dianhua" prepend=",">dianhua=#dianhua#</isNotNull>
+            <isNotNull property="yidongdianhua" prepend=",">yidongdianhua=#yidongdianhua#</isNotNull>
+            <isNotNull property="dizhi" prepend=",">dizhi=#dizhi#</isNotNull>
+        </dynamic>
+        where id=#id#
+    </update>
+    <select id="isExistKehuId" resultClass="java.lang.Integer"
+            parameterClass="String">
+        select count(*) from kehuziliao where kehu_id=#kehu_id#
+    </select>
+    <select id="findAllKHGL" resultClass="KHGL">
+        select id,kehu_id,KeHuname
+        from
+        [kehuziliao]
+    </select>
+
+    <select id="findXSGLBykehu_idAndKeHuname" resultClass="KHGL" parameterClass="map">
+        select
+        id,kehu_id,KeHuname,suoxie,telephone,telephone2,
+        seller,phone,chuanzhen,email,suoshuquyu,address,
+        web,yewuyuan,VIPkeHu,jiesuanfangshi,qiankuanshangxian,
+        beizhu
+        from
+        [kehuziliao]
+        <dynamic prepend="where">
+            <isNotEmpty property="kehu_id" prepend="and">
+                kehu_id = #kehu_id#
+            </isNotEmpty>
+            <isNotEmpty property="KeHuname" prepend="and">
+                KeHuname like '%' + #KeHuname# + '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <!--订单明细表Dingdan_mingxi_tmp -->
+    <select id="findXSGLDingDanmingxi" resultMap="DingDanresult" parameterClass="map">
+        SELECT
+        id, dingdan_id ,type_num,color,num,danjia,jine,fahuo_time,finish_or_not,jiaohuo_time,jiageleixing,liuhuo_time,beizhu,guige
+        FROM(
+        SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
+        fahuo_time DESC) AS ROWID,*
+        FROM [Dingdan_mingxi_tmp] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="id" prepend="and">
+                id = #id#
+            </isNotEmpty>
+            <isNotEmpty property="dingdan_id" prepend="and">
+                dingdan_id =  #dingdan_id#
+            </isNotEmpty>
+        </dynamic>
+
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+    <insert id="insertDDMX" parameterClass="DingDanmingxi">
+         insert into
+        Dingdan_mingxi_tmp
+        (dingdan_id ,type_num,color,num,danjia,jine,fahuo_time,
+        finish_or_not,jiaohuo_time,jiageleixing,liuhuo_time,beizhu,guige)
+        values
+        (#dingdan_id# ,#type_num#,#color#,#num#,#danjia#,#jine#,#fahuo_time#,#finish_or_not#,
+        #jiaohuo_time#,#jiageleixing#,#liuhuo_time#,#beizhu#,#guige#)
+
+    </insert>
+    <select id="getXSGLDingDanmingxiCount" resultClass="java.lang.Integer"
+            parameterClass="HashMap">
+        select count(*) from
+        [Dingdan_mingxi_tmp]
+        <dynamic prepend="where">
+            <isNotEmpty property="id" prepend="and">
+                id = #id#
+            </isNotEmpty>
+            <isNotEmpty property="dingdan_id" prepend="and">
+                dingdan_id =  #dingdan_id#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+    <select id="getXSGLDingDanTotalNum" resultClass="java.lang.Float"
+            parameterClass="String">
+        select  sum(num) from Dingdan_mingxi_tmp where dingdan_id=#dingdan_id#
+    </select>
+    <select id="getXSGLDingDanTotalPrice" resultClass="java.lang.Float"
+            parameterClass="String">
+        select  sum(danjia*num) from Dingdan_mingxi_tmp where dingdan_id=#dingdan_id#
+    </select>
+    <delete id="deleteZHDDdetail" parameterClass="java.util.List">
+        delete
+        from
+        [Dingdan_mingxi_tmp]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+    <select id="getCountByOnlyDD_TypeNum" resultClass="Integer"
+            parameterClass="DingDanmingxi">
+        select count(*) from Dingdan_mingxi_tmp where dingdan_id=#dingdan_id# and type_num=#type_num#
+    </select>
+    <update id="updateDDMXMishu" parameterClass="HashMap">
+        update Dingdan_mingxi_tmp set num =#mishu# where id=#id#
+    </update>
+    <insert id="insertDDToSale"  parameterClass="YDDGL">
+        insert into  sale_dingdan
+       (dingdan_id,dingdan_name,pay_way,fh_address,fh_way,
+        finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,yewuyuan,beizhu,zhuangtai)
+        values
+        (
+        #dingdan_id#,#dingdan_name#,#pay_way#,#fh_address#,#fh_way#,
+        #finish_or_not#,#zongjine#,#kaidan_time#,#kaidanren#,#dingjin#,#yewuyuan#,#beizhu#,#zhuangtai#
+        )
+    </insert>
+    <insert id="insertDDTempToDD"  parameterClass="YDDGL">
+        insert into Dingdan_mingxi (
+        [dingdan_id],[type_num] ,[color],[num],[danjia]
+        ,[jine] ,[fahuo_time],[finish_or_not] ,[jiaohuo_time]
+        ,[jiageleixing],[liuhuo_time],[beizhu] ,[guige])  (select [dingdan_id],[type_num] ,[color],[num],[danjia]
+        ,[jine] ,[fahuo_time],[finish_or_not] ,[jiaohuo_time]
+        ,[jiageleixing],[liuhuo_time],[beizhu] ,[guige] from Dingdan_mingxi_tmp
+        where Dingdan_mingxi_tmp.dingdan_id=#dingdan_id#)
+     </insert>
+
+    <!--订单明细表Dingdan_mingxi -->
+    <select id="findXSGLDingDanmingxi_ddgl" resultMap="DingDanresult" parameterClass="map">
+        SELECT
+        id, dingdan_id ,type_num,color,num,danjia,jine,fahuo_time,finish_or_not,jiaohuo_time,jiageleixing,liuhuo_time,beizhu,guige
+        FROM(
+        SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
+        fahuo_time DESC) AS ROWID,*
+        FROM [Dingdan_mingxi] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="id" prepend="and">
+                id = #id#
+            </isNotEmpty>
+            <isNotEmpty property="dingdan_id" prepend="and">
+                dingdan_id =  #dingdan_id#
+            </isNotEmpty>
+        </dynamic>
+
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+    <select id="getXSGLDingDanmingxiCount_ddgl" resultClass="java.lang.Integer"
+            parameterClass="HashMap">
+        select count(*) from
+        [Dingdan_mingxi]
+        <dynamic prepend="where">
+            <isNotEmpty property="id" prepend="and">
+                id = #id#
+            </isNotEmpty>
+            <isNotEmpty property="dingdan_id" prepend="and">
+                dingdan_id =  #dingdan_id#
+            </isNotEmpty>
+            <isNotEmpty property="type_num" prepend="and">
+                type_num =  #type_num#
+            </isNotEmpty>
+            <isNotEmpty property="finish_or_not" prepend="and">
+                finish_or_not =  #finish_or_not#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+</sqlMap>
+

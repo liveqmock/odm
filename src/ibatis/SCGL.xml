@@ -1,0 +1,1456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+        "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="SCGL">
+
+    <typeAlias alias="ZJGgongyidan" type="com.jiang.bean.ZJGgongyidan"/>
+    <resultMap id="zJGgongyidanResult" class="ZJGgongyidan">
+        <result property="id" column="id"/>
+        <result property="bianhao" column="bianhao"/>
+        <result property="Up_typeNum" column="Up_typeNum"/>
+        <result property="Down_typeNum" column="Down_typeNum"/>
+        <result property="dibuName" column="dibuName"/>
+        <result property="num" column="num"/>
+        <result property="gongyi" column="gongyi"/>
+        <result property="jiaohuo_time" column="jiaohuo_time"/>
+        <result property="chejian" column="chejian"/>
+        <result property="zhuangtai" column="zhuangtai"/>
+        <result property="beizhu" column="beizhu"/>
+        <result property="kaidantime" column="kaidantime"/>
+        <result property="kaidanren" column="kaidanren"/>
+        <result property="jiedanren" column="jiedanren"/>
+        <result property="kahao" column="kahao"/>
+        <result property="zhenshu" column="zhenshu"/>
+        <result property="jgtype" column="jgtype"/>
+    </resultMap>
+
+    <typeAlias alias="WJGgongyidan" type="com.jiang.bean.WJGgongyidan"/>
+    <resultMap id="wJGgongyidanResult" class="WJGgongyidan">
+        <result property="id" column="id"/>
+        <result property="bianhao" column="bianhao"/>
+        <result property="UP_typeNum" column="UP_typeNum"/>
+        <result property="Down_typeNum" column="Down_typeNum"/>
+        <result property="dibuName" column="dibuName"/>
+        <result property="num" column="num"/>
+        <result property="JG_danwei" column="JG_danwei"/>
+        <result property="gongyi" column="gongyi"/>
+        <result property="jiaohuo_time" column="jiaohuo_time"/>
+        <result property="guige" column="guige"/>
+        <result property="zhuangtai" column="zhuangtai"/>
+        <result property="beizhu" column="beizhu"/>
+        <result property="kaidantime" column="kaidantime"/>
+        <result property="kaidanren" column="kaidanren"/>
+        <result property="jiedanren" column="jiedanren"/>
+    </resultMap>
+
+    <typeAlias alias="YBgongyidan" type="com.jiang.bean.YBgongyidan"/>
+    <resultMap id="yBgongyidanResult" class="YBgongyidan">
+        <result property="id" column="id"/>
+        <result property="yBGongYiId" column="YBgongyi_id"/>
+        <result property="yBtype" column="YB_type"/>
+        <result property="num" column="num"/>
+        <result property="kHoRyB" column="KH_OR_YB"/>
+        <result property="xJType" column="XJ_type"/>
+        <result property="tiaoXingMa" column="tiaoxingma"/>
+        <result property="finish" column="finish"/>
+        <result property="beiZhu" column="beizhu"/>
+        <result property="kaiDanTime" column="kaidantime"/>
+        <result property="kaiDanRen" column="kaidanren"/>
+    </resultMap>
+
+    <typeAlias alias="caiGouZhiLing" type="com.jiang.bean.caiGouZhiLing"/>
+    <resultMap id="caiGouZhiLingResult" class="caiGouZhiLing">
+        <result property="id" column="id"/>
+        <result property="caiGouId" column="caigou_id"/>
+        <result property="typeNum" column="type_num"/>
+        <result property="muDiDanHao" column="mudidanhao"/>
+        <result property="cGTotalNum" column="CG_totalnum"/>
+        <result property="jiaoHuoTime" column="jiaohuo_time"/>
+        <result property="yGNum" column="YG_num"/>
+        <result property="userName" column="userName"/>
+        <result property="xiaDanTime" column="xiadan_time"/>
+        <result property="zhuangTai" column="zhuangtai"/>
+        <result property="beiZhu" column="beizhu"/>
+        <result property="leiXing" column="leixing"/>
+        <result property="gongYingShangId" column="gongyingshangid"/>
+        <result property="gyspinming" column="gyspinming"/>
+    </resultMap>
+
+    <typeAlias alias="cangKuChaXun" type="com.jiang.bean.cangKuChaXun"/>
+    <resultMap id="cangKuChaXunResult" class="cangKuChaXun">
+        <result property="id" column="id"/>
+        <result property="bupi_id" column="bupi_id"/>
+        <result property="ckname" column="ckname"/>
+        <result property="bptype" column="bptype"/>
+        <result property="num" column="num"/>
+        <result property="KJ_num" column="KJ_num"/>
+        <result property="KY_num" column="KY_num"/>
+        <result property="type_num" column="type_num"/>
+        <result property="inck_time" column="inck_time"/>
+        <result property="inck_man" column="inck_man"/>
+        <result property="zhiliangdengji" column="zhiliangdengji"/>
+        <result property="pinji" column="pinji"/>
+        <result property="dengji" column="dengji"/>
+        <result property="mudidanhao" column="mudidanhao"/>
+        <result property="ruku_leixing" column="ruku_leixing"/>
+        <result property="weizhi" column="weizhi"/>
+        <result property="beizhu" column="beizhu"/>
+        <result property="rukdan_id" column="rukdan_id"/>
+    </resultMap>
+
+    <typeAlias alias="SCRuKu" type="com.jiang.bean.SCRuKu"/>
+    <resultMap id="SCRuKuResult" class="SCRuKu">
+        <result property="id" column="id"/>
+        <result property="gongyidan_id" column="gongyidan_id"/>
+        <result property="bupi_id" column="bupi_id"/>
+        <result property="price" column="price"/>
+        <result property="mishu" column="mishu"/>
+        <result property="gongyingname" column="gongyingname"/>
+        <result property="apply_man" column="apply_man"/>
+        <result property="apply_time" column="apply_time"/>
+        <result property="queren_man" column="queren_man"/>
+        <result property="queren_time" column="queren_time"/>
+    </resultMap>
+
+    <typeAlias alias="zhiJianReport" type="com.jiang.bean.zhiJianReport"/>
+    <resultMap id="zhiJianReportResult" class="zhiJianReport">
+        <result property="id" column="id"/>
+        <result property="report_id" column="report_id"/>
+        <result property="laiyuan_id" column="laiyuan_id"/>
+        <result property="num" column="num"/>
+        <result property="xinghao" column="xinghao"/>
+        <result property="apply_man" column="apply_man"/>
+        <result property="apply_time" column="apply_time"/>
+        <result property="jindu" column="jindu"/>
+        <result property="Alljindu" column="Alljindu"/>
+        <result property="beizhu" column="beizhu"/>
+    </resultMap>
+
+    <typeAlias alias="BCPKJ_Apply" type="com.jiang.bean.BCPKJ_Apply"/>
+    <resultMap id="BCPKJ_ApplyResult" class="BCPKJ_Apply">
+        <result property="id" column="id"/>
+        <result property="kaijian_id" column="kaijian_id"/>
+        <result property="bupi_id" column="bupi_id"/>
+        <result property="type_num" column="type_num"/>
+        <result property="yuanmishu" column="yuanmishu"/>
+        <result property="jianchumishu" column="jianchumishu"/>
+        <result property="apply_man" column="apply_man"/>
+        <result property="apply_time" column="apply_time"/>
+        <result property="queren_man" column="queren_man"/>
+        <result property="queren_time" column="queren_time"/>
+        <result property="zhuangtai" column="zhuangtai"/>
+        <result property="beizhu" column="beizhu"/>
+        <result property="new_bupi_id" column="new_bupi_id"/>
+        <result property="shunhao" column="shunhao"/>
+    </resultMap>
+
+    <typeAlias alias="gongYingShang" type="com.jiang.bean.gongYingShang"/>
+    <resultMap id="gongYingShangResult" class="gongYingShang">
+        <result property="id" column="id"/>
+        <result property="gongyingname" column="gongyingname"/>
+        <result property="suoxie" column="suoxie"/>
+        <result property="leixing" column="leixing"/>
+        <result property="telephone" column="telephone"/>
+        <result property="seller" column="seller"/>
+        <result property="phone" column="phone"/>
+        <result property="chuanzhen" column="chuanzhen"/>
+        <result property="email" column="email"/>
+        <result property="address" column="address"/>
+        <result property="kpmc1" column="kpmc1"/>
+        <result property="shuihao1" column="shuihao1"/>
+        <result property="khhzh1" column="khhzh1"/>
+        <result property="kpaddress1" column="kpaddress1"/>
+        <result property="dianhua1" column="dianhua1"/>
+        <result property="kpmc2" column="kpmc2"/>
+        <result property="shuihao2" column="shuihao2"/>
+        <result property="khhzh2" column="khhzh2"/>
+        <result property="kpaddress2" column="kpaddress2"/>
+        <result property="dianhua2" column="dianhua2"/>
+        <result property="shoukuanren1" column="shoukuanren1"/>
+        <result property="kaihuhang1" column="kaihuhang1"/>
+        <result property="zhanghao1" column="zhanghao1"/>
+        <result property="shoukuanren2" column="shoukuanren2"/>
+        <result property="kaihuhang2" column="kaihuhang2"/>
+        <result property="zhanghao2" column="zhanghao2"/>
+        <result property="beizhu" column="beizhu"/>
+    </resultMap>
+
+    <typeAlias alias="wJGGongYingShang" type="com.jiang.bean.wJGGongYingShang"/>
+    <resultMap id="wJGGongYingShangResult" class="wJGGongYingShang">
+        <result property="id" column="id"/>
+        <result property="danweiname" column="danweiname"/>
+        <result property="suoxie" column="suoxie"/>
+        <result property="JGleixing" column="JGleixing"/>
+        <result property="telephone" column="telephone"/>
+        <result property="seller" column="seller"/>
+        <result property="phone" column="phone"/>
+        <result property="web" column="web"/>
+        <result property="chuanzhen" column="chuanzhen"/>
+        <result property="kpmc" column="kpmc"/>
+        <result property="kpaddress" column="kpaddress"/>
+        <result property="address" column="address"/>
+        <result property="email" column="email"/>
+        <result property="khhzh" column="khhzh"/>
+        <result property="beizhu" column="beizhu"/>
+    </resultMap>
+
+    <!-- 自加工  -->
+    <select id="findSCGYDZJGByPage" resultMap="zJGgongyidanResult"
+            parameterClass="HashMap">
+        select
+        id,bianhao, Up_typeNum, Down_typeNum, dibuName,num,gongyi,
+        jiaohuo_time,chejian,zhuangtai,beizhu,kaidantime,kahao,zhenshu,
+        kaidanren,jiedanren,jgtype
+        from (
+        SELECT TOP
+        $pend$ ROW_NUMBER() OVER(ORDER
+        BY
+        a.kaidantime DESC) AS ROWID,a.*,b.kahao,b.zhenshu
+        from
+        [ZJGgongyidan] as a
+        LEFT JOIN [BCP_guanli] as b ON a.Down_typeNum=b.type_num
+        left join [CP_guanli] as c on a.Down_typeNum=c.type_num
+        ) AS TEMP1
+        where  ROWID >$pstart$
+        <dynamic prepend="and">
+            <isNotEmpty property="bianhao" prepend="and">
+                bianhao = #bianhao#
+            </isNotEmpty>
+            <isNotEmpty property="zhuangtai" prepend="and">
+                zhuangtai =  #zhuangtai#
+            </isNotEmpty>
+            <isNotEmpty property="Up_typeNum" prepend="and">
+                Up_typeNum= #Up_typeNum#
+            </isNotEmpty>
+            <isNotEmpty property="chejian" prepend="and">
+                chejian = #chejian#
+            </isNotEmpty>
+            <isNotEmpty property="gongyi" prepend="and">
+                gongyi = #gongyi#
+            </isNotEmpty>
+        </dynamic>
+
+    </select>
+    <select id="findZJGByAll" resultMap="zJGgongyidanResult">
+        select
+        a.id,bianhao, Up_typeNum, Down_typeNum, dibuName,num,gongyi,
+        jiaohuo_time,chejian,zhuangtai,a.beizhu,kaidantime,kahao,zhenshu,
+        kaidanren,jiedanren,jgtype
+        from
+        [ZJGgongyidan] as a
+        LEFT JOIN [BCP_guanli] as b ON a.Down_typeNum=b.type_num
+        left join [CP_guanli] as c on a.Down_typeNum=c.type_num
+        where zhuangtai='生产中'
+    </select>
+    <select id="getSCGYDZJGCount" resultClass="java.lang.Integer">
+        select count(*) from
+        [ZJGgongyidan] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="bianhao" prepend="and">
+                f.bianhao like
+                '%' +
+                #bianhao# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="Zhuangtai" prepend="and">
+                f.Zhuangtai =
+                #Zhuangtai#
+            </isNotEmpty>
+            <isNotEmpty property="Up_typeNum" prepend="and">
+                f.Up_typeNum
+                like
+                '%' + #Up_typeNum# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="chejian" prepend="and">
+                f.chejian like
+                '%' +
+                #chejian# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="gongyi" prepend="and">
+                f.gongyi = #gongyi#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <delete id="deleteSCGYDZJGByIds" parameterClass="java.util.List">
+        delete from [ZJGgongyidan]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+    <select id="checkSCGLZJGUniqueness" resultClass="java.lang.Integer"
+            parameterClass="ZJGgongyidan">
+        select
+        count(*)
+        from
+        [ZJGgongyidan] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="bianhao" prepend="and">
+                f.bianhao = #bianhao#
+            </isNotEmpty>
+            <isNotEmpty property="id" prepend="and">
+                f.id != #id#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+    <insert id="insertSCGLZJG" parameterClass="ZJGgongyidan">
+        insert into
+        [ZJGgongyidan]
+        ( bianhao, Up_typeNum, Down_typeNum, dibuName,num,gongyi,
+        jiaohuo_time,chejian,zhuangtai,beizhu,kaidantime,
+        kaidanren,jiedanren,jgtype)
+        values
+        (#bianhao#, #Up_typeNum#, #Down_typeNum#, #dibuName#,#num#,#gongyi#,
+        #jiaohuo_time#,#chejian#,#zhuangtai#,#beizhu#,#kaidantime#,
+        #kaidanren#,#jiedanren#,#jgtype#)
+    </insert>
+    <select id="getSCGLZJGById" resultClass="ZJGgongyidan"
+            parameterClass="Integer">
+        select
+        a.id,bianhao, Up_typeNum, Down_typeNum, dibuName,num,gongyi,
+        jiaohuo_time,chejian,zhuangtai,a.beizhu,kaidantime,kahao,zhenshu,
+        kaidanren,jiedanren,jgtype
+        from
+        [ZJGgongyidan] as a
+        LEFT JOIN [BCP_guanli] as b ON a.Down_typeNum=b.type_num
+        left join [CP_guanli] as c on a.Down_typeNum=c.type_num
+        where a.id = #id#
+    </select>
+    <select id="getSCGLZJGBySCId" resultClass="ZJGgongyidan"
+            parameterClass="String">
+        select
+        a.id,bianhao, Up_typeNum, Down_typeNum, dibuName,num,gongyi,
+        jiaohuo_time,chejian,zhuangtai,a.beizhu,kaidantime,kahao,zhenshu,
+        kaidanren,jiedanren,jgtype
+        from
+        [ZJGgongyidan] as a
+        LEFT JOIN [BCP_guanli] as b ON a.Down_typeNum=b.type_num
+        left join [CP_guanli] as c on a.Down_typeNum=c.type_num
+        where a.bianhao = #pingzhengnum#
+    </select>
+    <update id="updateSCGLZJG" parameterClass="ZJGgongyidan">
+        update [ZJGgongyidan]
+        <dynamic prepend="set">
+            <isNotNull property="bianhao" prepend=",">bianhao=#bianhao#</isNotNull>
+            <isNotNull property="Up_typeNum" prepend=",">Up_typeNum=#Up_typeNum#</isNotNull>
+            <isNotNull property="Down_typeNum" prepend=",">Down_typeNum=#Down_typeNum#</isNotNull>
+            <isNotNull property="dibuName" prepend=",">dibuName=#dibuName#</isNotNull>
+            <isNotNull property="num" prepend=",">num=#num#</isNotNull>
+            <isNotNull property="gongyi" prepend=",">gongyi=#gongyi#</isNotNull>
+            <isNotNull property="jiaohuo_time" prepend=",">jiaohuo_time=#jiaohuo_time#</isNotNull>
+            <isNotNull property="chejian" prepend=",">chejian=#chejian#</isNotNull>
+            <isNotNull property="zhuangtai" prepend=",">zhuangtai=#zhuangtai#</isNotNull>
+            <isNotNull property="beizhu" prepend=",">beizhu=#beizhu#</isNotNull>
+            <isNotNull property="kaidantime" prepend=",">kaidantime=#kaidantime#</isNotNull>
+            <isNotNull property="kaidanren" prepend=",">kaidanren=#kaidanren#</isNotNull>
+            <isNotNull property="jiedanren" prepend=",">jiedanren=#jiedanren#</isNotNull>
+            <isNotNull property="jgtype" prepend=",">jgtype=#jgtype#</isNotNull>
+
+        </dynamic>
+        where id=#id#
+    </update>
+    <update id="updateSCGLZJG_ZT" parameterClass="java.util.Map">
+        update [ZJGgongyidan]
+        set zhuangtai=#state# where id=#id#
+    </update>
+
+    <!-- 外加工  -->
+
+    <select id="findSCGYDWJGByPage" resultMap="wJGgongyidanResult"
+            parameterClass="HashMap">
+        select
+        id,bianHao,UP_typeNum,Down_typeNum,dibuName, num,
+        JG_danwei,gongyi,jiaohuo_time,jgtype,zhuangtai,beizhu,
+        kaidantime, kaidanren,jiedanren,guige
+        from (
+        SELECT TOP
+        $pend$ ROW_NUMBER() OVER(ORDER
+        BY a.kaidantime DESC) AS rowid,a.*,isnull(b.guige, c.guige) as guige
+        from
+        [WJGSCgongyidan] as a
+        left join [BCP_guanli] as b on a.Down_typeNum=b.type_num
+        left join  [CP_guanli] as c on a.Down_typeNum=c.type_num
+        <dynamic prepend="where">
+            <isNotEmpty property="bianhao" prepend="and">
+                a.bianhao like
+                '%' +
+                #bianhao# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="zhuangtai" prepend="and">
+                a.zhuangtai =
+                #zhuangtai#
+            </isNotEmpty>
+            <isNotEmpty property="UP_typeNum" prepend="and">
+                a.UP_typeNum
+                like
+                '%' + #UP_typeNum# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="JG_danwei" prepend="and">
+                a.JG_danwei like
+                '%' + #JG_danwei# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="gongyi" prepend="and">
+                a.gongyi = #gongyi#
+            </isNotEmpty>
+        </dynamic>
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+    <select id="checkSCGLWJGUniqueness" resultClass="java.lang.Integer"
+            parameterClass="WJGgongyidan">
+        select
+        count(*)
+        from
+        [WJGSCgongyidan] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="bianhao" prepend="and">
+                f.bianhao = #bianhao#
+            </isNotEmpty>
+            <isNotEmpty property="id" prepend="and">
+                f.id != #id#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+    <insert id="insertSCGLWJG" parameterClass="WJGgongyidan">
+        insert into
+        [WJGSCgongyidan]
+        (
+        bianhao,UP_typeNum,Down_typeNum,dibuName, num,
+        JG_danwei,gongyi,jiaohuo_time,jgtype,zhuangtai,beizhu,
+        kaidantime, kaidanren,jiedanren)
+        values
+        (#bianhao#,#UP_typeNum#,#Down_typeNum#,#dibuName#, #num#,
+        #JG_danwei#,#gongyi#,#jiaohuo_time#,#jgtype#,#zhuangtai#,#beizhu#,
+        #kaidantime#, #kaidanren#,#jiedanren#)
+    </insert>
+    <select id="findWJGByAll" resultMap="wJGgongyidanResult"
+            parameterClass="HashMap">
+        select
+        a.id,bianhao,UP_typeNum,Down_typeNum,dibuName, num,
+        JG_danwei,gongyi,jiaohuo_time,jgtype,zhuangtai,a.beizhu,
+        kaidantime, kaidanren,jiedanren,isnull(b.guige, c.guige) as guige
+        from
+        [WJGSCgongyidan] as a
+        left join [BCP_guanli] as b on a.Down_typeNum=b.type_num
+        left join  [CP_guanli] as c on a.Down_typeNum=c.type_num
+        where zhuangtai='生产中'
+    </select>
+    <select id="getSCGYDWJGCount" resultClass="java.lang.Integer">
+        select count(*) from
+        [WJGSCgongyidan] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="bianhao" prepend="and">
+                f.bianhao like
+                '%' +
+                #bianhao# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="zhuangtai" prepend="and">
+                f.zhuangtai =
+                #zhuangtai#
+            </isNotEmpty>
+            <isNotEmpty property="UP_typeNum" prepend="and">
+                f.UP_typeNum
+                like
+                '%' + #UP_typeNum# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="JG_danwei" prepend="and">
+                f.JG_danwei like
+                '%' + #JG_danwei# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="gongyi" prepend="and">
+                f.gongyi = #gongyi#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+    <select id="getSCGLWJGById" resultClass="WJGgongyidan"
+            parameterClass="Integer">
+        select
+        a.id,bianhao,UP_typeNum,Down_typeNum,dibuName, num,
+        JG_danwei,gongyi,jiaohuo_time,jgtype,zhuangtai,a.beizhu,
+        kaidantime, kaidanren,jiedanren, ISNULL(b.guige, c.guige) as guige
+        from
+        [WJGSCgongyidan] as a
+        left join [BCP_guanli] as b on a.Down_typeNum=b.type_num
+        left join  [CP_guanli] as c on a.Down_typeNum=c.type_num
+        where  a.id = #id#
+    </select>
+
+    <select id="getSCGLWJGBySCId" resultClass="WJGgongyidan"
+            parameterClass="String">
+        select
+        a.id,bianhao,UP_typeNum,Down_typeNum,dibuName, num,
+        JG_danwei,gongyi,jiaohuo_time,jgtype,zhuangtai,a.beizhu,
+        kaidantime, kaidanren,jiedanren, ISNULL(b.guige, c.guige) as guige
+        from
+        [WJGSCgongyidan] as a
+        left join [BCP_guanli] as b on a.Down_typeNum=b.type_num
+        left join  [CP_guanli] as c on a.Down_typeNum=c.type_num
+        where  a.bianhao = #pingzhengnum#
+    </select>
+
+    <delete id="deleteSCGYDWJGByIds" parameterClass="java.util.List">
+        delete from [WJGSCgongyidan]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+    <update id="updateSCGLWJG" parameterClass="WJGgongyidan">
+        update [WJGSCgongyidan]
+        <dynamic prepend="set">
+            <isNotNull property="bianhao" prepend=",">bianhao=#bianhao#</isNotNull>
+            <isNotNull property="UP_typeNum" prepend=",">UP_typeNum=#UP_typeNum#</isNotNull>
+            <isNotNull property="Down_typeNum" prepend=",">Down_typeNum=#Down_typeNum#</isNotNull>
+            <isNotNull property="dibuName" prepend=",">dibuName=#dibuName#</isNotNull>
+            <isNotNull property="num" prepend=",">num=#num#</isNotNull>
+            <isNotNull property="JG_danwei" prepend=",">JG_danwei=#JG_danwei#</isNotNull>
+            <isNotNull property="gongyi" prepend=",">gongyi=#gongyi#</isNotNull>
+            <isNotNull property="jiaohuo_time" prepend=",">jiaohuo_time=#jiaohuo_time#</isNotNull>
+            <isNotNull property="jgtype" prepend=",">jgtype=#jgtype#</isNotNull>
+            <isNotNull property="zhuangtai" prepend=",">zhuangtai=#zhuangtai#</isNotNull>
+            <isNotNull property="beizhu" prepend=",">beizhu=#beizhu#</isNotNull>
+            <isNotNull property="kaidantime" prepend=",">kaidantime=#kaidantime#</isNotNull>
+            <isNotNull property="kaidanren" prepend=",">kaidanren=#kaidanren#</isNotNull>
+            <isNotNull property="jiedanren" prepend=",">jiedanren=#jiedanren#</isNotNull>
+        </dynamic>
+        where id=#id#
+    </update>
+    <update id="updateSCGLWJG_ZT" parameterClass="java.util.Map">
+        update [WJGSCgongyidan]
+        set zhuangtai=#state# where id=#id#
+    </update>
+
+    <!-- 样本 -->
+
+    <select id="findSCGYDYBByPage" resultMap="yBgongyidanResult"
+            parameterClass="HashMap">
+        select
+        id,
+        YBgongyi_id,
+        YB_type,
+        num,
+        KH_OR_YB,
+        XJ_type,
+        tiaoxingma,
+        finish,
+        beizhu,
+        kaidantime,
+        kaidanren,
+        jiedanren
+        from ( SELECT TOP
+        $pend$ ROW_NUMBER()
+        OVER(ORDER
+        BY ID ASC) AS ROWID,*
+        from
+        [YB_JGgongyi] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="YBgongyi_id" prepend="and">
+                f.YBgongyi_id
+                like
+                '%' + #yBGongYiId# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="finish" prepend="and">
+                f.finish =
+                #zhuangtai#
+            </isNotEmpty>
+            <isNotEmpty property="YB_type" prepend="and">
+                f.KH_OR_YB =
+                #YB_type#
+            </isNotEmpty>
+            <isNotEmpty property="XJ_type" prepend="and">
+                f.XJ_type like
+                '%' +
+                #XJ_type# + '%'
+            </isNotEmpty>
+        </dynamic>
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+    <select id="findYBByAll" resultMap="yBgongyidanResult"
+            parameterClass="HashMap">
+        select
+        id,
+        YBgongyi_id,
+        YB_type,
+        num,
+        KH_OR_YB,
+        XJ_type,
+        tiaoxingma,
+        finish,
+        beizhu,
+        kaidantime,
+        kaidanren
+        from
+        [YB_JGgongyi]
+    </select>
+    <select id="getSCGYDYBCount" resultClass="java.lang.Integer">
+        select count(*) from
+        [YB_JGgongyi] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="YBgongyi_id" prepend="and">
+                f.YBgongyi_id
+                like
+                '%' + #yBGongYiId# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="zhuangtai" prepend="and">
+                f.finish =
+                #zhuangtai#
+            </isNotEmpty>
+            <isNotEmpty property="YB_type" prepend="and">
+                f.KH_OR_YB =
+                #YB_type#
+            </isNotEmpty>
+            <isNotEmpty property="XJ_type" prepend="and">
+                f.XJ_type like
+                '%' +
+                #XJ_type# + '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <delete id="deleteSCGYDYBByIds" parameterClass="java.util.List">
+        delete from [YB_JGgongyi]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+    <select id="checkSCGLYBUniqueness" resultClass="java.lang.Integer"
+            parameterClass="YBgongyidan">
+        select
+        count(*)
+        from
+        [YB_JGgongyi] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="yBGongYiId" prepend="and">
+                f.YBgongyi_id = #yBGongYiId#
+            </isNotEmpty>
+            <isNotEmpty property="id" prepend="and">
+                f.id != #id#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+    <insert id="insertSCGLYB" parameterClass="YBgongyidan">
+        insert into
+        [YB_JGgongyi]
+        ( YBgongyi_id,
+        YB_type,
+        num,
+        KH_OR_YB,
+        XJ_type,
+        tiaoxingma,
+        finish,
+        beizhu,
+        kaidantime,
+        kaidanren)
+        values
+        (
+        #yBGongYiId#,
+        #yBtype#,
+        #num#,
+        #kHoRyB#,
+        #xJType#,
+        #tiaoXingMa#,
+        #finish#,
+        #beiZhu#,
+        #kaiDanTime#,
+        #kaiDanRen# )
+    </insert>
+    <select id="getSCGLYBById" resultMap="yBgongyidanResult"
+            parameterClass="Integer">
+        select
+        id,YBgongyi_id,
+        YB_type,
+        num,
+        KH_OR_YB,
+        XJ_type,
+        tiaoxingma,
+        finish,
+        beizhu,
+        kaidantime,
+        kaidanren
+        from
+        [YB_JGgongyi] as f where f.id =
+        #id#
+    </select>
+    <update id="updateSCGLYB" parameterClass="YBgongyidan">
+        update [YB_JGgongyi] set
+        YBgongyi_id = #yBGongYiId#,
+        YB_type = #yBtype#,
+        num = #num#,
+        KH_OR_YB = #kHoRyB#,
+        XJ_type = #xJType#,
+        tiaoxingma = #tiaoXingMa#,
+        finish = #finish#,
+        beizhu = #beiZhu#,
+        kaidantime = #kaiDanTime#,
+        kaidanren = #kaiDanRen#
+        where id=#id#
+    </update>
+
+
+    <!-- 资料 -->
+    <select id="findCGZLGLByPage" resultMap="caiGouZhiLingResult"
+            parameterClass="HashMap">
+        select
+        id,
+        caigou_id,
+        type_num,
+        mudidanhao,
+        CG_totalnum,
+        jiaohuo_time,
+        YG_num,
+        userName,
+        xiadan_time,
+        zhuangtai,
+        beizhu,
+        leixing,
+        gongyingshangid,
+        gyspinming
+        from ( select TOP $psize$ * FROM (
+        SELECT TOP
+        $pend$ *
+        from
+        [caigoukaidan]
+        ORDER BY id ASC ) as aSysTable
+        ORDER BY id
+        DESC )
+        as
+        bSysTable ORDER BY id
+        ASC
+    </select>
+
+    <select id="getCGZLGLCount" resultClass="java.lang.Integer">
+        select count(*) from
+        [caigoukaidan]
+    </select>
+
+    <delete id="deleteCGZLGLByIds" parameterClass="java.util.List">
+        delete from [caigoukaidan]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+
+    <select id="findCangKuByPage" resultMap="cangKuChaXunResult"
+            parameterClass="HashMap">
+        select
+        id,
+        bupi_id,
+        ckname,
+        bptype,
+        num,
+        KJ_num,
+        KY_num,
+        type_num,
+        inck_time,
+        inck_man,
+        zhiliangdengji,
+        pinji,
+        dengji,
+        mudidanhao,
+        ruku_leixing,
+        weizhi,
+        beizhu,
+        rukdan_id
+        from ( select TOP $psize$ * FROM (
+        SELECT TOP
+        $pend$ *
+        from
+        [cangku]
+        ORDER
+        BY id ASC ) as aSysTable
+        ORDER BY id
+        DESC )
+        as
+        bSysTable ORDER BY id
+        ASC
+    </select>
+
+
+    <select id="getCangKuCount" resultClass="java.lang.Integer">
+        select count(*) from
+        [cangku]
+    </select>
+
+    <delete id="deleteCangKuByIds" parameterClass="java.util.List">
+        delete from [cangku]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+
+    <select id="findSCRuKuByPage" resultMap="SCRuKuResult"
+            parameterClass="HashMap">
+        select
+        id,
+        gongyidan_id,
+        bupi_id,
+        price,
+        mishu,
+        gongyingname,
+        apply_man,
+        apply_time,
+        queren_man,
+        queren_time
+        from (
+        SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
+        BY ID
+        ASC) AS ROWID,*
+        from
+        [SCruku_apply] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="gongyidan_id" prepend="and">
+                f.gongyidan_id like
+                '%'
+                + #gongyidan_id# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="bupi_id" prepend="and">
+                f.bupi_id like
+                '%'
+                +
+                #bupi_id# + '%'
+            </isNotEmpty>
+        </dynamic>
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+
+
+    <select id="getSCRuKuCount" resultClass="java.lang.Integer"
+            parameterClass="HashMap">
+        select count(*) from
+        [SCruku_apply] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="gongyidan_id" prepend="and">
+                f.gongyidan_id like
+                '%'
+                + #gongyidan_id# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="bupi_id" prepend="and">
+                f.bupi_id like
+                '%'
+                +
+                #bupi_id# + '%'
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <delete id="deleteSCRuKuByIds" parameterClass="java.util.List">
+        delete from [SCruku_apply]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+
+    <select id="findZhiJianReportByPage" resultMap="zhiJianReportResult"
+            parameterClass="HashMap">
+        select
+        id,
+        report_id,
+        laiyuan_id,
+        num,
+        xinghao,
+        apply_man,
+        apply_time,
+        jindu,
+        Alljindu,
+        beizhu
+        from (
+        SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
+        BY ID
+        ASC) AS ROWID,*
+        from
+        [ZJreport] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="report_id" prepend="and">
+                f.report_id = #report_id#
+            </isNotEmpty>
+            <isNotEmpty property="xinghao" prepend="and">
+                f.xinghao =  #xinghao#
+            </isNotEmpty>
+            <isNotEmpty property="apply_man" prepend="and">
+                f.apply_man = #apply_man#
+            </isNotEmpty>
+            <isNotEmpty property="laiyuan_id" prepend="and">
+                f.laiyuan_id = #laiyuan_id#
+            </isNotEmpty>
+        </dynamic>
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+
+    <select id="getZhiJianReportCount" resultClass="java.lang.Integer"
+            parameterClass="HashMap">
+        select count(*)
+        from
+        [ZJreport] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="report_id" prepend="and">
+                f.report_id = #report_id#
+            </isNotEmpty>
+            <isNotEmpty property="xinghao" prepend="and">
+                f.xinghao =  #xinghao#
+            </isNotEmpty>
+            <isNotEmpty property="apply_man" prepend="and">
+                f.apply_man = #apply_man#
+            </isNotEmpty>
+            <isNotEmpty property="laiyuan_id" prepend="and">
+                f.laiyuan_id = #laiyuan_id#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <delete id="deleteZhiJianReportByIds" parameterClass="java.util.List">
+        delete from [ZJreport]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+
+    <select id="findBCPKJApplyByPage" resultMap="BCPKJ_ApplyResult"
+            parameterClass="HashMap">
+        select
+        id,
+        kaijian_id,
+        bupi_id,
+        type_num,
+        yuanmishu,
+        jianchumishu,
+        apply_man,
+        apply_time,
+        queren_man,
+        queren_time,
+        zhuangtai,
+        beizhu,
+        new_bupi_id,
+        shunhao
+        from (
+        SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
+        BY ID ASC) AS ROWID,*
+        from
+        [BCPKJ_apply] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="type_num" prepend="and">
+                f.type_num like   '%' + #type_num# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="zhuangtai" prepend="and">
+                f.zhuangtai = #zhuangtai#
+            </isNotEmpty>
+            <isNotEmpty property="beginTime" prepend="and">
+                f.apply_time &gt;=  #beginTime#
+            </isNotEmpty>
+            <isNotEmpty property="endTime" prepend="and">
+                f.apply_time &lt;=  #endTime#
+            </isNotEmpty>
+        </dynamic>
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+
+    <select id="getBCPKJApplyCount" resultClass="java.lang.Integer"
+            parameterClass="HashMap">
+        select count(*)
+        from
+        [BCPKJ_apply] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="type_num" prepend="and">
+                f.type_num like
+                '%' + #type_num# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="zhuangtai" prepend="and">
+                f.zhuangtai =
+                #zhuangtai#
+            </isNotEmpty>
+            <isNotEmpty property="beginTime" prepend="and">
+                f.apply_time
+                &gt;=
+                #beginTime#
+            </isNotEmpty>
+            <isNotEmpty property="endTime" prepend="and">
+                f.apply_time &lt;=
+                #endTime#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <delete id="deleteBCPKJApplyByIds" parameterClass="java.util.List">
+        delete from [kaijian]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+
+
+    <select id="checkBCPKJAPPLYUniqueness" resultClass="java.lang.Integer"
+            parameterClass="BCPKJ_Apply">
+        select
+        count(*)
+        from
+        [BCPKJ_apply] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="kaijian_id" prepend="and">
+                f.kaijian_id = #kaijian_id#
+            </isNotEmpty>
+            <isNotEmpty property="id" prepend="and">
+                f.id != #id#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+    <insert id="insertBCPKJAPPLY" parameterClass="BCPKJ_Apply">
+        insert into
+        [BCPKJ_apply]
+        (kaijian_id,
+        bupi_id,
+        type_num,
+        yuanmishu,
+        jianchumishu,
+        apply_man,
+        apply_time,
+        queren_man,
+        queren_time,
+        zhuangtai,
+        beizhu,
+        new_bupi_id,
+        shunhao)
+        values
+        (#kaijian_id#,
+        #bupi_id#,
+        #type_num#,
+        #yuanmishu#,
+        #jianchumishu#,
+        #apply_man#,
+        #apply_time#,
+        #queren_man#,
+        #queren_time#,
+        #zhuangtai#,
+        #beizhu#,
+        #new_bupi_id#,
+        #shunhao#)
+    </insert>
+    <update id="updateCangkuByKJBP" parameterClass="java.util.HashMap" >
+        update [cangku] set
+        KJ_num=#kjnum#,
+        KY_num-=#kjnum#
+        where bupi_id=#bpid#  and KY_num=#KY_num#
+    </update>
+    <update id="updateBCPKJAPPLY_ZT" parameterClass="java.lang.Integer" >
+        update [BCPKJ_apply]
+        set zhuangtai='无效'
+        from  [BCPKJ_apply] as a,[cangku]  as b
+        where b.bupi_id=a.bupi_id
+        and a.id=#id# and a.zhuangtai='等待开剪'
+    </update>
+    <update id="updateCANGKU_KJ" parameterClass="java.lang.Integer" >
+        update [cangku]
+        set KJ_num-=a.jianchumishu,
+        KY_num +=a.jianchumishu
+        from  [BCPKJ_apply] as a,[cangku]  as b
+        where b.bupi_id=a.bupi_id
+        and a.id=#id# and a.zhuangtai='等待开剪'
+    </update>
+
+    <select id="getBCPKJ_ApplyById" resultMap="BCPKJ_ApplyResult"
+            parameterClass="Integer">
+        select
+        id,kaijian_id,
+        bupi_id,
+        type_num,
+        yuanmishu,
+        jianchumishu,
+        apply_man,
+        apply_time,
+        queren_man,
+        queren_time,
+        zhuangtai,
+        beizhu,
+        new_bupi_id,
+        shunhao
+        from
+        [BCPKJ_apply] as f where f.id =
+        #id#
+    </select>
+    <update id="updateBCPKJAPPLY" parameterClass="BCPKJ_Apply">
+        update [BCPKJ_apply]
+        <dynamic prepend="set">
+        <isNotNull property="kaijian_id" prepend=",">kaijian_id=#kaijian_id#</isNotNull>
+            <isNotNull property="bupi_id" prepend=",">bupi_id=#bupi_id#</isNotNull>
+            <isNotNull property="type_num" prepend=",">type_num=#type_num#</isNotNull>
+            <isNotNull property="yuanmishu" prepend=",">yuanmishu=#yuanmishu#</isNotNull>
+            <isNotNull property="jianchumishu" prepend=",">jianchumishu=#jianchumishu#</isNotNull>
+            <isNotNull property="apply_man" prepend=",">apply_man=#apply_man#</isNotNull>
+            <isNotNull property="apply_time" prepend=",">apply_time=#apply_time#</isNotNull>
+            <isNotNull property="queren_man" prepend=",">queren_man=#queren_man#</isNotNull>
+            <isNotNull property="queren_time" prepend=",">queren_time=#queren_time#</isNotNull>
+            <isNotNull property="zhuangtai" prepend=",">zhuangtai=#zhuangtai#</isNotNull>
+            <isNotNull property="beizhu" prepend=",">beizhu=#beizhu#</isNotNull>
+            <isNotNull property="new_bupi_id" prepend=",">new_bupi_id=#new_bupi_id#</isNotNull>
+            <isNotNull property="shunhao" prepend=",">shunhao=#shunhao#</isNotNull>
+        </dynamic>
+        where id=#id#
+    </update>
+
+    <!--                    成品开剪管理 -->
+
+    <select id="getCPKJApplyCount" resultClass="java.lang.Integer"
+            parameterClass="HashMap">
+        select count(*)
+        from
+        [CPKJ_apply] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="type_num" prepend="and">
+                f.type_num like
+                '%' + #type_num# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="zhuangtai" prepend="and">
+                f.zhuangtai =
+                #zhuangtai#
+            </isNotEmpty>
+            <isNotEmpty property="beginTime" prepend="and">
+                f.apply_time
+                &gt;=
+                #beginTime#
+            </isNotEmpty>
+            <isNotEmpty property="endTime" prepend="and">
+                f.apply_time &lt;=
+                #endTime#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+
+    <select id="findCPKJApplyByPage" resultMap="BCPKJ_ApplyResult"
+            parameterClass="HashMap">
+        select
+        id,
+        kaijian_id,
+        bupi_id,
+        type_num,
+        yuanmishu,
+        jianchumishu,
+        apply_man,
+        apply_time,
+        queren_man,
+        queren_time,
+        zhuangtai,
+        beizhu,
+        new_bupi_id,
+        shunhao
+        from (
+        SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
+        BY ID ASC) AS ROWID,*
+        from
+        [CPKJ_apply] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="type_num" prepend="and">
+                f.type_num like   '%' + #type_num# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="zhuangtai" prepend="and">
+                f.zhuangtai = #zhuangtai#
+            </isNotEmpty>
+            <isNotEmpty property="beginTime" prepend="and">
+                f.apply_time &gt;=  #beginTime#
+            </isNotEmpty>
+            <isNotEmpty property="endTime" prepend="and">
+                f.apply_time &lt;=  #endTime#
+            </isNotEmpty>
+        </dynamic>
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+    <select id="checkCPKJAPPLYUniqueness" resultClass="java.lang.Integer"
+            parameterClass="BCPKJ_Apply">
+        select
+        count(*)
+        from
+        [CPKJ_apply] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="kaijian_id" prepend="and">
+                f.kaijian_id = #kaijian_id#
+            </isNotEmpty>
+            <isNotEmpty property="id" prepend="and">
+                f.id != #id#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+    <insert id="insertCPKJAPPLY" parameterClass="BCPKJ_Apply">
+        insert into
+        [CPKJ_apply]
+        (kaijian_id,
+        bupi_id,
+        type_num,
+        yuanmishu,
+        jianchumishu,
+        apply_man,
+        apply_time,
+        queren_man,
+        queren_time,
+        zhuangtai,
+        beizhu,
+        new_bupi_id,
+        shunhao)
+        values
+        (#kaijian_id#,
+        #bupi_id#,
+        #type_num#,
+        #yuanmishu#,
+        #jianchumishu#,
+        #apply_man#,
+        #apply_time#,
+        #queren_man#,
+        #queren_time#,
+        #zhuangtai#,
+        #beizhu#,
+        #new_bupi_id#,
+        #shunhao#)
+    </insert>
+    <update id="updateCPKJAPPLY" parameterClass="BCPKJ_Apply">
+        update [CPKJ_apply]
+        <dynamic prepend="set">
+            <isNotNull property="kaijian_id" prepend=",">kaijian_id=#kaijian_id#</isNotNull>
+            <isNotNull property="bupi_id" prepend=",">bupi_id=#bupi_id#</isNotNull>
+            <isNotNull property="type_num" prepend=",">type_num=#type_num#</isNotNull>
+            <isNotNull property="yuanmishu" prepend=",">yuanmishu=#yuanmishu#</isNotNull>
+            <isNotNull property="jianchumishu" prepend=",">jianchumishu=#jianchumishu#</isNotNull>
+            <isNotNull property="apply_man" prepend=",">apply_man=#apply_man#</isNotNull>
+            <isNotNull property="apply_time" prepend=",">apply_time=#apply_time#</isNotNull>
+            <isNotNull property="queren_man" prepend=",">queren_man=#queren_man#</isNotNull>
+            <isNotNull property="queren_time" prepend=",">queren_time=#queren_time#</isNotNull>
+            <isNotNull property="zhuangtai" prepend=",">zhuangtai=#zhuangtai#</isNotNull>
+            <isNotNull property="beizhu" prepend=",">beizhu=#beizhu#</isNotNull>
+            <isNotNull property="new_bupi_id" prepend=",">new_bupi_id=#new_bupi_id#</isNotNull>
+            <isNotNull property="shunhao" prepend=",">shunhao=#shunhao#</isNotNull>
+        </dynamic>
+        where id=#id#
+    </update>
+    <!-- 供应商 -->
+    <select id="findGYSByPage" resultMap="gongYingShangResult"
+            parameterClass="HashMap">
+        select
+        id,
+        gongyingname,
+        suoxie,
+        leixing,
+        telephone,
+        seller,
+        phone,
+        chuanzhen,
+        email,
+        address,
+        kpmc1,
+        shuihao1,
+        khhzh1,
+        kpaddress1,
+        dianhua1,
+        kpmc2,
+        shuihao2,
+        khhzh2,
+        kpaddress2,
+        dianhua2,
+        shoukuanren1,
+        kaihuhang1,
+        zhanghao1,
+        shoukuanren2,
+        kaihuhang2,
+        zhanghao2,
+        beizhu
+        from (
+        select
+        TOP $psize$ * FROM (
+        SELECT TOP
+        $pend$ *
+        from
+        [gongyingshang]
+        ORDER
+        BY id ASC
+        ) as aSysTable
+        ORDER BY id
+        DESC )
+        as
+        bSysTable ORDER BY id
+        ASC
+    </select>
+
+    <select id="getGYSCount" resultClass="java.lang.Integer">
+        select count(*)
+        from
+        [gongyingshang]
+    </select>
+
+    <delete id="deleteGYSByIds" parameterClass="java.util.List">
+        delete from [gongyingshang]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+
+    <!-- 外加工单位管理 -->
+
+    <select id="findWJGDWGLByPage" resultMap="wJGGongYingShangResult"
+            parameterClass="HashMap">
+        select
+        id,
+        danweiname,
+        suoxie,
+        JGleixing,
+        telephone,
+        seller,
+        phone,
+        web,
+        chuanzhen,
+        kpmc,
+        kpaddress,
+        address,
+        email,
+        khhzh,
+        beizhu
+        from (
+        SELECT TOP
+        $pend$ ROW_NUMBER() OVER(ORDER BY ID ASC)
+        AS ROWID,*
+        from
+        [waijiagong]
+        as
+        f
+        <dynamic prepend="where">
+            <isNotEmpty property="danweiname" prepend="and">
+                f.danweiname
+                like
+                '%' + #danweiname# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="JGleixing" prepend="and">
+                f.JGleixing =
+                #JGleixing#
+            </isNotEmpty>
+        </dynamic>
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+    <select id="findWJGGYSByAll" resultMap="wJGGongYingShangResult">
+        select
+        id,
+        danweiname,
+        suoxie,
+        JGleixing,
+        telephone,
+        seller,
+        phone,
+        web,
+        chuanzhen,
+        kpmc,
+        kpaddress,
+        address,
+        email,
+        khhzh,
+        beizhu
+        from
+        [waijiagong]
+    </select>
+
+    <select id="getWJGDWGLCount" resultClass="java.lang.Integer"
+            parameterClass="HashMap">
+        select count(*)
+        from
+        [waijiagong] as
+        f
+        <dynamic prepend="where">
+            <isNotEmpty property="danweiname" prepend="and">
+                f.danweiname
+                like
+                '%' + #danweiname# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="JGleixing" prepend="and">
+                f.JGleixing =
+                #JGleixing#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <delete id="deleteWJGDWGLByIds" parameterClass="java.util.List">
+        delete from [waijiagong]
+        <iterate prepend="where" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
+
+    <insert id="insertWJGDWGL" parameterClass="wJGGongYingShang">
+        insert into
+        [waijiagong]
+        (
+        danweiname,
+        suoxie,
+        JGleixing,
+        telephone,
+        seller,
+        phone,
+        web,
+        chuanzhen,
+        kpmc,
+        kpaddress,
+        address,
+        email,
+        khhzh,
+        beizhu)
+        values
+        (
+        #danweiname#,
+        #suoxie#,
+        #JGleixing#,
+        #telephone#,
+        #seller#,
+        #phone#,
+        #web#,
+        #chuanzhen#,
+        #kpmc#,
+        #kpaddress#,
+        #address#,
+        #email#,
+        #khhzh#,
+        #beizhu#)
+    </insert>
+    <select id="getWJGDWGLById" resultMap="wJGGongYingShangResult"
+            parameterClass="Integer">
+        select
+        id,danweiname,
+        suoxie,
+        JGleixing,
+        telephone,
+        seller,
+        phone,
+        web,
+        chuanzhen,
+        kpmc,
+        kpaddress,
+        address,
+        email,
+        khhzh,
+        beizhu
+        from
+        [waijiagong] as f where f.id =
+        #id#
+    </select>
+    <update id="updateWJGDWGL" parameterClass="wJGGongYingShang">
+        update [waijiagong] set
+        danweiname = #danweiname#,
+        suoxie = #suoxie#,
+        JGleixing = #JGleixing#,
+        telephone = #telephone#,
+        seller = #seller#,
+        phone = #phone#,
+        web= #web#,
+        chuanzhen = #chuanzhen#,
+        kpmc = #kpmc#,
+        kpaddress = #kpaddress#,
+        address = #address#,
+        email = #email#,
+        khhzh = #khhzh#,
+        beizhu = #beizhu#
+        where id=#id#
+    </update>
+    <!--  修改质检状态 -->
+    <update id="changeStateZJ_CG" parameterClass="Map">
+        update [CGruku_apply] set
+        zhijian_or_not = '1',
+        beizhu=#beizhu#,
+        mishu=#shijimishu#
+        where bupi_id=#bptiaoma#
+    </update>
+</sqlMap>
