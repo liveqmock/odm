@@ -16,7 +16,7 @@ import com.jiang.util.WebException;
 import com.opensymphony.xwork2.ActionSupport;
 
 /***
- * action基类，所以的action都要继承该类  s
+ * action基类，所以的action都要继承该类
  *
  * @author jxq
  *
