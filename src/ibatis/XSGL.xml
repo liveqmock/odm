@@ -96,7 +96,7 @@
 		SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
 		kaidan_time DESC) AS ROWID,f.*,b.KeHuname as KeHuname
 		FROM [sale_dingdan] as f,kehuziliao as b where  b.kehu_id=f.dingdan_name
-		<dynamic prepend="where">
+		<dynamic prepend="and">
 			<isNotEmpty property="kehuname" prepend="and">
                 KeHuname like
 				'%' + #kehuname# + '%'
@@ -129,8 +129,7 @@
 		parameterClass="HashMap">
 		select count(*) from
 		[sale_dingdan] as f, kehuziliao as b where b.kehu_id=f.dingdan_name
-		
-		<dynamic prepend="where">
+		<dynamic prepend="and">
 			<isNotEmpty property="kehuname" prepend="and">
 				f.dingdan_name like
 				'%' + #kehuname# + '%'
@@ -149,7 +148,7 @@
 				#dateEndText#
 			</isNotEmpty>
 			<isNotEmpty property="zhuangtai" prepend="and">
-				f.zhuangtai =  #zhuangtai# 
+				f.zhuangtai =  #zhuangtai#
 			</isNotEmpty>
 		</dynamic>
 	</select>
