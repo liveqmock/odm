@@ -189,7 +189,7 @@
                 <select name='zhuangtai' id='zhuangtai' class="" onchange="gridFlash()">
                     <option value='--请选择--'>--请选择--</option>
                     <option value='未指定布匹'>未指定布匹</option>
-                    <option value='指定布匹'>指定布匹</option>
+                    <option value='已指定布匹'>已指定布匹</option>
                 </select>
             </td>
             <td width="80" class="td2"><input type="image"

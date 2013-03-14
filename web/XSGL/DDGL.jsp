@@ -28,7 +28,7 @@
 		<table border="0" cellpadding="0" cellspacing="0" width="100%"
 			id="tabs">
 			<tr>
-				<td class="tabs" align="center"><font color="white">销售单管理</font>
+				<td class="tabs" align="center"><font color="white">订单管理</font>
 				</td>
 				<td class="tabs"></td>
 			</tr>

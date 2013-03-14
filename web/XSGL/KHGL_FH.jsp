@@ -152,7 +152,7 @@ function gridFlash(){
 		sortorder : "desc",
 		usepager : true,
 		resizable : false,
-		title : '销售单管理',
+		title : '收货地址管理',
 		useRp : true,
 		rp : 12,
 		rpOptions : [ 12, 15, 20, 30, 50 ],
