@@ -87,4 +87,5 @@ public interface XSGLDao {
     int getXSGLDingDanmingxiCount_ddgl(Map<String,Object> map);
 
     List findXSGLDingDanmingxi_ddgl(int page, int rp, Map<String,Object> map);
+
 }

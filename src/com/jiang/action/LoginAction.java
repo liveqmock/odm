@@ -9,9 +9,11 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jiang.util.PublicFunc;
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -122,6 +124,7 @@ public class LoginAction extends ActionSupport {
                     ActionContext.getContext().getSession()
                             .put("user", hasUser);
                     log.info("用户：" + username + "登录成功");
+                    PublicFunc.addCookie(response,"companychoise", company,3600 );
                     return SUCCESS;
                 } else {
                     log.info("用户名或者密码错误，登录失败");

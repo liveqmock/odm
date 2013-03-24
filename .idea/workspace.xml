@@ -2,6 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b45d32f4-da1e-4170-9850-66bf35a24898" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/XSGL/AddTypeNums.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/XSGL/KHGL_FH_MODIFY.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/XSGL/addshouhuoaddress.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/LoginAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/LoginAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ZHDD/OrderDetail.jsp" afterPath="$PROJECT_DIR$/web/ZHDD/OrderDetail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/util/PublicFunc.java" afterPath="$PROJECT_DIR$/src/com/jiang/util/PublicFunc.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ibatis/XSGL.xml" afterPath="$PROJECT_DIR$/src/ibatis/XSGL.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/XSGLAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/XSGLAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/dao/XSGLDao.java" afterPath="$PROJECT_DIR$/src/com/jiang/dao/XSGLDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/dao/impl/XSGLDaoImpl.java" afterPath="$PROJECT_DIR$/src/com/jiang/dao/impl/XSGLDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/service/XSGLService.java" afterPath="$PROJECT_DIR$/src/com/jiang/service/XSGLService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/service/impl/XSGLServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/jiang/service/impl/XSGLServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp" afterPath="$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/ZHDDGL_Detail.jsp" afterPath="$PROJECT_DIR$/web/XSGL/ZHDDGL_Detail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/struts.xml" afterPath="$PROJECT_DIR$/src/struts.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="odm.iws" />
@@ -11,20 +28,20 @@
     <file path="/aa.html" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356096871201" ignored="false" />
     <file path="/fragment.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361259599880" ignored="false" />
     <file path="/JsonUtil.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362305215815" ignored="false" />
-    <file path="/DisPatchUrlAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362299920889" ignored="false" />
+    <file path="/DisPatchUrlAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1364124546205" ignored="false" />
     <file path="/ZHIJIANLIST.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356260226442" ignored="false" />
     <file path="/SCGLDaoImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361878452730" ignored="false" />
-    <file path="/a.dummy" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362756879163" ignored="false" />
+    <file path="/a.dummy" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1364046071798" ignored="false" />
     <file path="/SCGL.xml" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361626853838" ignored="false" />
     <file path="/BCPKJ_Apply.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356438871155" ignored="false" />
     <file path="/BCPKJ_Apply_MODIFY.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356439855891" ignored="false" />
-    <file path="/PublicFunc.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1358073302311" ignored="false" />
+    <file path="/PublicFunc.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1364045499486" ignored="false" />
     <file path="/SCGLAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361881734150" ignored="false" />
     <file path="/SCGLService.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361878224621" ignored="false" />
     <file path="/SCGLServiceImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361878902116" ignored="false" />
     <file path="/SCGLDao.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361880911573" ignored="false" />
     <file path="/BCPKJ_Apply.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357092665820" ignored="false" />
-    <file path="/Dummy.txt" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1363853969195" ignored="false" />
+    <file path="/Dummy.txt" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1364123954477" ignored="false" />
     <file path="F:/sunyard_android_bld_1.00/sdk_bld_1.00/i60api/obj/local/armeabi/objs/sunyardi60a/sunyardi60a.o.d" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356683295643" ignored="false" />
     <file path="/BCPKJ_DO.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357090690963" ignored="false" />
     <file path="/UserFilter.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361884751619" ignored="false" />
@@ -36,14 +53,14 @@
     <file path="/CKGLDao.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361881782001" ignored="false" />
     <file path="/CKGLDaoImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357095650293" ignored="false" />
     <file path="/ZHXD.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361620108294" ignored="false" />
-    <file path="/XSGLAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362306987605" ignored="false" />
+    <file path="/XSGLAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1363960397359" ignored="false" />
     <file path="/struts.xml" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362298636973" ignored="false" />
-    <file path="/XSGL.xml" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362757634640" ignored="false" />
+    <file path="/XSGL.xml" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1363957114410" ignored="false" />
     <file path="/DingDanmingxi.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357388207500" ignored="false" />
-    <file path="/OrderDetail.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361620633534" ignored="false" />
-    <file path="/XSGLService.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362301914323" ignored="false" />
+    <file path="/OrderDetail.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1364125990967" ignored="false" />
+    <file path="/XSGLService.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1363957025870" ignored="false" />
     <file path="/XSGLServiceImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362302029943" ignored="false" />
-    <file path="/XSGLDao.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362302044651" ignored="false" />
+    <file path="/XSGLDao.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1363957071956" ignored="false" />
     <file path="/XSGLDaoImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357740148878" ignored="false" />
     <file path="/KHGL.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357121916100" ignored="false" />
     <file path="/AddTypeNums.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357217060854" ignored="false" />
@@ -70,6 +87,10 @@
     <file path="/FSXX.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362137878738" ignored="false" />
     <file path="/DDGL_Detail.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1363175820108" ignored="false" />
     <file path="/KHGL_FH.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1363763822787" ignored="false" />
+    <file path="/KHGL_FH_MODIFY.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1363960078168" ignored="false" />
+    <file path="/ZHDDGL_Detail.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1364045189983" ignored="false" />
+    <file path="/LoginAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1364121712833" ignored="false" />
+    <file path="/index.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1364124465782" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +114,6 @@
     <groupTables value="false" />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -128,6 +148,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -137,10 +158,82 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="KHGL_FH.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/XSGL/KHGL_FH.jsp">
+      <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="65" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.35112935">
+            <state line="107" column="117" selection-start="3817" selection-end="3817" vertical-scroll-proportion="-3.20339">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZHDDGL.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="248" column="72" selection-start="7389" selection-end="7389" vertical-scroll-proportion="-6.233333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="struts.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/struts.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="157" column="68" selection-start="7038" selection-end="7055" vertical-scroll-proportion="-2.351852">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addshouhuoaddress.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/XSGL/addshouhuoaddress.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="53" selection-start="427" selection-end="427" vertical-scroll-proportion="0.6344411">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderDetail_SHOW.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/XSGL/OrderDetail_SHOW.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="156" column="50" selection-start="6284" selection-end="6284" vertical-scroll-proportion="-0.7">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderDetail.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/ZHDD/OrderDetail.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="326" column="11" selection-start="11137" selection-end="11204" vertical-scroll-proportion="-1.8305085">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddTypeNums.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/ZHDD/AddTypeNums.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="64" selection-start="3243" selection-end="3253" vertical-scroll-proportion="-2.4915254">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DisPatchUrlAction.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="646" column="34" selection-start="20843" selection-end="20860" vertical-scroll-proportion="-6.172414">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XSGLAction.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jiang/action/XSGLAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="594" column="63" selection-start="19609" selection-end="19619" vertical-scroll-proportion="-4.206897">
               <folding />
             </state>
           </provider>
@@ -169,30 +262,30 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/web/SCGL/SCGYD/JHZJG1.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/web/ZHDD/EditMishu.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/web/XSGL/KHGL_FH_ADD.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/web/SCGL/SCGYD/JHZJG1.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/web/XSGL/KHGL_FH.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/jiang/service/XSGLService.java" />
-        <option value="$PROJECT_DIR$/src/com/jiang/service/impl/XSGLServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/com/jiang/dao/XSGLDao.java" />
+        <option value="$PROJECT_DIR$/src/com/jiang/service/impl/XSGLServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/jiang/service/XSGLService.java" />
         <option value="$PROJECT_DIR$/src/com/jiang/dao/impl/XSGLDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/jiang/action/JsonUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/jiang/action/XSGLAction.java" />
-        <option value="$PROJECT_DIR$/src/com/jiang/dao/impl/LoginDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/ibatis/SqlMapConfig.xml" />
-        <option value="$PROJECT_DIR$/src/ibatis/CGGL.xml" />
         <option value="$PROJECT_DIR$/src/com/jiang/action/BaseAction.java" />
+        <option value="$PROJECT_DIR$/web/XSGL/KHGL_FH_MODIFY.jsp" />
         <option value="$PROJECT_DIR$/src/ibatis/XSGL.xml" />
+        <option value="$PROJECT_DIR$/web/XSGL/ZHDDGL_Detail.jsp" />
+        <option value="$PROJECT_DIR$/src/com/jiang/util/PublicFunc.java" />
+        <option value="$PROJECT_DIR$/src/com/jiang/action/LoginAction.java" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/src/com/jiang/action/XSGLAction.java" />
+        <option value="$PROJECT_DIR$/web/ZHDD/OrderDetail.jsp" />
+        <option value="$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java" />
         <option value="$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/DDGL.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/DDGL_Detail.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/web/XSGL/KHGL_FH.jsp" />
+        <option value="$PROJECT_DIR$/src/struts.xml" />
       </list>
     </option>
   </component>
@@ -210,8 +303,10 @@
     <option name="jreName" value="1.6" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1440" />
-    <option name="height" value="857" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -269,20 +364,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -329,6 +410,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ZHDD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="XSGL" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -343,7 +442,153 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CGGL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ibatis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="action" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -371,6 +616,20 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -394,8 +653,8 @@
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="options.lastSelected" value="vcs.Git" />
-    <property name="project.structure.side.proportion" value="0.14568764" />
+    <property name="options.lastSelected" value="appearance" />
+    <property name="project.structure.side.proportion" value="0.12937063" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="119" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -770,29 +1029,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="857" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3816156" sideWeight="0.49085367" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06944445" sideWeight="0.49085367" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901752" sideWeight="0.761578" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2498096" sideWeight="0.761578" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38423645" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3846154" sideWeight="0.25914633" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22552447" sideWeight="0.2682927" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19893293" sideWeight="0.24475524" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.69982845" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25069252" sideWeight="0.49695122" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3211876" sideWeight="0.4862805" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49695122" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30944055" sideWeight="0.4862805" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23450336" sideWeight="0.7960199" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22423398" sideWeight="0.4817073" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22377622" sideWeight="0.4817073" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23216996" sideWeight="0.24528302" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953683" sideWeight="0.57632935" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18521342" sideWeight="0.7622378" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2672065" sideWeight="0.47865853" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19311798" sideWeight="0.74930745" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34278002" sideWeight="0.7355183" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28846154" sideWeight="0.47865853" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19832827" sideWeight="0.74438685" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25561312" sideWeight="0.72637194" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="92" y="92" width="1178" height="544" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30136988" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -800,7 +1059,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4280822" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18531469" sideWeight="0.49085367" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40734264" sideWeight="0.49085367" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -908,92 +1167,116 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ibatis/CGGL.xml">
+    <entry file="file://$PROJECT_DIR$/web/CGGL/CGTH_ADD.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1155" column="8" selection-start="37484" selection-end="37484" vertical-scroll-proportion="0.0" />
+        <state line="138" column="17" selection-start="3972" selection-end="4171" vertical-scroll-proportion="0.8563536">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ibatis/CKGL.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/action/XTGLAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="237" column="8" selection-start="8234" selection-end="8234" vertical-scroll-proportion="-0.22348484" />
+        <state line="273" column="69" selection-start="8355" selection-end="8355" vertical-scroll-proportion="0.51707315">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jiang/action/BaseAction.java">
+    <entry file="file://$PROJECT_DIR$/web/XSGL/DDGL.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="32" selection-start="4019" selection-end="4021" vertical-scroll-proportion="0.33211678" />
+        <state line="22" column="50" selection-start="1128" selection-end="1129" vertical-scroll-proportion="0.3123123">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ibatis/SCGL.xml">
+    <entry file="file://$PROJECT_DIR$/web/XSGL/ZHDDGL_Detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="799" column="19" selection-start="30403" selection-end="30403" vertical-scroll-proportion="2.1151316" />
+        <state line="148" column="44" selection-start="6105" selection-end="6105" vertical-scroll-proportion="-0.2882883">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/log4j.properties">
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/action/LoginAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="126" column="64" selection-start="3851" selection-end="3864" vertical-scroll-proportion="0.7491166">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ibatis/FHGL.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/util/PublicFunc.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="8" selection-start="1652" selection-end="1652" vertical-scroll-proportion="0.0" />
+        <state line="275" column="24" selection-start="7135" selection-end="7141" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#7665#7680#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java">
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="68" selection-start="3732" selection-end="3732" vertical-scroll-proportion="0.0" />
+        <state line="107" column="117" selection-start="3817" selection-end="3817" vertical-scroll-proportion="-3.20339">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp">
+    <entry file="file://$PROJECT_DIR$/web/XSGL/OrderDetail_SHOW.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="235" column="101" selection-start="7029" selection-end="7096" vertical-scroll-proportion="0.4797048">
+        <state line="156" column="50" selection-start="6284" selection-end="6284" vertical-scroll-proportion="-0.7">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/ZHDD/AddTypeNums.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="64" selection-start="3243" selection-end="3253" vertical-scroll-proportion="-2.4915254">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/ZHDD/OrderDetail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="326" column="11" selection-start="11137" selection-end="11204" vertical-scroll-proportion="-1.8305085">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jiang/action/XSGLAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="697" column="49" selection-start="23875" selection-end="23888" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ibatis/XSGL.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="31" selection-start="6041" selection-end="6041" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/XSGL/DDGL.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="16" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0">
+        <state line="594" column="63" selection-start="19609" selection-end="19619" vertical-scroll-proportion="-4.206897">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XSGL/DDGL_Detail.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="191" column="43" selection-start="7802" selection-end="7802" vertical-scroll-proportion="0.0">
+        <state line="646" column="34" selection-start="20843" selection-end="20860" vertical-scroll-proportion="-6.172414">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XSGL/KHGL_FH_ADD.jsp">
+    <entry file="file://$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="248" column="72" selection-start="7389" selection-end="7389" vertical-scroll-proportion="-6.233333">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/spring-aop-2.5.6.jar!/org/springframework/aop/config/spring-aop-2.0.xsd">
+    <entry file="file://$PROJECT_DIR$/web/XSGL/AddTypeNums.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="2" vertical-scroll-proportion="0.0" />
+        <state line="10" column="51" selection-start="425" selection-end="425" vertical-scroll-proportion="-0.31722054">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext.xml">
+    <entry file="file://$PROJECT_DIR$/src/struts.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="91" selection-start="771" selection-end="771" vertical-scroll-proportion="0.3494253" />
+        <state line="157" column="68" selection-start="7038" selection-end="7055" vertical-scroll-proportion="-2.351852">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XSGL/KHGL_FH.jsp">
+    <entry file="file://$PROJECT_DIR$/web/XSGL/addshouhuoaddress.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="65" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.35112935">
+        <state line="10" column="53" selection-start="427" selection-end="427" vertical-scroll-proportion="0.6344411">
           <folding />
         </state>
       </provider>
@@ -1008,7 +1291,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.14568764" />
+                <option value="0.12937063" />
                 <option value="0.5" />
               </list>
             </option>
@@ -1021,7 +1304,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.14568764" />
+                <option value="0.12937063" />
               </list>
             </option>
           </splitter-proportions>
@@ -1056,7 +1339,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.14568764" />
+                <option value="0.12937063" />
               </list>
             </option>
           </splitter-proportions>

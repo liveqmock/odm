@@ -1,9 +1,6 @@
 package com.jiang.action;
 
-import com.jiang.bean.DingDanmingxi;
-import com.jiang.bean.KHGL;
-import com.jiang.bean.YDDGL;
-import com.jiang.bean.ZLGLCPZL;
+import com.jiang.bean.*;
 import com.jiang.service.XSGLService;
 import com.jiang.util.PublicFunc;
 import com.jiang.util.Result;
@@ -88,7 +85,9 @@ public class XSGLAction extends BaseAction {
         {
             return modify_ZHDDdetail();
         }
-
+        if (PublicFunc.unEmpty(type) && type.equals("KHGL_FH")) {
+            return modify_KHGL_FH();
+        }
         return SUCCESS;
     }
 
@@ -255,10 +254,47 @@ public class XSGLAction extends BaseAction {
         }
         return SUCCESS;
     }
+    private String modify_KHGL_FH(){
+        String kehu_id = request.getParameter("kehu_id");
+        String lianxiren = request.getParameter("lianxiren");
+        String fahuofangshi = request.getParameter("fahuofangshi");
+        String dianhua = request.getParameter("dianhua");
+        String yidongdianhua = request.getParameter("yidongdianhua");
+        String dizhi = request.getParameter("dizhi");
+
+        KHGL_FH yl = new KHGL_FH();
+        if (PublicFunc.unEmpty(kehu_id)) {
+            yl.setKehu_id(kehu_id);
+        }
+        if (PublicFunc.unEmpty(lianxiren)) {
+            yl.setLianxiren(lianxiren);
+        }
+        if (PublicFunc.unEmpty(fahuofangshi) && !fahuofangshi.equals("--请选择--")) {
+            yl.setFahuofangshi(fahuofangshi);
+        }
+        if (PublicFunc.unEmpty(dianhua)) {
+            yl.setDianhua(dianhua);
+        }
+        if (PublicFunc.unEmpty(yidongdianhua)) {
+            yl.setYidongdianhua(yidongdianhua);
+        }
+        if (PublicFunc.unEmpty(dizhi)) {
+            yl.setDizhi(dizhi);
+        }
+        if (yl != null) {
+                xSGLService.updateKHGLFH(yl);
+            return "khgl_fh";
+        }
+        return SUCCESS;
+    }
     private String preModify(String type) {
         if (PublicFunc.unEmpty(type) && type.equals("KHGL")) {
             return preModify_KHGL();
         }
+        if (PublicFunc.unEmpty(type) && type.equals("KHGL_FH")) {
+            return preModify_KHGL_FH();
+        }
+
         return SUCCESS;
     }
     private String preModify_KHGL() {
@@ -268,6 +304,14 @@ public class XSGLAction extends BaseAction {
             request.setAttribute("khgl", tmp);
         }
         return "modifyKHGL";
+    }
+    private String preModify_KHGL_FH() {
+        String id = request.getParameter("id");
+        if (PublicFunc.unEmpty(id)) {
+            KHGL_FH tmp = xSGLService.getKHGLFHById(Integer.valueOf(id));
+            request.setAttribute("khglfh", tmp);
+        }
+        return "modifyKHGL_FH";
     }
     private String add(String type) {
         if(PublicFunc.unEmpty(type) && type.equals("KHGL"))
@@ -281,6 +325,10 @@ public class XSGLAction extends BaseAction {
         if(PublicFunc.unEmpty(type) && type.equals("DDtoOrder"))
         {
             return add_DDtoOrder();
+        }
+        if(PublicFunc.unEmpty(type) && type.equals("KHGL_FH"))
+        {
+            return add_KHGL_FH();
         }
         return SUCCESS;
     }
@@ -493,6 +541,52 @@ public class XSGLAction extends BaseAction {
         }
         return SUCCESS;
     }
+
+    private String add_KHGL_FH() {
+        String kehu_id = request.getParameter("kehu_id");
+        String lianxiren = request.getParameter("lianxiren");
+        String fahuofangshi = request.getParameter("fahuofangshi");
+        String dianhua = request.getParameter("dianhua");
+        String yidongdianhua = request.getParameter("yidongdianhua");
+        String dizhi = request.getParameter("dizhi");
+
+        KHGL_FH yl = new KHGL_FH();
+        if (PublicFunc.unEmpty(kehu_id)) {
+            yl.setKehu_id(kehu_id);
+        }
+        if (PublicFunc.unEmpty(lianxiren)) {
+            yl.setLianxiren(lianxiren);
+        }
+        if (PublicFunc.unEmpty(fahuofangshi) && !fahuofangshi.equals("--请选择--")) {
+            yl.setFahuofangshi(fahuofangshi);
+        }
+        if (PublicFunc.unEmpty(dianhua)) {
+            yl.setDianhua(dianhua);
+        }
+        if (PublicFunc.unEmpty(yidongdianhua)) {
+            yl.setYidongdianhua(yidongdianhua);
+        }
+        if (PublicFunc.unEmpty(dizhi)) {
+            yl.setDizhi(dizhi);
+        }
+
+        if (yl != null) {
+                boolean isexistKH = xSGLService.isExistKehuId(kehu_id);
+               if(isexistKH)
+               {
+                   xSGLService.insertKHGLFH(yl);
+               }
+               else
+               {
+                   request.setAttribute("modifykhglfherror", "不存在该客户编号!");
+                   return "addKHGL_FH";
+               }
+                return "khgl_fh";
+        }
+        return SUCCESS;
+    }
+
+
     private void delete(String type) {
         String[] id = request.getParameterValues("id");
         if (PublicFunc.unEmpty(type) && type.equals("KHGL")) {
@@ -500,6 +594,9 @@ public class XSGLAction extends BaseAction {
         }
         if (PublicFunc.unEmpty(type) && type.equals("ZHDDdetail")) {
             xSGLService.deleteZHDDdetail(Arrays.asList(id));
+        }
+        if (PublicFunc.unEmpty(type) && type.equals("KHGL_FH")) {
+            xSGLService.deleteKHGLFHById(Arrays.asList(id));
         }
 
     }
@@ -529,6 +626,9 @@ public class XSGLAction extends BaseAction {
         }
         if (PublicFunc.unEmpty(type) && type.equals("ZHXDDETAIL_DDGL")) {
             result = query_ZHXDDETAIL_DDGL(result);
+        }
+        if (PublicFunc.unEmpty(type) && type.equals("KHGL_FH")) {
+            result = query_KHGL_FH(result);
         }
         json = JsonUtil.getResponseJson(result);
         onResponse(json);
@@ -665,6 +765,28 @@ public class XSGLAction extends BaseAction {
         result.setTotal(totalRows);
         result.setPage(page);
         result.setRows(JsonUtil.getKHGLInfoJSON(rows));
+        return result;
+    }
+    private Result query_KHGL_FH(Result result) {
+        String kehu_id = request.getParameter("kehu_id");
+        String lianxiren = request.getParameter("lianxiren");
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (PublicFunc.unEmpty(kehu_id)) {
+            map.put("kehu_id", kehu_id);
+        }
+        if (PublicFunc.unEmpty(lianxiren)) {
+            map.put("lianxiren", lianxiren);
+        }
+        setSearchPage(map);
+        int totalRows = xSGLService.getKHGL_FHCount(map);
+        List rows = xSGLService.findKHGL_FHByPage(page, rp, map);
+        if (rows.size() == 0 && page > 1) {
+            page -= 1;
+            rows = xSGLService.findKHGL_FHByPage(page, rp, map);
+        }
+        result.setTotal(totalRows);
+        result.setPage(page);
+        result.setRows(JsonUtil.getKHGL_FHInfoJSON(rows));
         return result;
     }
 

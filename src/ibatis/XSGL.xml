@@ -341,14 +341,13 @@
     <update  id="updateKHGLFH" parameterClass="KHGL_FH">
         update [fahuoaddress]
         <dynamic prepend="set">
-            <isNotNull property="kehu_id" prepend=",">kehu_id=#kehu_id#</isNotNull>
             <isNotNull property="fahuofangshi" prepend=",">fahuofangshi=#fahuofangshi#</isNotNull>
             <isNotNull property="lianxiren" prepend=",">lianxiren=#lianxiren#</isNotNull>
             <isNotNull property="dianhua" prepend=",">dianhua=#dianhua#</isNotNull>
             <isNotNull property="yidongdianhua" prepend=",">yidongdianhua=#yidongdianhua#</isNotNull>
             <isNotNull property="dizhi" prepend=",">dizhi=#dizhi#</isNotNull>
         </dynamic>
-        where id=#id#
+        where kehu_id=#kehu_id#
     </update>
     <select id="isExistKehuId" resultClass="java.lang.Integer"
             parameterClass="String">

@@ -78,6 +78,14 @@
          }
          return true;
      }
+     function backMenu() {
+         var f = document.createElement("form");
+         f.action = "DisPatch_getUrl?i=4&j=1";
+         f.target = "mainframe";
+         f.method = "post";
+         document.body.appendChild(f);
+         f.submit();
+     }
 </script>
 
 
@@ -145,7 +153,18 @@
         <tr>
             <td width="132" align="center" class="td1">公司地址</td>
             <td width="140" colspan="2" class="td2"><%=tmp.getAddress()%></td>
-            <td width="100" colspan="1" class="td2"><input type="button" onclick="docommit()"  value="提交订单"/></td>
+            <td width="100" colspan="1" class="td2">
+                <%
+                    if(PublicFunc.STATE_ORDER_DETAIL.equals(PublicFunc.STATE_ORDER_ZHXD) )
+                { %>
+                <input type="button" onclick="docommit()"  value="提交订单"/>
+                <input type="hidden" value="1" name="PAGEGO" id="PAGEGO" />
+                <% }else{%>
+                <input type="button" onclick="backMenu()"  value="返回"/>
+                <input type="hidden" value="2" name="PAGEGO" id="PAGEGO" />
+                <%}%>
+
+            </td>
         </tr>
     </table>
 
@@ -323,17 +342,24 @@ $("#flex1").flexigrid({
      * 删除记录
      */
     function del(url) {
+        var a = document.getElementById("PAGEGO").value;
         $.ajax({
             url : url,
             type : 'POST',
             dataType : 'json',
             success : function() {
                // $('#flex1').flexReload();
-                window.location= "DisPatch_getUrl?i=4&j=8";
+                if(a == 1)
+                    window.location= "DisPatch_getUrl?i=4&j=8";
+                else
+                    window.location= "DisPatch_getUrl?i=4&j=9";
             },
             error:function()
             {
-                window.location= "DisPatch_getUrl?i=4&j=8";
+                if(a == 1)
+                    window.location= "DisPatch_getUrl?i=4&j=8";
+                else
+                    window.location= "DisPatch_getUrl?i=4&j=9";
             }
         });
     }

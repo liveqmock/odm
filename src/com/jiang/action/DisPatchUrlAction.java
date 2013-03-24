@@ -38,7 +38,6 @@ public class DisPatchUrlAction extends ActionSupport {
     private XSGLService xsglService;
 
 	
-	
 	public String getUrl() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String x = request.getParameter("i");
@@ -53,7 +52,7 @@ public class DisPatchUrlAction extends ActionSupport {
 				{"scgyd_zjg1","scgyd_zjg1","scgyd_wjg","scrk", "zhijian", "danweigl"},
 				{"ckcx","rksq","cksq","kjgl","xsthrk"},
 				{"yddgl", "zhddgl","xsdgl","zhxd","khgl","cpckcx","cpkjapply", "xsthrk", "OrderDetail",
-                "ddgl_detail"},
+                "OrderDetail"},
 				{"zlgl_yl","zlgl_bcp","zlgl_cp"},
 				{"error","error","error","error","error","error","error"},
 				{"error"},
@@ -122,6 +121,8 @@ public class DisPatchUrlAction extends ActionSupport {
         }
         if(ii == 4 && jj ==8) //订单明细
         {
+            PublicFunc.STATE_ORDER_DETAIL = PublicFunc.STATE_ORDER_ZHXD;
+
             String ddid = "";
             if(null != request.getSession().getAttribute("orderid") )
             {
@@ -134,27 +135,34 @@ public class DisPatchUrlAction extends ActionSupport {
         }
         if(ii == 4 && jj ==9) //查看订单明细
         {
-            String ddid = request.getParameter("ddid");
-            String kehuid = request.getParameter("kehuid");
-            log.info("kehuid:"+kehuid);
-            try {
-                kehuid = new String(kehuid.getBytes("ISO8859-1"), "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+            PublicFunc.STATE_ORDER_DETAIL = PublicFunc.STATE_ORDER_ZHXDMODIFY;
+            String ddid = null;
+            String kehuid = null;
+            if(null != request.getParameter("ddid"))
+            {
+                ddid = (String)request.getParameter("ddid");
+                kehuid = (String) request.getParameter("kehuid");
+                request.getSession().setAttribute("orderid", ddid);
+                log.info("kehuid:"+kehuid);
+                try {
+                    kehuid = new String(kehuid.getBytes("ISO8859-1"), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+
+                KHGL tmp = xsglService.getKHGLByName(kehuid);
+                //得到订单ID放到SESSION里面去
+                //将客户信息放到session里面去。
+                request.getSession().setAttribute("orderDetail", tmp);
+                float totalnum = xsglService.getXSGLDingDanTotalNum(ddid);
+                float totalprice = xsglService.getXSGLDingDanTotalPrice(ddid);
+                request.getSession().setAttribute("totalnum", totalnum);
+                request.getSession().setAttribute("totalprice", totalprice);
+                log.info("ddid:"+ddid);
+                log.info("kehuid:"+ kehuid);
+                log.info("tmp:"+tmp.getKeHuname());
             }
 
-            KHGL tmp = xsglService.getKHGLByName(kehuid);
-            //得到订单ID放到SESSION里面去
-            //将客户信息放到session里面去。
-            request.getSession().setAttribute("orderid", ddid);
-            request.getSession().setAttribute("orderDetail", tmp);
-            float totalnum = xsglService.getXSGLDingDanTotalNum(ddid);
-            float totalprice = xsglService.getXSGLDingDanTotalPrice(ddid);
-            request.getSession().setAttribute("totalnum", totalnum);
-            request.getSession().setAttribute("totalprice", totalprice);
-            log.info("ddid:"+ddid);
-            log.info("kehuid:"+ kehuid);
-            log.info("tmp:"+tmp.getKeHuname());
         }
 
         if(ii == 8 && jj ==2)//系统备份
@@ -635,7 +643,8 @@ public class DisPatchUrlAction extends ActionSupport {
                 "addCGRUKU","addSCZJGRUKU","addSCWJGRUKU", "addXSTHRUKU"},
 				{ "addXTCS" },//仓库
 				{ "addXTCS" },//商品
-				{ "addKHGL_BASE", "addKHGL_FH", "addtypenums","editmishu","addCPKJAPPLY_CKCX", "addCPKJAPPLY" },//销售管理
+				{ "addKHGL_BASE", "addKHGL_FH", "addtypenums","editmishu","addCPKJAPPLY_CKCX", "addCPKJAPPLY",
+                "addshouhuoaddress"},//销售管理
 				{ "addXTCS" },//财务
 				{ "addXTCS" },//发货
 				{ "addXTCS" },

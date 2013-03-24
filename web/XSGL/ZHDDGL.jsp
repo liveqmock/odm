@@ -170,7 +170,19 @@ function gridFlash(){
 			onpress : button
 		}, {
 			separator : true
-		} ],
+		}, {
+            name : '修改收获地址',
+            bclass : 'edit',
+            onpress:  button
+        }, {
+            separator : true
+        }, {
+            name : '转化为订单',
+            bclass : 'edit',
+            onpress:  button
+        }, {
+            separator : true
+        } ],
 		/*searchitems : [   
 		    {display: '信息编号', name : 'id', isdefault: true},   
 		    {display: '信息标题', name : 'id'},   
@@ -228,12 +240,13 @@ function gridFlash(){
             } else if ($(".trSelected").length == 0) {
                 alert("请选择一个您要修改的信息");
             }
-		} else if (com == '修改') {
+		} else if (com == '修改收获地址') {
 			hidden.value = "modify";
 			if ($(".trSelected").length == 1) {
 				window.location.href = "infoAdd.jsp?hidden=" + hidden.value
 						+ "&id="
 						+ $('.trSelected', grid).find("td").eq(0).text();
+                JqueryDialog.Open('收获地址', 'DisPatch_getAddJsp?a=5&b=6', 500, 830);
 			} else if ($(".trSelected").length > 1) {
 				alert("请选择一个修改,不能同时修改多个");
 			} else if ($(".trSelected").length == 0) {

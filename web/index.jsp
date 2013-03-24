@@ -1,3 +1,4 @@
+<%@ page import="com.jiang.util.PublicFunc" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -89,9 +90,25 @@ function  pageOnLoad(){
 								<span id="dd">单 位:</span>
 							</td>
 							<td>
+                                <%
+                                    String index = "1";
+
+                                    Cookie comchoiese =
+                                            PublicFunc.getCookieByName(request,  "companychoise");
+                                    if(comchoiese != null)
+                                    {
+                                        index =  comchoiese.getValue();
+                                    }
+                                    System.out.println(index);
+                                %>
 								<select style="width: 66px" name="company" id="company">
-								<option value="1">宜纺</option><option value="0">森泰</option>
-								<option value="2">管理员</option></select>
+                                    <%
+                                        String values[] = {"森泰", "宜纺", "管理员"};
+                                        for(int i=0;i<3;i++){ %>
+								<option value="<%=i%>" <%if(Integer.valueOf(index) == i) {%> selected <%}%> class="">
+                                        <%=values[i]%> </option>
+                                   <%}%>
+                                </select>
 							</td>
 						</tr>
 						<tr>

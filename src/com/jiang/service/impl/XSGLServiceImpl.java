@@ -172,4 +172,6 @@ public class XSGLServiceImpl implements XSGLService {
     public List findXSGLDingDanmingxi_ddgl(int page, int rp, Map<String, Object> map) {
         return xSGLDao.findXSGLDingDanmingxi_ddgl(page, rp, map);
     }
+
+
 }

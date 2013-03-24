@@ -155,11 +155,13 @@
             <result name="addKHGL_FH">/XSGL/KHGL_FH_ADD.jsp</result>
 
             <result name="addtypenums">/ZHDD/AddTypeNums.jsp</result>
+            <result name="addshouhuoaddress">/XSGL/addshouhuoaddress.jsp</result>
+
             <result name="OrderDetail">/ZHDD/OrderDetail.jsp</result>
             <result name="editmishu">/ZHDD/EditMishu.jsp</result>
 
 
-            <result name="ddgl_detail">/XSGL/DDGL_Detail.jsp</result>
+            <result name="ddgl_detail">/XSGL/ZHDDGL_Detail.jsp</result>
 			
 		</action>
 
@@ -288,6 +290,8 @@
             <result name="OrderDetail">/ZHDD/OrderDetail.jsp</result>
             <result name="zhxd">/ZHDD/ZHXD.jsp</result>
             <result name="ordersuccess">/ZHDD/ordersuccess.jsp</result>
+
+            <result name="khgl_fh">/XSGL/KHGL_FH.jsp</result>
 
 		</action>
 		<action name="XTGL_dolist*" class="com.jiang.action.XTGLAction"
