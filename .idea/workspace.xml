@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b45d32f4-da1e-4170-9850-66bf35a24898" name="Default" comment="commit in home">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/CSS/images/excel.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/CSS/images/user_reset.gif" />
-      <change type="DELETED" beforePath="F:\IdeaProjects\odm\web\XSGL\AddTypeNums.jsp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ZHDD/AddTypeNums.jsp" afterPath="$PROJECT_DIR$/web/ZHDD/AddTypeNums.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/CGGLAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/CGGLAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/bean/CGGLDJGL.java" afterPath="$PROJECT_DIR$/src/com/jiang/bean/CGGLDJGL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/bean/CGTH.java" afterPath="$PROJECT_DIR$/src/com/jiang/bean/CGTH.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/CKGLAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/CKGLAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/bean/CangKu.java" afterPath="$PROJECT_DIR$/src/com/jiang/bean/CangKu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/DJGL.jsp" afterPath="$PROJECT_DIR$/web/CGGL/DJGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/JHCGDJGL.jsp" afterPath="$PROJECT_DIR$/web/CGGL/JHCGDJGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/JsonUtil.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/JsonUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/bean/KJGL.java" afterPath="$PROJECT_DIR$/src/com/jiang/bean/KJGL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/bean/RKQR.java" afterPath="$PROJECT_DIR$/src/com/jiang/bean/RKQR.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/RKSQ_CG.jsp" afterPath="$PROJECT_DIR$/web/CKGL/RKSQ_CG.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/bean/RuKuDan.java" afterPath="$PROJECT_DIR$/src/com/jiang/bean/RuKuDan.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/bean/SCRK.java" afterPath="$PROJECT_DIR$/src/com/jiang/bean/SCRK.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/util/TestDoc.java" afterPath="$PROJECT_DIR$/src/com/jiang/util/TestDoc.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/bean/XSDGL.java" afterPath="$PROJECT_DIR$/src/com/jiang/bean/XSDGL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ibatis/XSGL.xml" afterPath="$PROJECT_DIR$/src/ibatis/XSGL.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/XSGLAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/XSGLAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/dao/XSGLDao.java" afterPath="$PROJECT_DIR$/src/com/jiang/dao/XSGLDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/dao/impl/XSGLDaoImpl.java" afterPath="$PROJECT_DIR$/src/com/jiang/dao/impl/XSGLDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/service/XSGLService.java" afterPath="$PROJECT_DIR$/src/com/jiang/service/XSGLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/service/impl/XSGLServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/jiang/service/impl/XSGLServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/bean/YDDGL.java" afterPath="$PROJECT_DIR$/src/com/jiang/bean/YDDGL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp" afterPath="$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/bean/ZLGLCPZL.java" afterPath="$PROJECT_DIR$/src/com/jiang/bean/ZLGLCPZL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/addshouhuoaddress.jsp" afterPath="$PROJECT_DIR$/web/XSGL/addshouhuoaddress.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CSS/flexigrid.css" afterPath="$PROJECT_DIR$/web/CSS/flexigrid.css" />
+    <list default="true" id="b45d32f4-da1e-4170-9850-66bf35a24898" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="odm.iws" />
@@ -55,7 +24,7 @@
     <file path="/SCGLServiceImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361878902116" ignored="false" />
     <file path="/SCGLDao.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361880911573" ignored="false" />
     <file path="/BCPKJ_Apply.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357092665820" ignored="false" />
-    <file path="/Dummy.txt" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1365421214453" ignored="false" />
+    <file path="/Dummy.txt" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1365430405586" ignored="false" />
     <file path="F:/sunyard_android_bld_1.00/sdk_bld_1.00/i60api/obj/local/armeabi/objs/sunyardi60a/sunyardi60a.o.d" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356683295643" ignored="false" />
     <file path="/BCPKJ_DO.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357090690963" ignored="false" />
     <file path="/UserFilter.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361884751619" ignored="false" />
@@ -823,7 +792,11 @@
       <created>1364129473092</created>
       <updated>1364129473092</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="commit in home4.8">
+      <created>1365430483872</created>
+      <updated>1365430483872</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -847,7 +820,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1378" height="732" extended-state="0" />
+    <frame x="0" y="0" width="1378" height="732" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06944445" sideWeight="0.49085367" order="7" side_tool="false" content_ui="tabs" />
@@ -920,7 +893,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit in home" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit in home4.8" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -937,6 +910,7 @@
     <MESSAGE value="testit" />
     <MESSAGE value="commit in company" />
     <MESSAGE value="commit in home" />
+    <MESSAGE value="commit in home4.8" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />

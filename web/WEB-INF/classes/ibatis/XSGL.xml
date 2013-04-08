@@ -9,8 +9,8 @@
 		<result property="dingdan_id" column="dingdan_id" />
 		<result property="dingdan_name" column="KeHuname" />
 		<result property="pay_way" column="pay_way" />
-		<result property="fh_address" column="fh_address" />
-		<result property="fh_way" column="fh_way" />
+		<result property="fh_address" column="fh_address_1" />
+		<result property="fh_way" column="fh_way_1" />
 		<result property="finish_or_not" column="finish_or_not" />
 		<result property="zongjine" column="zongjine" />
 		<result property="kaidan_time" column="kaidan_time" />
@@ -19,6 +19,7 @@
 		<result property="yewuyuan" column="yewuyuan" />
 		<result property="beizhu" column="beizhu" />
 		<result property="zhuangtai" column="zhuangtai" />
+        <result property="fahuoaddressid" column="fahuoaddressid" />
 	</resultMap>
 	<typeAlias alias="XSDGL" type="com.jiang.bean.XSDGL" />
 	<resultMap id="xsdglResult" class="XSDGL">
@@ -90,13 +91,16 @@
      <select id="getYDDGLBypage" resultMap="yddglResult"
 		parameterClass="HashMap">
 		SELECT
-         TEMP1.id,dingdan_id,KeHuname,pay_way,fh_address,fh_way,
-		finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,yewuyuan,beizhu,zhuangtai
-		FROM(
-		SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
-		kaidan_time DESC) AS ROWID,f.*,b.KeHuname as KeHuname
-		FROM [sale_dingdan] as f,kehuziliao as b where  b.kehu_id=f.dingdan_name
-		<dynamic prepend="and">
+         TEMP1.id,dingdan_id,KeHuname,pay_way,fh_address_1,fh_way_1,
+		finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,yewuyuan,beizhu,zhuangtai,fahuoaddressid
+         FROM(
+         SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
+         kaidan_time DESC) AS ROWID,f.*,b.KeHuname as KeHuname,c.fahuofangshi as fh_way_1,c.dizhi
+         as fh_address_1
+         FROM [sale_dingdan] as f
+         left join kehuziliao as b on b.kehu_id=f.dingdan_name
+         left join  fahuoaddress as c on  f.fahuoaddressid=c.id
+         <dynamic prepend="and">
 			<isNotEmpty property="kehuname" prepend="and">
                 KeHuname like
 				'%' + #kehuname# + '%'
@@ -125,11 +129,29 @@
 		) AS TEMP1
 		WHERE ROWID >$pstart$
 	</select>
+    <select id="findYDDGLByDDID" resultClass="YDDGL"
+            parameterClass="String">
+        SELECT
+        f.id,dingdan_id,dingdan_name,pay_way,c.dizhi
+        as fh_address_1,c.fahuofangshi as fh_way_1,
+        finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,f.yewuyuan,f.beizhu,zhuangtai
+        FROM [sale_dingdan] as f
+        left join kehuziliao as b on b.kehu_id=f.dingdan_name
+        left join  fahuoaddress as c on  f.fahuoaddressid=c.id
+        and f.fahuoaddressid=c.id and dingdan_id=#DDid#
+    </select>
+
+    <update  id="updateKHGLFH_CHECK" parameterClass="Map">
+        update sale_dingdan set fahuoaddressid=#id# where dingdan_id=#ddid#
+    </update>
 	<select id="getYDDGLCount" resultClass="java.lang.Integer" 
 		parameterClass="HashMap">
-		select count(*) from
-		[sale_dingdan] as f, kehuziliao as b where b.kehu_id=f.dingdan_name
-		<dynamic prepend="and">
+        SELECT
+        count(*)
+        FROM [sale_dingdan] as f
+        left join kehuziliao as b on b.kehu_id=f.dingdan_name
+        left join  fahuoaddress as c on  f.fahuoaddressid=c.id
+        <dynamic prepend="and">
 			<isNotEmpty property="kehuname" prepend="and">
 				f.dingdan_name like
 				'%' + #kehuname# + '%'
@@ -341,14 +363,13 @@
     <update  id="updateKHGLFH" parameterClass="KHGL_FH">
         update [fahuoaddress]
         <dynamic prepend="set">
-            <isNotNull property="kehu_id" prepend=",">kehu_id=#kehu_id#</isNotNull>
             <isNotNull property="fahuofangshi" prepend=",">fahuofangshi=#fahuofangshi#</isNotNull>
             <isNotNull property="lianxiren" prepend=",">lianxiren=#lianxiren#</isNotNull>
             <isNotNull property="dianhua" prepend=",">dianhua=#dianhua#</isNotNull>
             <isNotNull property="yidongdianhua" prepend=",">yidongdianhua=#yidongdianhua#</isNotNull>
             <isNotNull property="dizhi" prepend=",">dizhi=#dizhi#</isNotNull>
         </dynamic>
-        where id=#id#
+        where kehu_id=#kehu_id#
     </update>
     <select id="isExistKehuId" resultClass="java.lang.Integer"
             parameterClass="String">
@@ -376,6 +397,22 @@
                 KeHuname like '%' + #KeHuname# + '%'
             </isNotEmpty>
         </dynamic>
+    </select>
+    <!--查询当前客户的所有收获地址 -->
+    <select id="getKHGLFHsByKehuname" resultMap="khgl_fhResult"
+            parameterClass="String">
+        SELECT
+        f.id, kehu_id,fahuofangshi, lianxiren, dianhua,yidongdianhua,dizhi
+        FROM [fahuoaddress] as f, [sale_dingdan] as b
+        where f.kehu_id=b.dingdan_name and b.dingdan_id=#kehu_id#
+    </select>
+    <!--通过订单ID查询收获地址-->
+    <select id="findKHGL_FHByDDID" resultMap="khgl_fhResult"
+            parameterClass="String">
+        SELECT
+        f.id, kehu_id,fahuofangshi, lianxiren, dianhua,yidongdianhua,dizhi
+        FROM [fahuoaddress]  as f, sale_dingdan as s
+        where s.fahuoaddressid=f.id and s.dingdan_id=#ddid#
     </select>
 
     <!--订单明细表Dingdan_mingxi_tmp -->
@@ -447,11 +484,12 @@
     <insert id="insertDDToSale"  parameterClass="YDDGL">
         insert into  sale_dingdan
        (dingdan_id,dingdan_name,pay_way,fh_address,fh_way,
-        finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,yewuyuan,beizhu,zhuangtai)
+        finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,yewuyuan,beizhu,zhuangtai,fahuoaddressid)
         values
         (
         #dingdan_id#,#dingdan_name#,#pay_way#,#fh_address#,#fh_way#,
-        #finish_or_not#,#zongjine#,#kaidan_time#,#kaidanren#,#dingjin#,#yewuyuan#,#beizhu#,#zhuangtai#
+        #finish_or_not#,#zongjine#,#kaidan_time#,#kaidanren#,#dingjin#,#yewuyuan#,#beizhu#,
+        #zhuangtai#,#fahuoaddressid#
         )
     </insert>
     <insert id="insertDDTempToDD"  parameterClass="YDDGL">

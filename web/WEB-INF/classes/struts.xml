@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
-
+  
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
@@ -155,11 +155,13 @@
             <result name="addKHGL_FH">/XSGL/KHGL_FH_ADD.jsp</result>
 
             <result name="addtypenums">/ZHDD/AddTypeNums.jsp</result>
+            <result name="addshouhuoaddress">/XSGL/addshouhuoaddress.jsp</result>
+
             <result name="OrderDetail">/ZHDD/OrderDetail.jsp</result>
             <result name="editmishu">/ZHDD/EditMishu.jsp</result>
 
 
-            <result name="ddgl_detail">/XSGL/DDGL_Detail.jsp</result>
+            <result name="ddgl_detail">/XSGL/ZHDDGL_Detail.jsp</result>
 			
 		</action>
 
@@ -288,6 +290,8 @@
             <result name="OrderDetail">/ZHDD/OrderDetail.jsp</result>
             <result name="zhxd">/ZHDD/ZHXD.jsp</result>
             <result name="ordersuccess">/ZHDD/ordersuccess.jsp</result>
+
+            <result name="khgl_fh">/XSGL/KHGL_FH.jsp</result>
 
 		</action>
 		<action name="XTGL_dolist*" class="com.jiang.action.XTGLAction"
