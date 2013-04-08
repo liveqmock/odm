@@ -2,6 +2,7 @@ package com.jiang.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -213,7 +214,7 @@ public class TestDoc {
 	public static void main(String[] args) {
 		CGGLDJGL dj = new CGGLDJGL();
 		dj.setCaigou_id("CG201212129999");
-		dj.setCG_totalnum((long) 100);
+		dj.setCG_totalnum(new BigDecimal(100f));
 		dj.setGongyingshangid(12);
 		dj.setJiaohuo_time(new Date());
 		dj.setGyspinming("品名");

@@ -12,6 +12,7 @@ public interface XSGLService {
 
 	public int getYDDGLCount(Map<String, Object> map);
 	public List  findYDDGLByPage(int page, int rp, Map<String, Object> map);
+    YDDGL findYDDGLByDDID(String id);
 	public boolean deleteYDDGLById(List list);
 	
 	public int getXSDGLCount(Map<String, Object> map);
@@ -31,6 +32,7 @@ public interface XSGLService {
     public List findKHGL_FHByPage(int page, int rp, Map<String,Object> map);
     public void updateKHGLFH(KHGL_FH yl);
     public KHGL_FH getKHGLFHById(Integer integer);
+    public List<KHGL_FH> getKHGLFHsByKehuname(String kehuname);
     public void insertKHGLFH(KHGL_FH yl);
     public void deleteKHGLFHById(List<String> strings);
     public boolean isExistKehuId(String kehu_id);
@@ -71,4 +73,7 @@ public interface XSGLService {
 
     List findXSGLDingDanmingxi_ddgl(int page, int rp, Map<String,Object> map);
 
+    List findKHGL_FHByDDID(String kehu_id);
+
+    void updateKHGLFH_CHECK(String ddid, String id);
 }

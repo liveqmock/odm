@@ -10,6 +10,7 @@
 <script type="text/javascript" language="javascript"
 	src="js/jquery-fn-tab.js"></script>
 <script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="js/jquery_dialog.js"></script>
 <script type="text/javascript" src="js/jquery.corners.min.js"></script>
 <script type="text/javascript" src="js/flexigrid.js"></script>
 <script language="javascript" type="text/javascript"
@@ -21,6 +22,9 @@
 
 <link type="text/css" rel="stylesheet" href="CSS/table.css" />
 <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
+
+
+<link rel="stylesheet" href="CSS/jquery_dialog.css" type="text/css"/>
 </head>
 <body>
 	<div>
@@ -243,10 +247,8 @@ function gridFlash(){
 		} else if (com == '修改收获地址') {
 			hidden.value = "modify";
 			if ($(".trSelected").length == 1) {
-				window.location.href = "infoAdd.jsp?hidden=" + hidden.value
-						+ "&id="
-						+ $('.trSelected', grid).find("td").eq(0).text();
-                JqueryDialog.Open('收获地址', 'DisPatch_getAddJsp?a=5&b=6', 500, 830);
+                JqueryDialog.Open('收获地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
+                        + $('.trSelected', grid).find("td").eq(1).text(), 800, 330);
 			} else if ($(".trSelected").length > 1) {
 				alert("请选择一个修改,不能同时修改多个");
 			} else if ($(".trSelected").length == 0) {

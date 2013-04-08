@@ -88,4 +88,11 @@ public interface XSGLDao {
 
     List findXSGLDingDanmingxi_ddgl(int page, int rp, Map<String,Object> map);
 
+    List<KHGL_FH> getKHGLFHsByKehuname(String kehuname);
+
+    YDDGL findYDDGLByDDID(String id);
+
+    List findKHGL_FHByDDID(String kehu_id);
+
+    void updateKHGLFH_CHECK(String ddid, String id);
 }

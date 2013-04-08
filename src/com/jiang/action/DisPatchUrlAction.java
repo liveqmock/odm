@@ -660,7 +660,7 @@ public class DisPatchUrlAction extends ActionSupport {
         {
             CangKu  bcp = ckglService.findChangKuById(Integer.valueOf(id));
             request.getSession().setAttribute("bcpbupi", bcp);
-            if(bcp!=null && bcp.getKJ_num() != null && bcp.getKJ_num() > 0)
+            if(bcp!=null && bcp.getKJ_num() != null && bcp.getKJ_num().intValue() > 0)
             {
                 request.setAttribute("bcpkjckcxerror", "此布匹处于被开剪状态");
                 return "addBCPKJAPPLY_CKCX";
@@ -674,12 +674,23 @@ public class DisPatchUrlAction extends ActionSupport {
         {
             CangKu  bcp = ckglService.findChangKuById(Integer.valueOf(id));
             request.getSession().setAttribute("bcpbupi", bcp);
-            if(bcp!=null && bcp.getKJ_num() != null && bcp.getKJ_num() > 0)
+            if(bcp!=null && bcp.getKJ_num() != null && bcp.getKJ_num().intValue() > 0)
             {
                 request.setAttribute("bcpkjckcxerror", "此布匹处于被开剪状态");
                 return "addCPKJAPPLY_CKCX";
             }
         }
+    }
+    if("5".equals(a) && "6".equals(b))//设置收货地址
+    {
+        //通过订单ID获取客户ID。
+        String id = request.getParameter("dingdanid");
+        YDDGL ydd = xsglService.findYDDGLByDDID(id);
+        String kehuid= ydd.getDingdan_name();
+        if(PublicFunc.unEmpty(kehuid))
+            request.getSession().setAttribute("kehuid",kehuid);
+        if(PublicFunc.unEmpty(id))
+            request.getSession().setAttribute("ddid",id);
     }
     if("2".equals(a) && "5".equals(b))//采购质检
     {

@@ -1,14 +1,15 @@
 package com.jiang.bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class SCRK   implements Serializable {
 	private int id;//序号
 	private String gongyidan_id;//采购订单号
 	private String bupi_id;//条形码
-	private Float price;//单价
-	private Float mishu; //米数
+	private BigDecimal price;//单价
+	private BigDecimal mishu; //米数
 	private String gongyingname;//供应商
 	private String apply_man;//申请人
 	private Date apply_time;//申请时间
@@ -49,19 +50,19 @@ public class SCRK   implements Serializable {
         this.bupi_id = bupi_id;
     }
 
-    public Float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
-    public Float getMishu() {
+    public BigDecimal getMishu() {
         return mishu;
     }
 
-    public void setMishu(Float mishu) {
+    public void setMishu(BigDecimal mishu) {
         this.mishu = mishu;
     }
 

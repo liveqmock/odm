@@ -1,5 +1,6 @@
 package com.jiang.bean;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -9,9 +10,9 @@ public class CangKu implements java.io.Serializable{
 	private String bupi_id;
 	private String ckname;
 	private String bptype;
-	private Float num;
-	private Float KJ_num;
-	private Float KY_num;
+	private BigDecimal num;
+	private BigDecimal KJ_num;
+	private BigDecimal KY_num;
 	private String type_num;
 	private Date inck_time;
 	private String inck_man;
@@ -47,22 +48,22 @@ public class CangKu implements java.io.Serializable{
 	public void setBptype(String bptype) {
 		this.bptype = bptype;
 	}
-	public Float getNum() {
+	public BigDecimal getNum() {
 		return num;
 	}
-	public void setNum(Float num) {
+	public void setNum(BigDecimal num) {
 		this.num = num;
 	}
-	public Float getKJ_num() {
+	public BigDecimal getKJ_num() {
 		return KJ_num;
 	}
-	public void setKJ_num(Float kJ_num) {
+	public void setKJ_num(BigDecimal kJ_num) {
 		KJ_num = kJ_num;
 	}
-	public Float getKY_num() {
+	public BigDecimal getKY_num() {
 		return KY_num;
 	}
-	public void setKY_num(Float kY_num) {
+	public void setKY_num(BigDecimal kY_num) {
 		KY_num = kY_num;
 	}
 	public String getType_num() {

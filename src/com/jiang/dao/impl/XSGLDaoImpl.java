@@ -270,5 +270,27 @@ public class XSGLDaoImpl extends SqlMapClientDaoSupport implements XSGLDao {
         return list;
     }
 
+    public List<KHGL_FH> getKHGLFHsByKehuname(String kehu_id) {
+        return getSqlMapClientTemplate().queryForList("XSGL.getKHGLFHsByKehuname", kehu_id);
+    }
+
+    public YDDGL findYDDGLByDDID(String DDid) {
+        return (YDDGL) getSqlMapClientTemplate().queryForObject("XSGL.findYDDGLByDDID", DDid);
+    }
+
+    public List findKHGL_FHByDDID(String ddid) {
+        List<KHGL_FH> list = new ArrayList<KHGL_FH>();
+        list = getSqlMapClientTemplate()
+                .queryForList("XSGL.findKHGL_FHByDDID", ddid);
+        return list;
+    }
+
+    public void updateKHGLFH_CHECK(String ddid, String id) {
+        Map<String, Object> map= new HashMap<String, Object>();
+        map.put("ddid", ddid);
+        map.put("id", Integer.valueOf(id));
+        getSqlMapClientTemplate().update("XSGL.updateKHGLFH_CHECK", map);
+    }
+
 
 }

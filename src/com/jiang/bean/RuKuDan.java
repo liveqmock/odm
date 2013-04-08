@@ -1,6 +1,7 @@
 package com.jiang.bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -17,7 +18,7 @@ public class RuKuDan   implements Serializable {
     private Date inck_time;
     private String ruku_leixing;
     private String mudidanhao;
-    private Float num;
+    private BigDecimal num;
     private String type_num;
     private String zhijian_id;
 
@@ -61,11 +62,11 @@ public class RuKuDan   implements Serializable {
         this.mudidanhao = mudidanhao;
     }
 
-    public Float getNum() {
+    public BigDecimal getNum() {
         return num;
     }
 
-    public void setNum(Float num) {
+    public void setNum(BigDecimal num) {
         this.num = num;
     }
 

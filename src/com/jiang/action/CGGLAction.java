@@ -1,5 +1,6 @@
 package com.jiang.action;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -673,7 +674,7 @@ public class CGGLAction extends BaseAction {
             yl.setTuiHuo_Id(tuihuoid);
         }
         if (PublicFunc.unEmpty(danjia)) {
-            yl.setTuiHuoDanJia(Float.valueOf(danjia));
+            yl.setTuiHuoDanJia(new BigDecimal(danjia));
         }
         if (PublicFunc.unEmpty(shenqr)) {
             yl.setApply_Man(shenqr);
@@ -751,19 +752,19 @@ public class CGGLAction extends BaseAction {
             yl.setPinming(pinming);
         }
         if (PublicFunc.unEmpty(lingsj)) {
-            yl.setLingjianjia(Float.valueOf(lingsj));
+            yl.setLingjianjia(new BigDecimal(lingsj));
         }
         if (PublicFunc.unEmpty(zhengqj)) {
-            yl.setZhengjuanjia(Float.valueOf(zhengqj));
+            yl.setZhengjuanjia(new BigDecimal(zhengqj));
         }
         if (PublicFunc.unEmpty(sanbmj)) {
-            yl.setBaimijia(Float.valueOf(sanbmj));
+            yl.setBaimijia(new BigDecimal(sanbmj));
         }
         if (PublicFunc.unEmpty(pifajia)) {
-            yl.setPifajia(Float.valueOf(pifajia));
+            yl.setPifajia(new BigDecimal(pifajia));
         }
         if (PublicFunc.unEmpty(zidingyijia)) {
-            yl.setZidingyijia(Float.valueOf(zidingyijia));
+            yl.setZidingyijia(new BigDecimal(zidingyijia));
         }
         if (PublicFunc.unEmpty(danwei)) {
             yl.setDanwei(danwei);
@@ -1044,7 +1045,7 @@ public class CGGLAction extends BaseAction {
             }
         }
         if (PublicFunc.unEmpty(totalnum) ) {
-            djgl.setCG_totalnum(Long.valueOf(totalnum));
+            djgl.setCG_totalnum(new BigDecimal(totalnum));
         }
         if (PublicFunc.unEmpty(jiaohuoText) ) {
             djgl.setJiaohuo_time(PublicFunc.paseStringToDate(jiaohuoText));
@@ -1340,7 +1341,7 @@ public class CGGLAction extends BaseAction {
             yl.setTuiHuo_Id(tuihuoid);
         }
         if (PublicFunc.unEmpty(danjia)) {
-            yl.setTuiHuoDanJia(Float.valueOf(danjia));
+            yl.setTuiHuoDanJia(new BigDecimal(danjia));
         }
         if (PublicFunc.unEmpty(shenqr)) {
             yl.setApply_Man(shenqr);
@@ -1421,19 +1422,19 @@ public class CGGLAction extends BaseAction {
             yl.setPinming(pinming);
         }
         if (PublicFunc.unEmpty(lingsj)) {
-            yl.setLingjianjia(Float.valueOf(lingsj));
+            yl.setLingjianjia(new BigDecimal(lingsj));
         }
         if (PublicFunc.unEmpty(zhengqj)) {
-            yl.setZhengjuanjia(Float.valueOf(zhengqj));
+            yl.setZhengjuanjia(new BigDecimal(zhengqj));
         }
         if (PublicFunc.unEmpty(sanbmj)) {
-            yl.setBaimijia(Float.valueOf(sanbmj));
+            yl.setBaimijia(new BigDecimal(sanbmj));
         }
         if (PublicFunc.unEmpty(pifajia)) {
-            yl.setPifajia(Float.valueOf(pifajia));
+            yl.setPifajia(new BigDecimal(pifajia));
         }
         if (PublicFunc.unEmpty(zidingyijia)) {
-            yl.setZidingyijia(Float.valueOf(zidingyijia));
+            yl.setZidingyijia(new BigDecimal(zidingyijia));
         }
         if (PublicFunc.unEmpty(danwei)) {
             yl.setDanwei(danwei);
@@ -1656,7 +1657,7 @@ public class CGGLAction extends BaseAction {
             }
         }
         if (PublicFunc.unEmpty(totalnum) ) {
-            djgl.setCG_totalnum(Long.valueOf(totalnum));
+            djgl.setCG_totalnum(new BigDecimal(totalnum));
         }
         if (PublicFunc.unEmpty(jiaohuoText) ) {
             djgl.setJiaohuo_time(PublicFunc.paseStringToDate(jiaohuoText));

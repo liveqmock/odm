@@ -17,10 +17,10 @@
 <script language="javascript" type="text/javascript"
 	src="My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="js/ChangeImageJS.js"></script>
-<link rel="stylesheet" href="CSS/flexigrid.css" type="text/css"></link>
-<link rel="stylesheet" href="CSS/jquery_dialog.css" type="text/css"></link>
-<link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"></link>
-<link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"></link>
+<link rel="stylesheet" href="CSS/flexigrid.css" type="text/css"/>
+<link rel="stylesheet" href="CSS/jquery_dialog.css" type="text/css"/>
+<link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"/>
+<link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"/>
 
 <link type="text/css" rel="stylesheet" href="CSS/table.css" />
 <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
@@ -106,7 +106,7 @@
 			style="border: #b9c2d3 solid 1px; top: 0px">
 			<tr>
 				<td width="132" align="center" class="td1">型号</td>
-				<td width="140" class="td2"><input type="text" name="type_num" id="type_num"></input>
+				<td width="140" class="td2"><input type="text" name="type_num" id="type_num"/>
 				</td>
 				<td width="132" align="center" class="td1">状态</td>
 				<td width="140" class=""><select name="zhuangtai"

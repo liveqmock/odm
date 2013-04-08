@@ -1,6 +1,7 @@
 package com.jiang.bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class YDDGL   implements Serializable {
@@ -14,11 +15,21 @@ public class YDDGL   implements Serializable {
 	private String zongjine;
 	private Date kaidan_time;
 	private String kaidanren;
-	private Float dingjin;
+	private BigDecimal dingjin;
 	private String yewuyuan;
 	private String beizhu;
 	private String zhuangtai;
-	public String getZhuangtai() {
+    private Integer fahuoaddressid;
+
+    public Integer getFahuoaddressid() {
+        return fahuoaddressid;
+    }
+
+    public void setFahuoaddressid(Integer fahuoaddressid) {
+        this.fahuoaddressid = fahuoaddressid;
+    }
+
+    public String getZhuangtai() {
 		return zhuangtai;
 	}
 	public void setZhuangtai(String zhuangtai) {
@@ -84,10 +95,10 @@ public class YDDGL   implements Serializable {
 	public void setKaidanren(String kaidanren) {
 		this.kaidanren = kaidanren;
 	}
-	public Float getDingjin() {
+	public BigDecimal getDingjin() {
 		return dingjin;
 	}
-	public void setDingjin(Float dingjin) {
+	public void setDingjin(BigDecimal dingjin) {
 		this.dingjin = dingjin;
 	}
 	public String getYewuyuan() {

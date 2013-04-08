@@ -1,6 +1,7 @@
 package com.jiang.bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class ZLGLCPZL   implements Serializable {
 	private Integer id;//	int4	否	序号
@@ -13,11 +14,11 @@ public class ZLGLCPZL   implements Serializable {
 	private String xiaxian;//	nvarchar50	是	下限
 	private String guige;//	nvarchar100	是	规格
 	private String beizhu;//	nvarchar250	是	备注
-	private Float zhengjuanjia;//	numeric9	是	整卷价
-	private Float lingjianjia;//	numeric9	是	零剪价
-	private Float baimijia;//	numeric9	是	300米价
-	private Float pifajia;//	numeric9	是	批发价
-	private Float zidingyijia;//	numeric9	是	自定义价
+	private BigDecimal zhengjuanjia;//	numeric9	是	整卷价
+	private BigDecimal lingjianjia;//	numeric9	是	零剪价
+	private BigDecimal baimijia;//	numeric9	是	300米价
+	private BigDecimal pifajia;//	numeric9	是	批发价
+	private BigDecimal zidingyijia;//	numeric9	是	自定义价
 	private String chengfen;//	nvarchar100	是	成分
 	private String weigh;//	nvarchar50	是	克重
 	private String SP_huawei;//	nvarchar100	是	水平花位
@@ -103,34 +104,34 @@ public class ZLGLCPZL   implements Serializable {
 	public void setBeizhu(String beizhu) {
 		this.beizhu = beizhu;
 	}
-	public Float getZhengjuanjia() {
+	public BigDecimal getZhengjuanjia() {
 		return zhengjuanjia;
 	}
-	public void setZhengjuanjia(Float zhengjuanjia) {
+	public void setZhengjuanjia(BigDecimal zhengjuanjia) {
 		this.zhengjuanjia = zhengjuanjia;
 	}
-	public Float getLingjianjia() {
+	public BigDecimal getLingjianjia() {
 		return lingjianjia;
 	}
-	public void setLingjianjia(Float lingjianjia) {
+	public void setLingjianjia(BigDecimal lingjianjia) {
 		this.lingjianjia = lingjianjia;
 	}
-	public Float getBaimijia() {
+	public BigDecimal getBaimijia() {
 		return baimijia;
 	}
-	public void setBaimijia(Float baimijia) {
+	public void setBaimijia(BigDecimal baimijia) {
 		this.baimijia = baimijia;
 	}
-	public Float getPifajia() {
+	public BigDecimal getPifajia() {
 		return pifajia;
 	}
-	public void setPifajia(Float pifajia) {
+	public void setPifajia(BigDecimal pifajia) {
 		this.pifajia = pifajia;
 	}
-	public Float getZidingyijia() {
+	public BigDecimal getZidingyijia() {
 		return zidingyijia;
 	}
-	public void setZidingyijia(Float zidingyijia) {
+	public void setZidingyijia(BigDecimal zidingyijia) {
 		this.zidingyijia = zidingyijia;
 	}
 	public String getChengfen() {

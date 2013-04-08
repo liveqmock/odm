@@ -1,6 +1,7 @@
 package com.jiang.bean;
  
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class CGGLDJGL  implements Serializable {
@@ -8,7 +9,7 @@ public class CGGLDJGL  implements Serializable {
 	private int id;
 	private String caigou_id;
 	private String type_num;
-	private Long CG_totalnum;
+	private BigDecimal CG_totalnum;
 	private Date jiaohuo_time;
 	private String userName;
 	private Date xiadan_time;
@@ -59,11 +60,11 @@ public class CGGLDJGL  implements Serializable {
 		this.type_num = type_num;
 	}
 
-	public Long getCG_totalnum() {
+	public BigDecimal getCG_totalnum() {
 		return CG_totalnum;
 	}
 
-	public void setCG_totalnum(Long cG_totalnum) {
+	public void setCG_totalnum(BigDecimal cG_totalnum) {
 		CG_totalnum = cG_totalnum;
 	}
 

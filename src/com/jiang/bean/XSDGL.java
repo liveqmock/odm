@@ -1,6 +1,7 @@
 package com.jiang.bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class XSDGL   implements Serializable {
@@ -9,7 +10,7 @@ public class XSDGL   implements Serializable {
 	private String dingdan_id;
 	private Integer mingxi_id;
 	private String type_num;
-	private Float mishu;
+	private BigDecimal mishu;
 	private String apply_man;
 	private Date apply_time;
 	private String queren_man;
@@ -45,10 +46,10 @@ public class XSDGL   implements Serializable {
 	public void setType_num(String type_num) {
 		this.type_num = type_num;
 	}
-	public Float getMishu() {
+	public BigDecimal getMishu() {
 		return mishu;
 	}
-	public void setMishu(Float mishu) {
+	public void setMishu(BigDecimal mishu) {
 		this.mishu = mishu;
 	}
 	public String getApply_man() {

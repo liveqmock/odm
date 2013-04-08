@@ -1,6 +1,7 @@
 package com.jiang.bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class KJGL   implements Serializable {
@@ -9,8 +10,8 @@ public class KJGL   implements Serializable {
 	private Date kaijian_time;
 	private String type_num;
 	private String tiaoxingma;
-	private Float yuanmishu;
-	private Float mishu;
+	private BigDecimal yuanmishu;
+	private BigDecimal mishu;
 	private Integer shunhao_id;
 	private String his_Tiaoxingma;
 	private String zhijian_reasult;
@@ -50,16 +51,16 @@ public class KJGL   implements Serializable {
 	public void setTiaoxingma(String tiaoxingma) {
 		this.tiaoxingma = tiaoxingma;
 	}
-	public Float getYuanmishu() {
+	public BigDecimal getYuanmishu() {
 		return yuanmishu;
 	}
-	public void setYuanmishu(Float yuanmishu) {
+	public void setYuanmishu(BigDecimal yuanmishu) {
 		this.yuanmishu = yuanmishu;
 	}
-	public Float getMishu() {
+	public BigDecimal getMishu() {
 		return mishu;
 	}
-	public void setMishu(Float mishu) {
+	public void setMishu(BigDecimal mishu) {
 		this.mishu = mishu;
 	}
 	public Integer getShunhao_id() {

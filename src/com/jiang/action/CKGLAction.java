@@ -1,6 +1,7 @@
 package com.jiang.action;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -93,10 +94,10 @@ public class CKGLAction extends BaseAction {
         RKQR rkrq = new RKQR();
 
         if (PublicFunc.unEmpty(mishu)) {
-            rkrq.setMishu(Float.valueOf(mishu));
+            rkrq.setMishu(new BigDecimal(mishu));
         }
         if (PublicFunc.unEmpty(price)) {
-            rkrq.setPrice(Float.valueOf(price));
+            rkrq.setPrice(new BigDecimal(price));
         }
         if (PublicFunc.unEmpty(cgid)) {
             rkrq.setCaigou_id(cgid);
@@ -240,7 +241,7 @@ public class CKGLAction extends BaseAction {
                 rkd.setRuku_leixing(PublicFunc.RK_TYPE_CG);
                 rkd.setMudidanhao(dj.getCaigou_id());
                 rkd.setType_num(dj.getType_num());
-                rkd.setNum(Float.valueOf(dj.getCG_totalnum()));
+                rkd.setNum(dj.getCG_totalnum());
                 String olddanhao = ckGLService.getRuKuDanIDByMudiID(pingzhengnum);
                 if(olddanhao == null)
                 {

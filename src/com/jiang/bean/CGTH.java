@@ -1,13 +1,14 @@
 package com.jiang.bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class CGTH  implements Serializable {
 	private int id;
 	private String TuiHuo_Id;//退货单号
 	private String CaiGou_Id;//采购单号
-	private float TuiHuoDanJia;//退货单价
+	private BigDecimal TuiHuoDanJia;//退货单价
 	private String Reason;//退货理由
 	private String Apply_Man;//退货申请人
 	private Date Apply_Time;//退货申请时间
@@ -32,10 +33,10 @@ public class CGTH  implements Serializable {
 	public void setCaiGou_Id(String caiGou_Id) {
 		CaiGou_Id = caiGou_Id;
 	}
-	public float getTuiHuoDanJia() {
+	public BigDecimal getTuiHuoDanJia() {
 		return TuiHuoDanJia;
 	}
-	public void setTuiHuoDanJia(float tuiHuoDanJia) {
+	public void setTuiHuoDanJia(BigDecimal tuiHuoDanJia) {
 		TuiHuoDanJia = tuiHuoDanJia;
 	}
 	public String getReason() {

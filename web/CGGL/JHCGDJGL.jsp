@@ -14,10 +14,10 @@
 <script type="text/javascript" src="js/jquery_dialog.js"></script>
 <script type="text/javascript" src="js/jquery.corners.min.js"></script>
 <script type="text/javascript" src="js/flexigrid.js"></script>
+<link rel="stylesheet" href="CSS/flexigrid.css" type="text/css" />
 <script language="javascript" type="text/javascript"
 	src="My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="js/ChangeImageJS.js"></script>
-<link rel="stylesheet" href="CSS/flexigrid.css" type="text/css/"/>
 <link rel="stylesheet" href="CSS/jquery_dialog.css" type="text/css"/>
 <link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"/>
 <link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"/>
@@ -65,6 +65,7 @@
 	}
 
 %>
+
 
 </head>
 <body>
@@ -162,7 +163,6 @@ function gridFlash(){
 	                                  ]}).flexReload();
 }
 	$("#flex1").flexigrid({
-
 		url : 'CGGL_dolist?hidden=manage&type=DJGL',
 		dataType : 'json',
 		colModel : [ {

@@ -25,22 +25,31 @@
 <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
 
 <script>
+    function checkFloat(vv, val)
+    {
+        if(isNaN(val))
+        {
+            vv.value=vv.value.substr(0, vv.value.length-1);
+            return false;
+        }
+        return true;
+    }
+
   function add()
   {
       var ui1 = document.getElementById("mishu");
       var zongmishu = document.getElementById("zongmishu");
       var nums = document.getElementById("nums");
       var a1 = parseInt(ui1.value)+parseInt(nums.value);
-      var a2 = parseInt(zongmishu.value);
-
+      var a2 = parseInt(zongmishu.value*1.2);
         if(a1 > a2)
         {
-            alert("超过总米数");
+            alert("已超过总米数20%，请重新下单。");
             return;
         }
 		var price = document.getElementById("price");
 		var danhao = document.getElementById("danhao");
-		if(ui1.value == "" || ui1.value == "0")
+		if(ui1.value == "" || ui1.value == "0" || parseFloat(ui1.value) < 0.1)
 		{
 			alert("米数不能为0或空");
 			return false;
@@ -182,7 +191,7 @@ if(null != session.getAttribute("cgdid"))
 				 	<td width="122" align="center" class=""><input type=button value="刷新条码"  onclick="location=location" /></td>
 				 
 				<td width="122" align="center" class="td1">米数：</td>
-				<td width="120" class=""><input type="text" name="mishu" id="mishu"  onkeyup="value=value.replace(/[^\d]/g,'')"/></td>
+				<td width="120" class=""><input type="text" name="mishu" id="mishu"  onkeyup="return checkFloat(this,value)"  /></td>
 				<td width="122" align="center" class=""></td>
 				<td><input type=button value="继续添加" onclick="add()" /></td>
 			</tr>

@@ -88,6 +88,9 @@ public class XSGLAction extends BaseAction {
         if (PublicFunc.unEmpty(type) && type.equals("KHGL_FH")) {
             return modify_KHGL_FH();
         }
+        if (PublicFunc.unEmpty(type) && type.equals("KHGL_FH_CHECK")) {
+            return modify_KHGL_FH_CHECK();
+        }
         return SUCCESS;
     }
 
@@ -253,7 +256,20 @@ public class XSGLAction extends BaseAction {
             return "KHGL";
         }
         return SUCCESS;
+}
+    private String modify_KHGL_FH_CHECK(){
+        String id = request.getParameter("id");
+        String ddid = "";
+        if(null != request.getSession().getAttribute("ddid"))
+        {
+            ddid = (String) request.getSession().getAttribute("ddid");
+        }
+        if (PublicFunc.unEmpty(id) && PublicFunc.unEmpty(ddid)) {
+            xSGLService.updateKHGLFH_CHECK(ddid, id);
+        }
+        return SUCCESS;
     }
+
     private String modify_KHGL_FH(){
         String kehu_id = request.getParameter("kehu_id");
         String lianxiren = request.getParameter("lianxiren");
@@ -371,7 +387,7 @@ public class XSGLAction extends BaseAction {
         }
         if(PublicFunc.unEmpty(ydjin))
         {
-            ydd.setDingjin(Float.valueOf(ydjin));
+            ydd.setDingjin(new BigDecimal(ydjin));
         }
         if(PublicFunc.unEmpty(yewuyuan))
         {
@@ -630,6 +646,10 @@ public class XSGLAction extends BaseAction {
         if (PublicFunc.unEmpty(type) && type.equals("KHGL_FH")) {
             result = query_KHGL_FH(result);
         }
+        if (PublicFunc.unEmpty(type) && type.equals("KHGL_FH_CHECK")) {
+            result = query_KHGL_FH_CHECK(result);
+        }
+
         json = JsonUtil.getResponseJson(result);
         onResponse(json);
     }
@@ -767,9 +787,33 @@ public class XSGLAction extends BaseAction {
         result.setRows(JsonUtil.getKHGLInfoJSON(rows));
         return result;
     }
+    private Result query_KHGL_FH_CHECK(Result result) {
+        String kehu_id = "";
+       if(null != request.getSession().getAttribute("ddid"))
+       {
+           kehu_id = (String) request.getSession().getAttribute("ddid");
+       }
+        List rows = xSGLService.findKHGL_FHByDDID(kehu_id);
+        result.setTotal(rows.size());
+        result.setPage(page);
+        result.setRows(JsonUtil.getKHGL_FHInfoJSON(rows));
+        return result;
+    }
+
     private Result query_KHGL_FH(Result result) {
         String kehu_id = request.getParameter("kehu_id");
         String lianxiren = request.getParameter("lianxiren");
+        log.info("before kehu_id:"+kehu_id);
+        if(!PublicFunc.unEmpty(kehu_id))
+        {
+             if(null != request.getSession().getAttribute("kehuid"))
+             {
+                 kehu_id = (String) request.getSession().getAttribute("kehuid");
+                 request.getSession().removeAttribute("kehuid");
+                 log.info("session 's kehu_id:"+kehu_id);
+             }
+        }
+        log.info("getover kehu_id:"+kehu_id);
         Map<String, Object> map = new HashMap<String, Object>();
         if (PublicFunc.unEmpty(kehu_id)) {
             map.put("kehu_id", kehu_id);

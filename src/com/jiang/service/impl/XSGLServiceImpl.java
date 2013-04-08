@@ -29,8 +29,12 @@ public class XSGLServiceImpl implements XSGLService {
 		return xSGLDao.queryYDDGLBypage(page, rp, map);
 	}
 
+    public YDDGL findYDDGLByDDID(String id) {
+        return xSGLDao.findYDDGLByDDID(id);
+    }
 
-	public boolean deleteYDDGLById(List list) {
+
+    public boolean deleteYDDGLById(List list) {
 		return xSGLDao.deleteYDDGLById(list);
 	}
 
@@ -104,6 +108,11 @@ public class XSGLServiceImpl implements XSGLService {
         return xSGLDao.getKHGLFHById(integer);
     }
 
+    public List<KHGL_FH> getKHGLFHsByKehuname(String kehuname) {
+
+        return xSGLDao.getKHGLFHsByKehuname(kehuname);
+    }
+
     public void insertKHGLFH(KHGL_FH yl) {
         xSGLDao.insertKHGLFH(yl);
     }
@@ -171,6 +180,14 @@ public class XSGLServiceImpl implements XSGLService {
 
     public List findXSGLDingDanmingxi_ddgl(int page, int rp, Map<String, Object> map) {
         return xSGLDao.findXSGLDingDanmingxi_ddgl(page, rp, map);
+    }
+
+    public List findKHGL_FHByDDID(String kehu_id) {
+        return xSGLDao.findKHGL_FHByDDID(kehu_id);
+    }
+
+    public void updateKHGLFH_CHECK(String ddid, String id) {
+        xSGLDao.updateKHGLFH_CHECK(ddid,id);
     }
 
 

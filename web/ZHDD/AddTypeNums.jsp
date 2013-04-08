@@ -44,8 +44,8 @@
         function Ok(){
             //回调函数
             var gt = document.getElementById("JiaGeDDL").value;
-           var t_tiaoma= document.getElementById("huohao2").value.trim();
-           var MiShuText =   document.getElementById("MiShuText").value.trim();
+            var t_tiaoma= document.getElementById("huohao2").value.trim();
+            var MiShuText =   document.getElementById("MiShuText").value.trim();
             var DanJiaText =   document.getElementsByName("DanJiaText")[gt-1].value.trim();
             var BeiZhuText =  document.getElementById("BeiZhuText").value;
             if(t_tiaoma.length < 2)
