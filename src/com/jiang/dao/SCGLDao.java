@@ -201,4 +201,6 @@ public interface SCGLDao {
     boolean checkCPKJAPPLYUniqueness(BCPKJ_Apply zjg);
 
     boolean insertCPKJAPPLY(BCPKJ_Apply zjg);
+
+    void changeStateZJ_CG_BTG(Map<String,Object> map);
 }

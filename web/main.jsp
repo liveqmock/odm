@@ -362,7 +362,7 @@ response.setDateHeader("Expires", 0);
 						 &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
 						  &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
 						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Copyright @ 1998 - 2012
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Copyright @ 1998 - 2013
 						yifangbuyi. All Rights Reserved.&nbsp; &nbsp;<%if(user !=null && user.getCompany() != null && user.getCompany().contains("0")){ %>森泰布艺<%}else{ %>宜纺布艺<%} %> &nbsp; &nbsp;
 						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 						&nbsp;

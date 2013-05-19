@@ -205,15 +205,18 @@ public class SCGLAction extends BaseAction {
         if (PublicFunc.unEmpty(type) && type.equals("ZHIJIAN_CG")) {
             return modifyZHIJIAN_CG(type);
         }
+        if (PublicFunc.unEmpty(type) && type.equals("ZHIJIAN_CG_BTG")) {
+            return modifyZHIJIAN_CG_BTG(type);
+        }
 
         return SUCCESS;
 
     }
-
-    private String modifyZHIJIAN_CG(String type) {
+    private String modifyZHIJIAN_CG_BTG(String type) {
         String bptiaoma  = request.getParameter("bptiaoma");
         String shijimishu  = request.getParameter("shijimishu");
         String beizhu  = request.getParameter("beizhu");
+        String pinzhi  = request.getParameter("pinzhi");
         String cgdid  = (String) request.getSession().getAttribute("cgdid");
         Map<String, Object> map = new HashMap<String, Object>();
         try {
@@ -224,6 +227,28 @@ public class SCGLAction extends BaseAction {
         map.put("bptiaoma", bptiaoma);
         map.put("shijimishu", shijimishu);
         map.put("beizhu", beizhu);
+        map.put("pinzhi", pinzhi);
+        sCGLService.changeStateZJ_CG_BTG(map);
+        int zjcount = ckgLService.getZHIJIANCountByCGID(cgdid);
+        request.getSession().setAttribute("zhijiancount", zjcount+"");
+        return "addCGZHIJIAN";
+    }
+    private String modifyZHIJIAN_CG(String type) {
+        String bptiaoma  = request.getParameter("bptiaoma");
+        String shijimishu  = request.getParameter("shijimishu");
+        String beizhu  = request.getParameter("beizhu");
+        String pinzhi  = request.getParameter("pinzhi");
+        String cgdid  = (String) request.getSession().getAttribute("cgdid");
+        Map<String, Object> map = new HashMap<String, Object>();
+        try {
+            beizhu = new String(beizhu.getBytes("ISO8859-1"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        map.put("bptiaoma", bptiaoma);
+        map.put("shijimishu", shijimishu);
+        map.put("beizhu", beizhu);
+        map.put("pinzhi", pinzhi);
         sCGLService.changeStateZJ_CG(map);
         int zjcount = ckgLService.getZHIJIANCountByCGID(cgdid);
         request.getSession().setAttribute("zhijiancount", zjcount+"");
@@ -248,8 +273,8 @@ public class SCGLAction extends BaseAction {
             zjg.setId(Integer.valueOf(id));
         }
         if (PublicFunc.unEmpty(bupiid)) {
-            zjg.setBupi_id(bupiid);
         }
+            zjg.setBupi_id(bupiid);
         if (PublicFunc.unEmpty(xinghao)) {
             zjg.setType_num(xinghao);
         }
@@ -684,101 +709,101 @@ public class SCGLAction extends BaseAction {
                boolean isok =  sCGLService.insertBCPKJAPPLY(zjg);
                if(isok)
                {
-                   return "BCPKJAPPLY";
-               }
-                else
-               {
-                   request.setAttribute("bcpkj", zjg);
-                   request.setAttribute("modifybcpkjerror", "修改仓库时出错!");
-                   return "addBCPKJAPPLY";
-               }
-            } else {
-                request.setAttribute("bcpkj", zjg);
-                request.setAttribute("modifybcpkjerror", "已存在该编号!");
-                return "addBCPKJAPPLY";
-            }
+            return "BCPKJAPPLY";
         }
-        return SUCCESS;
+        else
+        {
+            request.setAttribute("bcpkj", zjg);
+            request.setAttribute("modifybcpkjerror", "修改仓库时出错!");
+            return "addBCPKJAPPLY";
+        }
+    } else {
+        request.setAttribute("bcpkj", zjg);
+        request.setAttribute("modifybcpkjerror", "已存在该编号!");
+        return "addBCPKJAPPLY";
     }
-    private String addCPKJAPPLY() {
+}
+return SUCCESS;
+}
+private String addCPKJAPPLY() {
         String danhao  = request.getParameter("danhao");
-        String bupiid  = request.getParameter("bupiid");
-        String xinghao = request.getParameter("xinghao");
-        String mishu  = request.getParameter("mishu");
-        String getmishu  = request.getParameter("getmishu");
-        String beizhu   = request.getParameter("beizhu");
-        String shenqren  = request.getParameter("shenqren");
-        String shenqtime  = request.getParameter("shenqtime");
-        BCPKJ_Apply zjg = new BCPKJ_Apply();
-        if (PublicFunc.unEmpty(danhao)) {
-            zjg.setKaijian_id(danhao);
-        }
+String bupiid  = request.getParameter("bupiid");
+String xinghao = request.getParameter("xinghao");
+String mishu  = request.getParameter("mishu");
+String getmishu  = request.getParameter("getmishu");
+String beizhu   = request.getParameter("beizhu");
+String shenqren  = request.getParameter("shenqren");
+String shenqtime  = request.getParameter("shenqtime");
+BCPKJ_Apply zjg = new BCPKJ_Apply();
+if (PublicFunc.unEmpty(danhao)) {
+        zjg.setKaijian_id(danhao);
+}
         if (PublicFunc.unEmpty(bupiid)) {
-            zjg.setBupi_id(bupiid);
-        }
+        zjg.setBupi_id(bupiid);
+}
         if (PublicFunc.unEmpty(xinghao)) {
-            zjg.setType_num(xinghao);
-        }
+        zjg.setType_num(xinghao);
+}
         if (PublicFunc.unEmpty(mishu)) {
-            zjg.setYuanmishu(mishu);
-        }
+        zjg.setYuanmishu(mishu);
+}
         if (PublicFunc.unEmpty(getmishu)) {
-            zjg.setJianchumishu(getmishu);
-        }
+        zjg.setJianchumishu(getmishu);
+}
         if (PublicFunc.unEmpty(beizhu)) {
-            zjg.setBeizhu(beizhu);
-        }
+        zjg.setBeizhu(beizhu);
+}
         if (PublicFunc.unEmpty(shenqren)) {
-            zjg.setApply_man(shenqren);
-        }
+        zjg.setApply_man(shenqren);
+}
         if (PublicFunc.unEmpty(shenqtime)) {
-            zjg.setApply_time(PublicFunc.paseStringToDate(shenqtime));
-        }
+        zjg.setApply_time(PublicFunc.paseStringToDate(shenqtime));
+}
 
         if (zjg != null) {
-            boolean unique = sCGLService.checkCPKJAPPLYUniqueness(zjg);
-            if (unique) {
-                zjg.setZhuangtai(PublicFunc.KJ_STATE_WAITING);
-                zjg.setShunhao("0.0");
-                boolean isok =  sCGLService.insertCPKJAPPLY(zjg);
-                if(isok)
-                {
-                    return "cpkjapply";
-                }
-                else
-                {
-                    request.setAttribute("bcpkj", zjg);
-                    request.setAttribute("modifybcpkjerror", "修改仓库时出错!");
-                    return "addCPKJAPPLY";
-                }
-            } else {
-                request.setAttribute("bcpkj", zjg);
-                request.setAttribute("modifybcpkjerror", "已存在该编号!");
-                return "addCPKJAPPLY";
-            }
+        boolean unique = sCGLService.checkCPKJAPPLYUniqueness(zjg);
+if (unique) {
+        zjg.setZhuangtai(PublicFunc.KJ_STATE_WAITING);
+zjg.setShunhao("0.0");
+boolean isok =  sCGLService.insertCPKJAPPLY(zjg);
+if(isok)
+        {
+        return "cpkjapply";
+}
+        else
+        {
+        request.setAttribute("bcpkj", zjg);
+request.setAttribute("modifybcpkjerror", "修改仓库时出错!");
+return "addCPKJAPPLY";
+}
+        } else {
+        request.setAttribute("bcpkj", zjg);
+request.setAttribute("modifybcpkjerror", "已存在该编号!");
+return "addCPKJAPPLY";
+}
         }
         return SUCCESS;
-    }
-    private String addWJGDWGL() {
+}
+private String addWJGDWGL() {
         String jgdanwei= request.getParameter("jgdanwei");
-        String suoxie= request.getParameter("suoxie");
-        String leixing=request.getParameter("leixing");
-        String telephone= request.getParameter("telephone");
-        String person= request.getParameter("person");
-        String phone= request.getParameter("phone");
-        String urladdress= request.getParameter("urladdress");
-        String chuanzhen= request.getParameter("chuanzhen");
-        String kaipname= request.getParameter("kaipname");
-        String kpaddress= request.getParameter("kpaddress");
-        String address= request.getParameter("address");
-        String email= request.getParameter("email");
-        String kaihuZh= request.getParameter("kaihuZh");
-        String beizhu= request.getParameter("beizhu");
+String suoxie= request.getParameter("suoxie");
+String leixing=request.getParameter("leixing");
+String telephone= request.getParameter("telephone");
+String person= request.getParameter("person");
+String phone= request.getParameter("phone");
+String urladdress= request.getParameter("urladdress");
+String chuanzhen= request.getParameter("chuanzhen");
+String kaipname= request.getParameter("kaipname");
+String kpaddress= request.getParameter("kpaddress");
+String address= request.getParameter("address");
+String email= request.getParameter("email");
+String kaihuZh= request.getParameter("kaihuZh");
+String beizhu= request.getParameter("beizhu");
 
-        wJGGongYingShang zjg = new wJGGongYingShang();
-        if (PublicFunc.unEmpty(jgdanwei)) {
-            zjg.setDanweiname(jgdanwei);
-        }
+wJGGongYingShang zjg = new wJGGongYingShang();
+if (PublicFunc.unEmpty(jgdanwei)) {
+        zjg.setDanweiname(jgdanwei);
+}
         if (PublicFunc.unEmpty(suoxie)) {
             zjg.setSuoxie(suoxie);
         }
@@ -1018,22 +1043,22 @@ public class SCGLAction extends BaseAction {
      */
     private Result query_SCGLZJG(Result result) {
         int totalRows = 0;
-        String tn = request.getParameter("chejian");
+      //  String tn = request.getParameter("chejian");
         String zt = request.getParameter("zhuangtai");
         String bt = request.getParameter("Up_typeNum");
         String et = request.getParameter("gongyi");
         String bh = request.getParameter("bianhao");
         Map<String, Object> map = new HashMap<String, Object>();
-        if (PublicFunc.unEmpty(tn)) {
-            map.put("chejian", tn);
-        }
-        else
-        {
+//        if (PublicFunc.unEmpty(tn)) {
+//            map.put("chejian", tn);
+//        }
+//        else
+//        {
             String chejian = (String) request.getSession().getAttribute("zjgchejian");
             if (PublicFunc.unEmpty(chejian)) {
                 map.put("chejian", chejian);
             }
-        }
+   //     }
         if (PublicFunc.unEmpty(zt) && !zt.equals("--请选择--")) {
             map.put("zhuangtai", zt);
         }
@@ -1403,7 +1428,7 @@ public class SCGLAction extends BaseAction {
     private Result query_RUKULIST(Result result) {
         int totalRows = 0;
         String zhuangtai = PublicFunc.ORDER_STATE_WATINGRK;
-        String zhijiantype = "采购入库";
+        String zhijiantype = PublicFunc.RK_TYPE_CG;
         if(null != request.getParameter("zhijiantype")){
             zhijiantype  =request.getParameter("zhijiantype") ;
         }
@@ -1425,7 +1450,7 @@ public class SCGLAction extends BaseAction {
         }
         setSearchPage(map);
         log.info("zhijiantype"+zhijiantype);
-        if(zhijiantype.equals("采购入库"))
+        if(zhijiantype.equals(PublicFunc.RK_TYPE_CG))
         {
             if (PublicFunc.unEmpty(cgid)) {
                 map.put("caigou_id", cgid);
@@ -1457,7 +1482,7 @@ public class SCGLAction extends BaseAction {
             result.setTotal(totalRows);
             result.setPage(page);
             result.setRows(JsonUtil.getCGRK2InfoJSON(rows));
-        } else if(zhijiantype.equals("自加工入库"))
+        } else if(zhijiantype.equals(PublicFunc.RK_TYPE_ZJG))
         {
             if (PublicFunc.unEmpty(zhuangtai) && !zhuangtai.equals("--请选择--")) {
                 if(zhuangtai.equals("生产中/采购中"))
@@ -1483,7 +1508,7 @@ public class SCGLAction extends BaseAction {
             result.setTotal(totalRows);
             result.setPage(page);
             result.setRows(JsonUtil.getSCZJGZJInfoJSON(rows));
-        }else if(zhijiantype.equals("外加工入库"))
+        }else if(zhijiantype.equals(PublicFunc.RK_TYPE_WJG))
         {
             if (PublicFunc.unEmpty(zhuangtai) && !zhuangtai.equals("--请选择--")) {
                 if(zhuangtai.equals("生产中/采购中"))

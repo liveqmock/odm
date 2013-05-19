@@ -35,6 +35,9 @@
 		<result property="apply_time" column="apply_time" />
 		<result property="queren_man" column="queren_man" />
 		<result property="queren_time" column="queren_time" />
+        <result property="zhijian_or_not" column="zhijian_or_not" />
+        <result property="beizhu" column="beizhu" />
+        <result property="jitaihao" column="jitaihao" />
 	</resultMap>
 
 
@@ -430,7 +433,7 @@
 		select
 		id,caigou_id,bupi_id,price,mishu,gongyingname,apply_man,apply_time
 		,queren_man
-		,queren_time
+		,queren_time,zhijian_or_not,beizhu,jitaihao
 		from (
 		SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
 		BY ID ASC) AS ROWID,*

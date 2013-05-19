@@ -330,4 +330,8 @@ public class SCGLServiceImpl implements SCGLService {
         return sCGLDao.findCPKJApplyByPage(page, rp, map);
     }
 
+    public void changeStateZJ_CG_BTG(Map<String, Object> map) {
+        sCGLDao.changeStateZJ_CG_BTG(map);
+    }
+
 }

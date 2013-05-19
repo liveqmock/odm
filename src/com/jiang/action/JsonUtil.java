@@ -242,7 +242,7 @@ public class JsonUtil {
             cellMap.put(
                     "cell",
                     new Object[]{tmp.getId(), tmp.getBupi_id(), tmp.getType_num(),
-                            tmp.getCkname(), tmp.getBptype(), tmp.getKY_num(), tmp.getKJ_num(),
+                            tmp.getCkname(), tmp.getBptype(), tmp.getKY_num()+"", tmp.getKJ_num()+"",
                             tmp.getNum()+"", // 价格
                             tmp.getZhiliangdengji(), tmp.getBeizhu()});
             mapList.add(cellMap);
@@ -704,7 +704,7 @@ public class JsonUtil {
                     .getKaidan_time());
             cellMap.put("cell", new Object[]{cg.getId(), cg.getDingdan_id(),
                     cg.getDingdan_name(), cg.getPay_way(), cg.getFh_way(),
-                    xiadantime, cg.getFinish_or_not(), cg.getBeizhu()});
+                    xiadantime, cg.getZhuangtai(), cg.getBeizhu()});
             mapList.add(cellMap);
         }
         return mapList;
@@ -856,7 +856,7 @@ public class JsonUtil {
             }
             cellMap.put("id", cg.getId());
             cellMap.put("cell",
-                    new Object[]{cg.getId(), cg.getBupi_id(), cg.getMishu()+"", cg.getBeizhu(), zhijian});
+                    new Object[]{cg.getId(), cg.getBupi_id(), cg.getMishu()+"",cg.getJitaihao()+"", cg.getBeizhu(), zhijian});
             mapList.add(cellMap);
         }
         return mapList;
@@ -869,6 +869,8 @@ public class JsonUtil {
             String zhijian = cg.getZhijian_or_not();
             if (null != zhijian && zhijian.contains("1")) {
                 zhijian = "已质检";
+            }else if (null != zhijian && zhijian.contains("2")) {
+                zhijian = "不合格 <input type=button  value=重新质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu() + "') />";
             } else {
                 zhijian = "<input type=button  value=质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu() + "') />";
             }
@@ -911,7 +913,7 @@ public class JsonUtil {
                     "cell",
                     new Object[]{
                             cg.getId(), cg.getCaigou_id(),
-                            cg.getType_num(), cg.getCG_totalnum(),
+                            cg.getType_num(), cg.getCG_totalnum()+"",
                             cg.getUserName(), xiadantime, iszhijian, "<input type=button  value=质检  onclick=cgzhijian('" + mm + "') />"});
             mapList.add(cellMap);
         }
@@ -935,7 +937,7 @@ public class JsonUtil {
                     "cell",
                     new Object[]{
                             cg.getId(), cg.getCaigou_id(),
-                            cg.getType_num(), cg.getCG_totalnum(),
+                            cg.getType_num(), cg.getCG_totalnum()+"",
                             cg.getUserName(), xiadantime, cg.getZhuangtai(), "<input type=button  value=入库  onclick=cgrukun('" + mm + "') />"});
             mapList.add(cellMap);
         }
@@ -1229,6 +1231,8 @@ public class JsonUtil {
             String zhijian = cg.getZhijian_or_not();
             if (null != zhijian && zhijian.contains("1")) {
                 zhijian = "已质检";
+            }else if (null != zhijian && zhijian.contains("2")) {
+                zhijian = "不合格 <input type=button  value=重新质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu() + "') />";
             } else {
                 zhijian = "<input type=button  value=质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu() + "') />";
             }

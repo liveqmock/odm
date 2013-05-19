@@ -31,6 +31,7 @@
         <result property="queren_time" column="queren_time" />
         <result property="zhijian_or_not" column="zhijian_or_not" />
         <result property="beizhu" column="beizhu" />
+        <result property="jitaihao" column="jitaihao" />
     </resultMap>
 
     <typeAlias alias="SCRK"  type="com.jiang.bean.SCRK" />
@@ -124,8 +125,8 @@
 	<select id="findCGRKByPage" resultMap="cgrkResult" parameterClass="HashMap">
 		select
 		id,caigou_id,bupi_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,
-		zhijian_or_not,beizhu
-		from	
+		zhijian_or_not,beizhu,jitaihao
+		from
 		(
 		SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
 		BY ID ASC) AS ROWID,*
@@ -248,10 +249,10 @@
 	<insert id="insertCGRKQR" parameterClass="CGRK">
 			insert into
 			[CGruku_apply]
-			(caigou_id,bupi_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,zhijian_or_not,beizhu)
+			(caigou_id,bupi_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,zhijian_or_not,beizhu,jitaihao)
 			values
 			(#caigou_id#,#bupi_id#,#price#,#mishu#,#gongyingname#,
-			#apply_man#,#apply_time#,#queren_man#,#queren_time#,#zhijian_or_not#,#beizhu#)
+			#apply_man#,#apply_time#,#queren_man#,#queren_time#,#zhijian_or_not#,#beizhu#,#jitaihao#)
 	</insert>
 	
 	<!-- 查询仓库中半成品布匹 -->

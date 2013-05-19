@@ -400,9 +400,9 @@ function button(com, grid) {
                 return;
             }
         } else if ($(".trSelected").length > 1) {
-            alert("只能选择一项单据,打印预览");
+            alert("只能选择一项单据标记为无效");
         } else if ($(".trSelected").length == 0) {
-            alert("请选择一项您要打印预览的单据");
+            alert("请选择一项您要标记为无效的单据");
         }
     }
 }

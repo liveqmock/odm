@@ -87,8 +87,10 @@ public class CKGLAction extends BaseAction {
     private String add_CGRKSQ() {
         String mishu = request.getParameter("mishu"); //得到米数
         String huojia = request.getParameter("huojia"); //得到货架
-        String tiaoma = request.getParameter("danhao"); //得到条码
-        String price = request.getParameter("price"); //得到条码
+        String tiaoma = request.getParameter("danhao");
+        String price = request.getParameter("price");
+        String jitaihao = request.getParameter("jitaihao");
+
         String cgid = (String) request.getSession().getAttribute("cgdid");//采购单ID
         String laiyuandanwei = (String) request.getSession().getAttribute("laiyuandanwei");//供应商
         RKQR rkrq = new RKQR();
@@ -105,6 +107,10 @@ public class CKGLAction extends BaseAction {
         if (PublicFunc.unEmpty(tiaoma)) {
             rkrq.setBupi_id(tiaoma);
         }
+        if (PublicFunc.unEmpty(jitaihao)) {
+            rkrq.setJitaihao(Integer.valueOf(jitaihao));
+        }
+
 
         if (PublicFunc.unEmpty(laiyuandanwei)) {
             rkrq.setGongyingname(laiyuandanwei);

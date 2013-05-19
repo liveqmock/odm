@@ -519,4 +519,8 @@ public class SCGLDaoImpl extends SqlMapClientDaoSupport implements SCGLDao {
         return false;
     }
 
+    public void changeStateZJ_CG_BTG(Map<String, Object> map) {
+        getSqlMapClientTemplate().update("SCGL.changeStateZJ_CG_BTG", map);
+    }
+
 }

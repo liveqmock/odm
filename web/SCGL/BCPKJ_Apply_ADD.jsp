@@ -259,7 +259,7 @@
 									<tr>
 										<td class=td3 align="center" style="width:10%">剪出米数</td>
 										<td><input type="text" size="24" id="getmishu"  value="<%=getmishu%>"
-											name="getmishu"  onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="24"></input>
+											name="getmishu"  maxlength="24"/>
 										</td>
 										<td>&nbsp;</td>
 									</tr>
@@ -268,7 +268,7 @@
 										<td class=td3 align="center" style="width:10%">下单人</td>
 										<td><input type="text" size="24" id="shenqren" value="<%=shenqren%>"
 										 onfocus="this.blur()" readonly="readonly"  style="color:gray" 
-											name="shenqren" maxlength="24"></input>
+											name="shenqren" maxlength="24"/>
 										</td>
 										<td>&nbsp;</td>
 									</tr>
@@ -276,7 +276,7 @@
 										<td class=td3 align="center" style="width:10%">下单时间</td>
 										<td><input type="text" size="24" id="shenqtime" value="<%=shenqtime%>"
 										 onfocus="this.blur()" readonly="readonly"  style="color:gray" 
-											name="shenqtime" maxlength="24"></input>
+											name="shenqtime" maxlength="24"/>
 										</td>
 										<td>&nbsp;</td>
 									</tr>

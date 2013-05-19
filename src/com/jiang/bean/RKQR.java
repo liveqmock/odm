@@ -17,6 +17,15 @@ public class RKQR   implements Serializable {
 	private Date queren_time;//申请确认人
 	private String zhijian_or_not;//是否已质检
     private String beizhu;//是否已质检
+    private Integer jitaihao;//机台号
+
+    public Integer getJitaihao() {
+        return jitaihao;
+    }
+
+    public void setJitaihao(Integer jitaihao) {
+        this.jitaihao = jitaihao;
+    }
 
     public String getBeizhu() {
         return beizhu;

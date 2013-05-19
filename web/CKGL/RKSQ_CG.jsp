@@ -17,9 +17,9 @@
 <script language="javascript" type="text/javascript"
 	src="My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="js/ChangeImageJS.js"></script>
-<link rel="stylesheet" href="CSS/flexigrid.css" type="text/css"></link>
-<link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"></link>
-<link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"></link>
+<link rel="stylesheet" href="CSS/flexigrid.css" type="text/css"/>
+<link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"/>
+<link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"/>
 
 <link type="text/css" rel="stylesheet" href="CSS/table.css" />
 <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
@@ -38,6 +38,7 @@
   function add()
   {
       var ui1 = document.getElementById("mishu");
+      var ui_jitaihao = document.getElementById("jitaihao");
       var zongmishu = document.getElementById("zongmishu");
       var nums = document.getElementById("nums");
       var a1 = parseInt(ui1.value)+parseInt(nums.value);
@@ -52,12 +53,26 @@
 		if(ui1.value == "" || ui1.value == "0" || parseFloat(ui1.value) < 0.1)
 		{
 			alert("米数不能为0或空");
+            document.getElementById("mishu").focus();
 			return false;
 		}
+
+      if(ui_jitaihao.value == "" || ui_jitaihao.value == "0" || parseFloat(ui_jitaihao.value) < 0.1)
+      {
+          alert("机台号不能为0或空");
+          document.getElementById("jitaihao").focus();
+          return false;
+      }
+
  		location.href = "CKGL_dolist?hidden=add&type=CGRKSQ&mishu="+ui1.value+
-      "&price="+price.value +"&danhao="+danhao.value;
+      "&price="+price.value +"&danhao="+danhao.value +"&jitaihao="+ui_jitaihao.value;
 	   return true;
   }
+
+    function flushPage()
+    {
+        location.href = "CKGL_dolist?hidden=add&type=RKSQ&pingzhengnum=FlushTiaoMa";
+    }
 </script> 
 
 </head>
@@ -180,6 +195,7 @@ if(null != session.getAttribute("cgdid"))
 				<td width="122" align="center" class=""></td>
 				<td width="120" class=""></td>
 				<td width="122" align="center" class=""></td>
+                <td width="122" align="center" class=""></td>
 				<td width="120" class=""><input type=button value="打印预览" onclick="print()" /></td>
 				<input type="hidden" name="price" id="price" />
 			</tr>
@@ -188,11 +204,13 @@ if(null != session.getAttribute("cgdid"))
 				<td width="120" class=""> <input type="text" name="danhao" id="danhao"
 				onfocus="this.blur()" readonly="readonly"  style="color:gray" 
 				 value=<%=tiaoma %> ></td>
-				 	<td width="122" align="center" class=""><input type=button value="刷新条码"  onclick="location=location" /></td>
+				 	<td width="122" align="center" class=""><input type=button value="刷新条码"  onclick="flushPage()" /></td>
 				 
-				<td width="122" align="center" class="td1">米数：</td>
-				<td width="120" class=""><input type="text" name="mishu" id="mishu"  onkeyup="return checkFloat(this,value)"  /></td>
-				<td width="122" align="center" class=""></td>
+				<td width="80" align="center" class="td1">米数：</td>
+				<td width="80" class=""><input type="text" name="mishu" id="mishu"  onkeyup="return checkFloat(this,value)"  /></td>
+
+                <td width="80" align="center" class="td1">机台号：</td>
+                <td width="80" class=""><input type="text" name="jitaihao" id="jitaihao"  onkeyup="return checkFloat(this,value)"  /></td>
 				<td><input type=button value="继续添加" onclick="add()" /></td>
 			</tr>
 		</table>
@@ -230,17 +248,23 @@ function gridFlash(){
 		}, {
 			display : '条形码',
 			name : 'tiaoxingma',
-			width : 510,
+			width : 310,
 			sortable : false,
 			align : 'center',
 			hide : false
 		}, {
 			display : '米数',
 			name : 'num',
-			width : 310,
+			width : 266,
 			sortable : false,
 			align : 'center'
 		}, {
+            display : '机台号',
+            name : 'num',
+            width : 266,
+            sortable : false,
+            align : 'center'
+        }, {
             display : 'beizhu',
             name : 'beizhu',
             width : 10,

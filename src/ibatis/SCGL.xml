@@ -1450,7 +1450,17 @@
         update [CGruku_apply] set
         zhijian_or_not = '1',
         beizhu=#beizhu#,
-        mishu=#shijimishu#
+        pinzhi =#pinzhi#,
+        shijimishu =#shijimishu#
+        where bupi_id=#bptiaoma#
+    </update>
+    <!--  修改质检状态 不通过BTG -->
+    <update id="changeStateZJ_CG_BTG" parameterClass="Map">
+        update [CGruku_apply] set
+        zhijian_or_not = '2',
+        beizhu=#beizhu#,
+        beizhu=#beizhu#,
+        shijimishu =#shijimishu#
         where bupi_id=#bptiaoma#
     </update>
 </sqlMap>

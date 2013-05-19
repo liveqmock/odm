@@ -188,12 +188,6 @@ function gridFlash(){
 		width : 'auto',
 		height : 340,
 		showToggleBtn : false,
-		onError:
-			  function()
-			  {
-			      alert("登陆超时，请重新登陆!");
-				  location.href="/odm/index.jsp";
-			  },
 		checkbox : true
 	});
 

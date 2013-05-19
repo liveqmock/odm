@@ -32,31 +32,48 @@
 
 		var ui1 = document.getElementById("bptiaoma");
 		var ui2 = document.getElementById("shijimishu");
+        var pinzhi = document.getElementById("pinzhi");
 		ui1.value = strs[0];
 		ui2.value = strs[1].split(".")[0];
+        pinzhi.value='一般';
 	}
-	function tongguo()
+	function tongguo(tongugo)
 	{
-		var f = document.createElement("form");
-		var ui1 = document.getElementById("bptiaoma");
-		var ui2 = document.getElementById("shijimishu");
-		var ui3 = document.getElementById("beizhu");
-		if(ui1.value == "")
-			{
-			alert("获取条码失败");
-			return false;
-			}
-		if(ui1.value == "")
-		{
-		alert("获取米数失败");
-		return false;
-		}
-		f.action = "SCGL_dolist?hidden=modify&type=ZHIJIAN_CG&bptiaoma="+ui1.value
-				+"&shijimishu="+ui2.value+"&beizhu="+ui3.value;
-		f.method = "post";
-		document.body.appendChild(f);
-		f.submit();
+        var f = document.createElement("form");
+        var ui1 = document.getElementById("bptiaoma");
+        var ui2 = document.getElementById("shijimishu");
+        var ui3 = document.getElementById("beizhu");
+        var pinzhi = document.getElementById("pinzhi");
+        if(ui1.value == "")
+        {
+            alert("获取条码失败");
+            return false;
+        }
+        if(ui2.value == "")
+        {
+            alert("获取实际米数失败");
+            return false;
+        }
+        if(pinzhi.value == "")
+        {
+            alert("质检品质不能为空");
+            return false;
+        }
+        if(tongugo == 1)
+        {
+            f.action = "SCGL_dolist?hidden=modify&type=ZHIJIAN_CG&bptiaoma="+ui1.value
+                    +"&shijimishu="+ui2.value+"&beizhu="+ui3.value+"&pinzhi="+pinzhi.value;
+        }
+        else if(tongugo == 0)
+        {
+            f.action = "SCGL_dolist?hidden=modify&type=ZHIJIAN_CG_BTG&bptiaoma="+ui1.value
+                    +"&shijimishu="+ui2.value+"&beizhu="+ui3.value+"&pinzhi="+pinzhi.value;
+        }
+        f.method = "post";
+        document.body.appendChild(f);
+        f.submit();
 	}
+
   function add()
   {
 		var ui1 = document.getElementById("mishu");
@@ -123,18 +140,8 @@
 
 %>
 <body>
-	<div>
-		<table border="0" cellpadding="0" cellspacing="0" width="100%"
-			id="tabs">
-			<tr>
-				<td class="tabs" align="center"><font color="white">采购单质检详细</font>
-				</td>
-				<td class="tabs"></td>
-			</tr>
-		</table>
-	</div>
 
-	<div style="height: 6px"></div>
+
 	<div>
 		<table cellpadding="0" cellspacing="0" width="100%" align="center"
 			style="border: #b9c2d3 solid 1px; top: 4px">
@@ -159,7 +166,6 @@
 			
 			
 		</table>
-	<div style="height: 5px"></div>
 
 	<table cellpadding="0" cellspacing="0" width="100%" align="center"
 			style="border: #b9c2d3 solid 1px; top: 4px">
@@ -167,13 +173,15 @@
 					<td width="100"  class="td1">条码:</td>
 					<td width="100" class="td2"><input type="text" id="bptiaoma" name="bptiaoma" 
 					 onfocus="this.blur()" readonly="readonly"  style="color:gray"   /> </td>
-					<td width="100" align="center" class="td1">米数:</td>
+					<td width="100" align="center" class="td1">实际米数:</td>
 					<td width="100" class="td2"><input type="text" id="shijimishu" name="shijimishu"  onkeyup="value=value.replace(/[^\d]/g,'')" style="color:red"/> </td>
-		
+
+                    <td width="100" align="center" class="td1">质检品质:</td>
+                    <td width="100" class="td2"><input type="text" name="pinzhi" id="pinzhi"/> </td>
 					<td width="100" align="center" class="td1">备注:</td>
 					<td width="100" class="td2"><input type="text" name="beizhu" id="beizhu" /> </td>
-					<td width="100" class="td2">&nbsp;&nbsp;&nbsp;<input type="button" value="质检通过"  onclick="tongguo()"/> </td>
-					<td width="100" class="td2"><input type="button" value="不通过" /> </td>
+					<td width="100" class="td2">&nbsp;&nbsp;&nbsp;<input type="button" value="质检通过"  onclick="tongguo(1)"/> </td>
+					<td width="100" class="td2"><input type="button" value="不通过" onclick="tongguo(0)" /> </td>
 				</tr>
 	</table>
 	</div>
