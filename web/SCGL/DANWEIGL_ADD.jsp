@@ -5,6 +5,7 @@
 <%@page import="java.util.*"%>
 <%@page import="com.jiang.bean.wJGGongYingShang"%>
 <%@page import="java.text.SimpleDateFormat" %>
+<%@ page import="com.jiang.util.PublicFunc" %>
 <!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/Dtd/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -107,7 +108,7 @@
 	});
 	function backMenu() {
 		var f = document.createElement("form");
-		f.action = "DisPatch_getUrl?i=2&j=4";
+		f.action = "DisPatch_getUrl?i=2&j=5";
 		f.target = "mainframe";
 		f.method = "post";
 		document.body.appendChild(f);
@@ -244,18 +245,12 @@
 										<td class=td3 align="center" style="width:10%">加工类型</td>
 										<td width="200px"><select id="leixing" 
 											name="leixing"   style="width:170px;position: relative;" >
-											<%
-										    String cjs[] = {"印花", "刺绣", "烂花", "清洗", "回修", 
-													"光亮","割边", "剪花", "染色","--请选择--"};
-											for(int i=0;i<cjs.length;i++)
-											{
-											%>
-											<option <%if(cjs[i].equals(leixing)) {%> selected<%}%> value="<%=cjs[i]%>" ><%=cjs[i] %></option>
-											<%	
-											}
-											%>
-											</select>
-										</td>
+                                            <option selected="selected" value="--请选择--">--请选择--</option>
+                                            <%for(int i=0;i< PublicFunc.wjgGYType.length;i++) {%>
+                                            <option <%if(PublicFunc.wjgGYType[i].equals(leixing)) {%> selected<%}%>
+                                                        value="<%=PublicFunc.wjgGYType[i]%>" ><%=PublicFunc.wjgGYType[i] %></option>
+                                            <%} %>
+                                        </select></td>
 										<td>&nbsp;</td>
 								</tr>
 								

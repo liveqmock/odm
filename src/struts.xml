@@ -67,10 +67,8 @@
 			<result name="ckqr">/CKGL/CKQR.jsp</result>
 			<result name="scgl">/SCGL/SCGYD.jsp</result>
 			<result name="scgyd_zjg1">/SCGL/SCGYD/ZJG1.jsp</result>
-			<result name="scgyd_zjg2">/SCGL/SCGYD/ZJG2.jsp</result>
 			<result name="scgyd_wjg">/SCGL/SCGYD/WJG.jsp</result>
 			<result name="jhzjg1">/SCGL/SCGYD/JHZJG1.jsp</result>
-			<result name="jhzjg2">/SCGL/SCGYD/JHZJG2.jsp</result>
 			<result name="jhwjg">/SCGL/SCGYD/JHWJG.jsp</result>
 			<result name="scgyd_yb">/SCGL/SCGYD/YB.jsp</result>
 			<result name="sgzlgl">/SCGL/SGZLGL.jsp</result>
@@ -96,16 +94,12 @@
             <result name="zhddgl">/XSGL/ZHDDGL.jsp</result>
 			<result name="xsdgl">/XSGL/DDGL.jsp</result>
 			<result name="xsdcx">/XSGL/XSDCX.jsp</result>
-			<result name="xsdthrk">/XSGL/XSDTHRK.jsp</result>
 			<result name="khgl">/XSGL/KHGL.jsp</result>
 			
 			<result name="yhgl">/XTGL/YHGL.jsp</result>
 			<result name="lsjl">/XTGL/LSJL.jsp</result>
 			<result name="xtbf">/XTGL/XTBF.jsp</result>
-			<result name="xthf">/XTGL/XTHF.jsp</result>
-			<result name="xtrz">/XTGL/XTRZ.jsp</result>
 			<result name="xtcs">/XTGL/XTCS.jsp</result>
-			<result name="fzsz">/XTGL/FZSZ.jsp</result>
 			
 			<result name="zhxd">/ZHDD/ZHXD.jsp</result>
 			
@@ -117,8 +111,6 @@
 			<result name="addZLGL_YL">/CGGL/ZLGL/ZLGL_YL_ADD.jsp</result>
 			<result name="addZLGL_BCP">/CGGL/ZLGL/ZLGL_BCP_ADD.jsp</result>
 			<result name="addZLGL_CP">/CGGL/ZLGL/ZLGL_CP_ADD.jsp</result>
-			<result name="addZLGL_SP">/CGGL/ZLGL/ZLGL_SP_ADD.jsp</result>
-			<result name="addCGTH">/CGGL/CGTH_ADD.jsp</result>
 			<result name="addCGTH">/CGGL/CGTH_ADD.jsp</result>
 			<result name="error">error.jsp</result>
 			
@@ -209,8 +201,8 @@
 			<result name="zlglcp_modify">/CGGL/ZLGL/ZLGL_CP_MODIFY.jsp</result>
 			
 			 <result name="zlgl_sp">/CGGL/ZLGL/ZLGL_SP.jsp</result>
-			<result name="addZLGL_SP">/CGGL/ZLGL/ZLGL_SP_ADD.jsp</result>
-			<result name="zlglsp_modify">/CGGL/ZLGL/ZLGL_SP_MODIFY.jsp</result>
+            <!--<result name="addZLGL_SP">/CGGL/ZLGL/ZLGL_SP_ADD.jsp</result>-->
+            <!--<result name="zlglsp_modify">/CGGL/ZLGL/ZLGL_SP_MODIFY.jsp</result>-->
 			
 			
 			<result name="cgth">/CGGL/CGTH.jsp</result>
@@ -269,7 +261,7 @@
 
             <result name="cpkjapply">/SCGL/CPKJ_Apply.jsp</result>
             <result name="addCPKJAPPLY">/SCGL/CPKJ_Apply_ADD.jsp</result>
-            <result name="modifyCPKJAPPLY">/SCGL/CPKJ_Apply_MODIFY.jsp</result>
+            <!--<result name="modifyCPKJAPPLY">/SCGL/CPKJ_Apply_MODIFY.jsp</result>-->
 
 			<result name="addCGZHIJIAN">/SCGL/ZHIJIAN/ZHIJIAN_CG.jsp</result>
 

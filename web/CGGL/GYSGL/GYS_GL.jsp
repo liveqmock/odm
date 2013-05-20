@@ -32,7 +32,7 @@
 		<tr>
 			<td width="132" align="center" class="td1">供应商名称 </td>
 			<td width="140" class="td2" >
-			<input type="text" name="gongyingname"  id="gongyingname"></input>
+			<input type="text" name="gongyingname"  id="gongyingname"/>
 			</td>
 			<td width="132" align="center" class="td1">类型</td>
 			<td width="140" class=""><select name="leixing"
@@ -67,11 +67,9 @@
 
 
 <script>   
-function gridFlash(){  
-	document.getElementById("RELOAD").value = "RELOAD";
+function gridFlash(){
 	$("#flex1").flexOptions({params: [
 	                                  {name:'gongyingname', value:$("#gongyingname").val()},
-	                                  {name:'RELOAD', value:$("#RELOAD").val()},
 	                                  {name:'leixing', value:$("#leixing").val()}
 	                                  ]}).flexReload();
 }  

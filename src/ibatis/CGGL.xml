@@ -551,8 +551,7 @@
 				f.gongyingname like '%'+ #gongyingname# + '%'
 			</isNotEmpty>
 			<isNotEmpty property="leixing" prepend="and">
-				f.leixing =
-				#leixing#
+				f.leixing = #leixing#
 			</isNotEmpty>
 		</dynamic>
 		) AS TEMP1

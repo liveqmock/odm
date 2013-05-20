@@ -1246,7 +1246,7 @@ if (PublicFunc.unEmpty(jgdanwei)) {
             map.put("beginTime", PublicFunc.paseStringToDate(bt));
         }
         if (PublicFunc.unEmpty(et)) {
-            map.put("endTime", PublicFunc.paseStringToDate(et));
+            map.put("endTime", PublicFunc.formatDateToEnd(et));
         }
 
         setSearchPage(map);
@@ -1287,7 +1287,7 @@ if (PublicFunc.unEmpty(jgdanwei)) {
             map.put("beginTime", PublicFunc.paseStringToDate(bt));
         }
         if (PublicFunc.unEmpty(et)) {
-            map.put("endTime", PublicFunc.paseStringToDate(et));
+            map.put("endTime", PublicFunc.formatDateToEnd(et));
         }
 
         setSearchPage(map);

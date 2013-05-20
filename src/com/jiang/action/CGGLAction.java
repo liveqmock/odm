@@ -148,7 +148,7 @@ public class CGGLAction extends BaseAction {
             map.put("beginTime", PublicFunc.paseStringToDate(bt));
         }
         if (PublicFunc.unEmpty(et)) {
-            map.put("endTime", PublicFunc.paseStringToDate(et));
+            map.put("endTime", PublicFunc.formatDateToEnd(et));
         }
         setSearchPage(map);
         totalRows = cgglService.getDJGLCount(map);

@@ -191,7 +191,23 @@ public class PublicFunc {
 		}
 		return tmp;
 	}
-
+    public static Date formatDateToEnd(String date) {
+        if (!unEmpty(date)) {
+            return null;
+        }
+        SimpleDateFormat sdf =  new SimpleDateFormat("yyyy-MM-dd");
+        GregorianCalendar cal = new GregorianCalendar();
+        try {
+            cal.setTime(sdf.parse(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        //设置当天的23时29分29秒
+        cal.set(Calendar.HOUR_OF_DAY,23);
+        cal.set(Calendar.MINUTE,59);
+        cal.set(Calendar.SECOND,59);
+        return cal.getTime();
+    }
 	public static Date paseStringToDate(String str) {
 		if (!unEmpty(str)) {
 			return null;

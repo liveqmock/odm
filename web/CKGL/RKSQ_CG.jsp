@@ -25,6 +25,12 @@
 <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
 
 <script>
+    function printcgrk()
+    {
+        winOpenFullScreen ("DisPatch_getPrintCGRK",
+                "newwindow", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=yes, status=no");
+
+    }
     function checkFloat(vv, val)
     {
         if(isNaN(val))
@@ -196,7 +202,7 @@ if(null != session.getAttribute("cgdid"))
 				<td width="120" class=""></td>
 				<td width="122" align="center" class=""></td>
                 <td width="122" align="center" class=""></td>
-				<td width="120" class=""><input type=button value="打印预览" onclick="print()" /></td>
+				<td width="120" class=""><input type=button value="打印预览" onclick="printcgrk()" /></td>
 				<input type="hidden" name="price" id="price" />
 			</tr>
 			<tr>

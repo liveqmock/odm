@@ -45,7 +45,7 @@ public class XXGLAction extends BaseAction {
 				map.put("beginTime", PublicFunc.paseStringToDate(bt));
 			}
 			if (PublicFunc.unEmpty(et)) {
-				map.put("endTime", PublicFunc.paseStringToDate(et));
+				map.put("endTime", PublicFunc.formatDateToEnd(et));
 			}
 			User user = (User) ActionContext.getContext().getSession().get("user");
 			if(user != null)

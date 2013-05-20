@@ -510,7 +510,18 @@ public class DisPatchUrlAction extends ActionSupport {
 
 		return "printdjgl";
 	}
-	
+    public String getPrintCGRK()
+    {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        String m2 = request.getParameter("rkid");
+        CGGLDJGL dj = cgglService.getDJGLById(Integer.parseInt(m2));
+        request.setAttribute("djgl", dj);
+        String gysname = cgglService.getGYSById(dj.getGongyingshangid()).getGongyingname();
+        request.setAttribute("gysname", gysname);
+
+        return "printcgrk";
+    }
+
 	//打印采购单前查询状态
 	public void getPrintDJGL()
 	{
