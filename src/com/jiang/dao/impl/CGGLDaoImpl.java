@@ -440,6 +440,12 @@ public class CGGLDaoImpl extends SqlMapClientDaoSupport implements CGGLDao {
                 "CGGL.getZLGL_YLById", id);
     }
 
+    public ZLGLYLZL getZLGL_YLBySome(Map map) {
+
+        return (ZLGLYLZL) getSqlMapClientTemplate().queryForObject(
+                "CGGL.getZLGL_YLBySome", map);
+    }
+
 
     public void updateZLGL_YL(ZLGLYLZL yl) {
         getSqlMapClientTemplate().update("CGGL.updateZLGL_YL", yl);

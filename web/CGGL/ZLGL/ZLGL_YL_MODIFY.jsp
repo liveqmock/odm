@@ -67,7 +67,15 @@
 				},
 				xilie : {
 					required : true
-				}
+				},
+                zhongliang : {
+                    required : true,
+                    number : true
+                } ,
+                zhongliang : {
+                    number : "请输入数字",
+                    required : "请输入重量"
+                }
 			},
 			messages : {
 				MuDiBuMen : {

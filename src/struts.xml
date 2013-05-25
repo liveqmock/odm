@@ -115,6 +115,8 @@
 			<result name="error">error.jsp</result>
 			
 			<result name="printdjgl">/print/printDJGL.jsp</result>
+            <result name="printcgrk">/print/printCGRK.jsp</result>
+            <result name="printcgrk_zj">/print/printCGRK_ZJ.jsp</result>
 			
 			<result name="addSCGLZJG">/SCGL/SCGYD/ZJG_ADD.jsp</result>
 			<result name="addSCGLWJG">/SCGL/SCGYD/WJG_ADD.jsp</result>

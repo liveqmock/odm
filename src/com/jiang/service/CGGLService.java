@@ -76,6 +76,7 @@ public interface CGGLService {
 	public boolean checkYLUniqueness(ZLGLYLZL yl);
 	public void insertZLGL_YL(ZLGLYLZL yl);
 	public ZLGLYLZL getZLGL_YLById(Integer valueOf);
+    public ZLGLYLZL getZLGL_YLBySome(Map type_num);
 	public void updateZLGL_YL(ZLGLYLZL yl);
 	public boolean checkBCPUniqueness(ZLGLBCPZL yl);
 	public void insertZLGL_BCP(ZLGLBCPZL yl);

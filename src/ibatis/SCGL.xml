@@ -877,7 +877,23 @@
         ) AS TEMP1
         WHERE ROWID >$pstart$
     </select>
-
+    <select id="getZhiJianReportByLaiYuan" resultMap="zhiJianReportResult"
+            parameterClass="String">
+        select
+        id,
+        report_id,
+        laiyuan_id,
+        num,
+        xinghao,
+        apply_man,
+        apply_time,
+        jindu,
+        Alljindu,
+        beizhu
+        from
+        [ZJreport]
+           where  laiyuan_id = #laiyuan_id#
+    </select>
     <select id="getZhiJianReportCount" resultClass="java.lang.Integer"
             parameterClass="HashMap">
         select count(*)
@@ -898,7 +914,32 @@
             </isNotEmpty>
         </dynamic>
     </select>
-
+    <insert id="insertZhiJianReport" parameterClass="zhiJianReport">
+        insert into
+        [ZJreport]
+        (report_id,laiyuan_id,num,xinghao,apply_man,apply_time,jindu,Alljindu,beizhu)
+        values
+        (#report_id#,#laiyuan_id#,#num#,#xinghao#,#apply_man#,#apply_time#,#jindu#,#Alljindu#,#beizhu#)
+    </insert>
+    <select id="getZhiJianReportBySome" parameterClass="Map" resultClass="zhiJianReport">
+        select
+        report_id,laiyuan_id,num,xinghao,apply_man,apply_time,jindu,Alljindu,beizhu
+        from [ZJreport] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="report_id" prepend="and">
+                f.report_id = #report_id#
+            </isNotEmpty>
+            <isNotEmpty property="xinghao" prepend="and">
+                f.xinghao =  #xinghao#
+            </isNotEmpty>
+            <isNotEmpty property="apply_man" prepend="and">
+                f.apply_man = #apply_man#
+            </isNotEmpty>
+            <isNotEmpty property="laiyuan_id" prepend="and">
+                f.laiyuan_id = #laiyuan_id#
+            </isNotEmpty>
+        </dynamic>
+    </select>
     <delete id="deleteZhiJianReportByIds" parameterClass="java.util.List">
         delete from [ZJreport]
         <iterate prepend="where" open="(" close=")" conjunction="or">

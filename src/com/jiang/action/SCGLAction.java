@@ -1,6 +1,7 @@
 package com.jiang.action;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -225,8 +226,13 @@ public class SCGLAction extends BaseAction {
             e.printStackTrace();
         }
         map.put("bptiaoma", bptiaoma);
-        map.put("shijimishu", shijimishu);
+        map.put("shijimishu", new BigDecimal(shijimishu));
         map.put("beizhu", beizhu);
+        try {
+            pinzhi = new String(pinzhi.getBytes("ISO8859-1"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         map.put("pinzhi", pinzhi);
         sCGLService.changeStateZJ_CG_BTG(map);
         int zjcount = ckgLService.getZHIJIANCountByCGID(cgdid);
@@ -246,8 +252,13 @@ public class SCGLAction extends BaseAction {
             e.printStackTrace();
         }
         map.put("bptiaoma", bptiaoma);
-        map.put("shijimishu", shijimishu);
+        map.put("shijimishu", new BigDecimal(shijimishu));
         map.put("beizhu", beizhu);
+        try {
+            pinzhi = new String(pinzhi.getBytes("ISO8859-1"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         map.put("pinzhi", pinzhi);
         sCGLService.changeStateZJ_CG(map);
         int zjcount = ckgLService.getZHIJIANCountByCGID(cgdid);
@@ -471,7 +482,7 @@ public class SCGLAction extends BaseAction {
             zjg.setDibuName(dbmingchen);
         }
         if (PublicFunc.unEmpty(shuliang)) {
-            zjg.setNum(Integer.valueOf(shuliang));
+            zjg.setNum(new BigDecimal(shuliang));
         }
         if (PublicFunc.unEmpty(jhtime)) {
             zjg.setJiaohuo_time(PublicFunc.paseStringToDate(jhtime));
@@ -541,7 +552,7 @@ public class SCGLAction extends BaseAction {
             zjg.setDibuName(dbmingchen);
         }
         if (PublicFunc.unEmpty(shuliang)) {
-            zjg.setNum(Integer.valueOf(shuliang));
+            zjg.setNum(new BigDecimal(shuliang));
         }
         if (PublicFunc.unEmpty(jhtime)) {
             zjg.setJiaohuo_time(PublicFunc.paseStringToDate(jhtime));
@@ -882,7 +893,7 @@ if (PublicFunc.unEmpty(jgdanwei)) {
             wjg.setDibuName(dbmingchen);
         }
         if (PublicFunc.unEmpty(shuliang)) {
-            wjg.setNum(Integer.valueOf(shuliang));
+            wjg.setNum(new BigDecimal(shuliang));
         }
         if (PublicFunc.unEmpty(jhtime)) {
             wjg.setJiaohuo_time(PublicFunc.paseStringToDate(jhtime));
@@ -999,7 +1010,7 @@ if (PublicFunc.unEmpty(jgdanwei)) {
             zjg.setDibuName(dbmingchen);
         }
         if (PublicFunc.unEmpty(shuliang)) {
-            zjg.setNum(Integer.valueOf(shuliang));
+            zjg.setNum(new BigDecimal(shuliang));
         }
         if (PublicFunc.unEmpty(jhtime)) {
             zjg.setJiaohuo_time(PublicFunc.paseStringToDate(jhtime));
@@ -1232,7 +1243,7 @@ if (PublicFunc.unEmpty(jgdanwei)) {
         int totalRows = 0;
         String tn = request.getParameter("type_num");
         String am = request.getParameter("zhuangtai");
-        String bt = request.getParameter("'beginTime'");
+        String bt = request.getParameter("beginTime");
         String et = request.getParameter("endTime");
         Map<String, Object> map = new HashMap<String, Object>();
         if (PublicFunc.unEmpty(tn)) {
@@ -1273,7 +1284,7 @@ if (PublicFunc.unEmpty(jgdanwei)) {
         int totalRows = 0;
         String tn = request.getParameter("type_num");
         String am = request.getParameter("zhuangtai");
-        String bt = request.getParameter("'beginTime'");
+        String bt = request.getParameter("beginTime");
         String et = request.getParameter("endTime");
         Map<String, Object> map = new HashMap<String, Object>();
         if (PublicFunc.unEmpty(tn)) {

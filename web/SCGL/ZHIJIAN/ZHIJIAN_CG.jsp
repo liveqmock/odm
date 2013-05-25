@@ -24,7 +24,22 @@
 <link type="text/css" rel="stylesheet" href="CSS/table.css" />
 <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
 
-<script> 
+<script>
+    function winOpenFullScreen(strURL)
+    {
+        var sheight = screen.height-70;
+        var swidth = screen.width-10;
+        var winoption    ="left=0,top=0,height="+sheight+",width="+swidth+",toolbar=yes,menubar=yes,location=yes,status=yes,scrollbars=yes,resizable=yes";
+        var tmp=window.open(strURL,'',winoption);
+        return tmp;
+    }
+    function printcgrk()
+    {
+        winOpenFullScreen ("DisPatch_getPrintCGCR_ZJ",
+                "newwindow", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=yes, status=no");
+
+    }
+
 	function zhijian(id, mishu)
 	{
 		var strs= new Array(); //定义一数组
@@ -103,15 +118,7 @@
 	{
 		if(null != session.getAttribute("zijianid"))
 		{
-			zijianid = (String)session.getAttribute("zijianid");
-		}
-		else
-		{
-			  Random rdm = new Random(System.currentTimeMillis());
-		      int intRd = Math.abs(rdm.nextInt())%9999+1;
-		      SimpleDateFormat formater = new SimpleDateFormat("yyMMdd");
-		      zijianid =  "ZJ"+formater.format(new Date())+String.format("%04d", intRd); 
-			  session.setAttribute("zijianid", zijianid);
+			 zijianid = (String)session.getAttribute("zijianid");
 		}
 	}
 	if(null  != session.getAttribute("cgdid"))
@@ -161,7 +168,7 @@
 				<td width="132" align="center" class="td1">统计:</td>
 				<td width="140" class="">&nbsp;&nbsp;&nbsp;<%=zhijiancount %>/<%=totalcount%></td>
 				<td width="132" align="center" class="td1">质检报告</td>
-				<td width="140" class="">&nbsp;&nbsp;&nbsp;<input type="button" value="预览" /></td>
+				<td width="140" class="">&nbsp;&nbsp;&nbsp;<input type="button" value="预览" onclick="printcgrk()"/></td>
 			</tr>
 			
 			
@@ -220,26 +227,44 @@ function gridFlash(){
 		}, {
 			display : '条形码',
 			name : 'tiaoxingma',
-			width : 250,
+			width : 160,
 			sortable : false,
 			align : 'center',
 			hide : false
 		}, {
+            display : '机台号',
+            name : 'num',
+            width : 120,
+            sortable : false,
+            align : 'center'
+        }, {
 			display : '米数',
 			name : 'num',
-			width : 250,
+			width : 120,
 			sortable : false,
 			align : 'center'
 		}, {
+            display : '实际米数',
+            name : 'num',
+            width : 120,
+            sortable : false,
+            align : 'center'
+        }, {
+            display : '质检品质',
+            name : 'num',
+            width : 120,
+            sortable : false,
+            align : 'center'
+        }, {
 			display : '备注',
 			name : 'huojiahao',
-			width : 250,
+			width : 160,
 			sortable : false,
 			align : 'center'
 		}, {
 			display : '是否质检',
 			name : 'tiaoxingma',
-			width : 250,
+			width : 200,
 			sortable : false,
 			align : 'center',
 			hide : false

@@ -67,7 +67,11 @@
 				},
 				xilie : {
 					required : true
-				}
+				},
+                zhongliang : {
+                    required : true,
+                    number : true
+                }
 			},
 			messages : {
 				MuDiBuMen : {
@@ -78,7 +82,11 @@
 				},
 				xilie : {
 					required : "请输入系列"
-				}
+				} ,
+                zhongliang : {
+                    number : "请输入数字",
+                    required : "请输入重量"
+                }
 			},
 			errorPlacement : function(error, element) { //验证消息放置的地方  
 				error.appendTo(element.parent("td").next("td"));

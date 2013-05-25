@@ -125,6 +125,8 @@ public interface CGGLDao {
 
 	public ZLGLYLZL getZLGL_YLById(Integer id);
 
+    public ZLGLYLZL getZLGL_YLBySome(Map type_num);
+
 	public void updateZLGL_YL(ZLGLYLZL yl);
 
 	public boolean checkBCPUniqueness(ZLGLBCPZL yl);
@@ -159,5 +161,6 @@ public interface CGGLDao {
 	
 	public boolean changeDJGLState(String id, String state);
 
-    ZLGLCPZL findCPSByTypeNum(String t_tiaoma);
+    public ZLGLCPZL findCPSByTypeNum(String t_tiaoma);
+
 }

@@ -209,6 +209,14 @@ public class SCGLDaoImpl extends SqlMapClientDaoSupport implements SCGLDao {
         getSqlMapClientTemplate().delete("SCGL.deleteZhiJianReportByIds", ids);
     }
 
+    public zhiJianReport getZhiJianReportBySome(Map<String, Object> map) {
+        return (zhiJianReport) getSqlMapClientTemplate().queryForObject(
+                "SCGL.getZhiJianReportBySome", map);
+    }
+
+    public void insertZhiJianReport(zhiJianReport report) {
+        getSqlMapClientTemplate().insert("SCGL.insertZhiJianReport", report);
+    }
 
     public int getBCPKJApplyCount(Map<String, Object> map) {
         return (Integer) getSqlMapClientTemplate().queryForObject(
@@ -522,5 +530,7 @@ public class SCGLDaoImpl extends SqlMapClientDaoSupport implements SCGLDao {
     public void changeStateZJ_CG_BTG(Map<String, Object> map) {
         getSqlMapClientTemplate().update("SCGL.changeStateZJ_CG_BTG", map);
     }
+
+
 
 }

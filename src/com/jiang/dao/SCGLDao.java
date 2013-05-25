@@ -203,4 +203,8 @@ public interface SCGLDao {
     boolean insertCPKJAPPLY(BCPKJ_Apply zjg);
 
     void changeStateZJ_CG_BTG(Map<String,Object> map);
+
+    zhiJianReport getZhiJianReportBySome(Map<String,Object> map);
+
+    void insertZhiJianReport(zhiJianReport report);
 }

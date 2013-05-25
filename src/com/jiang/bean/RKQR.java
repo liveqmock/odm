@@ -18,9 +18,27 @@ public class RKQR   implements Serializable {
 	private String zhijian_or_not;//是否已质检
     private String beizhu;//是否已质检
     private Integer jitaihao;//机台号
+    private String pinzhi;
+    private BigDecimal shijimishu;
 
     public Integer getJitaihao() {
         return jitaihao;
+    }
+
+    public String getPinzhi() {
+        return pinzhi;
+    }
+
+    public void setPinzhi(String pinzhi) {
+        this.pinzhi = pinzhi;
+    }
+
+    public BigDecimal getShijimishu() {
+        return shijimishu;
+    }
+
+    public void setShijimishu(BigDecimal shijimishu) {
+        this.shijimishu = shijimishu;
     }
 
     public void setJitaihao(Integer jitaihao) {

@@ -145,6 +145,14 @@ public class SCGLServiceImpl implements SCGLService {
         sCGLDao.deleteZhiJianReportByIds(ids);
     }
 
+    public zhiJianReport getZhiJianReportBySome(Map<String, Object> map) {
+        return sCGLDao.getZhiJianReportBySome(map);
+    }
+
+    public void insertZhiJianReport(zhiJianReport report) {
+        sCGLDao.insertZhiJianReport(report);
+    }
+
 
     public int getBCPKJApplyCount(Map<String, Object> map) {
         return sCGLDao.getBCPKJApplyCount(map);

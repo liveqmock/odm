@@ -876,7 +876,7 @@ public class JsonUtil {
             }
             cellMap.put("id", cg.getId());
             cellMap.put("cell",
-                    new Object[]{cg.getId(), cg.getBupi_id(), cg.getMishu()+"", cg.getBeizhu(), zhijian});
+                    new Object[]{cg.getId(), cg.getBupi_id(), cg.getJitaihao(), cg.getMishu()+"", cg.getShijimishu()+"", cg.getPinzhi(), cg.getBeizhu(), zhijian});
             mapList.add(cellMap);
         }
         return mapList;

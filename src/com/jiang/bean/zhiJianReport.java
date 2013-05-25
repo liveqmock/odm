@@ -1,13 +1,14 @@
 package com.jiang.bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class zhiJianReport   implements Serializable {
 	private Integer id;
 	private String report_id;
 	private String laiyuan_id;
-	private Integer num;
+	private BigDecimal num;
 	private String xinghao;
 	private String apply_man;
 	private Date apply_time;
@@ -39,11 +40,11 @@ public class zhiJianReport   implements Serializable {
 		this.laiyuan_id = laiyuan_id;
 	}
 
-	public Integer getNum() {
+	public BigDecimal getNum() {
 		return num;
 	}
 
-	public void setNum(Integer num) {
+	public void setNum(BigDecimal num) {
 		this.num = num;
 	}
 

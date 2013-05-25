@@ -21,7 +21,7 @@
 <script type="text/javascript" src=js/validate/valid.js></script>
 <link type="text/css" rel="stylesheet" href="js/validate/validate.css" />
 <script type="text/javascript" src="js/ChangeImageJS.js"></script>
-<link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"></link>
+<link rel="stylesheet" href="skin/WdatePicker.css" type="text/css" />
 
 <link type="text/css" rel="stylesheet" href="CSS/table.css" />
 <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
@@ -145,10 +145,10 @@
 	  }
 	  else
 	  {
-		  for(var i=0;i<array32[id].length;i++){ 
+          var qxtext = document.getElementById("qxtext").value;
+		  for(var i=0;i<array32[id].length;i++){
 			  str += array32[id][i];
-              var checkstr;
-              var qxtext = document.getElementById("qxtext").value;
+              var checkstr="";
               if(qxtext.substring(i, i+1) == "1")
               {
                   checkstr = " checked ";
@@ -312,21 +312,21 @@ if(null != request.getAttribute("yhgl"))
 							<col style="width: 40%" />
 									<TR>
 										<td class=td1 width=40 align="center" >真实姓名</td>
-										<td class='td2'  ><input type="text"  size="14"   maxlength="20" id="realname" name="realname" value=<%=username %> ></input>
+										<td class='td2'  ><input type="text"  size="14"   maxlength="20" id="realname" name="realname" value=<%=username %> />
 										<FONT color=red>*</FONT>
 										</td>
 										<td>&nbsp;</td>
 									</TR>
 									<TR>
 										<td class=td1 align="center" width="40px">用户名</td>
-										<td class=td2 ><input type="text"  size="14"   id="nickname" name="nickname"  maxlength="20"  value=<%=nickname %>></input>
+										<td class=td2 ><input type="text"  size="14"   id="nickname" name="nickname"  maxlength="20"  value=<%=nickname %> />
 										<FONT color=red>*</FONT>
 										</td>
 										<td>&nbsp;</td>
 									</TR>
 									<TR>
 										<td class=td1 align="center" width="40px">密码</td>
-										<td class=td2  width="400px"><input type="password" size="14"    id="pwd"  maxlength="20"  name="pwd"  value=<%=pwd %>></input>
+										<td class=td2  width="400px"><input type="password" size="14"    id="pwd"  maxlength="20"  name="pwd"  value=<%=pwd %> />
 										<FONT color=red>*</FONT>
 										</td>
 										<td>&nbsp;</td>
@@ -366,7 +366,7 @@ if(null != request.getAttribute("yhgl"))
 												<option value="<%=values2[i] %>"  <%if(zhuguan !=null && values2[i].equals(zhuguan)) {%> selected <%} %> ><%=values2[i] %></option>
 										  <%} %>
 												
-										</SELECT> <input type="password" id="zhuguanmima"  value=<%=zgmm %> name="zhuguanmima"  ><FONT color=red>*</FONT></input></td>
+										</SELECT> <input type="password" id="zhuguanmima"  value=<%=zgmm %> name="zhuguanmima" ><FONT color=red>*</FONT></input></td>
 										<td id=zgmmerror>&nbsp;</td>
 									</TR>
 									<TR>

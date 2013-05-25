@@ -62,6 +62,9 @@ public interface SCGLService {
 
     public void deleteZhiJianReportByIds(List<Integer> ids);
 
+    public zhiJianReport getZhiJianReportBySome(Map<String, Object> map);
+
+    public void insertZhiJianReport(zhiJianReport report);
     /**
      * 供应商管理
      *

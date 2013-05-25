@@ -858,6 +858,22 @@
 		[YL_guanli] as f where f.id =
 		#id#
 	</select>
+    <select id="getZLGL_YLBySome"  resultClass="ZLGLYLZL"
+            parameterClass="Map">
+        select
+        id,type_num,xilie,danwei,xiaxian,guige,zhongliang,chengfen,beizhu
+        from
+        [YL_guanli] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="type_num" prepend="and">
+                f.type_num = #type_num#
+            </isNotEmpty>
+            <isNotEmpty property="id" prepend="and">
+                f.id = #id#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
 	<update  id="updateZLGL_YL" parameterClass="ZLGLYLZL">
 	    update [YL_guanli]
 		<dynamic prepend="set">

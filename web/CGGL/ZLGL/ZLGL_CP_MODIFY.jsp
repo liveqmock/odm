@@ -60,28 +60,68 @@
 			submitHandler : function(form) {
 				form.submit();
 			},
-			rules : {
-				MuDiBuMen : {
-					selectNone : "ss"
-				},
-				xinghao : {
-					required : true
-				},
-				xilie : {
-					required : true
-				}
-			},
-			messages : {
-				MuDiBuMen : {
-					selectNone : "请选择部门"
-				},
-				xinghao : {
-					required : "请输入型号"
-				},
-				xilie : {
-					required : "请输入系列"
-				}
-			},
+            rules : {
+                MuDiBuMen : {
+                    selectNone : "ss"
+                },
+                xinghao : {
+                    required : true
+                },
+                xilie : {
+                    required : true
+                },
+                lingsj : {
+                    required : true,
+                    number : true
+                },
+                zhengqj : {
+                    required : true,
+                    number : true
+                },
+                sanbmj : {
+                    required : true,
+                    number : true
+                },
+                pifajia : {
+                    required : true,
+                    number : true
+                },
+                zidingyijia : {
+                    required : true,
+                    number : true
+                }
+            },
+            messages : {
+                MuDiBuMen : {
+                    selectNone : "请选择部门"
+                },
+                xinghao : {
+                    required : "请输入型号"
+                },
+                xilie : {
+                    required : "请输入系列"
+                } ,
+                lingsj: {
+                    number : "请输入数字",
+                    required: "请输入零售价"
+                } ,
+                zhengqj : {
+                    number : "请输入数字",
+                    required: "请输入整卷价"
+                } ,
+                sanbmj : {
+                    number : "请输入数字",
+                    required: "请输入300米价"
+                } ,
+                pifajia : {
+                    number : "请输入数字",
+                    required: "请输入批发价"
+                } ,
+                zidingyijia : {
+                    number : "请输入数字",
+                    required: "请输入自定义价"
+                }
+            },
 			errorPlacement : function(error, element) { //验证消息放置的地方  
 				error.appendTo(element.parent("td").next("td"));
 			},

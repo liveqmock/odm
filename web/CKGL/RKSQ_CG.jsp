@@ -9,22 +9,32 @@
 <title>采购入库</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<script type="text/javascript" language="javascript"
-	src="js/jquery-fn-tab.js"></script>
-<script type="text/javascript" src="js/jquery-1.3.2.js"></script>
-<script type="text/javascript" src="js/jquery.corners.min.js"></script>
-<script type="text/javascript" src="js/flexigrid.js"></script>
-<script language="javascript" type="text/javascript"
-	src="My97DatePicker/WdatePicker.js"></script>
-<script type="text/javascript" src="js/ChangeImageJS.js"></script>
-<link rel="stylesheet" href="CSS/flexigrid.css" type="text/css"/>
-<link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"/>
-<link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"/>
+    <script type="text/javascript" language="javascript"
+            src="js/jquery-fn-tab.js"></script>
+    <script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+    <script type="text/javascript" src="js/jquery_dialog.js"></script>
+    <script type="text/javascript" src="js/jquery.corners.min.js"></script>
+    <script type="text/javascript" src="js/flexigrid.js"></script>
+    <script language="javascript" type="text/javascript"
+            src="My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="js/ChangeImageJS.js"></script>
+    <link rel="stylesheet" href="CSS/flexigrid.css" type="text/css"/>
+    <link rel="stylesheet" href="CSS/jquery_dialog.css" type="text/css"/>
+    <link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"/>
+    <link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"/>
 
-<link type="text/css" rel="stylesheet" href="CSS/table.css" />
-<link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
+    <link type="text/css" rel="stylesheet" href="CSS/table.css" />
+    <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
 
 <script>
+    function winOpenFullScreen(strURL)
+    {
+        var sheight = screen.height-70;
+        var swidth = screen.width-10;
+        var winoption    ="left=0,top=0,height="+sheight+",width="+swidth+",toolbar=yes,menubar=yes,location=yes,status=yes,scrollbars=yes,resizable=yes";
+        var tmp=window.open(strURL,'',winoption);
+        return tmp;
+    }
     function printcgrk()
     {
         winOpenFullScreen ("DisPatch_getPrintCGRK",
@@ -298,7 +308,7 @@ function gridFlash(){
 		sortorder : "desc",
 		usepager : true,
 		resizable : false,
-		title : '采购单详细管理',
+		title : '布匹列表',
 		useRp : true,
 		rp : 10,
 		rpOptions : [ 10, 15, 20, 30, 50 ],

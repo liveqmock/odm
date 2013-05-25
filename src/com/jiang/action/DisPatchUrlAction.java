@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
@@ -36,6 +38,7 @@ public class DisPatchUrlAction extends ActionSupport {
 	private XTGLService xtglService;
     @Autowired
     private XSGLService xsglService;
+
 
 	
 	public String getUrl() {
@@ -513,13 +516,35 @@ public class DisPatchUrlAction extends ActionSupport {
     public String getPrintCGRK()
     {
         HttpServletRequest request = ServletActionContext.getRequest();
-        String m2 = request.getParameter("rkid");
-        CGGLDJGL dj = cgglService.getDJGLById(Integer.parseInt(m2));
+        Map<String, Object> map = new HashMap<String, Object>();
+        String cgid = (String) request.getSession().getAttribute("cgdid");
+        map.put("cgid", cgid);
+        List rows = ckglService.findCGRKByPage(1, 1000, map);
+        log.info("ckGLService.findCGRKByPage(page, rp, map)");
+        request.setAttribute("cgrkbupis", rows);
+        return "printcgrk";
+    }
+    public String getPrintCGCR_ZJ()
+    {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        Map<String, Object> map = new HashMap<String, Object>();
+        String cgid = (String) request.getSession().getAttribute("cgdid");
+        map.put("cgid", cgid);
+        //供应商信息
+        CGGLDJGL dj = cgglService.getDJGLByCGId(cgid);
         request.setAttribute("djgl", dj);
         String gysname = cgglService.getGYSById(dj.getGongyingshangid()).getGongyingname();
         request.setAttribute("gysname", gysname);
-
-        return "printcgrk";
+        //所有布匹信息
+        List rows = ckglService.findCGRKByPage(1, 1000, map);
+        log.info("ckGLService.findCGRKByPage(page, rp, map)");
+        log.info("ckGLService.findCGRKByPage(page, rp, map)"+rows.size());
+        request.setAttribute("cgrkbupis", rows);
+        //型号资料
+        map.put("type_num", dj.getType_num());
+        ZLGLYLZL ylzl = cgglService.getZLGL_YLBySome(map);
+        request.setAttribute("ylzl", ylzl);
+        return "printcgrk_zj";
     }
 
 	//打印采购单前查询状态
@@ -720,6 +745,10 @@ public class DisPatchUrlAction extends ActionSupport {
             request.setAttribute("zhijianlisterror", "无布匹记录");
             return "zhijianlist";
         }
+        else
+        {
+            initZJDID(request, id, dl.getType_num(),dl.getCG_totalnum());
+        }
     }
     if("2".equals(a) && "7".equals(b))//自加工质检
         {
@@ -738,6 +767,10 @@ public class DisPatchUrlAction extends ActionSupport {
                 request.setAttribute("zhijianlisterror", "无布匹记录");
                 return "zhijianlist";
             }
+            else
+            {
+                initZJDID(request, id, dl.getUp_typeNum(),dl.getNum());
+            }
        }
         if("2".equals(a) && "8".equals(b))      //外加工质检
         {
@@ -755,6 +788,10 @@ public class DisPatchUrlAction extends ActionSupport {
             {
                 request.setAttribute("zhijianlisterror", "无布匹记录");
                 return "zhijianlist";
+            }
+            else
+            {
+                initZJDID(request, id, dl.getUP_typeNum(),dl.getNum());
             }
         }
         if("2".equals(a) && "10".equals(b))
@@ -790,5 +827,29 @@ public class DisPatchUrlAction extends ActionSupport {
         int i = Integer.valueOf(a);
         int j = Integer.valueOf(b);
         return retstrs[i][j];
+    }
+    public void initZJDID(HttpServletRequest request, String id, String typeNum, BigDecimal num)
+    {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("laiyuan_id", id);
+        zhiJianReport zjreport = scglService.getZhiJianReportBySome(map);
+        if(null == zjreport)
+        {
+            zhiJianReport zjr = new zhiJianReport();
+            zjr.setLaiyuan_id(id);
+            zjr.setXinghao(typeNum);
+            zjr.setNum(num);
+            Random rdm = new Random(System.currentTimeMillis());
+            int intRd = Math.abs(rdm.nextInt())%9999+1;
+            SimpleDateFormat formater = new SimpleDateFormat("yyMMdd");
+            String zijianid =  "ZJ"+formater.format(new Date())+String.format("%04d", intRd);
+            request.getSession().setAttribute("zijianid", zijianid);
+            zjr.setReport_id(zijianid);
+            scglService.insertZhiJianReport(zjr);
+        }
+        else
+        {
+            request.getSession().setAttribute("zijianid", zjreport.getReport_id());
+        }
     }
 }

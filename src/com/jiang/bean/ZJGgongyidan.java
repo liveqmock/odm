@@ -1,6 +1,7 @@
 package com.jiang.bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class ZJGgongyidan   implements Serializable {
@@ -10,7 +11,7 @@ public class ZJGgongyidan   implements Serializable {
 	private String Up_typeNum;
 	private String Down_typeNum;
 	private String dibuName;
-	private Integer num;
+	private BigDecimal num;
 	private String gongyi;
 	private Date jiaohuo_time;
 	private String kahao;
@@ -67,10 +68,10 @@ public class ZJGgongyidan   implements Serializable {
 	public void setDibuName(String dibuName) {
 		this.dibuName = dibuName;
 	}
-	public Integer getNum() {
+	public BigDecimal getNum() {
 		return num;
 	}
-	public void setNum(Integer num) {
+	public void setNum(BigDecimal num) {
 		this.num = num;
 	}
 	public String getGongyi() {

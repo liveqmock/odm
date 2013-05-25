@@ -27,9 +27,8 @@ public class CGGLServiceImpl implements CGGLService {
 
 	@Autowired
 	private CGGLDao cGGLDao;
-	
 
-	public int getTotalDJGL() {
+    public int getTotalDJGL() {
 		return 0;
 	}
 
@@ -280,9 +279,12 @@ public class CGGLServiceImpl implements CGGLService {
 		return  cGGLDao.getZLGL_YLById(id);
 	}
 
+    public ZLGLYLZL getZLGL_YLBySome(Map type_num) {
+        return cGGLDao.getZLGL_YLBySome(type_num);
+    }
 
 
-	public void updateZLGL_YL(ZLGLYLZL yl) {
+    public void updateZLGL_YL(ZLGLYLZL yl) {
 		   cGGLDao.updateZLGL_YL(yl);
 	}
 
