@@ -2,80 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b45d32f4-da1e-4170-9850-66bf35a24898" name="Default" comment="">
-      <change type="DELETED" beforePath="F:\IdeaProjects\odm\web\SCGL\SCGYD\ttt.jsp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ZHDD/AddTypeNums.jsp" afterPath="$PROJECT_DIR$/web/ZHDD/AddTypeNums.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/BCPKJ_Apply.jsp" afterPath="$PROJECT_DIR$/web/SCGL/BCPKJ_Apply.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/BCPKJ_CKCX.jsp" afterPath="$PROJECT_DIR$/web/SCGL/BCPKJ_CKCX.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ibatis/CGGL.xml" afterPath="$PROJECT_DIR$/src/ibatis/CGGL.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/dao/CGGLDao.java" afterPath="$PROJECT_DIR$/src/com/jiang/dao/CGGLDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/dao/impl/CGGLDaoImpl.java" afterPath="$PROJECT_DIR$/src/com/jiang/dao/impl/CGGLDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/service/CGGLService.java" afterPath="$PROJECT_DIR$/src/com/jiang/service/CGGLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/service/impl/CGGLServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/jiang/service/impl/CGGLServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/CGTH.jsp" afterPath="$PROJECT_DIR$/web/CGGL/CGTH.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/CKCX.jsp" afterPath="$PROJECT_DIR$/web/CGGL/CKCX.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/CPKJ_Apply.jsp" afterPath="$PROJECT_DIR$/web/SCGL/CPKJ_Apply.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/CPKJ_CKCX.jsp" afterPath="$PROJECT_DIR$/web/SCGL/CPKJ_CKCX.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/CP_KJGL.jsp" afterPath="$PROJECT_DIR$/web/CKGL/CP_KJGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/CangKuChaXun.jsp" afterPath="$PROJECT_DIR$/web/SCGL/CangKuChaXun.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/DANWEIGL.jsp" afterPath="$PROJECT_DIR$/web/SCGL/DANWEIGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/DDGL.jsp" afterPath="$PROJECT_DIR$/web/XSGL/DDGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/DDGL_Detail.jsp" afterPath="$PROJECT_DIR$/web/XSGL/DDGL_Detail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/DJGL.jsp" afterPath="$PROJECT_DIR$/web/CGGL/DJGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/DJGL3.jsp" afterPath="$PROJECT_DIR$/web/CGGL/DJGL3.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/DJGL_MODIFY2.jsp" afterPath="$PROJECT_DIR$/web/CGGL/DJGL_MODIFY2.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/FHGL/FHGL.jsp" afterPath="$PROJECT_DIR$/web/FHGL/FHGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/DANWEIGL/GYSGL_bk.jsp" afterPath="$PROJECT_DIR$/web/SCGL/DANWEIGL/GYSGL_bk.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/GYSGL/GYS_GL.jsp" afterPath="$PROJECT_DIR$/web/CGGL/GYSGL/GYS_GL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/GYSGL/GYS_XHGL.jsp" afterPath="$PROJECT_DIR$/web/CGGL/GYSGL/GYS_XHGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/JHBCPCKCX.jsp" afterPath="$PROJECT_DIR$/web/SCGL/JHBCPCKCX.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/JHCGDJGL.jsp" afterPath="$PROJECT_DIR$/web/CGGL/JHCGDJGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/JHCPCKCX.jsp" afterPath="$PROJECT_DIR$/web/SCGL/JHCPCKCX.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/SCGYD/JHWJG.jsp" afterPath="$PROJECT_DIR$/web/SCGL/SCGYD/JHWJG.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/SCGYD/JHZJG1.jsp" afterPath="$PROJECT_DIR$/web/SCGL/SCGYD/JHZJG1.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/JsonUtil.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/JsonUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/KHGL_BASE.jsp" afterPath="$PROJECT_DIR$/web/XSGL/KHGL_BASE.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/KHGL_FH.jsp" afterPath="$PROJECT_DIR$/web/XSGL/KHGL_FH.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/KJGL.jsp" afterPath="$PROJECT_DIR$/web/CKGL/KJGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/KJGL_CP.jsp" afterPath="$PROJECT_DIR$/web/CKGL/KJGL_CP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XTGL/LSJL.jsp" afterPath="$PROJECT_DIR$/web/XTGL/LSJL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/ZHDD/OrderDetail.jsp" afterPath="$PROJECT_DIR$/web/ZHDD/OrderDetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/OrderDetail_SHOW.jsp" afterPath="$PROJECT_DIR$/web/XSGL/OrderDetail_SHOW.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/RKQR.jsp" afterPath="$PROJECT_DIR$/web/CGGL/RKQR.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/RKSQ.jsp" afterPath="$PROJECT_DIR$/web/CKGL/RKSQ.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/RKSQ2.jsp" afterPath="$PROJECT_DIR$/web/CKGL/RKSQ2.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/RKSQ_CG.jsp" afterPath="$PROJECT_DIR$/web/CKGL/RKSQ_CG.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/RUKU/RUKU_CG.jsp" afterPath="$PROJECT_DIR$/web/SCGL/RUKU/RUKU_CG.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/RUKU/RUKU_SCWJG.jsp" afterPath="$PROJECT_DIR$/web/SCGL/RUKU/RUKU_SCWJG.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/RUKU/RUKU_SCZJG.jsp" afterPath="$PROJECT_DIR$/web/SCGL/RUKU/RUKU_SCZJG.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/CKQR/SCCKQR.jsp" afterPath="$PROJECT_DIR$/web/CKGL/CKQR/SCCKQR.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/SCDCHECK.jsp" afterPath="$PROJECT_DIR$/web/SCGL/SCDCHECK.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ibatis/SCGL.xml" afterPath="$PROJECT_DIR$/src/ibatis/SCGL.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/SCGLAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/SCGLAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/SCRuKu.jsp" afterPath="$PROJECT_DIR$/web/SCGL/SCRuKu.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/SGZLGL.jsp" afterPath="$PROJECT_DIR$/web/SCGL/SGZLGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/CKQR/THCKQR.jsp" afterPath="$PROJECT_DIR$/web/CKGL/CKQR/THCKQR.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/SCGYD/WJG.jsp" afterPath="$PROJECT_DIR$/web/SCGL/SCGYD/WJG.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/DANWEIGL/WJGGL.jsp" afterPath="$PROJECT_DIR$/web/SCGL/DANWEIGL/WJGGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/CKQR/XSCKQR.jsp" afterPath="$PROJECT_DIR$/web/CKGL/CKQR/XSCKQR.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/XSDCX.jsp" afterPath="$PROJECT_DIR$/web/XSGL/XSDCX.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XTGL/XTCS.jsp" afterPath="$PROJECT_DIR$/web/XTGL/XTCS.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/SCGYD/YB.jsp" afterPath="$PROJECT_DIR$/web/SCGL/SCGYD/YB.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/YDDGL.jsp" afterPath="$PROJECT_DIR$/web/XSGL/YDDGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XTGL/YHGL.jsp" afterPath="$PROJECT_DIR$/web/XTGL/YHGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp" afterPath="$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/ZHDDGL_Detail.jsp" afterPath="$PROJECT_DIR$/web/XSGL/ZHDDGL_Detail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIANLIST.jsp" afterPath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIANLIST.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIANREPORT.jsp" afterPath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIANREPORT.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIAN_CG.jsp" afterPath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIAN_CG.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIAN_SCWJG.jsp" afterPath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIAN_SCWJG.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIAN_SCZJG.jsp" afterPath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIAN_SCZJG.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/SCGYD/ZJG1.jsp" afterPath="$PROJECT_DIR$/web/SCGL/SCGYD/ZJG1.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/ZLGL/ZLGL_BCP.jsp" afterPath="$PROJECT_DIR$/web/CGGL/ZLGL/ZLGL_BCP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/ZLGL/ZLGL_CP.jsp" afterPath="$PROJECT_DIR$/web/CGGL/ZLGL/ZLGL_CP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/ZLGL/ZLGL_SP.jsp" afterPath="$PROJECT_DIR$/web/CGGL/ZLGL/ZLGL_SP.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CGGL/ZLGL/ZLGL_YL.jsp" afterPath="$PROJECT_DIR$/web/CGGL/ZLGL/ZLGL_YL.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/XSGL/addshouhuoaddress.jsp" afterPath="$PROJECT_DIR$/web/XSGL/addshouhuoaddress.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="odm.iws" />
@@ -98,7 +24,7 @@
     <file path="/SCGLServiceImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369475069153" ignored="false" />
     <file path="/SCGLDao.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369475081112" ignored="false" />
     <file path="/BCPKJ_Apply.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357092665820" ignored="false" />
-    <file path="/Dummy.txt" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370003575989" ignored="false" />
+    <file path="/Dummy.txt" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370008294034" ignored="false" />
     <file path="F:/sunyard_android_bld_1.00/sdk_bld_1.00/i60api/obj/local/armeabi/objs/sunyardi60a/sunyardi60a.o.d" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356683295643" ignored="false" />
     <file path="/BCPKJ_DO.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357090690963" ignored="false" />
     <file path="/UserFilter.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361884751619" ignored="false" />
@@ -1489,7 +1415,11 @@
       <created>1369499977708</created>
       <updated>1369499977708</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="commit in home5.31 修改了所有表单的英文显示为中文显示">
+      <created>1370008328678</created>
+      <updated>1370008328678</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1513,7 +1443,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1931" height="1040" extended-state="0" />
+    <frame x="-8" y="0" width="1931" height="1040" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5696629" sideWeight="0.49085367" order="7" side_tool="false" content_ui="tabs" />
@@ -1535,8 +1465,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902735" sideWeight="0.57632935" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18521342" sideWeight="0.7622378" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21910113" sideWeight="0.47865853" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14906166" sideWeight="0.7585812" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24141876" sideWeight="0.66273457" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14906166" sideWeight="0.7585812" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24141876" sideWeight="0.66273457" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="92" y="92" width="1178" height="544" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30136988" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -1586,7 +1516,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit in home5.26,修改了打印质检单" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit in home5.31 修改了所有表单的英文显示为中文显示" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1607,6 +1537,7 @@
     <MESSAGE value="commit in home5.19" />
     <MESSAGE value="commit in home5.20修改几个小bug" />
     <MESSAGE value="commit in home5.26,修改了打印质检单" />
+    <MESSAGE value="commit in home5.31 修改了所有表单的英文显示为中文显示" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />

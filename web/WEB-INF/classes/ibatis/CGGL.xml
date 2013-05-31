@@ -35,6 +35,9 @@
 		<result property="apply_time" column="apply_time" />
 		<result property="queren_man" column="queren_man" />
 		<result property="queren_time" column="queren_time" />
+        <result property="zhijian_or_not" column="zhijian_or_not" />
+        <result property="beizhu" column="beizhu" />
+        <result property="jitaihao" column="jitaihao" />
 	</resultMap>
 
 
@@ -430,7 +433,7 @@
 		select
 		id,caigou_id,bupi_id,price,mishu,gongyingname,apply_man,apply_time
 		,queren_man
-		,queren_time
+		,queren_time,zhijian_or_not,beizhu,jitaihao
 		from (
 		SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
 		BY ID ASC) AS ROWID,*
@@ -548,8 +551,7 @@
 				f.gongyingname like '%'+ #gongyingname# + '%'
 			</isNotEmpty>
 			<isNotEmpty property="leixing" prepend="and">
-				f.leixing =
-				#leixing#
+				f.leixing = #leixing#
 			</isNotEmpty>
 		</dynamic>
 		) AS TEMP1
@@ -714,6 +716,12 @@
 		) AS TEMP1
 		WHERE ROWID >$pstart$
 	</select>
+    <select id="findAllGYSXH" resultMap="gysxhglResult">
+        SELECT
+        id,gysid,xinghao
+        FROM [gysxinghao]
+    </select>
+
 	<select id="getGYSXHCount" resultClass="java.lang.Integer">
 	SELECT
 		count(*)
@@ -856,6 +864,22 @@
 		[YL_guanli] as f where f.id =
 		#id#
 	</select>
+    <select id="getZLGL_YLBySome"  resultClass="ZLGLYLZL"
+            parameterClass="Map">
+        select
+        id,type_num,xilie,danwei,xiaxian,guige,zhongliang,chengfen,beizhu
+        from
+        [YL_guanli] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="type_num" prepend="and">
+                f.type_num = #type_num#
+            </isNotEmpty>
+            <isNotEmpty property="id" prepend="and">
+                f.id = #id#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
 	<update  id="updateZLGL_YL" parameterClass="ZLGLYLZL">
 	    update [YL_guanli]
 		<dynamic prepend="set">

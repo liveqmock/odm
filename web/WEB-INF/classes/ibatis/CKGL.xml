@@ -31,6 +31,9 @@
         <result property="queren_time" column="queren_time" />
         <result property="zhijian_or_not" column="zhijian_or_not" />
         <result property="beizhu" column="beizhu" />
+        <result property="jitaihao" column="jitaihao" />
+        <result property="pinzhi" column="pinzhi" />
+        <result property="shijimishu" column="shijimishu" />
     </resultMap>
 
     <typeAlias alias="SCRK"  type="com.jiang.bean.SCRK" />
@@ -122,18 +125,19 @@
 	
 	<!-- 仓库采购入库 -->
 	<select id="findCGRKByPage" resultMap="cgrkResult" parameterClass="HashMap">
-		select
-		id,caigou_id,bupi_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,
-		zhijian_or_not,beizhu
-		from	
-		(
-		SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
-		BY ID ASC) AS ROWID,*
-		from
-		[CGruku_apply] as f where caigou_id=#cgid#
-		) AS TEMP1
-		WHERE ROWID >$pstart$
-	</select>
+    select
+    id,caigou_id,bupi_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,
+    zhijian_or_not,beizhu,jitaihao,pinzhi,shijimishu
+    from
+    (
+    SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
+    BY ID ASC) AS ROWID,*
+    from
+    [CGruku_apply] as f where caigou_id=#cgid#
+    ) AS TEMP1
+    WHERE ROWID >$pstart$
+</select>
+
     <select id="findSCZJGRKByPage" resultMap="scrkResult" parameterClass="HashMap">
         select
         id,caigou_id,gongyidan_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,
@@ -248,10 +252,10 @@
 	<insert id="insertCGRKQR" parameterClass="CGRK">
 			insert into
 			[CGruku_apply]
-			(caigou_id,bupi_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,zhijian_or_not,beizhu)
+			(caigou_id,bupi_id,price,mishu,gongyingname,apply_man,apply_time,queren_man,queren_time,zhijian_or_not,beizhu,jitaihao)
 			values
 			(#caigou_id#,#bupi_id#,#price#,#mishu#,#gongyingname#,
-			#apply_man#,#apply_time#,#queren_man#,#queren_time#,#zhijian_or_not#,#beizhu#)
+			#apply_man#,#apply_time#,#queren_man#,#queren_time#,#zhijian_or_not#,#beizhu#,#jitaihao#)
 	</insert>
 	
 	<!-- 查询仓库中半成品布匹 -->

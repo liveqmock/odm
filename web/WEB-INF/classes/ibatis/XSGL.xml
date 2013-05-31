@@ -99,7 +99,7 @@
          as fh_address_1
          FROM [sale_dingdan] as f
          left join kehuziliao as b on b.kehu_id=f.dingdan_name
-         left join  fahuoaddress as c on  f.fahuoaddressid=c.id
+         left join fahuoaddress as c on  f.fahuoaddressid=c.id
          <dynamic prepend="and">
 			<isNotEmpty property="kehuname" prepend="and">
                 KeHuname like
