@@ -54,7 +54,6 @@
   function add()
   {
       var ui1 = document.getElementById("mishu");
-      var ui_jitaihao = document.getElementById("jitaihao");
       var zongmishu = document.getElementById("zongmishu");
       var nums = document.getElementById("nums");
       var a1 = parseInt(ui1.value)+parseInt(nums.value);
@@ -73,15 +72,10 @@
 			return false;
 		}
 
-      if(ui_jitaihao.value == "" || ui_jitaihao.value == "0" || parseFloat(ui_jitaihao.value) < 0.1)
-      {
-          alert("机台号不能为0或空");
-          document.getElementById("jitaihao").focus();
-          return false;
-      }
+
 
  		location.href = "CKGL_dolist?hidden=add&type=CGRKSQ&mishu="+ui1.value+
-      "&price="+price.value +"&danhao="+danhao.value +"&jitaihao="+ui_jitaihao.value;
+      "&price="+price.value +"&danhao="+danhao.value +"&jitaihao=";
 	   return true;
   }
 
@@ -93,55 +87,55 @@
 
 </head>
 <%
-String tiaoma = "";
-String xinghao = "";
-String laiyuandanwei = "";
-String zongmishu = "";
-String rukudanhao = "";
-String rukutype = "";
-String cgdid = "";
-String message = "";
-    String leixing = "";
-    Float nums = 0.0f;
-if((String)request.getAttribute("modifycgrkqrerror") != null)
-{
-	message = (String)request.getAttribute("modifycgrkqrerror");
-}
-if(null != session.getAttribute("leixing"))
-{
-    leixing = (String)request.getSession().getAttribute("leixing");
-}
-if(tiaoma.equals(""))
-{
-	  Random rdm = new Random(System.currentTimeMillis());
-      int intRd = Math.abs(rdm.nextInt())%9999+1;
-      SimpleDateFormat formater = new SimpleDateFormat("yyMMdd");
-      tiaoma =  "PR"+formater.format(new Date())+String.format("%04d", intRd);
-}
-if(null != session.getAttribute("xinghao"))
-{
-	xinghao = (String)request.getSession().getAttribute("xinghao");
-}
-if(null != session.getAttribute("laiyuandanwei"))
-{
-	laiyuandanwei = (String)request.getSession().getAttribute("laiyuandanwei");
-}
-if(null != session.getAttribute("zongmishu"))
-{
-	zongmishu = (String)request.getSession().getAttribute("zongmishu");
-}
-if(null != session.getAttribute("rukudanhao"))
-{
-	rukudanhao = (String)request.getSession().getAttribute("rukudanhao");
-}
-if(null != session.getAttribute("rukutype"))
-{
-	rukutype = (String)request.getSession().getAttribute("rukutype");
-}
-if(null != session.getAttribute("cgdid"))
-{
-	cgdid = (String)request.getSession().getAttribute("cgdid");
-}
+    String tiaoma = "";
+    String xinghao = "";
+    String laiyuandanwei = "";
+    String zongmishu = "";
+    String rukudanhao = "";
+    String rukutype = "";
+    String cgdid = "";
+    String message = "";
+        String leixing = "";
+        Float nums = 0.0f;
+    if((String)request.getAttribute("modifycgrkqrerror") != null)
+    {
+        message = (String)request.getAttribute("modifycgrkqrerror");
+    }
+    if(null != session.getAttribute("leixing"))
+    {
+        leixing = (String)request.getSession().getAttribute("leixing");
+    }
+    if(tiaoma.equals(""))
+    {
+          Random rdm = new Random(System.currentTimeMillis());
+          int intRd = Math.abs(rdm.nextInt())%9999+1;
+          SimpleDateFormat formater = new SimpleDateFormat("yyMMdd");
+          tiaoma =  "PR"+formater.format(new Date())+String.format("%04d", intRd);
+    }
+    if(null != session.getAttribute("xinghao"))
+    {
+        xinghao = (String)request.getSession().getAttribute("xinghao");
+    }
+    if(null != session.getAttribute("laiyuandanwei"))
+    {
+        laiyuandanwei = (String)request.getSession().getAttribute("laiyuandanwei");
+    }
+    if(null != session.getAttribute("zongmishu"))
+    {
+        zongmishu = (String)request.getSession().getAttribute("zongmishu");
+    }
+    if(null != session.getAttribute("rukudanhao"))
+    {
+        rukudanhao = (String)request.getSession().getAttribute("rukudanhao");
+    }
+    if(null != session.getAttribute("rukutype"))
+    {
+        rukutype = (String)request.getSession().getAttribute("rukutype");
+    }
+    if(null != session.getAttribute("cgdid"))
+    {
+        cgdid = (String)request.getSession().getAttribute("cgdid");
+    }
     if(null != session.getAttribute("nums"))
     {
         nums = (Float)request.getSession().getAttribute("nums");
@@ -175,18 +169,18 @@ if(null != session.getAttribute("cgdid"))
 				<td width="140" class="td2">&nbsp;&nbsp;&nbsp;<%=rukudanhao %>
 				</td>
 				<td width="132" align="center" class="td1">入库凭据:</td>
-				<td width="140" class="">&nbsp;&nbsp;&nbsp;<%=cgdid %></td>
+				<td width="140" class="td2">&nbsp;&nbsp;&nbsp;<%=cgdid %></td>
 				<td width="132" align="center" class="td1">型号:</td>
-				<td width="140" class="">&nbsp;&nbsp;&nbsp;<%=xinghao %></td>
+				<td width="140" class="td2">&nbsp;&nbsp;&nbsp;<%=xinghao %></td>
 			</tr>
 			<tr>
 				<td width="132" align="center" class="td1">入库类型:</td>
 				<td width="140" class="td2">&nbsp;&nbsp;&nbsp;<%=rukutype %>
 				</td>
 				<td width="132" align="center" class="td1">来源单位:</td>
-				<td width="140" class="">&nbsp;&nbsp;&nbsp;<%=laiyuandanwei %></td>
-				<td width="132" align="center" class="td1">总米数:</td>
-				<td width="140" class="">&nbsp;&nbsp;&nbsp;<%=zongmishu %></td>
+				<td width="140" class="td2">&nbsp;&nbsp;&nbsp;<%=laiyuandanwei %></td>
+				<td width="132" align="center" class="td1">已入库米数 / 总米数:</td>
+				<td width="140" class="td2">&nbsp;&nbsp;&nbsp;<%=nums %>米 / <%=zongmishu %>米</td>
 			</tr>
 			
 		</table>
@@ -225,9 +219,7 @@ if(null != session.getAttribute("cgdid"))
 				<td width="80" align="center" class="td1">米数：</td>
 				<td width="80" class=""><input type="text" name="mishu" id="mishu"  onkeyup="return checkFloat(this,value)"  /></td>
 
-                <td width="80" align="center" class="td1">机台号：</td>
-                <td width="80" class=""><input type="text" name="jitaihao" id="jitaihao"  onkeyup="return checkFloat(this,value)"  /></td>
-				<td><input type=button value="继续添加" onclick="add()" /></td>
+				<td><input type=button value="确认添加" onclick="add()" /></td>
 			</tr>
 		</table>
 				 
@@ -267,11 +259,11 @@ function gridFlash(){
 			width : 310,
 			sortable : false,
 			align : 'center',
-			hide : false
+            hide : false
 		}, {
 			display : '米数',
 			name : 'num',
-			width : 266,
+			width : 370,
 			sortable : false,
 			align : 'center'
 		}, {
@@ -279,7 +271,8 @@ function gridFlash(){
             name : 'num',
             width : 266,
             sortable : false,
-            align : 'center'
+            align : 'center',
+            hide : true
         }, {
             display : 'beizhu',
             name : 'beizhu',
@@ -290,7 +283,7 @@ function gridFlash(){
         },{
             display : '是否质检',
             name : 'num',
-            width : 200,
+            width : 360,
             sortable : false,
             align : 'center'
         }],
@@ -314,6 +307,14 @@ function gridFlash(){
 		rpOptions : [ 10, 15, 20, 30, 50 ],
 		width : 'auto',
 		height : 280,
+        pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',
+        pagetext : '第',
+        outof : '共',
+        findtext : 'Find',
+        procmsg : '正在查询, 请等待 ...',
+        query : '',
+        qtype : '',
+        nomsg : '没有符合要求的数据',
 		showToggleBtn : false,
 		checkbox : true
 	});

@@ -249,8 +249,12 @@ public class CGGLServiceImpl implements CGGLService {
 		return cGGLDao.findGYSXHByPage(page,rp,map);
 	}
 
+    public List<GYSXH> findAllGYSXH() {
+        return cGGLDao.findAllGYSXH();
+    }
 
-	public void deleteGYSXHById(List<String> ids) {
+
+    public void deleteGYSXHById(List<String> ids) {
 		 cGGLDao.deleteGYSXHById(ids);
 	}
 

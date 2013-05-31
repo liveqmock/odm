@@ -1492,7 +1492,8 @@
         zhijian_or_not = '1',
         beizhu=#beizhu#,
         pinzhi =#pinzhi#,
-        shijimishu =#shijimishu#
+        shijimishu =#shijimishu#,
+        jitaihao =#jitaihao#
         where bupi_id=#bptiaoma#
     </update>
     <!--  修改质检状态 不通过BTG -->
@@ -1500,8 +1501,9 @@
         update [CGruku_apply] set
         zhijian_or_not = '2',
         beizhu=#beizhu#,
-        beizhu=#beizhu#,
-        shijimishu =#shijimishu#
+        pinzhi =#pinzhi#,
+        shijimishu =#shijimishu#,
+        jitaihao =#jitaihao#
         where bupi_id=#bptiaoma#
     </update>
 </sqlMap>

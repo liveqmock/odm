@@ -70,6 +70,7 @@ public interface CGGLService {
 	public void insertGYSXHGL(GYSXH gysxh);
 	public int getGYSXHCount(Map<String, Object> map);
 	public List<GYSXH> findGYSXHByPage(int page, int rp, Map<String, Object> map);
+    public List<GYSXH> findAllGYSXH();
 	public void deleteGYSXHById(List<String> asList);
 	public GYSXH getGYSXHById(Integer valueOf);
 	public void updateGYSXHGL(GYSXH gysxh);

@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" %>
 <%@page import="java.util.*"%>
-<%@page import="com.jiang.bean.CGGLDJGL"%>
-<%@page import="com.jiang.bean.ZLGLYLZL"%>
-<%@page import="com.jiang.bean.ZLGLBCPZL"%>
-<%@page import="com.jiang.bean.ZLGLCPZL"%>
-<%@page import="com.jiang.bean.ZLGLSPZL"%>
-<%@page import="com.jiang.bean.GYS"%>
 <%@page import=" java.text.SimpleDateFormat"%>
+<%@ page import="com.jiang.bean.*" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/Dtd/xhtml1-transitional.dtd">
 
@@ -226,7 +221,7 @@
 %>
 	<form id="form1" name="form1" method="post"
 		action="CGGL_dolist?hidden=modify&type=DJGLAGYS">
-		<input type="hidden" name="id" value="<%=id%>"></input>
+		<input type="hidden" name="id" value="<%=id%>"/>
 		<div>
 			<table border="0" cellpadding="0" cellspacing="0" width="100%"
 				id="tabs">
@@ -273,8 +268,22 @@
 							
 								<tr>
 										<td class=td3 align="center" style="width:10%">供应商型号</td>
-										<td><input type="text" size="24" id="gysname_xh" value="<%=gysname_xh%>"
-											name="gysname_xh" maxlength="24"></input>
+										<td>
+                                            <select class="flexselect" id="gysname_xh"
+                                                    name="gysname_xh"   style="width:170px;position: relative;" >
+                                                <%
+                                                    List<GYSXH> gysxhs = new ArrayList<GYSXH>();
+                                                    if (null != session.getAttribute("gysxhs")) {
+                                                        gysxhs = (List<GYSXH>) session.getAttribute("gysxhs");
+                                                    }
+                                                    for(int i=0;i<gysxhs.size();i++)
+                                                    {
+                                                %>
+                                                <option <%if(((GYSXH)gysxhs.get(i)).getXinghao().equals(gysname_xh)) {%> selected<%}%> > <%=((GYSXH)gysxhs.get(i)).getXinghao() %></option>
+                                                <%
+                                                    }
+                                                %>
+                                            </select>
 										</td>
 										<td>&nbsp;</td>
 								</tr>

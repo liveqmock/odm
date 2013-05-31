@@ -218,6 +218,7 @@ public class SCGLAction extends BaseAction {
         String shijimishu  = request.getParameter("shijimishu");
         String beizhu  = request.getParameter("beizhu");
         String pinzhi  = request.getParameter("pinzhi");
+        String jitaihao  = request.getParameter("jitaihao");
         String cgdid  = (String) request.getSession().getAttribute("cgdid");
         Map<String, Object> map = new HashMap<String, Object>();
         try {
@@ -228,6 +229,7 @@ public class SCGLAction extends BaseAction {
         map.put("bptiaoma", bptiaoma);
         map.put("shijimishu", new BigDecimal(shijimishu));
         map.put("beizhu", beizhu);
+        map.put("jitaihao", jitaihao);
         try {
             pinzhi = new String(pinzhi.getBytes("ISO8859-1"), "UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -244,6 +246,7 @@ public class SCGLAction extends BaseAction {
         String shijimishu  = request.getParameter("shijimishu");
         String beizhu  = request.getParameter("beizhu");
         String pinzhi  = request.getParameter("pinzhi");
+        String jitaihao  = request.getParameter("jitaihao");
         String cgdid  = (String) request.getSession().getAttribute("cgdid");
         Map<String, Object> map = new HashMap<String, Object>();
         try {
@@ -254,6 +257,7 @@ public class SCGLAction extends BaseAction {
         map.put("bptiaoma", bptiaoma);
         map.put("shijimishu", new BigDecimal(shijimishu));
         map.put("beizhu", beizhu);
+        map.put("jitaihao", jitaihao);
         try {
             pinzhi = new String(pinzhi.getBytes("ISO8859-1"), "UTF-8");
         } catch (UnsupportedEncodingException e) {

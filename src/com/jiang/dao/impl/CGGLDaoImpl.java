@@ -561,4 +561,8 @@ public class CGGLDaoImpl extends SqlMapClientDaoSupport implements CGGLDao {
         return djgl;
     }
 
+    public List<GYSXH> findAllGYSXH() {
+        return getSqlMapClientTemplate().queryForList("CGGL.findAllGYSXH");
+    }
+
 }

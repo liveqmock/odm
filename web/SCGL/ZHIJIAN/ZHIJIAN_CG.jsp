@@ -25,6 +25,15 @@
 <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
 
 <script>
+    function checkFloat(vv, val)
+    {
+        if(isNaN(val))
+        {
+            vv.value=vv.value.substr(0, vv.value.length-1);
+            return false;
+        }
+        return true;
+    }
     function winOpenFullScreen(strURL)
     {
         var sheight = screen.height-70;
@@ -47,9 +56,11 @@
 
 		var ui1 = document.getElementById("bptiaoma");
 		var ui2 = document.getElementById("shijimishu");
+        var ui3 = document.getElementById("jitaihao");
         var pinzhi = document.getElementById("pinzhi");
 		ui1.value = strs[0];
 		ui2.value = strs[1].split(".")[0];
+        ui3.value = strs[2];
         pinzhi.value='一般';
 	}
 	function tongguo(tongugo)
@@ -59,6 +70,9 @@
         var ui2 = document.getElementById("shijimishu");
         var ui3 = document.getElementById("beizhu");
         var pinzhi = document.getElementById("pinzhi");
+        var jitaihao = document.getElementById("jitaihao");
+
+
         if(ui1.value == "")
         {
             alert("获取条码失败");
@@ -74,15 +88,20 @@
             alert("质检品质不能为空");
             return false;
         }
+        if(jitaihao.value == "")
+        {
+            alert("获取机台号失败");
+            return false;
+        }
         if(tongugo == 1)
         {
             f.action = "SCGL_dolist?hidden=modify&type=ZHIJIAN_CG&bptiaoma="+ui1.value
-                    +"&shijimishu="+ui2.value+"&beizhu="+ui3.value+"&pinzhi="+pinzhi.value;
+                    +"&shijimishu="+ui2.value+"&beizhu="+ui3.value+"&pinzhi="+pinzhi.value+"&jitaihao="+jitaihao.value;
         }
         else if(tongugo == 0)
         {
             f.action = "SCGL_dolist?hidden=modify&type=ZHIJIAN_CG_BTG&bptiaoma="+ui1.value
-                    +"&shijimishu="+ui2.value+"&beizhu="+ui3.value+"&pinzhi="+pinzhi.value;
+                    +"&shijimishu="+ui2.value+"&beizhu="+ui3.value+"&pinzhi="+pinzhi.value+"&jitaihao="+jitaihao.value;
         }
         f.method = "post";
         document.body.appendChild(f);
@@ -177,18 +196,21 @@
 	<table cellpadding="0" cellspacing="0" width="100%" align="center"
 			style="border: #b9c2d3 solid 1px; top: 4px">
 	<tr>
-					<td width="100"  class="td1">条码:</td>
-					<td width="100" class="td2"><input type="text" id="bptiaoma" name="bptiaoma" 
+					<td width=""  class="td1">条码:</td>
+					<td width="100" class=""><input   SIZE="12" type="text" id="bptiaoma" name="bptiaoma"
 					 onfocus="this.blur()" readonly="readonly"  style="color:gray"   /> </td>
-					<td width="100" align="center" class="td1">实际米数:</td>
-					<td width="100" class="td2"><input type="text" id="shijimishu" name="shijimishu"  onkeyup="value=value.replace(/[^\d]/g,'')" style="color:red"/> </td>
+					<td width="" align="center" class="td1">实际米数:</td>
+					<td width="60" class=""><input SIZE="6" type="text" id="shijimishu" name="shijimishu" onkeyup="return checkFloat(this,value)"  style="color:red"/> </td>
 
-                    <td width="100" align="center" class="td1">质检品质:</td>
-                    <td width="100" class="td2"><input type="text" name="pinzhi" id="pinzhi"/> </td>
-					<td width="100" align="center" class="td1">备注:</td>
-					<td width="100" class="td2"><input type="text" name="beizhu" id="beizhu" /> </td>
-					<td width="100" class="td2">&nbsp;&nbsp;&nbsp;<input type="button" value="质检通过"  onclick="tongguo(1)"/> </td>
-					<td width="100" class="td2"><input type="button" value="不通过" onclick="tongguo(0)" /> </td>
+                    <td width="" align="center" class="td1">质检品质:</td>
+                    <td width="80" class=""><input  SIZE="6" type="text" name="pinzhi" id="pinzhi"/> </td>
+
+                    <td width="" align="center" class="td1">机台号:</td>
+                    <td width="80" class=""><input  SIZE="5" type="text" name="jitaihao" id="jitaihao"  onkeyup="value=value.replace(/[^\d]/g,'')" /> </td>
+					<td width="" align="center" class="td1">备注:</td>
+					<td width="170" class=""><input type="text" SIZE="50" name="beizhu" id="beizhu" /> </td>
+					<td width="50" class="">&nbsp;&nbsp;&nbsp;<input type="button" value="质检通过"  onclick="tongguo(1)"/> </td>
+					<td width="50" class=""><input type="button" value="不通过" onclick="tongguo(0)" /> </td>
 				</tr>
 	</table>
 	</div>
@@ -205,7 +227,14 @@
 
 <script>
 
-function gridFlash(){  
+    function onRowSelect(div, id) {
+        $('tr#row'+id).click( function () {
+           // alert(id);
+            this.disableSelection();
+        } );
+    }
+
+    function gridFlash(){
 	$("#flex1").flexOptions({params: [
 	                                  {name:'type_num', value:$("#type_num").val()},
 	                                  {name:'zhuangtai', value:$("#zhuangtai").val()},
@@ -223,30 +252,31 @@ function gridFlash(){
 			width : 10,
 			sortable : true,
 			align : 'center',
-			hide : true
-		}, {
+			hide : true,
+            process: onRowSelect
+        }, {
 			display : '条形码',
 			name : 'tiaoxingma',
-			width : 160,
+			width : 140,
 			sortable : false,
 			align : 'center',
 			hide : false
 		}, {
             display : '机台号',
             name : 'num',
-            width : 120,
+            width : 100,
             sortable : false,
             align : 'center'
         }, {
 			display : '米数',
 			name : 'num',
-			width : 120,
+			width : 100,
 			sortable : false,
 			align : 'center'
 		}, {
             display : '实际米数',
             name : 'num',
-            width : 120,
+            width : 100,
             sortable : false,
             align : 'center'
         }, {
@@ -258,33 +288,43 @@ function gridFlash(){
         }, {
 			display : '备注',
 			name : 'huojiahao',
-			width : 160,
+			width : 320,
 			sortable : false,
 			align : 'center'
 		}, {
 			display : '是否质检',
 			name : 'tiaoxingma',
-			width : 200,
+			width : 120,
 			sortable : false,
 			align : 'center',
 			hide : false
 		}],
 
-	
+        pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',
+        pagetext : '第',
+        outof : '共',
+        findtext : 'Find',
+        procmsg : '正在查询, 请等待 ...',
+        query : '',
+        qtype : '',
+        nomsg : '没有符合要求的结果',
 		sortname : "id",
 		sortorder : "desc",
 		usepager : true,
 		resizable : false,
 		title : '布匹列表',
 		useRp : true,
-		rp : 8,
-		rpOptions : [ 8, 15, 20, 30, 50 ],
+		rp : 10,
+		rpOptions : [ 10, 15, 20, 30, 50 ],
 		width : 'auto',
 		height : 310,
 		showToggleBtn : false,
 		checkbox : true
 	});
-
+    function changeselect(grid)
+    {
+                   alert("a");
+    }
 	function button(com, grid) {
 		var hidden = document.getElementById("hidden");
 

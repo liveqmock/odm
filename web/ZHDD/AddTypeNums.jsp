@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" %>
 <%@page import="java.util.*"%>
 <%@ page import="com.jiang.bean.ZLGLCPZL" %>
+<%@ page import="java.math.BigDecimal" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/Dtd/xhtml1-transitional.dtd">
 
@@ -182,10 +183,10 @@
     String chenpmc = "";
     String guige = "";
     String sehao = "";
-    Float z_jia = 0.0f;
-    Float l_jia = 0.0f;
-    Float s_jia = 0.0f;
-    Float p_jia = 0.0f;
+    BigDecimal z_jia = new BigDecimal("0");
+    BigDecimal l_jia = new BigDecimal("0");
+    BigDecimal s_jia = new BigDecimal("0");
+    BigDecimal p_jia = new BigDecimal("0");
     if(null != request.getSession().getAttribute("ZLGLCPZL_search"))
     {
         cpzl = (ZLGLCPZL) request.getSession().getAttribute("ZLGLCPZL_search");
@@ -284,19 +285,19 @@
                             <td width="5"></td>
                             <td align="left">
                                 <div id="hide1" >
-                                    <input name="DanJiaText" type="text" id="DanJiaText1" value="<%=z_jia %>"
+                                    <input name="DanJiaText" type="text" id="DanJiaText1" value="<%=z_jia.floatValue() %>"
                                             onfocus="this.blur()" readonly="readonly"  style="color:gray" />
                                </div>
                                 <div id="hide2" >
-                                    <input name="DanJiaText" type="text" id="DanJiaText2" value="<%=l_jia %>"
+                                    <input name="DanJiaText" type="text" id="DanJiaText2" value="<%=l_jia.floatValue() %>"
                                             onfocus="this.blur()" readonly="readonly"  style="color:gray" />
                                 </div>
                                 <div id="hide3" >
-                                    <input name="DanJiaText" type="text" id="DanJiaText3" value="<%=s_jia %>"
+                                    <input name="DanJiaText" type="text" id="DanJiaText3" value="<%=s_jia.floatValue() %>"
                                             onfocus="this.blur()" readonly="readonly"  style="color:gray" />
                                 </div>
                                 <div id="hide4" >
-                                    <input name="DanJiaText" type="text" id="DanJiaText4" value="<%=p_jia %>"
+                                    <input name="DanJiaText" type="text" id="DanJiaText4" value="<%=p_jia.floatValue() %>"
                                             onfocus="this.blur()" readonly="readonly"  style="color:gray" />
                                 </div>
                                 <div id="hide5" >

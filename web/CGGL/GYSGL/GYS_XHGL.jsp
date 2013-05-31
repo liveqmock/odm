@@ -90,7 +90,15 @@ function gridFlash(){
       {display: '发布作者', name : 'id'}   
       ],   */
   sortname: "id",   
-  sortorder: "desc",   
+  sortorder: "desc",
+  pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',
+  pagetext : '第',
+  outof : '共',
+  findtext : 'Find',
+  procmsg : '正在查询, 请等待 ...',
+  query : '',
+  qtype : '',
+  nomsg : '没有符合要求的数据',
   usepager: true,   
   resizable: false,
   title: '供应商型号管理',   

@@ -163,4 +163,5 @@ public interface CGGLDao {
 
     public ZLGLCPZL findCPSByTypeNum(String t_tiaoma);
 
+    List<GYSXH> findAllGYSXH();
 }

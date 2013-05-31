@@ -867,12 +867,16 @@ public class JsonUtil {
             Map cellMap = new HashMap();
             RKQR cg = (RKQR) list.get(i);
             String zhijian = cg.getZhijian_or_not();
+            if(cg.getJitaihao() == null)
+            {
+                cg.setJitaihao(0);
+            }
             if (null != zhijian && zhijian.contains("1")) {
                 zhijian = "已质检";
             }else if (null != zhijian && zhijian.contains("2")) {
-                zhijian = "不合格 <input type=button  value=重新质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu() + "') />";
+                zhijian = "不合格 <input type=button  value=重新质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu()+ "#" + cg.getJitaihao()  + "') />";
             } else {
-                zhijian = "<input type=button  value=质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu() + "') />";
+                zhijian = "<input type=button  value=质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu()+ "#" + cg.getJitaihao()  + "') />";
             }
             cellMap.put("id", cg.getId());
             cellMap.put("cell",
@@ -1254,7 +1258,7 @@ public class JsonUtil {
             cellMap.put("id", cg.getId());
             cellMap.put("cell",
                     new Object[]{cg.getId(), cg.getType_num(), cg.getType_num(), cg.getGuige(), cg.getNum()+"",
-                    cg.getDanjia(),b1.multiply(b2)+"", cg.getBeizhu()});
+                    cg.getDanjia(),b1.multiply(b2).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue()+"", cg.getBeizhu()});
             mapList.add(cellMap);
         }
         return mapList;
@@ -1269,7 +1273,7 @@ public class JsonUtil {
             cellMap.put("id", cg.getId());
             cellMap.put("cell",
                     new Object[]{cg.getId(), cg.getType_num(), cg.getType_num(), cg.getGuige(), cg.getNum()+"",
-                            cg.getDanjia(),b1.multiply(b2)+"", cg.getFinish_or_not(),cg.getBeizhu()});
+                            cg.getDanjia(),b1.multiply(b2).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue()+"", cg.getFinish_or_not(),cg.getBeizhu()});
             mapList.add(cellMap);
         }
         return mapList;

@@ -716,6 +716,12 @@
 		) AS TEMP1
 		WHERE ROWID >$pstart$
 	</select>
+    <select id="findAllGYSXH" resultMap="gysxhglResult">
+        SELECT
+        id,gysid,xinghao
+        FROM [gysxinghao]
+    </select>
+
 	<select id="getGYSXHCount" resultClass="java.lang.Integer">
 	SELECT
 		count(*)

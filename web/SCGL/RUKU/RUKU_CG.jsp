@@ -17,9 +17,9 @@
 <script language="javascript" type="text/javascript"
 	src="My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="js/ChangeImageJS.js"></script>
-<link rel="stylesheet" href="CSS/flexigrid.css" type="text/css"></link>
-<link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"></link>
-<link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"></link>
+<link rel="stylesheet" href="CSS/flexigrid.css" type="text/css"/>
+<link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"/>
+<link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"/>
 
 <link type="text/css" rel="stylesheet" href="CSS/table.css" />
 <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
@@ -35,6 +35,15 @@
 		ui1.value = strs[0];
 		ui2.value = strs[1].split(".")[0];
 	}
+    function checkFloat(vv, val)
+    {
+        if(isNaN(val))
+        {
+            vv.value=vv.value.substr(0, vv.value.length-1);
+            return false;
+        }
+        return true;
+    }
 	function tongguo()
 	{
 		var f = document.createElement("form");
@@ -225,6 +234,14 @@ function gridFlash(){
 		usepager : true,
 		resizable : false,
 		title : '布匹列表',
+        pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',
+        pagetext : '第',
+        outof : '共',
+        findtext : 'Find',
+        procmsg : '正在查询, 请等待 ...',
+        query : '',
+        qtype : '',
+        nomsg : '没有符合要求的数据',
 		useRp : true,
 		rp : 8,
 		rpOptions : [ 8, 15, 20, 30, 50 ],

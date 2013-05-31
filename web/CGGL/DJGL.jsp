@@ -258,6 +258,14 @@ function gridFlash(){
 		usepager : true,
 		resizable : false,
 		title : '采购任务单',
+        pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',
+        pagetext : '第',
+        outof : '共',
+        findtext : 'Find',
+        procmsg : '正在查询, 请等待 ...',
+        query : '',
+        qtype : '',
+        nomsg : '没有符合要求的数据',
 		useRp : true,
 		page : 1,
 		rp : 12,
@@ -317,7 +325,7 @@ function gridFlash(){
 			hidden.value = "modify";
 			if ($(".trSelected").length == 1) {
 				 var orderstate5 = document.getElementById("orderstate5");
-			//	 var zhuguanpwd = document.getElementById("zhuguanpwd");
+			     var zhuguanpwd = document.getElementById("zhuguanpwd");
 			//	 comstr = $('.trSelected', grid).find("td").eq(0).text();
 
 				 var orderstate1 = document.getElementById("orderstate1");
@@ -325,7 +333,6 @@ function gridFlash(){
 				 var orderstate3 = document.getElementById("orderstate3");
 				 var orderstate4 = document.getElementById("orderstate4");
 				 var orderstate6 = document.getElementById("orderstate6");
-				 
 				 if($('.trSelected', grid).find("td").eq(8).text() == orderstate1.value
 						 ||$('.trSelected', grid).find("td").eq(8).text() == orderstate2.value
 						 ||$('.trSelected', grid).find("td").eq(8).text() == orderstate3.value
@@ -336,7 +343,6 @@ function gridFlash(){
 				 	alert("当前任务状态，不支持该操作!");
 				 	return;
 				 }
-				 
 					 
 				 if($('.trSelected', grid).find("td").eq(8).text() == orderstate5.value)
 				 {
@@ -355,7 +361,7 @@ function gridFlash(){
   				 window.location.href = aa;
 				// window.location.href =  "CGGL_addmodifyDJGL?id="+$('.trSelected', grid).find("td").eq(0).text();
 			
-				//	comstr = $('.trSelected', grid).find("td").eq(0).text();
+				//comstr = $('.trSelected', grid).find("td").eq(0).text();
 			//	var aa = "CGGL_dolist?hidden=premodify&type=DJGL&id="+$('.trSelected', grid).find("td").eq(0).text();
 			//	getstatusbycgid(aa);
 			} else if ($(".trSelected").length > 1) {

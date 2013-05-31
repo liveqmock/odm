@@ -126,18 +126,20 @@
 		usepager : true,
 		resizable : false,
 		title : '原料资料管理',
+        pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',
+        pagetext : '第',
+        outof : '共',
+        findtext : 'Find',
+        procmsg : '正在查询, 请等待 ...',
+        query : '',
+        qtype : '',
+        nomsg : '没有符合要求的数据',
 		useRp : true,
 		rp : 12,
 		rpOptions : [ 12, 15, 20, 30, 50 ],
 		width : 'auto',
 		height : 340,
 		showToggleBtn : false,
-		onError:
-			  function()
-			  {
-			      alert("登陆超时，请重新登陆!");
-				  location.href="/odm/index.jsp";
-			  },
 		checkbox : true
 	});
 

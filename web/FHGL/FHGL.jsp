@@ -178,12 +178,14 @@ function gridFlash(){
 		width : 'auto',
 		height : 320,
 		showToggleBtn : false,
-		onError:
-			  function()
-			  {
-			      alert("登陆超时，请重新登陆!");
-				  location.href="/odm/index.jsp";
-			  },
+        pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',
+        pagetext : '第',
+        outof : '共',
+        findtext : 'Find',
+        procmsg : '正在查询, 请等待 ...',
+        query : '',
+        qtype : '',
+        nomsg : '没有符合要求的数据',
 		checkbox : true
 	});
 

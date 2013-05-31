@@ -92,7 +92,7 @@ public class DisPatchUrlAction extends ActionSupport {
 			request.getSession().setAttribute("zjgchejian", "车间二");
 		}
 
-		if(ii == 1 &&( jj ==5 || jj == 1))
+		if(ii == 1 &&( jj ==2 || jj == 0))
 		{
 			initGYS(request);
 		}
@@ -252,6 +252,11 @@ public class DisPatchUrlAction extends ActionSupport {
 		map.put("str3", str3);
 		map.put("str4", str4);
 		request.getSession().setAttribute("type_nums", map);
+
+        List<GYSXH> gysxh = cgglService.findAllGYSXH();
+        System.out.println(gysxh.size());
+        request.getSession().setAttribute("gysxhs", gysxh);
+
 	}
 
     /**
