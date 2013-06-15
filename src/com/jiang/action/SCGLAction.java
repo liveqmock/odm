@@ -209,37 +209,45 @@ public class SCGLAction extends BaseAction {
         if (PublicFunc.unEmpty(type) && type.equals("ZHIJIAN_CG_BTG")) {
             return modifyZHIJIAN_CG_BTG(type);
         }
+        if (PublicFunc.unEmpty(type) && type.equals("ZHIJIAN_CG_ADDPRINT")) {
+            return modifyZHIJIAN_CG_ADDPRINT(type);
+        }
+        if (PublicFunc.unEmpty(type) && type.equals("ZHIJIAN_CG_NOTPRINT")) {
+            return modifyZHIJIAN_CG_NOTPRINT(type);
+        }
+        if (PublicFunc.unEmpty(type) && type.equals("ZHIJIAN_CG_ZJPRINT")) {
+            return modifyZHIJIAN_CG_ZJPRINT(type);
+        }
+
 
         return SUCCESS;
 
     }
-    private String modifyZHIJIAN_CG_BTG(String type) {
+    private String modifyZHIJIAN_CG_ADDPRINT(String type) {
         String bptiaoma  = request.getParameter("bptiaoma");
-        String shijimishu  = request.getParameter("shijimishu");
-        String beizhu  = request.getParameter("beizhu");
-        String pinzhi  = request.getParameter("pinzhi");
-        String jitaihao  = request.getParameter("jitaihao");
-        String cgdid  = (String) request.getSession().getAttribute("cgdid");
         Map<String, Object> map = new HashMap<String, Object>();
-        try {
-            beizhu = new String(beizhu.getBytes("ISO8859-1"), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
         map.put("bptiaoma", bptiaoma);
-        map.put("shijimishu", new BigDecimal(shijimishu));
-        map.put("beizhu", beizhu);
-        map.put("jitaihao", jitaihao);
-        try {
-            pinzhi = new String(pinzhi.getBytes("ISO8859-1"), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        map.put("pinzhi", pinzhi);
-        sCGLService.changeStateZJ_CG_BTG(map);
-        int zjcount = ckgLService.getZHIJIANCountByCGID(cgdid);
-        request.getSession().setAttribute("zhijiancount", zjcount+"");
+        map.put("state", PublicFunc.BP_STATE_ZHIJIANPRENT_PRE_INT);
+        sCGLService.changeStateZJ_CG(map);
+        log.info("changeStateZJ_CG"+bptiaoma);
         return "addCGZHIJIAN";
+    }
+    private String modifyZHIJIAN_CG_NOTPRINT(String type) {
+        String bptiaoma  = request.getParameter("bptiaoma");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("bptiaoma", bptiaoma);
+        map.put("state", PublicFunc.BP_STATE_ZHIJIANPRINT_NOT_INT);
+        sCGLService.changeStateZJ_CG(map);
+        log.info("changeStateZJ_CG"+bptiaoma);
+        return "addCGZHIJIAN";
+    }
+    private String modifyZHIJIAN_CG_ZJPRINT(String type) {
+        String caigou_id  = request.getParameter("caigou_id");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("caigou_id", caigou_id);
+        sCGLService.changeStateZJ_CG_ONLY(map);
+        log.info("changeStateZJ_CG");
+        return SUCCESS;
     }
     private String modifyZHIJIAN_CG(String type) {
         String bptiaoma  = request.getParameter("bptiaoma");
@@ -258,6 +266,7 @@ public class SCGLAction extends BaseAction {
         map.put("shijimishu", new BigDecimal(shijimishu));
         map.put("beizhu", beizhu);
         map.put("jitaihao", jitaihao);
+        map.put("state", PublicFunc.BP_STATE_ZHIJIANPRINT_NOT_INT);
         try {
             pinzhi = new String(pinzhi.getBytes("ISO8859-1"), "UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -269,7 +278,35 @@ public class SCGLAction extends BaseAction {
         request.getSession().setAttribute("zhijiancount", zjcount+"");
         return "addCGZHIJIAN";
     }
-
+    private String modifyZHIJIAN_CG_BTG(String type) {
+        String bptiaoma  = request.getParameter("bptiaoma");
+        String shijimishu  = request.getParameter("shijimishu");
+        String beizhu  = request.getParameter("beizhu");
+        String pinzhi  = request.getParameter("pinzhi");
+        String jitaihao  = request.getParameter("jitaihao");
+        String cgdid  = (String) request.getSession().getAttribute("cgdid");
+        Map<String, Object> map = new HashMap<String, Object>();
+        try {
+            beizhu = new String(beizhu.getBytes("ISO8859-1"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        map.put("bptiaoma", bptiaoma);
+        map.put("shijimishu", new BigDecimal(shijimishu));
+        map.put("beizhu", beizhu);
+        map.put("jitaihao", jitaihao);
+        map.put("state", PublicFunc.BP_STATE_ZHIJIANP_NOTPASS_INT);
+        try {
+            pinzhi = new String(pinzhi.getBytes("ISO8859-1"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        map.put("pinzhi", pinzhi);
+        sCGLService.changeStateZJ_CG(map);
+        int zjcount = ckgLService.getZHIJIANCountByCGID(cgdid);
+        request.getSession().setAttribute("zhijiancount", zjcount+"");
+        return "addCGZHIJIAN";
+    }
     private String modifyBCPKJ_Apply(String type) {
         String id  = request.getParameter("id");
         String danhao  = request.getParameter("danhao");

@@ -279,7 +279,7 @@
         <td width=219 colspan=2 style='width:164.3pt;border-top:none;border-left:
   none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:22.7pt'>
-            <p class=p0><span lang=EN-US style='font-size:12.0pt;font-family:宋体'>&nbsp;</span></p>
+            <p class=p0><span lang=EN-US style='font-size:12.0pt;font-family:宋体'>&nbsp;<%=dj.getGyspinming()%></span></p>
         </td>
         <td width=142 colspan=2 style='width:106.3pt;border-top:none;border-left:
   none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;

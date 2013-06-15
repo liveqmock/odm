@@ -156,6 +156,9 @@
 
 
             <result name="ddgl_detail">/XSGL/ZHDDGL_Detail.jsp</result>
+
+            <result name="rkqr_cg">/CKGL/RKSQ_CG.jsp</result>
+
 			
 		</action>
 

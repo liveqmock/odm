@@ -204,4 +204,8 @@ public interface SCGLService {
     List<BCPKJ_Apply> findCPKJApplyByPage(int page, int rp, Map<String,Object> map);
 
     void changeStateZJ_CG_BTG(Map<String,Object> map);
+
+    void changeStateZJ_CG_ONLY(Map<String,Object> map);
+
+    void changeStateRK_CG_ONLY(Map<String,Object> map);
 }

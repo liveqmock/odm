@@ -218,6 +218,14 @@ public class SCGLDaoImpl extends SqlMapClientDaoSupport implements SCGLDao {
         getSqlMapClientTemplate().insert("SCGL.insertZhiJianReport", report);
     }
 
+    public void changeStateZJ_CG_ONLY(Map<String, Object> map) {
+        getSqlMapClientTemplate().update("SCGL.changeStateZJ_CG_ONLY", map);
+    }
+
+    public void changeStateRK_CG_ONLY(Map<String, Object> map) {
+        getSqlMapClientTemplate().update("SCGL.changeStateRK_CG_ONLY", map);
+    }
+
     public int getBCPKJApplyCount(Map<String, Object> map) {
         return (Integer) getSqlMapClientTemplate().queryForObject(
                 "SCGL.getBCPKJApplyCount", map);

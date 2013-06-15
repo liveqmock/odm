@@ -1,5 +1,6 @@
 package com.jiang.dao.impl;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -187,6 +188,12 @@ public class CKGLDaoImpl extends SqlMapClientDaoSupport implements CKGLDao {
     public void setKJCPFinish(BCPKJ_Apply bcpkj) {
         getSqlMapClientTemplate().update("SCGL.updateCPKJAPPLY", bcpkj);
         getSqlMapClientTemplate().update("CKGL.setKJCPFinish", bcpkj.getId());
+    }
+
+    public BigDecimal getZHIJIANMishuByCGID(String caigou_id) {
+        BigDecimal count = (BigDecimal) getSqlMapClientTemplate().queryForObject(
+                "CKGL.getZHIJIANMishuByCGID", caigou_id);
+        return count;
     }
 
     public int getZHIJIANCountBySCZJGID(String gongyidan_id) {

@@ -342,4 +342,13 @@ public class SCGLServiceImpl implements SCGLService {
         sCGLDao.changeStateZJ_CG_BTG(map);
     }
 
+    public void changeStateZJ_CG_ONLY(Map<String,Object> map){
+        sCGLDao.changeStateZJ_CG_ONLY(map);
+    }
+
+    public void changeStateRK_CG_ONLY(Map<String, Object> map) {
+        sCGLDao.changeStateRK_CG_ONLY(map);
+
+    }
+
 }

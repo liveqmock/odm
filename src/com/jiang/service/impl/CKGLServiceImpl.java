@@ -1,5 +1,6 @@
 package com.jiang.service.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -125,5 +126,9 @@ public class CKGLServiceImpl implements CKGLService {
 
     public void setKJCPFinish(BCPKJ_Apply bcpkj) {
         cKGLDao.setKJCPFinish(bcpkj);
+    }
+
+    public BigDecimal getZHIJIANMishuByCGID(String id) {
+        return cKGLDao.getZHIJIANMishuByCGID(id);
     }
 }

@@ -48,6 +48,7 @@ public class DisPatchUrlAction extends ActionSupport {
 		int ii = Integer.valueOf(x);
 		int jj = Integer.valueOf(j);
 		log.info("选中的菜单ID"+x+"|"+j);
+        request.getSession().setAttribute("page", 1);
 		String retstrs[][] = {
 			//	{"xxgl","fsxx"},
 				{"xsdcx","jhcgdjgl", "jhzjg1", "jhzjg1","jhwjg", /*"bcpckcx",*/"ckcx", "BCPKJAPPLY"},
@@ -524,9 +525,19 @@ public class DisPatchUrlAction extends ActionSupport {
         Map<String, Object> map = new HashMap<String, Object>();
         String cgid = (String) request.getSession().getAttribute("cgdid");
         map.put("cgid", cgid);
+        //供应商信息
+        CGGLDJGL dj = cgglService.getDJGLByCGId(cgid);
+        request.setAttribute("djgl", dj);
+        String gysname = cgglService.getGYSById(dj.getGongyingshangid()).getGongyingname();
+        request.setAttribute("gysname", gysname);
+        //所有布匹信息
+        map.put("zhijian_or_not", PublicFunc.BP_STATE_RUKUPRINT_PRE_INT);
         List rows = ckglService.findCGRKByPage(1, 1000, map);
-        log.info("ckGLService.findCGRKByPage(page, rp, map)");
         request.setAttribute("cgrkbupis", rows);
+        //型号资料
+        map.put("type_num", dj.getType_num());
+        ZLGLYLZL ylzl = cgglService.getZLGL_YLBySome(map);
+        request.setAttribute("ylzl", ylzl);
         return "printcgrk";
     }
     public String getPrintCGCR_ZJ()
@@ -541,6 +552,7 @@ public class DisPatchUrlAction extends ActionSupport {
         String gysname = cgglService.getGYSById(dj.getGongyingshangid()).getGongyingname();
         request.setAttribute("gysname", gysname);
         //所有布匹信息
+        map.put("zhijian_or_not", PublicFunc.BP_STATE_ZHIJIANPRENT_PRE_INT);
         List rows = ckglService.findCGRKByPage(1, 1000, map);
         log.info("ckGLService.findCGRKByPage(page, rp, map)");
         log.info("ckGLService.findCGRKByPage(page, rp, map)"+rows.size());
@@ -681,7 +693,7 @@ public class DisPatchUrlAction extends ActionSupport {
 					"addZLGL_BCP" ,"addZLGL_CP" ,"addZLGL_SP", "addCGTH"  },
 				{ "addSCGLZJG", "addSCGLWJG", "addSCGLYB", "addWJGDWGL", "addBCPKJAPPLY",
 						"addCGZHIJIAN","addBCPKJAPPLY_CKCX", "addSCZJGZHIJIAN", "addSCWJGZHIJIAN", "addXSTHZHIJIAN",
-                "addCGRUKU","addSCZJGRUKU","addSCWJGRUKU", "addXSTHRUKU"},
+                "addCGRUKU","addSCZJGRUKU","addSCWJGRUKU", "addXSTHRUKU",  "rkqr_cg"},
 				{ "addXTCS" },//仓库
 				{ "addXTCS" },//商品
 				{ "addKHGL_BASE", "addKHGL_FH", "addtypenums","editmishu","addCPKJAPPLY_CKCX", "addCPKJAPPLY",
@@ -739,11 +751,13 @@ public class DisPatchUrlAction extends ActionSupport {
         CGGLDJGL dl = cgglService.getDJGLByCGId(id);
         int count = ckglService.getCountByCGID(id);
         int zjcount = ckglService.getZHIJIANCountByCGID(id);
+        BigDecimal zjmishu = ckglService.getZHIJIANMishuByCGID(id);
         request.getSession().setAttribute("cgdid", id);
         request.getSession().setAttribute("xinghao", dl.getType_num());
         request.getSession().setAttribute("mishu", dl.getCG_totalnum()+"");
         request.getSession().setAttribute("totalcount", count+"");
         request.getSession().setAttribute("zhijiancount", zjcount+"");
+        request.getSession().setAttribute("zjmishu", zjmishu+"");
         log.info("待质检布匹个数："+count);
         if( count == 0)
         {

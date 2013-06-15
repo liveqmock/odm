@@ -72,7 +72,6 @@
         var pinzhi = document.getElementById("pinzhi");
         var jitaihao = document.getElementById("jitaihao");
 
-
         if(ui1.value == "")
         {
             alert("获取条码失败");
@@ -108,6 +107,14 @@
         f.submit();
 	}
 
+  function dayin(asrc)
+  {
+      location.href = "SCGL_dolist?hidden=modify&type=ZHIJIAN_CG_ADDPRINT&bptiaoma="+asrc;
+  }
+    function quxiaodayin(asrc)
+    {
+        location.href = "SCGL_dolist?hidden=modify&type=ZHIJIAN_CG_NOTPRINT&bptiaoma="+asrc;
+    }
   function add()
   {
 		var ui1 = document.getElementById("mishu");
@@ -133,6 +140,7 @@
 	String zongmishu = "";
 	String totalcount = "";
 	String zhijiancount = "";
+    String zjmishu = "";
 	if(zijianid.equals(""))
 	{
 		if(null != session.getAttribute("zijianid"))
@@ -163,6 +171,10 @@
 	{
 		zhijiancount = (String)session.getAttribute("zhijiancount");
 	}
+    if(null  != session.getAttribute("zjmishu"))
+    {
+        zjmishu = (String)session.getAttribute("zjmishu");
+    }
 
 %>
 <body>
@@ -185,7 +197,7 @@
 				<td width="140" class="td2">&nbsp;&nbsp;&nbsp;<%=zongmishu %>
 				</td>
 				<td width="132" align="center" class="td1">统计:</td>
-				<td width="140" class="">&nbsp;&nbsp;&nbsp;<%=zhijiancount %>/<%=totalcount%></td>
+				<td width="140" class="">&nbsp;&nbsp;&nbsp;<%=zhijiancount %>/<%=totalcount%>&nbsp;&nbsp;已质检 &nbsp;&nbsp;<%=zjmishu%> &nbsp;&nbsp;米</td>
 				<td width="132" align="center" class="td1">质检报告</td>
 				<td width="140" class="">&nbsp;&nbsp;&nbsp;<input type="button" value="预览" onclick="printcgrk()"/></td>
 			</tr>
@@ -208,8 +220,8 @@
                     <td width="" align="center" class="td1">机台号:</td>
                     <td width="80" class=""><input  SIZE="5" type="text" name="jitaihao" id="jitaihao"  onkeyup="value=value.replace(/[^\d]/g,'')" /> </td>
 					<td width="" align="center" class="td1">备注:</td>
-					<td width="170" class=""><input type="text" SIZE="50" name="beizhu" id="beizhu" /> </td>
-					<td width="50" class="">&nbsp;&nbsp;&nbsp;<input type="button" value="质检通过"  onclick="tongguo(1)"/> </td>
+					<td width="150" class=""><input type="text" SIZE="40" name="beizhu" id="beizhu" /> </td>
+					<td width="80" class=""><input type="button" value="质检通过"  onclick="tongguo(1)"/> </td>
 					<td width="50" class=""><input type="button" value="不通过" onclick="tongguo(0)" /> </td>
 				</tr>
 	</table>
@@ -288,13 +300,13 @@
         }, {
 			display : '备注',
 			name : 'huojiahao',
-			width : 320,
+			width : 300,
 			sortable : false,
 			align : 'center'
 		}, {
-			display : '是否质检',
+			display : '状态',
 			name : 'tiaoxingma',
-			width : 120,
+			width : 150,
 			sortable : false,
 			align : 'center',
 			hide : false
@@ -314,8 +326,8 @@
 		resizable : false,
 		title : '布匹列表',
 		useRp : true,
-		rp : 10,
-		rpOptions : [ 10, 15, 20, 30, 50 ],
+		rp : 9,
+		rpOptions : [ 9, 15, 20, 30, 50 ],
 		width : 'auto',
 		height : 310,
 		showToggleBtn : false,
@@ -383,5 +395,13 @@
 			}
 		});
 	}
+
+    /**
+     *
+     */
+    function reloadflex() {
+        $('#flex1').flexReload();
+
+    }
 </script>
 </html>

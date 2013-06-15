@@ -220,7 +220,7 @@ function gridFlash(){
 			sortable : false,
 			align : 'center'
 		}, {
-			display : '是否质检',
+			display : '状态',
 			name : 'tiaoxingma',
 			width : 250,
 			sortable : false,

@@ -843,16 +843,38 @@ public class JsonUtil {
         return mapList;
     }
 
+
     public static Collection<?> getCGRKInfoJSON(List list) {
         List mapList = new ArrayList();
         for (int i = 0; i < list.size(); i++) {
             Map cellMap = new HashMap();
             RKQR cg = (RKQR) list.get(i);
-            String zhijian = cg.getZhijian_or_not();
-            if (null != zhijian && zhijian.contains("1")) {
-                zhijian = "已质检";
-            } else {
-                zhijian = "等待质检";
+            String zhijian = "";
+            int m = cg.getZhijian_or_not();
+            switch (m)
+            {
+                case PublicFunc.BP_STATE_RUKUPRINT_NOT_INT:
+                    zhijian = PublicFunc.BP_STATE_RUKUPRINT_NOT+"<input type=button  value=打入打印  onclick=dayin('" + cg.getBupi_id() + "') />";
+                    break;
+                case PublicFunc.BP_STATE_RUKUPRINT_PRE_INT:
+                    zhijian = PublicFunc.BP_STATE_RUKUPRINT_PRE+"<input type=button  value=取消打印  onclick=quxiaodayin('" + cg.getBupi_id() + "') />";
+                    break;
+                case PublicFunc.BP_STATE_RUKU_INT:
+                    zhijian = PublicFunc.BP_STATE_RUKU;
+                    break;
+                case PublicFunc.BP_STATE_ZHIJIANP_NOTPASS_INT:
+                    zhijian = PublicFunc.BP_STATE_ZHIJIANP_NOTPASS;
+                    break;
+                case PublicFunc.BP_STATE_ZHIJIANPRINT_NOT_INT:
+                    zhijian = PublicFunc.BP_STATE_ZHIJIANPRENT_PRE;
+                    break;
+                case PublicFunc.BP_STATE_ZHIJIANPRENT_PRE_INT:
+                    zhijian = PublicFunc.BP_STATE_ZHIJIANPRENT_PRE;
+                    break;
+                case PublicFunc.BP_STATE_ZHIJIAN_INT:
+                    zhijian = PublicFunc.BP_STATE_ZHIJIAN;
+                default:
+                    break;
             }
             cellMap.put("id", cg.getId());
             cellMap.put("cell",
@@ -866,18 +888,41 @@ public class JsonUtil {
         for (int i = 0; i < list.size(); i++) {
             Map cellMap = new HashMap();
             RKQR cg = (RKQR) list.get(i);
-            String zhijian = cg.getZhijian_or_not();
             if(cg.getJitaihao() == null)
             {
                 cg.setJitaihao(0);
             }
-            if (null != zhijian && zhijian.contains("1")) {
-                zhijian = "已质检";
-            }else if (null != zhijian && zhijian.contains("2")) {
-                zhijian = "不合格 <input type=button  value=重新质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu()+ "#" + cg.getJitaihao()  + "') />";
-            } else {
-                zhijian = "<input type=button  value=质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu()+ "#" + cg.getJitaihao()  + "') />";
+
+            String zhijian = "";
+            int m  = cg.getZhijian_or_not();
+            switch (m)
+            {
+                case PublicFunc.BP_STATE_RUKUPRINT_NOT_INT:
+                    zhijian = PublicFunc.BP_STATE_RUKUPRINT_NOT;
+                    break;
+                case PublicFunc.BP_STATE_RUKUPRINT_PRE_INT:
+                    zhijian = PublicFunc.BP_STATE_RUKUPRINT_PRE;
+                    break;
+                case PublicFunc.BP_STATE_RUKU_INT:
+                    zhijian = PublicFunc.BP_STATE_RUKU+"<input type=button  value=质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu()+ "#" + cg.getJitaihao()  + "') />";
+                    break;
+                case PublicFunc.BP_STATE_ZHIJIANP_NOTPASS_INT:
+                    zhijian = PublicFunc.BP_STATE_ZHIJIANP_NOTPASS+"<input type=button  value=重新质检  onclick=zhijian('" + cg.getBupi_id() + "#" + cg.getMishu()+ "#" + cg.getJitaihao()  + "') />";
+                    break;
+                case PublicFunc.BP_STATE_ZHIJIANPRINT_NOT_INT:
+                    zhijian = PublicFunc.BP_STATE_ZHIJIANPRENT_PRE+"<input type=button  value=打入打印  onclick=dayin('" + cg.getBupi_id() + "') />";
+                    break;
+                case PublicFunc.BP_STATE_ZHIJIANPRENT_PRE_INT:
+                    zhijian = PublicFunc.BP_STATE_ZHIJIANPRENT_PRE+"<input type=button  value=取消打印  onclick=quxiaodayin('" + cg.getBupi_id() + "') />";;
+                    break;
+                case PublicFunc.BP_STATE_ZHIJIAN_INT:
+                    zhijian = PublicFunc.BP_STATE_ZHIJIAN;
+                    break;
+                default:
+                    break;
             }
+
+
             cellMap.put("id", cg.getId());
             cellMap.put("cell",
                     new Object[]{cg.getId(), cg.getBupi_id(), cg.getJitaihao(), cg.getMishu()+"", cg.getShijimishu()+"", cg.getPinzhi(), cg.getBeizhu(), zhijian});

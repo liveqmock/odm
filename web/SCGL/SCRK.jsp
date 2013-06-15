@@ -169,7 +169,32 @@
 			ui4.style.display="none"; 
 		}
 	}
-	
+    function isconfirm()
+    {
+        var ui1 = document.getElementById("hide1");
+        var ui2 = document.getElementById("hide2");
+        var ui3 = document.getElementById("hide3");
+        var pingzhen;
+        if(ui1.style.display == "")
+        {
+             pingzhen = document.getElementById("xinghao1");
+        }
+        if(ui2.style.display == "")
+        {
+            pingzhen = document.getElementById("xinghao2");
+        }
+        if(ui3.style.display == "")
+        {
+            pingzhen = document.getElementById("xinghao3");
+        }
+        if(pingzhen.value ==  "" || pingzhen.value ==  "请点击后输入")
+        {
+            //confirm('是否确认该单据布匹入库？');
+            alert("凭证单号无效");
+            return false;
+        }
+        return true;
+    }
 </script>
 </head>
 <body onload="enableselect()">
@@ -277,7 +302,7 @@ if(danhao.equals(""))
 							</div>
 						</td>
 						<td>
-						 <input type="submit" name="ID" value="开始入库" onclick="" id="ID" />
+						 <input type="submit" name="ID" value="开始入库" onclick="return isconfirm()" id="ID" />
 						</td>
 		   	</tr>
 				</tbody>

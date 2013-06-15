@@ -2,6 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b45d32f4-da1e-4170-9850-66bf35a24898" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ibatis/CKGL.xml" afterPath="$PROJECT_DIR$/src/ibatis/CKGL.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/CKGLAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/CKGLAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/dao/CKGLDao.java" afterPath="$PROJECT_DIR$/src/com/jiang/dao/CKGLDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/dao/impl/CKGLDaoImpl.java" afterPath="$PROJECT_DIR$/src/com/jiang/dao/impl/CKGLDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/service/CKGLService.java" afterPath="$PROJECT_DIR$/src/com/jiang/service/CKGLService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/service/impl/CKGLServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/jiang/service/impl/CKGLServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/JsonUtil.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/JsonUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/util/PublicFunc.java" afterPath="$PROJECT_DIR$/src/com/jiang/util/PublicFunc.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/bean/RKQR.java" afterPath="$PROJECT_DIR$/src/com/jiang/bean/RKQR.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/RKSQ2.jsp" afterPath="$PROJECT_DIR$/web/CKGL/RKSQ2.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/CKGL/RKSQ_CG.jsp" afterPath="$PROJECT_DIR$/web/CKGL/RKSQ_CG.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/RUKU/RUKU_CG.jsp" afterPath="$PROJECT_DIR$/web/SCGL/RUKU/RUKU_CG.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ibatis/SCGL.xml" afterPath="$PROJECT_DIR$/src/ibatis/SCGL.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/action/SCGLAction.java" afterPath="$PROJECT_DIR$/src/com/jiang/action/SCGLAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/dao/SCGLDao.java" afterPath="$PROJECT_DIR$/src/com/jiang/dao/SCGLDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/dao/impl/SCGLDaoImpl.java" afterPath="$PROJECT_DIR$/src/com/jiang/dao/impl/SCGLDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/service/SCGLService.java" afterPath="$PROJECT_DIR$/src/com/jiang/service/SCGLService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jiang/service/impl/SCGLServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/jiang/service/impl/SCGLServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/SCRK.jsp" afterPath="$PROJECT_DIR$/web/SCGL/SCRK.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIAN_CG.jsp" afterPath="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIAN_CG.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/print/printCGRK.jsp" afterPath="$PROJECT_DIR$/web/print/printCGRK.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/print/printCGRK_ZJ.jsp" afterPath="$PROJECT_DIR$/web/print/printCGRK_ZJ.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/print/printDJGL.jsp" afterPath="$PROJECT_DIR$/web/print/printDJGL.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/struts.xml" afterPath="$PROJECT_DIR$/src/struts.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="odm.iws" />
@@ -10,31 +35,31 @@
     <file path="/BaseAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1362751900685" ignored="false" />
     <file path="/aa.html" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356096871201" ignored="false" />
     <file path="/fragment.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369550675071" ignored="false" />
-    <file path="/JsonUtil.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370006901376" ignored="false" />
-    <file path="/DisPatchUrlAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369916876361" ignored="false" />
+    <file path="/JsonUtil.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370100377562" ignored="false" />
+    <file path="/DisPatchUrlAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370600303336" ignored="false" />
     <file path="/ZHIJIANLIST.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356260226442" ignored="false" />
-    <file path="/SCGLDaoImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361878452730" ignored="false" />
+    <file path="/SCGLDaoImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370604977816" ignored="false" />
     <file path="/a.dummy" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369049561915" ignored="false" />
-    <file path="/SCGL.xml" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369748514756" ignored="false" />
+    <file path="/SCGL.xml" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370604954967" ignored="false" />
     <file path="/BCPKJ_Apply.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356438871155" ignored="false" />
     <file path="/BCPKJ_Apply_MODIFY.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356439855891" ignored="false" />
-    <file path="/PublicFunc.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1364045499486" ignored="false" />
-    <file path="/SCGLAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369748316664" ignored="false" />
-    <file path="/SCGLService.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369474983713" ignored="false" />
+    <file path="/PublicFunc.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370100308972" ignored="false" />
+    <file path="/SCGLAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370172689502" ignored="false" />
+    <file path="/SCGLService.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1371266607505" ignored="false" />
     <file path="/SCGLServiceImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369475069153" ignored="false" />
-    <file path="/SCGLDao.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369475081112" ignored="false" />
+    <file path="/SCGLDao.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1371266638335" ignored="false" />
     <file path="/BCPKJ_Apply.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357092665820" ignored="false" />
-    <file path="/Dummy.txt" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370008294034" ignored="false" />
+    <file path="/Dummy.txt" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1371256339425" ignored="false" />
     <file path="F:/sunyard_android_bld_1.00/sdk_bld_1.00/i60api/obj/local/armeabi/objs/sunyardi60a/sunyardi60a.o.d" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356683295643" ignored="false" />
     <file path="/BCPKJ_DO.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357090690963" ignored="false" />
     <file path="/UserFilter.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361884751619" ignored="false" />
     <file path="/pwd2.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1356959705409" ignored="false" />
     <file path="/KJGL.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357093173650" ignored="false" />
-    <file path="/CKGL.xml" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369309757860" ignored="false" />
-    <file path="/CKGLService.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361881752594" ignored="false" />
+    <file path="/CKGL.xml" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370600824346" ignored="false" />
+    <file path="/CKGLService.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370600504554" ignored="false" />
     <file path="/CKGLServiceImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357098932695" ignored="false" />
-    <file path="/CKGLDao.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361881782001" ignored="false" />
-    <file path="/CKGLDaoImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1357095650293" ignored="false" />
+    <file path="/CKGLDao.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370600529243" ignored="false" />
+    <file path="/CKGLDaoImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370600579064" ignored="false" />
     <file path="/ZHXD.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1361620108294" ignored="false" />
     <file path="/XSGLAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1368966895804" ignored="false" />
     <file path="/struts.xml" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369137586051" ignored="false" />
@@ -76,26 +101,29 @@
     <file path="/index.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1364124465782" ignored="false" />
     <file path="/addshouhuoaddress.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1365162554492" ignored="false" />
     <file path="/YDDGL.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1364906274874" ignored="false" />
-    <file path="/*.regexp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370007059910" ignored="false" />
+    <file path="/*.regexp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1371266934269" ignored="false" />
     <file path="/DJGL.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369915268789" ignored="false" />
     <file path="/flexigrid.css" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1365340731497" ignored="false" />
     <file path="/CGGLAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1365424464426" ignored="false" />
     <file path="/CGGLDJGL.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1365422406537" ignored="false" />
     <file path="/TestDoc.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1365422477413" ignored="false" />
     <file path="/RuKuDan.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1365422507684" ignored="false" />
-    <file path="/CKGLAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1368709328903" ignored="false" />
-    <file path="/RKSQ_CG.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369749144208" ignored="false" />
-    <file path="/RKQR.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369309814611" ignored="false" />
-    <file path="/ZHIJIAN_CG.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370004710442" ignored="false" />
+    <file path="/CKGLAction.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1371266819855" ignored="false" />
+    <file path="/RKSQ_CG.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370600176862" ignored="false" />
+    <file path="/RKQR.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370097489905" ignored="false" />
+    <file path="/ZHIJIAN_CG.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1371012778642" ignored="false" />
     <file path="$PROJECT_DIR$/../test/src/Test.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369058570213" ignored="false" />
     <file path="/Test.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369058560885" ignored="false" />
-    <file path="/printCGRK.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369140495189" ignored="false" />
+    <file path="/printCGRK.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1371267200181" ignored="false" />
     <file path="/zhiJianReport.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369311800759" ignored="false" />
     <file path="/ZJGgongyidan.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369318584621" ignored="false" />
     <file path="/WJGgongyidan.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369318615975" ignored="false" />
     <file path="/CGGLServiceImpl.java" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369453764289" ignored="false" />
-    <file path="/printCGRK_ZJ.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369499689306" ignored="false" />
+    <file path="/printCGRK_ZJ.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1371266330712" ignored="false" />
     <file path="/DJGL_MODIFY2.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1369917588757" ignored="false" />
+    <file path="/RKSQ2.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370092846737" ignored="false" />
+    <file path="/SCRK.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370093488540" ignored="false" />
+    <file path="/printDJGL.jsp" changelist="b45d32f4-da1e-4170-9850-66bf35a24898" time="1370599289090" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +147,6 @@
     <groupTables value="false" />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -154,6 +181,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -194,22 +222,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web/SCGL/SCRuKu.jsp" />
-        <option value="$PROJECT_DIR$/web/SCGL/SGZLGL.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/addshouhuoaddress.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/DDGL.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/DDGL_Detail.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/KHGL_BASE.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/KHGL_FH.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/OrderDetail_SHOW.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/XSDCX.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/YDDGL.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp" />
-        <option value="$PROJECT_DIR$/web/XSGL/ZHDDGL_Detail.jsp" />
-        <option value="$PROJECT_DIR$/web/XTGL/LSJL.jsp" />
-        <option value="$PROJECT_DIR$/web/XTGL/XTCS.jsp" />
-        <option value="$PROJECT_DIR$/web/XTGL/YHGL.jsp" />
-        <option value="$PROJECT_DIR$/web/ZHDD/OrderDetail.jsp" />
+        <option value="$PROJECT_DIR$/src/com/jiang/dao/impl/CKGLDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/jiang/service/CKGLService.java" />
+        <option value="$PROJECT_DIR$/src/com/jiang/service/impl/CKGLServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/ibatis/CKGL.xml" />
+        <option value="$PROJECT_DIR$/src/com/jiang/action/SCGLAction.java" />
+        <option value="$PROJECT_DIR$/web/print/printCGRK_ZJ.jsp" />
+        <option value="$PROJECT_DIR$/src/com/jiang/service/SCGLService.java" />
+        <option value="$PROJECT_DIR$/src/com/jiang/service/impl/SCGLServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/jiang/dao/SCGLDao.java" />
+        <option value="$PROJECT_DIR$/src/com/jiang/dao/impl/SCGLDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/ibatis/SCGL.xml" />
+        <option value="$PROJECT_DIR$/src/com/jiang/action/CKGLAction.java" />
+        <option value="$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java" />
+        <option value="$PROJECT_DIR$/web/print/printCGRK.jsp" />
+        <option value="$PROJECT_DIR$/src/struts.xml" />
+        <option value="$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIAN_CG.jsp" />
       </list>
     </option>
   </component>
@@ -228,8 +256,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1931" />
-    <option name="height" value="1040" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -485,24 +514,16 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
+      <pane id="PackagesPane">
+        <subPane>
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="All">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="odm">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="odm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -536,78 +557,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ZHDD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="XXGL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="XTGL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="XSGL" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -669,28 +618,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SCGYD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SCGL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="RUKU" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -709,29 +636,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SCGL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DANWEIGL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FHGL" />
+              <option name="myItemId" value="print" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -750,90 +655,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CKGL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CKGL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CKQR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CGGL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CGGL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ZLGL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CGGL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GYSGL" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -886,26 +707,8 @@
               <option name="myItemId" value="jiang" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jiang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
+              <option name="myItemId" value="util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -924,14 +727,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="jiang" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1007,16 +802,24 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+          </PATH>
+        </subPane>
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="odm">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1036,10 +839,10 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="259" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="768" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1072" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth4" value="959" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="359" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth3" value="72" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth4" value="959" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="352" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth3" value="72" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -1078,8 +881,8 @@
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder0" value="0" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -1134,6 +937,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1162,19 +978,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -1195,13 +998,6 @@
         <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSRemoteDebuggerConfigurationSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -1225,6 +1021,20 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
+      <deployment />
+      <server-settings />
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -1238,13 +1048,6 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
-      <deployment />
-      <server-settings />
-      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
     <configuration default="false" name="i60api" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1443,30 +1246,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1931" height="1040" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5696629" sideWeight="0.49085367" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5696629" sideWeight="0.48235294" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901752" sideWeight="0.761578" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16819222" sideWeight="0.4697051" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2498096" sideWeight="0.761578" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16516854" sideWeight="0.45294118" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2498096" sideWeight="0.761578" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3832952" sideWeight="0.49812332" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24141876" sideWeight="0.33351207" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33707866" sideWeight="0.21016043" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19893293" sideWeight="0.24475524" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13957219" sideWeight="0.78089887" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21348314" sideWeight="0.49465242" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5045767" sideWeight="0.48203754" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3011236" sideWeight="0.47379678" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21493903" sideWeight="0.22222222" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23595506" sideWeight="0.47967914" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23483147" sideWeight="0.47112298" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17363344" sideWeight="0.21685393" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902735" sideWeight="0.57632935" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18521342" sideWeight="0.7622378" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21910113" sideWeight="0.47865853" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14906166" sideWeight="0.7585812" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24141876" sideWeight="0.66273457" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21910113" sideWeight="0.47219253" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1631016" sideWeight="0.66292137" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33707866" sideWeight="0.7860963" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="92" y="92" width="1178" height="544" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30136988" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -1587,114 +1390,163 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/XSGL/KHGL_BASE.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/action/SCGLAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="28" selection-start="4646" selection-end="4646" vertical-scroll-proportion="-18.636364">
+        <state line="248" column="44" selection-start="7921" selection-end="8167" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XSGL/KHGL_FH.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/service/SCGLService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="28" selection-start="4537" selection-end="4537" vertical-scroll-proportion="-10.212121">
+        <state line="209" column="30" selection-start="5147" selection-end="5168" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XSGL/OrderDetail_SHOW.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/service/CKGLService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="264" column="24" selection-start="9164" selection-end="9164" vertical-scroll-proportion="-8.393939">
+        <state line="11" column="17" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XSGL/XSDCX.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/service/impl/SCGLServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="28" selection-start="5619" selection-end="5619" vertical-scroll-proportion="-8.787879">
+        <state line="349" column="31" selection-start="9308" selection-end="9308" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XSGL/YDDGL.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/dao/SCGLDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="191" column="28" selection-start="5579" selection-end="5579" vertical-scroll-proportion="-10.727273">
+        <state line="212" column="8" selection-start="5106" selection-end="5110" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XSGL/ZHDDGL.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/dao/impl/SCGLDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="28" selection-start="6018" selection-end="6018" vertical-scroll-proportion="-11.939394">
+        <state line="225" column="68" selection-start="7430" selection-end="7451" vertical-scroll-proportion="0.62611806">
+          <folding>
+            <element signature="e#755#785#0" expanded="true" />
+            <element signature="e#1559#1589#0" expanded="true" />
+            <element signature="e#2898#2928#0" expanded="true" />
+            <element signature="e#3662#3692#0" expanded="true" />
+            <element signature="e#4507#4537#0" expanded="true" />
+            <element signature="e#5379#5409#0" expanded="true" />
+            <element signature="e#6170#6200#0" expanded="true" />
+            <element signature="e#7655#7685#0" expanded="true" />
+            <element signature="e#8429#8459#0" expanded="true" />
+            <element signature="e#9290#9320#0" expanded="true" />
+            <element signature="e#11302#11332#0" expanded="true" />
+            <element signature="e#11540#11570#0" expanded="true" />
+            <element signature="e#12426#12456#0" expanded="true" />
+            <element signature="e#13355#13385#0" expanded="true" />
+            <element signature="e#13883#13913#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/util/PublicFunc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="47" selection-start="3782" selection-end="3799" vertical-scroll-proportion="0.22740525">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XSGL/ZHDDGL_Detail.jsp">
+    <entry file="file://$PROJECT_DIR$/src/ibatis/SCGL.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="284" column="28" selection-start="10134" selection-end="10134" vertical-scroll-proportion="-13.545455">
+        <state line="1520" column="22" selection-start="51954" selection-end="51968" vertical-scroll-proportion="-7.862069">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XTGL/LSJL.jsp">
+    <entry file="file://$PROJECT_DIR$/web/SCGL/RUKU/RUKU_CG.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="28" selection-start="4966" selection-end="4966" vertical-scroll-proportion="-10.575758">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.5893536">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XTGL/XTBF.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/action/CKGLAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="75.393936">
+        <state line="80" column="16" selection-start="2414" selection-end="2414" vertical-scroll-proportion="0.4096601">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XTGL/XTCS.jsp">
+    <entry file="file://$PROJECT_DIR$/web/CKGL/RKSQ_CG.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="28" selection-start="3938" selection-end="3938" vertical-scroll-proportion="-10.181818">
+        <state line="37" column="13" selection-start="1815" selection-end="1815" vertical-scroll-proportion="0.41520467">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/XTGL/YHGL.jsp">
+    <entry file="file://$PROJECT_DIR$/web/print/printCGRK_ZJ.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="28" selection-start="5148" selection-end="5148" vertical-scroll-proportion="-6.939394">
+        <state line="463" column="71" selection-start="22669" selection-end="22695" vertical-scroll-proportion="0.7987928">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/ZHDD/AddTypeNums.jsp">
+    <entry file="file://$PROJECT_DIR$/web/print/printCGRK.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="210.48485">
+        <state line="459" column="29" selection-start="22469" selection-end="22469" vertical-scroll-proportion="-3.3064516">
+          <folding>
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1371267293658" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jiang/action/DisPatchUrlAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="695" column="83" selection-start="22983" selection-end="22990" vertical-scroll-proportion="-7.448276">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/ZHDD/EditMishu.jsp">
+    <entry file="file://$PROJECT_DIR$/src/struts.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="55.39394">
+        <state line="159" column="27" selection-start="7019" selection-end="7019" vertical-scroll-proportion="-10.372881">
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/ZHDD/OrderDetail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="302" column="24" selection-start="10247" selection-end="10247" vertical-scroll-proportion="-14.212121">
-          <folding />
-        </state>
+      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/ZHDD/ordersuccess.jsp">
+    <entry file="file://$PROJECT_DIR$/web/SCGL/ZHIJIAN/ZHIJIAN_CG.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/ZHDD/ZHXD.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="417" column="106" selection-start="18687" selection-end="18687" vertical-scroll-proportion="0.5656109">
+        <state line="223" column="72" selection-start="7709" selection-end="7709" vertical-scroll-proportion="0.60818714">
           <folding />
         </state>
       </provider>

@@ -14,7 +14,7 @@ import java.util.*;
  * 
  */
 public class PublicFunc {
- 
+
 	public static final String ORDER_STATE_FINISH = "完成";//不能置为无效,不能修改，不能删除
 	public static final String ORDER_STATE_WATINGCG = "采购中";
 	public static final String ORDER_STATE_WATINGZJ =  "待质检"; //不能置为无效，不能修改，不能删除
@@ -84,6 +84,34 @@ public class PublicFunc {
     public static final String[] jiageleixing =
     {
      "整卷价","零售价", "300米价", "批发价", "自定义价"
+    };
+
+
+    /**
+     * 布匹状态
+     */
+    public static String BP_STATE_RUKUPRINT_NOT = "入库未打印";
+    public static String BP_STATE_RUKUPRINT_PRE = "入库待打印";
+    public static String BP_STATE_RUKU = "已入库，待质检";
+    public static String BP_STATE_ZHIJIANP_NOTPASS = "质检不合格";
+    public static String BP_STATE_ZHIJIANPRINT_NOT = "质检未打印";
+    public static String BP_STATE_ZHIJIANPRENT_PRE = "质检待打印";
+    public static String BP_STATE_ZHIJIAN = "已质检";
+
+    public static final int   BP_STATE_RUKUPRINT_NOT_INT = 1;
+    public static final int   BP_STATE_RUKUPRINT_PRE_INT = 2;
+    public static final int   BP_STATE_RUKU_INT = 3;
+    public static final int   BP_STATE_ZHIJIANP_NOTPASS_INT = 4;
+    public static final int   BP_STATE_ZHIJIANPRINT_NOT_INT = 5;
+    public static final int   BP_STATE_ZHIJIANPRENT_PRE_INT = 6;
+    public static final int   BP_STATE_ZHIJIAN_INT = 7;
+
+    /**
+     *         布匹状态 */
+    public static final String[] bp_state =
+    {
+             BP_STATE_RUKUPRINT_NOT,BP_STATE_RUKUPRINT_PRE,  BP_STATE_RUKU,
+            BP_STATE_ZHIJIANP_NOTPASS,BP_STATE_ZHIJIANPRINT_NOT, BP_STATE_ZHIJIANPRENT_PRE,BP_STATE_ZHIJIAN
     };
 
     public static boolean pageChange  = false;

@@ -416,9 +416,9 @@
 <script language="javascript" type="text/javascript" >
     function confirmPrint()
     {
-        if (confirm('此操作将修改订单状态为采购中，是否确定')) {
+        if (confirm('此操作将修改订单状态为已质检，是否确定')) {
             var id = document.getElementById("cgid").value;
-            var url = "CGGL_dolist?hidden=state&type=DJGLCG&id=" + id;
+            var url = "SCGL_dolist?hidden=modify&type=ZHIJIAN_CG_ZJPRINT&caigou_id=" + id;
             changestatusbycgid(url);
         }
     }
@@ -432,6 +432,7 @@
      * 修改状态
      */
     function changestatusbycgid(url) {
+        var cgid = document.getElementById("cgid").value;
         $.ajax({
             url : url,
             type : 'POST',
@@ -446,11 +447,11 @@
                 {
                     preview(1);
                 }
-                //	alert(window.flushFlex());
-                window.opener.opener=null;window.opener.location.reload();
+                window.opener.location.href="DisPatch_getAddJsp?a=2&b=5&cgid="+cgid;
             },
             error : function()
             {
+                alert("error");
                 if(!+[1,])
                 {
                     preview(1);
@@ -460,7 +461,7 @@
                 {
                     preview(1);
                 }
-                window.opener.opener=null;window.opener.location.reload();
+                window.opener.location.href="DisPatch_getAddJsp?a=2&b=5&cgid="+cgid;
             }
         });
     }
@@ -502,6 +503,7 @@
     String gongyingshangname = "";
     String zhijianid = "";
     String kaidanyuan = "";
+    String gysxinghao = "";
     SimpleDateFormat dateformat1 = new SimpleDateFormat("yyyy/MM/dd");
     String currentDate = dateformat1.format(new Date());
     if(null != (String)request.getAttribute("gysname"))
@@ -526,9 +528,14 @@
         zhijianid = (String)session.getAttribute("zijianid");
     }
     CGGLDJGL dj = new CGGLDJGL();
+    String djid = "";
     if(null != (CGGLDJGL)request.getAttribute("djgl"))
     {
            dj = (CGGLDJGL)request.getAttribute("djgl");
+        if(dj.getGyspinming() != null)
+            gysxinghao = dj.getGyspinming();
+        if(dj.getCaigou_id() != null)
+            djid = dj.getCaigou_id();
     }
 
     //所有布匹信息
@@ -555,7 +562,7 @@
 %>
 
 <body lang=ZH-CN style='tab-interval:21.0pt'>
-
+                     <input type=hidden name="cgid" id="cgid" value=<%=djid%> />
 <div style="margin-left: 900px">
     <img src="images/print_ico.gif" align="absmiddle" onclick="confirmPrint()" onmouseover="cc(this)"/>
     <font size="1"><--打印</font>
@@ -601,7 +608,11 @@
     </td>
 </tr>
 <tr style='mso-yfti-irow:2;height:14.25pt'>
-
+    <td width=80 style='width:43.55pt;border:solid black 1.0pt;mso-border-alt:
+  solid black .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+        <p class=MsoNormal align=center style='text-align:center'><span
+                style='font-size:10.5pt'>布匹编号<span lang=EN-US><o:p></o:p></span></span></p>
+    </td>
     <td width=58 style='width:43.55pt;border:solid black 1.0pt;mso-border-alt:
   solid black .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
         <p class=MsoNormal align=center style='text-align:center'><span
@@ -643,7 +654,15 @@
         <p class=MsoNormal align=center style='text-align:center'><span
                 style='font-size:10.5pt'><span lang=EN-US><o:p></o:p></span></span></p>
     </td>
-    <td width=61 colspan=3 style='width:45.7pt;border:solid black 1.0pt;
+    <td width=61 colspan=1 style='width:45.7pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+    <p class=MsoNormal align=center style='text-align:center'><span
+            style='font-size:10.5pt'>采购<span lang=EN-US><o:p></o:p></span></span></p>
+    <p class=MsoNormal align=center style='text-align:center'><span
+            style='font-size:10.5pt'>米数<span lang=EN-US><o:p></o:p></span></span></p>
+</td>
+    <td width=61 colspan=1 style='width:45.7pt;border:solid black 1.0pt;
   border-left:none;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
         <p class=MsoNormal align=center style='text-align:center'><span
@@ -651,15 +670,13 @@
         <p class=MsoNormal align=center style='text-align:center'><span
                 style='font-size:10.5pt'>米数<span lang=EN-US><o:p></o:p></span></span></p>
     </td>
-    <td width=46 style='width:34.65pt;border:solid black 1.0pt;border-left:none;
+    <td width=46 colspan=2 style='width:34.65pt;border:solid black 1.0pt;border-left:none;
   mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
         <p class=MsoNormal align=center style='text-align:center'><span
-                style='font-size:10.5pt'>质量<span lang=EN-US><o:p></o:p></span></span></p>
-        <p class=MsoNormal align=center style='text-align:center'><span
-                style='font-size:10.5pt'>等级<span lang=EN-US><o:p></o:p></span></span></p>
+                style='font-size:10.5pt'>质量等级<span lang=EN-US><o:p></o:p></span></span></p>
     </td>
-    <td width=187 colspan=3 style='width:140.25pt;border:solid black 1.0pt;
+    <td width=107 colspan=2 style='width:140.25pt;border:solid black 1.0pt;
   border-left:none;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
         <p class=MsoNormal align=center style='text-align:center'><span
@@ -692,12 +709,38 @@
     RKQR rk = (RKQR)bupis.get(i);
         String jyy = "";
         String jytime = "";
+        String jitaihao = "";
+        String shiguamishu = "";
+        String mishu = "";
+        String pingzhi = "";
+        String beizhu = "";
+        String bupiid = "";
+        if(rk.getBupi_id() != null)
+            bupiid = rk.getBupi_id();
+        if(rk.getJitaihao() != null)
+            jitaihao = rk.getJitaihao()+"";
+        if(rk.getShijimishu() != null)
+            shiguamishu = rk.getShijimishu()+"";
+
+        if(rk.getMishu() != null)
+            mishu = rk.getMishu()+"";
+        if(rk.getPinzhi() != null)
+            pingzhi = rk.getPinzhi();
+        if(rk.getBeizhu() != null)
+            beizhu = rk.getBeizhu();
         if(rk.getApply_man() != null)
             jyy = rk.getApply_man();
         if(rk.getApply_time() != null)
             jytime = new SimpleDateFormat("yyyy-mm-dd").format(rk.getApply_time());
 %>
 <tr style='mso-yfti-irow:3;height:14.25pt'>
+    <td width=80 style='width:43.55pt;border:solid black 1.0pt;border-top:none;
+  mso-border-top-alt:solid black .5pt;mso-border-alt:solid black .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+        <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
+                lang=EN-US style='font-size:10.5pt'><%=bupiid%></span></span><span lang=EN-US
+                                                                                  style='font-size:10.5pt'><o:p></o:p></span></p>
+    </td>
     <td width=58 style='width:43.55pt;border:solid black 1.0pt;border-top:none;
   mso-border-top-alt:solid black .5pt;mso-border-alt:solid black .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
@@ -725,7 +768,7 @@
   mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
         <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
-                lang=EN-US style='font-size:10.5pt'></span></span><span lang=EN-US
+                lang=EN-US style='font-size:10.5pt'><%=gysxinghao%></span></span><span lang=EN-US
                                                                               style='font-size:10.5pt'><o:p></o:p></span></p>
     </td>
     <td width=65 colspan=3 style='width:48.5pt;border-top:none;border-left:none;
@@ -733,7 +776,7 @@
   solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
         <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-                                                                        style='font-size:10.5pt'><%=rk.getJitaihao()%><o:p></o:p></span></p>
+                                                                        style='font-size:10.5pt'><%=jitaihao%><o:p></o:p></span></p>
     </td>
     <td width=64 style='width:47.7pt;border-top:none;border-left:none;border-bottom:
   solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:solid black .5pt;
@@ -742,14 +785,21 @@
         <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
                                                                         style='font-size:10.5pt'><%=gongyingshangname%><o:p></o:p></span></p>
     </td>
-    <td width=61 colspan=3 style='width:45.7pt;border-top:none;border-left:none;
+    <td width=61 colspan=1 style='width:45.7pt;border-top:none;border-left:none;
   border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
   solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
         <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
-                                                                        style='font-size:10.5pt'><%=rk.getShijimishu()%><o:p></o:p></span></p>
+                                                                        style='font-size:10.5pt'><%=mishu%><o:p></o:p></span></p>
     </td>
-    <td width=46 style='width:34.65pt;border-top:none;border-left:none;
+    <td width=61 colspan=1 style='width:45.7pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
+  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+        <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+                                                                        style='font-size:10.5pt'><%=shiguamishu%><o:p></o:p></span></p>
+    </td>
+    <td width=46  colspan=2 style='width:34.65pt;border-top:none;border-left:none;
   border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
   solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
@@ -757,19 +807,19 @@
                 lang=EN-US style='font-size:10.5pt'><%=zhongliang%></span></span><span lang=EN-US
                                                                             style='font-size:10.5pt'><o:p></o:p></span></p>
     </td>
-    <td width=187 colspan=3 style='width:140.25pt;border-top:none;border-left:
+    <td width=107 colspan=2 style='width:140.25pt;border-top:none;border-left:
   none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
   mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
   mso-border-alt:solid black .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
         <p class=MsoNormal align=center style='text-align:center'><span class=GramE><span
-                style='font-size:9.0pt'><%=rk.getPinzhi()%></span></span></p>
+                style='font-size:9.0pt'><%=pingzhi%></span></span></p>
     </td>
     <td width=167 colspan=2 style='width:125.15pt;border-top:none;border-left:
   none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
   mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
   mso-border-alt:solid black .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
         <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
-                lang=EN-US style='font-size:10.5pt'><%=rk.getBeizhu()%></span></span><span
+                lang=EN-US style='font-size:10.5pt'><%=beizhu%></span></span><span
                 lang=EN-US style='font-size:10.5pt'><o:p></o:p></span></p>
     </td>
     <td width=64 style='width:48.1pt;border-top:none;border-left:none;border-bottom:
@@ -797,6 +847,13 @@
     for (int i=0;i<size;i++){
 %>
 <tr style='mso-yfti-irow:3;height:14.25pt'>
+    <td width=80 style='width:43.55pt;border:solid black 1.0pt;border-top:none;
+  mso-border-top-alt:solid black .5pt;mso-border-alt:solid black .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+        <p class=MsoNormal align=center style='text-align:center'><span class=SpellE><span
+                lang=EN-US style='font-size:10.5pt'></span></span><span lang=EN-US
+                                                                                   style='font-size:10.5pt'><o:p></o:p></span></p>
+    </td>
     <td width=58 style='width:43.55pt;border:solid black 1.0pt;border-top:none;
   mso-border-top-alt:solid black .5pt;mso-border-alt:solid black .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
@@ -841,14 +898,21 @@
         <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
                                                                         style='font-size:10.5pt'><o:p></o:p></span></p>
     </td>
-    <td width=61 colspan=3 style='width:45.7pt;border-top:none;border-left:none;
+    <td width=61 colspan=1 style='width:45.7pt;border-top:none;border-left:none;
   border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
   solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
         <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
                                                                         style='font-size:10.5pt'><o:p></o:p></span></p>
     </td>
-    <td width=46 style='width:34.65pt;border-top:none;border-left:none;
+    <td width=61 colspan=1 style='width:45.7pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
+  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
+        <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+                                                                        style='font-size:10.5pt'><o:p></o:p></span></p>
+    </td>
+    <td width=46 colspan=2 style='width:34.65pt;border-top:none;border-left:none;
   border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
   solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
   padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>
@@ -856,7 +920,7 @@
                 lang=EN-US style='font-size:10.5pt'></span></span><span lang=EN-US
                                                                                        style='font-size:10.5pt'><o:p></o:p></span></p>
     </td>
-    <td width=187 colspan=3 style='width:140.25pt;border-top:none;border-left:
+    <td width=107 colspan=2 style='width:140.25pt;border-top:none;border-left:
   none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
   mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
   mso-border-alt:solid black .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.25pt'>

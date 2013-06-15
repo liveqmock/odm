@@ -207,4 +207,8 @@ public interface SCGLDao {
     zhiJianReport getZhiJianReportBySome(Map<String,Object> map);
 
     void insertZhiJianReport(zhiJianReport report);
+
+    void changeStateZJ_CG_ONLY(Map<String,Object> map);
+
+    void changeStateRK_CG_ONLY(Map<String,Object> map);
 }

@@ -1,5 +1,6 @@
 package com.jiang.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -64,4 +65,6 @@ public interface CKGLDao {
     void setKJFinish(BCPKJ_Apply kjid);
 
     void setKJCPFinish(BCPKJ_Apply bcpkj);
+
+    BigDecimal getZHIJIANMishuByCGID(String id);
 }

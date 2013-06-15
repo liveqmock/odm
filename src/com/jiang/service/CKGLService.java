@@ -5,6 +5,7 @@ import com.jiang.bean.CangKu;
 import com.jiang.bean.RKQR;
 import com.jiang.bean.RuKuDan;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -51,4 +52,6 @@ public interface CKGLService {
     void setKJFinish(BCPKJ_Apply kjid);
 
     void setKJCPFinish(BCPKJ_Apply bcpkj);
+
+    BigDecimal getZHIJIANMishuByCGID(String id);
 }

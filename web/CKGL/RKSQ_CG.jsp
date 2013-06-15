@@ -41,6 +41,15 @@
                 "newwindow", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=yes, status=no");
 
     }
+    function dayin(asrc)
+    {
+            location.href = "CKGL_dolist?hidden=modify&type=RK_CG_ADDPRINT&bptiaoma="+asrc;
+    }
+    function quxiaodayin(asrc)
+    {
+        location.href = "CKGL_dolist?hidden=modify&type=RK_CG_NOTPRINT&bptiaoma="+asrc;
+    }
+
     function checkFloat(vv, val)
     {
         if(isNaN(val))
@@ -179,8 +188,8 @@
 				</td>
 				<td width="132" align="center" class="td1">来源单位:</td>
 				<td width="140" class="td2">&nbsp;&nbsp;&nbsp;<%=laiyuandanwei %></td>
-				<td width="132" align="center" class="td1">已入库米数 / 总米数:</td>
-				<td width="140" class="td2">&nbsp;&nbsp;&nbsp;<%=nums %>米 / <%=zongmishu %>米</td>
+				<td width="132" align="center" class="td1">总米数:</td>
+				<td width="140" class="td2">&nbsp;&nbsp;&nbsp;<%=zongmishu %>米</td>
 			</tr>
 			
 		</table>
@@ -202,9 +211,9 @@
                     <%}%>
 
 				<td width="122" align="center" class=""><font color="#666333"><%=message %></font></td>
-				<td width="122" align="center" class=""></td>
-				<td width="120" class=""></td>
-				<td width="122" align="center" class=""></td>
+                <td width="140" align="center" class="td1">已入库米数：</td>
+                <td width="120" class="td2">&nbsp;&nbsp; <%=nums %>&nbsp;&nbsp;&nbsp;米 </td>
+                <td width="120" class=""></td>
                 <td width="122" align="center" class=""></td>
 				<td width="120" class=""><input type=button value="打印预览" onclick="printcgrk()" /></td>
 				<input type="hidden" name="price" id="price" />
@@ -233,7 +242,12 @@
 </body>
 
 <script>
-
+    function onRowSelect(div, id) {
+        $('tr#row'+id).click( function () {
+            // alert(id);
+            this.disableSelection();
+        } );
+    }
 function gridFlash(){  
 	$("#flex1").flexOptions({params: [
 	                                  {name:'type_num', value:$("#type_num").val()},
@@ -252,7 +266,8 @@ function gridFlash(){
 			width : 10,
 			sortable : true,
 			align : 'center',
-			hide : true
+			hide : true ,
+            process: onRowSelect
 		}, {
 			display : '条形码',
 			name : 'tiaoxingma',
@@ -281,7 +296,7 @@ function gridFlash(){
             align : 'center',
             hide : true
         },{
-            display : '是否质检',
+            display : '状态',
             name : 'num',
             width : 360,
             sortable : false,
@@ -303,8 +318,8 @@ function gridFlash(){
 		resizable : false,
 		title : '布匹列表',
 		useRp : true,
-		rp : 10,
-		rpOptions : [ 10, 15, 20, 30, 50 ],
+		rp : 8,
+		rpOptions : [ 8, 15, 20, 30, 50 ],
 		width : 'auto',
 		height : 280,
         pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',

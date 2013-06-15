@@ -181,7 +181,13 @@
 			ui4.style.display="none"; 
 		}
 	}
-	
+
+    function isconfirm()
+    {
+        alert("a");
+        confirm('是否确认该单据布匹入库？');
+        return false;
+    }
 </script>
 
 </head>
@@ -301,7 +307,7 @@ if(danhao.equals(""))
 						</td>
 						<td>&nbsp;</td>
 				<td  align="center" class="td2" style="height: 24px">
-		    <input type="submit" name="ID" value="开始入库" onclick="return confirm('是否确认该单据布匹入库？');" id="ID" />
+		    <input type="submit" name="ID" value="开始入库" onclick="isconfirm()" id="ID" />
             </td>
 			</tr>
 			<tr></tr>

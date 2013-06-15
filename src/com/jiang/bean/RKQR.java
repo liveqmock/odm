@@ -15,7 +15,7 @@ public class RKQR   implements Serializable {
 	private Date apply_time;//申请时间
 	private String queren_man;//申请确认人
 	private Date queren_time;//申请确认人
-	private String zhijian_or_not;//是否已质检
+	private Integer zhijian_or_not;//是否已质检
     private String beizhu;//是否已质检
     private Integer jitaihao;//机台号
     private String pinzhi;
@@ -133,11 +133,11 @@ public class RKQR   implements Serializable {
         this.queren_time = queren_time;
     }
 
-    public String getZhijian_or_not() {
+    public Integer getZhijian_or_not() {
         return zhijian_or_not;
     }
 
-    public void setZhijian_or_not(String zhijian_or_not) {
+    public void setZhijian_or_not(Integer zhijian_or_not) {
         this.zhijian_or_not = zhijian_or_not;
     }
 }

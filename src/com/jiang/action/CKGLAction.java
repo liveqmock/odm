@@ -51,6 +51,49 @@ public class CKGLAction extends BaseAction {
         if (PublicFunc.unEmpty(hidden) && hidden.equals("delete")) {
             return delete(type);
         }
+        if(PublicFunc.unEmpty(hidden) && hidden.equals("modify"))
+        {
+            return modify(type);
+        }
+        return SUCCESS;
+    }
+
+    private String modify(String type) {
+        request.getSession().setAttribute("getPageFromMermory", "yes");
+        if (PublicFunc.unEmpty(type) && type.equals("RK_CG_ADDPRINT")) {
+            return modifyRK_CG_ADDPRINT(type);
+        }
+        if (PublicFunc.unEmpty(type) && type.equals("RK_CG_NOTPRINT")) {
+            return modifyRK_CG_NOTPRINT(type);
+        }
+        if (PublicFunc.unEmpty(type) && type.equals("RK_CG_RKPRINT")) {
+            return RK_CG_RKPRINT(type);
+        }
+        return SUCCESS;
+    }
+
+    private String modifyRK_CG_ADDPRINT(String type) {
+        String bptiaoma  = request.getParameter("bptiaoma");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("bptiaoma", bptiaoma);
+        map.put("state", PublicFunc.BP_STATE_RUKUPRINT_PRE_INT);
+        scGLService.changeStateZJ_CG(map);
+        return "rkqr_cg";
+    }
+    private String modifyRK_CG_NOTPRINT(String type) {
+        String bptiaoma  = request.getParameter("bptiaoma");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("bptiaoma", bptiaoma);
+        map.put("state", PublicFunc.BP_STATE_RUKUPRINT_NOT_INT);
+        scGLService.changeStateZJ_CG(map);
+        return "rkqr_cg";
+    }
+    private String RK_CG_RKPRINT(String type) {
+        String caigou_id  = request.getParameter("caigou_id");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("caigou_id", caigou_id);
+        scGLService.changeStateRK_CG_ONLY(map);
+        log.info("RK_CG_RKPRINT");
         return SUCCESS;
     }
 
@@ -115,6 +158,7 @@ public class CKGLAction extends BaseAction {
         if (PublicFunc.unEmpty(laiyuandanwei)) {
             rkrq.setGongyingname(laiyuandanwei);
         }
+        rkrq.setZhijian_or_not(PublicFunc.BP_STATE_RUKUPRINT_NOT_INT);
         if (rkrq != null) {
             boolean unique = ckGLService.checkCGRKQRUniqueness(rkrq);
             if (unique) {
@@ -364,12 +408,18 @@ public class CKGLAction extends BaseAction {
         map.put("cgid", cgid);
         totalRows = ckGLService.getCGRKCount(map);
         log.info(totalRows);
+        if(null != request.getSession().getAttribute("getPageFromMermory"))
+        {
+            request.getSession().removeAttribute("getPageFromMermory");
+            page =  (Integer)request.getSession().getAttribute("page");
+        }
         List rows = ckGLService.findCGRKByPage(page, rp, map);
         log.info("ckGLService.findCGRKByPage(page, rp, map)");
         if (rows.size() == 0 && page > 1) {
             page -= 1;
             rows = ckGLService.findCGRKByPage(page, rp, map);
         }
+        request.getSession().setAttribute("page", page);
         result.setTotal(totalRows);
         result.setPage(page);
         result.setRows(JsonUtil.getCGRKInfoJSON(rows));
