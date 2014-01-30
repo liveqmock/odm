@@ -133,7 +133,15 @@
     SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER
     BY ID ASC) AS ROWID,*
     from
-    [CGruku_apply] as f where caigou_id=#cgid#
+    [CGruku_apply] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="cgid" prepend="and">
+                f.caigou_id = #cgid#
+            </isNotEmpty>
+            <isNotEmpty property="zhijian_or_not" prepend="and">
+                f.zhijian_or_not = #zhijian_or_not#
+            </isNotEmpty>
+        </dynamic>
     ) AS TEMP1
     WHERE ROWID >$pstart$
 </select>
@@ -204,15 +212,22 @@
 		count(*)
 		from	
 		[CGruku_apply] 
-		WHERE caigou_id=#caigou_id# and zhijian_or_not='1'
+		WHERE caigou_id=#caigou_id# and zhijian_or_not='7'
 	</select>
 
+    <select id="getZHIJIANMishuByCGID" resultClass="java.math.BigDecimal"  parameterClass="String">
+        select
+        count(mishu)
+        from
+        [CGruku_apply]
+        WHERE caigou_id=#caigou_id# and zhijian_or_not='7'
+    </select>
     <select id="getZHIJIANCountBySCZJGID" resultClass="Integer"  parameterClass="String">
         select
         count(*)
         from
         [SCZJGruku_apply]
-        WHERE gongyidan_id=#gongyidan_id# and zhijian_or_not='1'
+        WHERE gongyidan_id=#gongyidan_id# and zhijian_or_not='7'
     </select>
 
     <select id="getZHIJIANCountBySCWJGID" resultClass="Integer"  parameterClass="String">
@@ -220,7 +235,7 @@
         count(*)
         from
         [SCWJGruku_apply]
-        WHERE gongyidan_id=#gongyidan_id# and zhijian_or_not='1'
+        WHERE gongyidan_id=#gongyidan_id# and zhijian_or_not='7'
     </select>
 	<!-- 入库单号是否唯一 -->
 	<select id="checkUniquessRKDanhao" resultClass="java.lang.Integer"

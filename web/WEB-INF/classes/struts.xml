@@ -89,7 +89,7 @@
 			<result name="xsckqr">/CKGL/CKQR/XSCKQR.jsp</result>
 			<result name="thckqr">/CKGL/CKQR/THCKQR.jsp</result>
 			
-			<result name="ydd">/XSGL/YDD_ADD.jsp</result>
+			<result name="YDD_ADD">/XSGL/YDD_ADD.jsp</result>
             <result name="yddgl">/XSGL/YDDGL.jsp</result>
             <result name="zhddgl">/XSGL/ZHDDGL.jsp</result>
 			<result name="xsdgl">/XSGL/DDGL.jsp</result>
@@ -147,15 +147,24 @@
 
             <result name="addKHGL_BASE">/XSGL/KHGL_BASE_ADD.jsp</result>
             <result name="addKHGL_FH">/XSGL/KHGL_FH_ADD.jsp</result>
+            <result name="addKHGL_FH_2">/XSGL/KHGL_FH_ADD_2.jsp</result>
 
             <result name="addtypenums">/ZHDD/AddTypeNums.jsp</result>
             <result name="addshouhuoaddress">/XSGL/addshouhuoaddress.jsp</result>
+            <result name="addBupi">/XSGL/AddBupi.jsp</result>
+            <result name="setBupi">/ZHDD/SetBupi.jsp</result>
+
+
 
             <result name="OrderDetail">/ZHDD/OrderDetail.jsp</result>
+            <result name="OrderDetailSetBuPi">/ZHDD/OrderDetailSetBuPi.jsp</result>
             <result name="editmishu">/ZHDD/EditMishu.jsp</result>
 
 
             <result name="ddgl_detail">/XSGL/ZHDDGL_Detail.jsp</result>
+
+            <result name="rkqr_cg">/CKGL/RKSQ_CG.jsp</result>
+
 			
 		</action>
 
@@ -282,10 +291,14 @@
             <result name="addKHGL_FH">/XSGL/KHGL_FH_ADD.jsp</result>
             <result name="modifyKHGL_FH">/XSGL/KHGL_FH_MODIFY.jsp</result>
             <result name="OrderDetail">/ZHDD/OrderDetail.jsp</result>
+            <result name="OrderDetailSetBuPi">/ZHDD/OrderDetailSetBuPi.jsp</result>
             <result name="zhxd">/ZHDD/ZHXD.jsp</result>
             <result name="ordersuccess">/ZHDD/ordersuccess.jsp</result>
 
             <result name="khgl_fh">/XSGL/KHGL_FH.jsp</result>
+            <result name="addshouhuoaddress">/XSGL/addshouhuoaddress.jsp</result>
+            <result name="zhddgl">/XSGL/ZHDDGL.jsp</result>
+            <result name="yddgl">/XSGL/YDDGL.jsp</result>
 
 		</action>
 		<action name="XTGL_dolist*" class="com.jiang.action.XTGLAction"

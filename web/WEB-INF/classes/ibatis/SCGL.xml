@@ -1488,18 +1488,46 @@
     </update>
     <!--  修改质检状态 -->
     <update id="changeStateZJ_CG" parameterClass="Map">
-        update [CGruku_apply] set
-        zhijian_or_not = '1',
-        beizhu=#beizhu#,
-        pinzhi =#pinzhi#,
-        shijimishu =#shijimishu#,
-        jitaihao =#jitaihao#
+        update [CGruku_apply]
+        <dynamic prepend="set">
+            <isNotEmpty property="state" prepend=",">
+                zhijian_or_not =#state#
+            </isNotEmpty>
+            <isNotEmpty property="beizhu" prepend=",">
+                beizhu =#beizhu#
+            </isNotEmpty>
+            <isNotEmpty property="pinzhi" prepend=",">
+                pinzhi =#pinzhi#
+            </isNotEmpty>
+            <isNotEmpty property="shijimishu" prepend=",">
+                shijimishu =#shijimishu#
+            </isNotEmpty>
+            <isNotEmpty property="jitaihao" prepend=",">
+                jitaihao =#jitaihao#
+            </isNotEmpty>
+        </dynamic>
         where bupi_id=#bptiaoma#
     </update>
+
+    <!--  修改质检状态 为已质检-->
+    <update id="changeStateZJ_CG_ONLY" parameterClass="Map">
+        update [CGruku_apply] set
+        zhijian_or_not = '7'
+        where caigou_id=#caigou_id# and zhijian_or_not='6'
+    </update>
+
+    <update id="changeStateRK_CG_ONLY" parameterClass="Map">
+        update [CGruku_apply] set
+        zhijian_or_not = '3'
+        where caigou_id=#caigou_id# and zhijian_or_not='2'
+    </update>
+
+
+
     <!--  修改质检状态 不通过BTG -->
     <update id="changeStateZJ_CG_BTG" parameterClass="Map">
         update [CGruku_apply] set
-        zhijian_or_not = '2',
+        zhijian_or_not = #state#,
         beizhu=#beizhu#,
         pinzhi =#pinzhi#,
         shijimishu =#shijimishu#,

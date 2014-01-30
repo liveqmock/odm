@@ -17,7 +17,7 @@
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
 	
 	<!--dataSource -->
-	<bean id="dataSource"
+	<bean id="dataSource_sql"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 		<property name="url"
@@ -28,7 +28,7 @@
 
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="dataSource_sql" />
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager"
 		proxy-target-class="true" />
@@ -36,7 +36,58 @@
 	<!-- 2.配置数据工厂(ibatis) -->
 	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
 		<property name="configLocation" value="classpath:/ibatis/SqlMapConfig.xml" />
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="dataSource_sql" />
 	</bean>
+
+
+
+
+    <!--<bean id="startUpTimerTask" class="com.jiang.timertask.StartUpTimerTask"/>-->
+
+    <!--&lt;!&ndash; 集成实际执行任务的Bean和方法 &ndash;&gt;-->
+    <!--<bean id="timerTaskBean" class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">-->
+        <!--<property name="targetObject" ref="startUpTimerTask"/>-->
+        <!--<property name="targetMethod" value="execute"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 定义时间表 &ndash;&gt;-->
+    <!--<bean id="scheduledTimerTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">-->
+        <!--<property name="timerTask" ref="timerTaskBean"/>-->
+        <!--&lt;!&ndash; 间隔时间 &ndash;&gt;-->
+        <!--<property name="period" value="0"/>-->
+        <!--&lt;!&ndash; 延长时间 &ndash;&gt;-->
+        <!--<property name="delay" value="10000"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="timerFactoryBean" class="org.springframework.scheduling.timer.TimerFactoryBean">-->
+        <!--<property name="scheduledTimerTasks">-->
+            <!--<list>-->
+                <!--<ref bean="scheduledTimerTask"/>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+    <bean id="demoTask" class="com.jiang.timertask.OrderTimerTask"/>
+    <!-- 集成实际执行任务的Bean和方法 -->
+    <bean id="jobDetailBean" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="demoTask"/>
+        <property name="targetMethod" value="execute"/>
+    </bean>
+
+    <!-- 定义时间表 -->
+    <bean id="cronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="jobDetailBean"/>
+        <property name="cronExpression" value="0 30 23 * * ?"/>
+    </bean>
+
+    <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="cronTriggerBean"/>
+            </list>
+        </property>
+    </bean>
+
 
 </beans>
