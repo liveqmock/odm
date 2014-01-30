@@ -87,20 +87,20 @@ test in company
         <table cellpadding="0" cellspacing="0" width="100%" align="center"
                style="border: #b9c2d3 solid 1px; top: 4px">
             <tr>
-                <td width="" align="" class="td1">联系人</td>
+                <td width="" align="" class="td1">联系人<font color="red">(必填)</font></td>
                 <td width="" class="td2" ><input type="text" /> </td>
                 <td width="" align="" class="td1">电话</td>
                 <td width="" class="td2"><input type="text" /></td>
-                <td width="" align="" class="td1">手机</td>
+                <td width="" align="" class="td1">手机<font color="red">(必填)</font></td>
                 <td width="" class="td2"><input type="text" /></td>
             </tr>
             <tr>
-                <td width="" align="" class="td1">发货方式</td>
+                <td width="" align="" class="td1">发货方式<font color="red">(必填)</font></td>
                 <td width="" class="td2"><select >
                 <option >快递</option>
                 <option >普通</option>
                 </select></td>
-                <td width="" align="" class="td1">地址</td>
+                <td width="" align="" class="td1">地址<font color="red">(必填)</font></td>
                 <td width="" class="td2"><input type="text" /></td>
             </tr>
 
@@ -167,7 +167,7 @@ test in company
             align : 'center'
         } ] ,
         buttons : [ {
-            name : '使用新地址',
+            name : '添加新地址',
             bclass : 'add',
             onpress : button
         }, {
@@ -302,10 +302,9 @@ test in company
                     del(url);
                 }
             }
-        } else if (com == '使用新地址') {
-            showtable();
-           // hidden.value = "add";
-            //location.href = "DisPatch_getAddJsp?a=5&b=1";
+        } else if (com == '添加新地址') {
+          //  showtable();
+            location.href = "DisPatch_getAddJsp?a=5&b=7";
         } else if (com == '使用选中地址') {
             hidden.value = "modify";
             hidetable();

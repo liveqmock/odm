@@ -7,20 +7,24 @@
 <title>客户</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<script type="text/javascript" language="javascript"
-	src="js/jquery-fn-tab.js"></script>
-<script type="text/javascript" src="js/jquery-1.3.2.js"></script>
-<script type="text/javascript" src="js/jquery.corners.min.js"></script>
-<script type="text/javascript" src="js/flexigrid.js"></script>
-<script language="javascript" type="text/javascript"
-	src="My97DatePicker/WdatePicker.js"></script>
-<script type="text/javascript" src="js/ChangeImageJS.js"></script>
-<link rel="stylesheet" href="CSS/flexigrid.css" type="text/css"/>
-<link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"/>
-<link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"/>
+    <script type="text/javascript" language="javascript"
+            src="js/jquery-fn-tab.js"></script>
+    <script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+    <script type="text/javascript" src="js/jquery_dialog.js"></script>
+    <script type="text/javascript" src="js/jquery.corners.min.js"></script>
+    <script type="text/javascript" src="js/flexigrid.js"></script>
+    <script language="javascript" type="text/javascript"
+            src="My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="js/ChangeImageJS.js"></script>
+    <link rel="stylesheet" href="CSS/flexigrid.css" type="text/css"/>
+    <link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"/>
+    <link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"/>
 
-<link type="text/css" rel="stylesheet" href="CSS/table.css" />
-<link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
+    <link type="text/css" rel="stylesheet" href="CSS/table.css" />
+    <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
+
+
+    <link rel="stylesheet" href="CSS/jquery_dialog.css" type="text/css"/>
 </head>
 <body>
 	<div>
@@ -109,68 +113,84 @@ function gridFlash(){
 	$("#flex1").flexigrid({
 		url : 'XSGL_dolist?hidden=manage&type=YDDGL',
 		dataType : 'json',
-		colModel : [ {
-			display : 'id',
-			name : 'id',
-			width : 10,
-			sortable : true,
-			align : 'center',
-			hide : true
-		}, {
-			display : '订单号',
-			name : 'dingdan_id',
-			width : 100,
-			sortable : false,
-			align : 'center',
-			hide : false
-		}, {
-			display : '客户名称',
-			name : 'dingdan_name',
-			width : 100,
-			sortable : false,
-			align : 'center'
-		}, {
-			display : '支付方式 ',
-			name : 'pay_way',
-			width : 90,
-			sortable : false,
-			align : 'center'
-		}, {
-			display : '发货方式',
-			name : 'fh_way',
-			width : 100,
-			sortable : false,
-			align : 'center'
-		}, {
-			display : '下单日期',
-			name : 'kaidan_time',
-			width : 100,
-			sortable : false,
-			align : 'center'
-		}, {
-			display : '状态 ',
-			name : 'finish_or_not',
-			width : 100,
-			sortable : false,
-			align : 'center'
-		}, {
-			display : '备注',
-			name : 'ckname',
-			width : 120,
-			sortable : false,
-			align : 'center'
-		} ],
+        colModel : [ {
+            display : 'id',
+            name : 'id',
+            width : 10,
+            sortable : true,
+            align : 'center',
+            hide : true
+        }, {
+            display : '订单号',
+            name : 'dingdan_id',
+            width : 120,
+            sortable : false,
+            align : 'center',
+            hide : false
+        }, {
+            display : '客户名称',
+            name : 'dingdan_name',
+            width : 140,
+            sortable : false,
+            align : 'center'
+        }, {
+            display : '支付方式 ',
+            name : 'pay_way',
+            width : 90,
+            sortable : false,
+            align : 'center'
+        }, {
+            display : '发货方式',
+            name : 'fh_way',
+            width : 100,
+            sortable : false,
+            align : 'center'
+        }, {
+            display : '下单日期',
+            name : 'kaidan_time',
+            width : 100,
+            sortable : false,
+            align : 'center'
+        }, {
+            display : '状态 ',
+            name : 'finish_or_not',
+            width : 100,
+            sortable : false,
+            align : 'center'
+        }, {
+            display : '备注',
+            name : 'ckname',
+            width : 350,
+            sortable : false,
+            align : 'center'
+        } ],
 		buttons : [ {
 			name : '添加',
 			bclass : 'add',
 			onpress : button
-		}, {
-			name : '删除',
-			bclass : 'delete',
-			onpress : button
-		}, {
-			separator : true
-		} ],
+		},{
+            name : '明细',
+            bclass : 'add',
+            onpress : button
+        }, {
+            name : '删除',
+            bclass : 'delete',
+            onpress : button
+        }, {
+            separator : true
+        }, {
+            name : '修改收获地址',
+            bclass : 'edit',
+            onpress:  button
+        }, {
+            separator : true
+        }, {
+            name : '转化为订单',
+            bclass : 'edit',
+            onpress:  button
+        }, {
+            separator : true
+        } ],
 		/*searchitems : [   
 		    {display: '信息编号', name : 'id', isdefault: true},   
 		    {display: '信息标题', name : 'id'},   
@@ -315,19 +335,49 @@ function gridFlash(){
 			}
 		} else if (com == '添加') {
 			hidden.value = "add";
-			location.href = "DisPatch_getUrl?i=1&j=1";
-		} else if (com == '修改') {
-			hidden.value = "modify";
-			if ($(".trSelected").length == 1) {
-				window.location.href = "infoAdd.jsp?hidden=" + hidden.value
-						+ "&id="
-						+ $('.trSelected', grid).find("td").eq(0).text();
-			} else if ($(".trSelected").length > 1) {
-				alert("请选择一个修改,不能同时修改多个");
-			} else if ($(".trSelected").length == 0) {
-				alert("请选择一个您要修改的信息");
-			}
-		}
+			location.href = "DisPatch_getAddJsp?a=5&b=8";
+		} else if (com == '明细') {
+            if ($(".trSelected").length == 1) {
+                window.location.href = "DisPatch_getUrl?i=4&j=9"
+                        + "&ddid="
+                        + $('.trSelected', grid).find("td").eq(1).text()
+                        + "&kehuid="
+                        + $('.trSelected', grid).find("td").eq(2).text();
+            } else if ($(".trSelected").length > 1) {
+                alert("请选择一个修改,不能同时修改多个");
+            } else if ($(".trSelected").length == 0) {
+                alert("请选择一个您要修改的信息");
+            }
+        } else if (com == '修改收获地址') {
+            hidden.value = "modify";
+            if ($(".trSelected").length == 1) {
+                JqueryDialog.Open1('收获地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
+                        + $('.trSelected', grid).find("td").eq(1).text(), 800, 330, false, false, false);
+            } else if ($(".trSelected").length > 1) {
+                alert("请选择一个修改,不能同时修改多个");
+            } else if ($(".trSelected").length == 0) {
+                alert("请选择一个您要修改的信息");
+            }
+        }  else if (com == '转化为订单') {
+            hidden.value = "modify";
+            if ($(".trSelected").length == 1) {
+                var text = $('.trSelected', grid).find("td").eq(4).text();
+                if(text.length < 2)
+                {
+                    alert("请先填写发货方式");
+                    JqueryDialog.Open1('收获地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
+                            + $('.trSelected', grid).find("td").eq(1).text(), 800, 330, false, false, false);
+                }
+                else
+                {
+                    window.location.href =  'XSGL_dolist?hidden=modify&type=DDZT&dingdanid='+ $('.trSelected', grid).find("td").eq(1).text();
+                }
+            } else if ($(".trSelected").length > 1) {
+                alert("请选择一个修改,不能同时修改多个");
+            } else if ($(".trSelected").length == 0) {
+                alert("请选择一个您要修改的信息");
+            }
+        }
 	}
 
 	/** 

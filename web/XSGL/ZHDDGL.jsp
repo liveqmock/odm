@@ -255,14 +255,33 @@ function gridFlash(){
 		} else if (com == '修改收获地址') {
 			hidden.value = "modify";
 			if ($(".trSelected").length == 1) {
-                JqueryDialog.Open('收获地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
-                        + $('.trSelected', grid).find("td").eq(1).text(), 800, 330);
+                JqueryDialog.Open1('收获地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
+                        + $('.trSelected', grid).find("td").eq(1).text(), 800, 330, false, false, false);
 			} else if ($(".trSelected").length > 1) {
 				alert("请选择一个修改,不能同时修改多个");
 			} else if ($(".trSelected").length == 0) {
 				alert("请选择一个您要修改的信息");
 			}
-		}
+		}  else if (com == '转化为订单') {
+            hidden.value = "modify";
+            if ($(".trSelected").length == 1) {
+                var text = $('.trSelected', grid).find("td").eq(4).text();
+                if(text.length < 2)
+                {
+                    alert("请先填写发货方式");
+                    JqueryDialog.Open1('收获地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
+                            + $('.trSelected', grid).find("td").eq(1).text(), 800, 330, false, false, false);
+                }
+                else
+                {
+                   window.location.href =  'XSGL_dolist?hidden=modify&type=DDZT&dingdanid='+ $('.trSelected', grid).find("td").eq(1).text();
+                }
+            } else if ($(".trSelected").length > 1) {
+                alert("请选择一个修改,不能同时修改多个");
+            } else if ($(".trSelected").length == 0) {
+                alert("请选择一个您要修改的信息");
+            }
+        }
 	}
 
 	/** 
