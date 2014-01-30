@@ -203,7 +203,11 @@
         request.getSession().removeAttribute("ZLGLCPZL_search");
         request.getSession().setAttribute("ZLGLCPZL_search1", cpzl);
     }
-
+    if(null != request.getSession().getAttribute("ZLGLCPZL_t_tiaoma"))
+    {
+        t_tiaoma = (String) request.getSession().getAttribute("ZLGLCPZL_t_tiaoma");
+        request.getSession().removeAttribute("ZLGLCPZL_t_tiaoma");
+    }
 
 %>
 <form id="form1" name="form1" method="post"

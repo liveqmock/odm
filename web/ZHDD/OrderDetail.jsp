@@ -78,7 +78,15 @@
          }
          return true;
      }
-     function backMenu() {
+     function backMenu_sale() {
+         var f = document.createElement("form");
+         f.action = "DisPatch_getUrl?i=4&j=0";
+         f.target = "mainframe";
+         f.method = "post";
+         document.body.appendChild(f);
+         f.submit();
+     }
+     function backMenu_zhxd() {
          var f = document.createElement("form");
          f.action = "DisPatch_getUrl?i=4&j=1";
          f.target = "mainframe";
@@ -159,10 +167,14 @@
                 { %>
                 <input type="button" onclick="docommit()"  value="提交订单"/>
                 <input type="hidden" value="1" name="PAGEGO" id="PAGEGO" />
-                <% }else{%>
-                <input type="button" onclick="backMenu()"  value="返回"/>
-                <input type="hidden" value="2" name="PAGEGO" id="PAGEGO" />
-                <%}%>
+                <% }else{ if(PublicFunc.ORDER_TYPE == PublicFunc.ORDER_SALE){%>
+
+                    <input type="button" onclick="backMenu_sale()"  value="返回"/>
+                    <input type="hidden" value="2" name="PAGEGO" id="PAGEGO" />
+                    <%} else{%>
+                    <input type="button" onclick="backMenu_zhxd()"  value="返回"/>
+                    <input type="hidden" value="2" name="PAGEGO" id="PAGEGO" />
+                <%}}%>
 
             </td>
         </tr>
@@ -282,6 +294,8 @@ $("#flex1").flexigrid({
     }, {
         separator : true
     },{
+        separator : true
+    },{
         name : '删除',
         bclass : 'delete',
         onpress:  button
@@ -333,7 +347,9 @@ $("#flex1").flexigrid({
 			}
 		} else if (com == '添加货号') {
             JqueryDialog.Open('订单明细', 'DisPatch_getAddJsp?a=5&b=2', 500, 430);
-		} else if(com == '修改米数') {
+		} else if (com == '指定布匹') {
+            JqueryDialog.Open('布匹明细', 'DisPatch_getAddJsp?a=5&b=9', 500, 430);
+        }  else if(com == '修改米数') {
             if ($(".trSelected").length == 1) {
                 var id=$('.trSelected', grid).find("td").eq(0).text();
                 var mishu=$('.trSelected', grid).find("td").eq(4).text();
