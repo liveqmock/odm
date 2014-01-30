@@ -124,14 +124,14 @@ function gridFlash(){
 		},  {
 			display : '型号 ',
 			name : 'type_num',
-			width : 140,
+			width : 90,
 			sortable : false,
 			align : 'center',
 			hide : false
 		}, {
 			display : '仓库类型',
 			name : 'bptype',
-			width : 140,
+			width : 90,
 			sortable : false,
 			align : 'center'
 		}, {
@@ -143,10 +143,16 @@ function gridFlash(){
 		}, {
 			display : '可用米数 ',
 			name : 'KY_num',
-			width : 110,
+			width : 90,
 			sortable : false,
 			align : 'center'
-		}, {
+		},{
+            display : '开剪米数 ',
+            name : 'KY_num',
+            width : 90,
+            sortable : false,
+            align : 'center'
+        }, {
 			display : '总米数',
 			name : 'num',
 			width : 90,
@@ -155,13 +161,13 @@ function gridFlash(){
 		},{
 			display : '品级',
 			name : 'zhiliangdengji',
-			width : 100,
+			width : 90,
 			sortable : false,
 			align : 'center'
 		},{
 			display : '备注',
 			name : 'zhiliangdengji',
-			width : 160,
+			width : 200,
 			sortable : false,
 			align : 'center'
 		} ],

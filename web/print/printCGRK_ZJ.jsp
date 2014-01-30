@@ -36,7 +36,7 @@
 <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
 
 
-<title>自加工刺绣出库打印格式</title>
+<title>原材料质检单</title>
 <o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
                 name="chsdate"/>
 <!--[if gte mso 9]><xml>
