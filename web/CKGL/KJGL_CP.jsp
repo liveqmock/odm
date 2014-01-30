@@ -191,7 +191,7 @@
         sortorder : "desc",
         usepager : true,
         resizable : false,
-        title : '半成品开剪管理',
+        title : '成品开剪管理',
         pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',
         pagetext : '第',
         outof : '共',

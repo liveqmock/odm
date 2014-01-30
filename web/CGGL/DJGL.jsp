@@ -181,7 +181,7 @@ function gridFlash(){
 		}, {
 			display : '采购单号',
 			name : 'caigou_id',
-			width : 120,
+			width : 100,
 			sortable : false,
 			align : 'center',
 			hide : false
@@ -206,13 +206,7 @@ function gridFlash(){
 		}, {
 			display : '供应商 ',
 			name : 'jiaohuo_time',
-			width : 150,
-			sortable : false,
-			align : 'center'
-		}, {
-			display : '下单人 ',
-			name : 'userName',
-			width : 80,
+			width : 120,
 			sortable : false,
 			align : 'center'
 		}, {
@@ -228,9 +222,15 @@ function gridFlash(){
 			sortable : false,
 			align : 'center'
 		}, {
+            display : '详细进度',
+            name : 'userName',
+            width : 145,
+            sortable : false,
+            align : 'center'
+        }, {
 			display : '接单人 ',
 			name : 'zhuangtai',
-			width : 80,
+			width : 65,
 			sortable : false,
 			align : 'center'
 		}, {
@@ -310,7 +310,7 @@ function gridFlash(){
 				 	return;
 				 }
 						 
-				printstr = "id="+$('.trSelected', grid).find("td").eq(0).text()+"&state="+$('.trSelected', grid).find("td").eq(8).text();
+				printstr = "id="+$('.trSelected', grid).find("td").eq(0).text()+"&state="+$('.trSelected', grid).find("td").eq(7).text();
 				getstatusbeforeprint("DisPatch_getPrintDJGL?"+printstr);
 				//printstr
 				//window.open (x , "newwindow", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, location=yes, status=no"); 
