@@ -81,6 +81,11 @@ public class PublicFunc {
     public static final String STATE_ORDER_ZHXDMODIFY = "修改展会下单";
     public static  String STATE_ORDER_DETAIL = STATE_ORDER_ZHXD;
 
+    public static final String ORDER_ZHXD = "展会下单";
+    public static final String ORDER_SALE = "销售下单";
+    public static  String ORDER_TYPE = ORDER_ZHXD;
+
+
     public static final String[] jiageleixing =
     {
      "整卷价","零售价", "300米价", "批发价", "自定义价"
@@ -130,7 +135,7 @@ public class PublicFunc {
 /*财务*/			{ "采购付款", "销售收款", "工资核算", "费用收支", "对账", "查询", "单位管理" },
 /*综合*/			{ "综合管理" },
 /*系统*/			{ "用户管理", "历史记录", "系统备份与还原",  "系统日志"  },
-            {"成品仓库查询" ,"成品待开剪任务单","成品待发货任务单", "成品退货任务单"}
+            {"成品仓库查询" ,"成品开剪任务单","成品发货任务单", "成品退货任务单"}
     };
 
 

@@ -56,7 +56,7 @@ public class DisPatchUrlAction extends ActionSupport {
 				{"scgyd_zjg1","scgyd_zjg1","scgyd_wjg","scrk", "zhijian", "danweigl"},
 				{"ckcx","rksq","cksq","kjgl","xsthrk"},
 				{"yddgl", "zhddgl","xsdgl","zhxd","khgl","cpckcx","cpkjapply", "xsthrk", "OrderDetail",
-                "OrderDetail"},
+                "OrderDetailSetBuPi"},
 				{"zlgl_yl","zlgl_bcp","zlgl_cp"},
 				{"error","error","error","error","error","error","error"},
 				{"error"},
@@ -71,7 +71,7 @@ public class DisPatchUrlAction extends ActionSupport {
 			bumen = user.getBumen();
 		String zgmm = xtglService.getZGpwdByBumen(bumen);
 		request.getSession().setAttribute("zgmima", zgmm);
-		
+        request.getSession().removeAttribute("kehuid");
 		if(ii == 0 && jj== 1)//采购任务单
 		{
 			
@@ -117,9 +117,16 @@ public class DisPatchUrlAction extends ActionSupport {
 		{
 			return "showdk";
 		}
+        if(ii == 4 && jj ==0)//初始化展会下单界面
+        {
+            PublicFunc.ORDER_TYPE = PublicFunc.ORDER_SALE;//销售预订单
+            initKHGLList(request);
+            request.getSession().removeAttribute("orderid");
+        }
         if(ii == 4 && jj ==3)//初始化展会下单界面
         {
             //初始化展会下单界面 客户名称
+            PublicFunc.ORDER_TYPE = PublicFunc.ORDER_ZHXD;//展会单
             initKHGLList(request);
             request.getSession().removeAttribute("orderid");
         }
@@ -661,6 +668,8 @@ public class DisPatchUrlAction extends ActionSupport {
         ZLGLCPZL  cp = cgglService.findCPSByTypeNum(t_tiaoma);
         request.getSession().setAttribute("ZLGLCPZL_search", cp);
         log.info("getCPByTypeNum::"+cp.getId());
+        request.getSession().setAttribute("ZLGLCPZL_t_tiaoma", t_tiaoma);
+
         return "addtypenums" ;
     }
 	public String getLevel23Url() {
@@ -697,7 +706,7 @@ public class DisPatchUrlAction extends ActionSupport {
 				{ "addXTCS" },//仓库
 				{ "addXTCS" },//商品
 				{ "addKHGL_BASE", "addKHGL_FH", "addtypenums","editmishu","addCPKJAPPLY_CKCX", "addCPKJAPPLY",
-                "addshouhuoaddress"},//销售管理
+                "addshouhuoaddress", "addKHGL_FH_2", "YDD_ADD", "addBupi", "setBupi"},//销售管理
 				{ "addXTCS" },//财务
 				{ "addXTCS" },//发货
 				{ "addXTCS" },
@@ -738,10 +747,17 @@ public class DisPatchUrlAction extends ActionSupport {
     {
         //通过订单ID获取客户ID。
         String id = request.getParameter("dingdanid");
+        System.out.println("id:"+id);
         YDDGL ydd = xsglService.findYDDGLByDDID(id);
-        String kehuid= ydd.getDingdan_name();
-        if(PublicFunc.unEmpty(kehuid))
-            request.getSession().setAttribute("kehuid",kehuid);
+        System.out.println("YDDGL:"+ydd);
+        if(ydd != null)
+        {
+            String kehuid= ydd.getDingdan_name();
+            System.out.println("kehuid:"+kehuid);
+            if(PublicFunc.unEmpty(kehuid))
+                request.getSession().setAttribute("kehuid",kehuid);
+        }
+        System.out.println("over:");
         if(PublicFunc.unEmpty(id))
             request.getSession().setAttribute("ddid",id);
     }

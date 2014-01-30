@@ -20,7 +20,27 @@ public class CGGLDJGL  implements Serializable {
 	private String gongyingname;
 	private String gyspinming;
 	private String jiedanren;
-	public String getGongyingname() {
+    private BigDecimal mishu_rk;
+    private BigDecimal mishu_zj;
+
+
+    public BigDecimal getMishu_rk() {
+        return mishu_rk;
+    }
+
+    public void setMishu_rk(BigDecimal mishu_rk) {
+        this.mishu_rk = mishu_rk;
+    }
+
+    public BigDecimal getMishu_zj() {
+        return mishu_zj;
+    }
+
+    public void setMishu_zj(BigDecimal mishu_zj) {
+        this.mishu_zj = mishu_zj;
+    }
+
+    public String getGongyingname() {
 		return gongyingname;
 	}
 

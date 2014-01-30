@@ -117,7 +117,7 @@ public class XSGLDaoImpl extends SqlMapClientDaoSupport implements XSGLDao {
         int count = 0;
         log.info("getKHGL_FHCount");
         count = (Integer) getSqlMapClientTemplate().queryForObject(
-                "XSGL.getKHGL_FHCount");
+                "XSGL.getKHGL_FHCount", map);
         return count;
     }
 
@@ -274,8 +274,8 @@ public class XSGLDaoImpl extends SqlMapClientDaoSupport implements XSGLDao {
         return getSqlMapClientTemplate().queryForList("XSGL.getKHGLFHsByKehuname", kehu_id);
     }
 
-    public YDDGL findYDDGLByDDID(String DDid) {
-        return (YDDGL) getSqlMapClientTemplate().queryForObject("XSGL.findYDDGLByDDID", DDid);
+    public YDDGL findYDDGLByDDID(String dingdan_id) {
+        return (YDDGL) getSqlMapClientTemplate().queryForObject("XSGL.findYDDGLByDDID", dingdan_id);
     }
 
     public List findKHGL_FHByDDID(String ddid) {
@@ -290,6 +290,10 @@ public class XSGLDaoImpl extends SqlMapClientDaoSupport implements XSGLDao {
         map.put("ddid", ddid);
         map.put("id", Integer.valueOf(id));
         getSqlMapClientTemplate().update("XSGL.updateKHGLFH_CHECK", map);
+    }
+
+    public void updateDDZT(Map<String, Object> map) {
+        getSqlMapClientTemplate().update("XSGL.updateDDZT", map);
     }
 
 

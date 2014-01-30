@@ -91,7 +91,36 @@ public class XSGLAction extends BaseAction {
         if (PublicFunc.unEmpty(type) && type.equals("KHGL_FH_CHECK")) {
             return modify_KHGL_FH_CHECK();
         }
+        if (PublicFunc.unEmpty(type) && type.equals("DDZT")) {
+            return modify_DDZT();
+        }
         return SUCCESS;
+    }
+
+    private String modify_DDZT() {
+        String dingdan_id = "";
+        if(null != request.getParameter("dingdanid"))
+        {
+            dingdan_id  = (String)request.getParameter("dingdanid");
+        }
+        Map<String, Object> map = new HashMap<String, Object>();
+        if(PublicFunc.ORDER_TYPE == PublicFunc.ORDER_ZHXD)
+        {
+            map.put("oldstate", PublicFunc.SALE_TYPE_ZH);
+            map.put("newstate", PublicFunc.SALE_TYPE_SURE);
+            map.put("dingdan_id", dingdan_id);
+            xSGLService.updateDDZT(map);
+            return "zhddgl";
+        }
+        else
+        {
+            map.put("oldstate", PublicFunc.SALE_TYPE_YD);
+            map.put("newstate", PublicFunc.SALE_TYPE_SURE);
+            map.put("dingdan_id", dingdan_id);
+            xSGLService.updateDDZT(map);
+            return "yddgl";
+        }
+
     }
 
     private String modify_ZHDDdetail(){
@@ -120,6 +149,7 @@ public class XSGLAction extends BaseAction {
      * @return
      */
     private String modify_ZHXD(){
+        PublicFunc.STATE_ORDER_DETAIL = PublicFunc.STATE_ORDER_ZHXD;
         String id = request.getParameter("id");// 客户ID
         String kehu_id = request.getParameter("kehu_id");// 客户ID
         String KeHuname = request.getParameter("KeHuname");// 客户名称
@@ -346,6 +376,10 @@ public class XSGLAction extends BaseAction {
         {
             return add_KHGL_FH();
         }
+        if(PublicFunc.unEmpty(type) && type.equals("KHGL_FH_2"))
+        {
+            return add_KHGL_FH_2();
+        }
         return SUCCESS;
     }
     private String add_DDtoOrder() {
@@ -394,9 +428,16 @@ public class XSGLAction extends BaseAction {
             ydd.setYewuyuan(yewuyuan);
         }
         if (ydd != null) {
-               ydd.setFinish_or_not(PublicFunc.SALE_TYPE_ZH);
+            if(PublicFunc.ORDER_TYPE == PublicFunc.ORDER_SALE)
+            {
+                ydd.setFinish_or_not(PublicFunc.SALE_TYPE_YD);
+            }
+            else if(PublicFunc.ORDER_TYPE == PublicFunc.ORDER_ZHXD)
+            {
+                ydd.setFinish_or_not(PublicFunc.SALE_TYPE_ZH);
+            }
                ydd.setZhuangtai(PublicFunc.SALE_STATE_INIT);
-                xSGLService.insertDDToSale(ydd);
+               xSGLService.insertDDToSale(ydd);
             return "ordersuccess";
         }
         return "ordersuccess";
@@ -467,7 +508,7 @@ public class XSGLAction extends BaseAction {
                     request.getSession().setAttribute("totalprice", totalprice);
                 }
                 else{
-                    request.getSession().setAttribute("ddmxadderror", "此货号已添加，如继续添加，请点击修改米数！");
+                    request.getSession().setAttribute("ddmxadderror", "添加失败，此货号已添加！");
                 }
 
                 return SUCCESS;
@@ -598,6 +639,49 @@ public class XSGLAction extends BaseAction {
                    return "addKHGL_FH";
                }
                 return "khgl_fh";
+        }
+        return SUCCESS;
+    }
+    private String add_KHGL_FH_2() {
+        String kehu_id = request.getParameter("kehu_id");
+        String lianxiren = request.getParameter("lianxiren");
+        String fahuofangshi = request.getParameter("fahuofangshi");
+        String dianhua = request.getParameter("dianhua");
+        String yidongdianhua = request.getParameter("yidongdianhua");
+        String dizhi = request.getParameter("dizhi");
+
+        KHGL_FH yl = new KHGL_FH();
+        if (PublicFunc.unEmpty(kehu_id)) {
+            yl.setKehu_id(kehu_id);
+        }
+        if (PublicFunc.unEmpty(lianxiren)) {
+            yl.setLianxiren(lianxiren);
+        }
+        if (PublicFunc.unEmpty(fahuofangshi) && !fahuofangshi.equals("--请选择--")) {
+            yl.setFahuofangshi(fahuofangshi);
+        }
+        if (PublicFunc.unEmpty(dianhua)) {
+            yl.setDianhua(dianhua);
+        }
+        if (PublicFunc.unEmpty(yidongdianhua)) {
+            yl.setYidongdianhua(yidongdianhua);
+        }
+        if (PublicFunc.unEmpty(dizhi)) {
+            yl.setDizhi(dizhi);
+        }
+
+        if (yl != null) {
+            boolean isexistKH = xSGLService.isExistKehuId(kehu_id);
+            if(isexistKH)
+            {
+                xSGLService.insertKHGLFH(yl);
+            }
+            else
+            {
+                request.setAttribute("modifykhglfherror", "不存在该客户编号!");
+                return "addKHGL_FH";
+            }
+            return "addshouhuoaddress";
         }
         return SUCCESS;
     }
@@ -782,6 +866,7 @@ public class XSGLAction extends BaseAction {
             page -= 1;
             rows = xSGLService.findKHGLByPage(page, rp, map);
         }
+        System.out.println("findKHGLByPagetotalRows:"+rows);
         result.setTotal(totalRows);
         result.setPage(page);
         result.setRows(JsonUtil.getKHGLInfoJSON(rows));
@@ -794,6 +879,7 @@ public class XSGLAction extends BaseAction {
            kehu_id = (String) request.getSession().getAttribute("ddid");
        }
         List rows = xSGLService.findKHGL_FHByDDID(kehu_id);
+        System.out.println("findKHGL_FHByDDID:"+rows);
         result.setTotal(rows.size());
         result.setPage(page);
         result.setRows(JsonUtil.getKHGL_FHInfoJSON(rows));
@@ -809,7 +895,6 @@ public class XSGLAction extends BaseAction {
              if(null != request.getSession().getAttribute("kehuid"))
              {
                  kehu_id = (String) request.getSession().getAttribute("kehuid");
-                 request.getSession().removeAttribute("kehuid");
                  log.info("session 's kehu_id:"+kehu_id);
              }
         }
@@ -834,7 +919,7 @@ public class XSGLAction extends BaseAction {
         return result;
     }
 
-    private Result query_DDGL(Result result, String ddtype) {
+    private Result query_DDGL(Result result, String finish_or_not) {
         Map<String, Object> map = new HashMap<String, Object>();
         String kehuname = request.getParameter("kehuname");
         String dingdanhao = request.getParameter("dingdanhao");
@@ -850,9 +935,9 @@ public class XSGLAction extends BaseAction {
         if (PublicFunc.unEmpty(zhuangtai) && !zhuangtai.equals("--请选择--")) {
             map.put("zhuangtai", zhuangtai);
         }
-        if(PublicFunc.unEmpty(ddtype))
+        if(PublicFunc.unEmpty(finish_or_not))
         {
-            map.put("finish_or_not", ddtype);
+            map.put("finish_or_not", finish_or_not);
         }
         if (PublicFunc.unEmpty(dateStartText)) {
             map.put("dateStartText", PublicFunc.paseStringToDate(dateStartText));

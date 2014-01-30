@@ -76,4 +76,6 @@ public interface XSGLService {
     List findKHGL_FHByDDID(String kehu_id);
 
     void updateKHGLFH_CHECK(String ddid, String id);
+
+    void updateDDZT(Map<String, Object> map);
 }

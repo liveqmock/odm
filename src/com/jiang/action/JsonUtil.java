@@ -121,6 +121,20 @@ public class JsonUtil {
                     .getJiaohuo_time());
 
             BigDecimal b2 = cg.getCG_totalnum();
+
+            String rkzj = "共入库：";//
+            BigDecimal rukumishu = new BigDecimal("0");
+            BigDecimal zhijianmishu = new BigDecimal("0");
+            if(cg.getMishu_rk() != null)
+            {
+                rukumishu =  cg.getMishu_rk();
+            }
+            if(cg.getMishu_zj() != null)
+            {
+                zhijianmishu = cg.getMishu_zj();
+            }
+            rukumishu =  rukumishu.add(zhijianmishu);
+            rkzj += rukumishu+"米,质检"+zhijianmishu+"米";
             cellMap.put(
                     "cell",
                     new Object[]{
@@ -130,7 +144,7 @@ public class JsonUtil {
 //									+ cg.getCaigou_id() + "</font></a>",
                             cg.getCaigou_id(),
                             cg.getType_num(), b2+"", data, cg.getGongyingname(),
-                            cg.getUserName(), xiadantime, cg.getZhuangtai(),
+                             xiadantime, cg.getZhuangtai(), rkzj,
                             cg.getJiedanren(), cg.getBeizhu()});
             mapList.add(cellMap);
         }

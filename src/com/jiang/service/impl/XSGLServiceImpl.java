@@ -190,5 +190,9 @@ public class XSGLServiceImpl implements XSGLService {
         xSGLDao.updateKHGLFH_CHECK(ddid,id);
     }
 
+    public void updateDDZT(Map<String, Object> map) {
+        xSGLDao.updateDDZT(map);
+    }
+
 
 }

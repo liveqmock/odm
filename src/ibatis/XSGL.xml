@@ -100,7 +100,7 @@
          FROM [sale_dingdan] as f
          left join kehuziliao as b on b.kehu_id=f.dingdan_name
          left join fahuoaddress as c on  f.fahuoaddressid=c.id
-         <dynamic prepend="and">
+         <dynamic prepend="where">
 			<isNotEmpty property="kehuname" prepend="and">
                 KeHuname like
 				'%' + #kehuname# + '%'
@@ -134,11 +134,11 @@
         SELECT
         f.id,dingdan_id,dingdan_name,pay_way,c.dizhi
         as fh_address_1,c.fahuofangshi as fh_way_1,
-        finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,f.yewuyuan,f.beizhu,zhuangtai
+        finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,f.yewuyuan,f.beizhu,zhuangtai, fahuoaddressid
         FROM [sale_dingdan] as f
         left join kehuziliao as b on b.kehu_id=f.dingdan_name
         left join  fahuoaddress as c on  f.fahuoaddressid=c.id
-        and f.fahuoaddressid=c.id and dingdan_id=#DDid#
+        where  dingdan_id=#dingdan_id#
     </select>
 
     <update  id="updateKHGLFH_CHECK" parameterClass="Map">
@@ -156,10 +156,9 @@
 				f.dingdan_name like
 				'%' + #kehuname# + '%'
 			</isNotEmpty>
-			<isNotEmpty property="dingdanhao" prepend="and">
-				f.dingdan_id like
-				'%' + #dingdanhao# + '%'
-			</isNotEmpty>
+            <isNotEmpty property="dingdan_id" prepend="and">
+                f.dingdan_id =  #dingdan_id#
+            </isNotEmpty>
 			<isNotEmpty property="dateStartText" prepend="and">
 				f.kaidan_time
 				&gt;=
@@ -327,7 +326,7 @@
         [fahuoaddress] as f
         <dynamic prepend="where">
             <isNotEmpty property="kehu_id" prepend="and">
-                f.kehu_id  = #kehu_id#
+                f.kehu_id = #kehu_id#
             </isNotEmpty>
             <isNotEmpty property="lianxiren" prepend="and">
                 f.lianxiren like
@@ -541,5 +540,11 @@
             </isNotEmpty>
         </dynamic>
     </select>
+
+    <!--更新订单状态为订单 -->
+    <update  id="updateDDZT" parameterClass="Map">
+        update sale_dingdan set finish_or_not=#newstate#  where dingdan_id=#dingdan_id#  and finish_or_not=#oldstate#
+    </update>
+
 </sqlMap>
 

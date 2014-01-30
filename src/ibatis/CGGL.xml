@@ -21,6 +21,8 @@
 		<result property="gongyingname" column="gongyingname" />
 		<result property="gyspinming" column="gyspinming" />
 		<result property="jiedanren" column="jiedanren" />
+        <result property="mishu_rk" column="mishu_rk" />
+        <result property="mishu_zj" column="mishu_zj" />
 	</resultMap>
 
 	<typeAlias alias="RKQR" type="com.jiang.bean.RKQR" />
@@ -286,12 +288,14 @@
 		parameterClass="HashMap">
 		SELECT
 		id,caigou_id,type_num,CG_totalnum,jiaohuo_time,userName,xiadan_time,zhuangtai,beizhu
-		,leixing,gyspinming,gongyingshangid,gongyingname,jiedanren
+		,leixing,gyspinming,gongyingshangid,gongyingname,jiedanren,mishu_rk,mishu_zj
 		FROM(
 		SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
-		xiadan_time DESC) AS ROWID,f.*,b.gongyingname
+		xiadan_time DESC) AS ROWID,f.*,b.gongyingname,c.mishu_rk,d.mishu_zj
 		FROM [caigoukaidan] as f
 		left join [gongyingshang] as b on f.gongyingshangid=b.id
+        left join (select caigou_id,sum(mishu) as mishu_rk from CGruku_apply where zhijian_or_not='3' group by caigou_id) as c on c.caigou_id = f.caigou_id
+        left join (select caigou_id,sum(mishu) as mishu_zj from CGruku_apply where zhijian_or_not='7' group by caigou_id) as d on d.caigou_id = f.caigou_id
 		<dynamic prepend="where">
 			<isNotEmpty property="type_num" prepend="and">
 				f.type_num like
@@ -330,14 +334,17 @@
 	
 	<select id="findDJGLAll" resultMap="djglResult"
 		parameterClass="HashMap">
-		select
-		a.id,caigou_id,type_num,CG_totalnum,jiaohuo_time,userName,xiadan_time,zhuangtai,a.beizhu
-		,a.leixing,gyspinming,gongyingshangid,gongyingname,jiedanren
-		from
-		[caigoukaidan] as a
-		left join [gongyingshang] as b on a.gongyingshangid=b.id
+        SELECT
+        f.id,f.caigou_id,type_num,CG_totalnum,jiaohuo_time,userName,xiadan_time,zhuangtai,f.beizhu
+        ,f.leixing,gyspinming,gongyingshangid,gongyingname,jiedanren,mishu_rk,mishu_zj
+
+        FROM [caigoukaidan] as f
+        left join [gongyingshang] as b on f.gongyingshangid=b.id
+        left join (select caigou_id,sum(mishu) as mishu_rk from CGruku_apply where zhijian_or_not='3' group by caigou_id) as c on c.caigou_id = f.caigou_id
+        left join (select caigou_id,sum(mishu) as mishu_zj from CGruku_apply where zhijian_or_not='7' group by caigou_id) as d on d.caigou_id = f.caigou_id
         where zhuangtai='采购中'
-	</select>
+
+    </select>
 	<update  id="updateDJGL" parameterClass="CGGLDJGL">
 	    update [caigoukaidan]
 		<dynamic prepend="set">
@@ -364,31 +371,37 @@
 	
 	<select id="getDJGLCount" resultClass="java.lang.Integer"
 		parameterClass="HashMap">
-		select count(*)
-		from
-		[caigoukaidan] as f
-		<dynamic prepend="where">
-			<isNotEmpty property="type_num" prepend="and">
-				f.type_num like
-				'%' + #type_num# + '%'
-			</isNotEmpty>
-			<isNotEmpty property="zhuangtai" prepend="and">
-				f.zhuangtai =
-				#zhuangtai#
-			</isNotEmpty>
-			<isNotEmpty property="beginTime" prepend="and">
-				f.xiadan_time
-				&gt;=
-				#beginTime#
-			</isNotEmpty>
-			<isNotEmpty property="endTime" prepend="and">
-				f.xiadan_time &lt;=
-				#endTime#
-			</isNotEmpty>
+        SELECT
+        count(*)
+
+        FROM [caigoukaidan] as f
+        left join [gongyingshang] as b on f.gongyingshangid=b.id
+        left join (select caigou_id,sum(mishu) as mishu_rk from CGruku_apply where zhijian_or_not='3' group by caigou_id) as c on c.caigou_id = f.caigou_id
+        left join (select caigou_id,sum(mishu) as mishu_zj from CGruku_apply where zhijian_or_not='7' group by caigou_id) as d on d.caigou_id = f.caigou_id
+
+        <dynamic prepend="where">
+            <isNotEmpty property="type_num" prepend="and">
+                f.type_num like
+                '%' + #type_num# + '%'
+            </isNotEmpty>
+            <isNotEmpty property="zhuangtai" prepend="and">
+                f.zhuangtai =
+                #zhuangtai#
+            </isNotEmpty>
+            <isNotEmpty property="beginTime" prepend="and">
+                f.xiadan_time
+                &gt;=
+                #beginTime#
+            </isNotEmpty>
+            <isNotEmpty property="endTime" prepend="and">
+                f.xiadan_time &lt;=
+                #endTime#
+            </isNotEmpty>
             <isNotEmpty property="caigou_id" prepend="and">
                 f.caigou_id =  #caigou_id#
             </isNotEmpty>
-		</dynamic>
+        </dynamic>
+
 	</select>
 	<delete id="deleteDJGLById" parameterClass="java.util.List">
 		delete
@@ -419,12 +432,15 @@
 	<!-- 查询采购入库信息通过采购单号 -->
 	<select id="getDJGLByCGId"  resultClass="CGGLDJGL"
 		parameterClass="String">
-		select
-		a.id,caigou_id,type_num,CG_totalnum,jiaohuo_time,userName,xiadan_time,zhuangtai,a.beizhu
-		,a.leixing,gyspinming,gongyingshangid,gongyingname,jiedanren
-		from
-		[caigoukaidan] as a
-		left join [gongyingshang] as b on a.gongyingshangid=b.id where caigou_id=#id#
+        SELECT
+        f.id,f.caigou_id,type_num,CG_totalnum,jiaohuo_time,userName,xiadan_time,zhuangtai,f.beizhu
+        ,f.leixing,gyspinming,gongyingshangid,gongyingname,jiedanren,mishu_rk,mishu_zj
+
+        FROM [caigoukaidan] as f
+        left join [gongyingshang] as b on f.gongyingshangid=b.id
+        left join (select caigou_id,sum(mishu) as mishu_rk from CGruku_apply where zhijian_or_not='3' group by caigou_id) as c on c.caigou_id = f.caigou_id
+        left join (select caigou_id,sum(mishu) as mishu_zj from CGruku_apply where zhijian_or_not='7' group by caigou_id) as d on d.caigou_id = f.caigou_id
+        where f.caigou_id=#id#
 	</select>
 	
 	<!--入库确认管理 -->
