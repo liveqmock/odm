@@ -565,4 +565,13 @@ public class CGGLDaoImpl extends SqlMapClientDaoSupport implements CGGLDao {
         return getSqlMapClientTemplate().queryForList("CGGL.findAllGYSXH");
     }
 
+    public void setFPBPstate(Map<String, Object> map) {
+        getSqlMapClientTemplate().update("CGGL.setFPBPstate", map);
+
+    }
+    public void resetFPBPstate(Map<String, Object> map) {
+        getSqlMapClientTemplate().update("CGGL.resetFPBPstate", map);
+
+    }
+
 }

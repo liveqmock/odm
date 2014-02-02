@@ -380,4 +380,12 @@ public class CGGLServiceImpl implements CGGLService {
         return  cGGLDao.findCPSByTypeNum(t_tiaoma);
     }
 
+    public void setFPBPstate(Map<String, Object> map) {
+        cGGLDao.setFPBPstate(map);
+    }
+
+    public void resetFPBPstate(Map<String, Object> map) {
+        cGGLDao.resetFPBPstate(map);
+    }
+
 }

@@ -56,7 +56,7 @@ public class DisPatchUrlAction extends ActionSupport {
 				{"scgyd_zjg1","scgyd_zjg1","scgyd_wjg","scrk", "zhijian", "danweigl"},
 				{"ckcx","rksq","cksq","kjgl","xsthrk"},
 				{"yddgl", "zhddgl","xsdgl","zhxd","khgl","cpckcx","cpkjapply", "xsthrk", "OrderDetail",
-                "OrderDetailSetBuPi"},
+                "OrderDetail", "OrderDetailSetBuPi"},
 				{"zlgl_yl","zlgl_bcp","zlgl_cp"},
 				{"error","error","error","error","error","error","error"},
 				{"error"},
@@ -144,7 +144,7 @@ public class DisPatchUrlAction extends ActionSupport {
             request.getSession().setAttribute("totalnum", totalnum);
             request.getSession().setAttribute("totalprice", totalprice);
         }
-        if(ii == 4 && jj ==9) //查看订单明细
+        if((ii == 4 && jj ==9) ||(ii == 4 && jj ==10)) //查看订单明细
         {
             PublicFunc.STATE_ORDER_DETAIL = PublicFunc.STATE_ORDER_ZHXDMODIFY;
             String ddid = null;
@@ -761,6 +761,25 @@ public class DisPatchUrlAction extends ActionSupport {
         if(PublicFunc.unEmpty(id))
             request.getSession().setAttribute("ddid",id);
     }
+    if("5".equals(a) && "10".equals(b))//分配布匹
+    {
+       String order_id =  (String)request.getSession().getAttribute("orderid");
+        //通过订单ID获取客户ID。
+        String type_num = request.getParameter("type_num");
+        String mishu = request.getParameter("mishu");
+        BigDecimal  fenpeimishu = xsglService.getXSGLDingDanReadyBupiNums(order_id, type_num);
+        if(fenpeimishu == null)
+        {
+            fenpeimishu = new  BigDecimal("0");
+        }
+        BigDecimal weifenpeimishu = new BigDecimal(mishu) .subtract(fenpeimishu);
+        request.setAttribute("type_num", type_num);
+        request.getSession().setAttribute("setbupitype_num", type_num);
+        request.setAttribute("mishu", mishu);
+        request.setAttribute("fenpeimishu", fenpeimishu);
+        request.setAttribute("weifenpeimishu", weifenpeimishu);
+    }
+
     if("2".equals(a) && "5".equals(b))//采购质检
     {
         String id = request.getParameter("cgid");

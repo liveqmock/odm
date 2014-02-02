@@ -1337,4 +1337,18 @@ public class JsonUtil {
         }
         return mapList;
     }
+
+    public static Collection<?> getDDBupisJSON(List list) {
+        List mapList = new ArrayList();
+        for (int i = 0; i < list.size(); i++) {
+            Map cellMap = new HashMap();
+            DDBupis cg = (DDBupis) list.get(i);
+            BigDecimal b1 =  cg.getMishu();
+            cellMap.put("id", cg.getId());
+            cellMap.put("cell",
+                    new Object[]{cg.getId(), cg.getBupi_id(), cg.getType_num(), b1, cg.getBeizhu()});
+            mapList.add(cellMap);
+        }
+        return mapList;
+    }
 }

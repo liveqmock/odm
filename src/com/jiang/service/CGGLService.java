@@ -99,4 +99,8 @@ public interface CGGLService {
 
 
     ZLGLCPZL findCPSByTypeNum(String t_tiaoma);
+
+    public  void setFPBPstate(Map<String,Object> map);
+
+    public void resetFPBPstate(Map<String,Object> map);
 }

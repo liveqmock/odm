@@ -164,4 +164,8 @@ public interface CGGLDao {
     public ZLGLCPZL findCPSByTypeNum(String t_tiaoma);
 
     List<GYSXH> findAllGYSXH();
+
+    void setFPBPstate(Map<String,Object> map);
+
+    void resetFPBPstate(Map<String,Object> map);
 }

@@ -1,5 +1,6 @@
 package com.jiang.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -78,4 +79,10 @@ public interface XSGLService {
     void updateKHGLFH_CHECK(String ddid, String id);
 
     void updateDDZT(Map<String, Object> map);
+
+    BigDecimal getXSGLDingDanReadyBupiNums(String order_id, String type_num);
+
+    int getXSGLDDBupisCount(Map<String,Object> map);
+
+    List getXSGLDDBupis(int page, int rp, Map<String,Object> map);
 }

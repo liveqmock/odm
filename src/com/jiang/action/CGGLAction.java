@@ -1,5 +1,6 @@
 package com.jiang.action;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.jiang.service.XSGLService;
 import org.apache.log4j.Logger;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jiang.bean.CGGLDJGL;
@@ -26,11 +29,19 @@ import com.jiang.service.CGGLService;
 import com.jiang.util.PublicFunc;
 import com.jiang.util.Result;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @SuppressWarnings("serial")
 public class CGGLAction extends BaseAction {
     Logger log = Logger.getLogger(CGGLAction.class);
+
     @Autowired
     private CGGLService cgglService;
+
+    @Autowired
+    private XSGLService xsglService;
+
 
     public String dolist() {
         Result result = new Result();
@@ -214,6 +225,10 @@ public class CGGLAction extends BaseAction {
         String bp = null;
         String bupi_id = null;
         String mudidanhao = null;
+        if(null != request.getSession().getAttribute("setbupitype_num"))
+        {
+            tn = (String)request.getSession().getAttribute("setbupitype_num");
+        }
         if (null != request.getParameter("type_num")) {
             tn = request.getParameter("type_num");
         }
@@ -1315,6 +1330,93 @@ public class CGGLAction extends BaseAction {
         if (PublicFunc.unEmpty(type) && type.equals("CGTH")) {
             return modify_CGTH();
         }
+        if (PublicFunc.unEmpty(type) && type.equals("CKFPBP")) {
+            return modify_CKFPBP();
+        }
+        if (PublicFunc.unEmpty(type) && type.equals("ResetCKFPBP")) {
+            return modify_ResetCKFPBP();
+        }
+        return SUCCESS;
+    }
+
+    private String modify_CKFPBP() {
+        String[] id = request.getParameterValues("id");
+        List<String> ids =    Arrays.asList(id);
+
+        Map<String, Object> map = new HashMap<String,Object>();
+        String ddid = "";
+        String type_num = "";
+        if(null != request.getSession().getAttribute("orderid") )
+        {
+            ddid = (String)request.getSession().getAttribute("orderid");
+        }
+        if(null != request.getSession().getAttribute("setbupitype_num"))
+        {
+            type_num = (String)request.getSession().getAttribute("setbupitype_num");
+        }
+        map.put("ids", ids);
+        map.put("order_id", ddid);
+        map.put("type_num", type_num);
+
+       cgglService.setFPBPstate(map);
+
+        BigDecimal  fenpeimishu = xsglService.getXSGLDingDanReadyBupiNums(ddid, type_num);
+        if(fenpeimishu == null)
+        {
+            fenpeimishu = new  BigDecimal("0");
+        }
+        StringBuffer sb = new StringBuffer();
+        sb.append(fenpeimishu.floatValue());
+        onResponse(sb.toString());
+        return SUCCESS;
+    }
+    public void onResponse(String json) {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpServletResponse response = ServletActionContext.getResponse();
+        response.setContentType("text/html;charset=utf-8");
+        request.setAttribute("message", "");
+        response.setCharacterEncoding("utf-8");
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Cache-Control", "no-cache, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+        response.setDateHeader("Expires", 0);
+        log.info("BASE ACTION 响应请求");
+        try {
+            response.getWriter().write(json);
+            response.getWriter().flush();
+            response.getWriter().close();
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+    private String modify_ResetCKFPBP() {
+        String[] id = request.getParameterValues("id");
+        List<String> ids =    Arrays.asList(id);
+
+        Map<String, Object> map = new HashMap<String,Object>();
+        map.put("ids", ids);
+        cgglService.resetFPBPstate(map);
+
+        String ddid = "";
+        String type_num = "";
+        if(null != request.getSession().getAttribute("orderid") )
+        {
+            ddid = (String)request.getSession().getAttribute("orderid");
+        }
+        if(null != request.getSession().getAttribute("setbupitype_num"))
+        {
+            type_num = (String)request.getSession().getAttribute("setbupitype_num");
+        }
+
+
+        BigDecimal  fenpeimishu = xsglService.getXSGLDingDanReadyBupiNums(ddid, type_num);
+        if(fenpeimishu == null)
+        {
+            fenpeimishu = new  BigDecimal("0");
+        }
+        StringBuffer sb = new StringBuffer();
+        sb.append(fenpeimishu.floatValue());
+        onResponse(sb.toString());
         return SUCCESS;
     }
 
