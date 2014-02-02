@@ -492,9 +492,8 @@
 		zhiliangdengji,pinji,dengji,mudidanhao,ruku_leixing,weizhi,beizhu,rukdan_id
 		from (SELECT TOP $pend$ ROW_NUMBER()
 		OVER(ORDER BY ID ASC) AS ROWID,*
-		from [cangku] as
-		f
-		<dynamic prepend="where">
+		from [cangku] as f   where  f.state = 0
+		<dynamic prepend="and">
 			<isNotEmpty property="type_num" prepend="and">
 				f.type_num like
 				'%'+ #type_num# + '%'
@@ -512,15 +511,15 @@
 			<isNotEmpty property="mudidanhao" prepend="and">
 				f.mudidanhao = #mudidanhao#
 			</isNotEmpty>
-		</dynamic>
+        </dynamic>
 		) AS TEMP1
 		WHERE ROWID >$pstart$
 	</select>
 	<select id="getCKCXCount" resultClass="java.lang.Integer">
 		select count(*)
 		from
-		[cangku] as f
-		<dynamic prepend="where">
+		[cangku] as f  where  f.state = 0
+		<dynamic prepend="and">
 			<isNotEmpty property="type_num" prepend="and">
 				f.type_num like
 				'%'+ #type_num# + '%'
@@ -548,6 +547,32 @@
 			id=#ids[]#
 		</iterate>
 	</delete>
+
+    <update id="setFPBPstate" parameterClass="HashMap">
+        insert into Dingdan_bupis (bupi_id,mishu,type_num,order_id,beizhu, create_time)
+        (select  bupi_id,num,type_num,#order_id#,beizhu,GETDATE()  from cangku where type_num=#type_num# and state=0
+        <iterate property="ids" prepend="and" open="(" close=")" conjunction="or">
+            id=$ids[]$
+        </iterate>
+        );
+        update cangku set state=1
+        <iterate property="ids"  prepend="where" open="(" close=")" conjunction="or">
+            id=$ids[]$
+        </iterate>
+    </update>
+
+    <update id="resetFPBPstate" parameterClass="HashMap">
+        update cangku set state=0  where bupi_id in
+        (select bupi_id from Dingdan_bupis
+        <iterate property="ids" prepend="where" open="(" close=")" conjunction="or">
+            id=$ids[]$
+        </iterate>
+        )
+        delete  from Dingdan_bupis
+        <iterate property="ids" prepend="where" open="(" close=")" conjunction="or">
+            id=$ids[]$
+        </iterate>
+    </update>
 
 
 	<!-- 供应商管理 -->

@@ -87,6 +87,22 @@
         <result property="beizhu" column="beizhu" />
         <result property="guige" column="guige" />
     </resultMap>
+
+
+
+    <!--订单布匹明细表-->
+    <typeAlias alias="DDBupis" type="com.jiang.bean.DDBupis" />
+    <resultMap id="DDBupisresult" class="DDBupis">
+        <result property="id" column="id" />
+        <result property="order_id" column="order_id" />
+        <result property="type_num" column="type_num" />
+        <result property="mishu" column="mishu" />
+        <result property="bupi_id" column="bupi_id" />
+        <result property="beizhu" column="beizhu" />
+    </resultMap>
+
+
+
 	<!-- 订单管理 -->
      <select id="getYDDGLBypage" resultMap="yddglResult"
 		parameterClass="HashMap">
@@ -545,6 +561,60 @@
     <update  id="updateDDZT" parameterClass="Map">
         update sale_dingdan set finish_or_not=#newstate#  where dingdan_id=#dingdan_id#  and finish_or_not=#oldstate#
     </update>
+
+
+    <!--getXSGLDingDanReadyBupiNums-->
+    <select id="getXSGLDingDanReadyBupiNums" resultClass="java.math.BigDecimal"
+            parameterClass="HashMap">
+        select sum(mishu) from
+        [Dingdan_bupis]
+        <dynamic prepend="where">
+            <isNotEmpty property="id" prepend="and">
+                type_num = #type_num#
+            </isNotEmpty>
+            <isNotEmpty property="dingdan_id" prepend="and">
+                order_id =  #order_id#
+            </isNotEmpty>
+        </dynamic>
+    </select>
+
+    <select id="getXSGLDDBupis" resultMap="DDBupisresult" parameterClass="map">
+        SELECT
+        id,type_num,order_id,bupi_id,mishu,beizhu
+        FROM(
+        SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
+        mishu DESC) AS ROWID,*
+        FROM [Dingdan_bupis] as f
+        <dynamic prepend="where">
+            <isNotEmpty property="id" prepend="and">
+                id = #id#
+            </isNotEmpty>
+            <isNotEmpty property="dingdan_id" prepend="and">
+                order_id =  #order_id#
+            </isNotEmpty>
+            <isNotEmpty property="type_num" prepend="and">
+                type_num =  #type_num#
+            </isNotEmpty>
+        </dynamic>
+        ) AS TEMP1
+        WHERE ROWID >$pstart$
+    </select>
+    <select id="getXSGLDDBupisCount" resultClass="java.lang.Integer"
+            parameterClass="HashMap">
+        select count(*) from
+        [Dingdan_bupis]
+        <dynamic prepend="where">
+            <isNotEmpty property="id" prepend="and">
+                id = #id#
+            </isNotEmpty>
+            <isNotEmpty property="dingdan_id" prepend="and">
+                order_id =  #order_id#
+            </isNotEmpty>
+            <isNotEmpty property="type_num" prepend="and">
+                type_num =  #type_num#
+            </isNotEmpty>
+        </dynamic>
+    </select>
 
 </sqlMap>
 

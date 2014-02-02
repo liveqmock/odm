@@ -349,7 +349,7 @@ public class XSGLAction extends BaseAction {
             KHGL tmp = xSGLService.getKHGLById(Integer.valueOf(id));
             request.setAttribute("khgl", tmp);
         }
-        return "modifyKHGL";
+        return "modifyKHGL_BASE";
     }
     private String preModify_KHGL_FH() {
         String id = request.getParameter("id");
@@ -593,7 +593,7 @@ public class XSGLAction extends BaseAction {
             } else {
                 request.setAttribute("khgl", yl);
                 request.setAttribute("modifykhglerror", "已存在该客户编号!");
-                return "addKHGL";
+                return "addKHGL_BASE";
             }
         }
         return SUCCESS;
@@ -733,9 +733,42 @@ public class XSGLAction extends BaseAction {
         if (PublicFunc.unEmpty(type) && type.equals("KHGL_FH_CHECK")) {
             result = query_KHGL_FH_CHECK(result);
         }
-
+        if (PublicFunc.unEmpty(type) && type.equals("CXBupis")) {
+            result = query_CXBupis(result);
+        }
         json = JsonUtil.getResponseJson(result);
         onResponse(json);
+    }
+
+    private Result query_CXBupis(Result result) {
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        String ddid = "";
+        String type_num = "";
+        if(null != request.getSession().getAttribute("orderid") )
+        {
+            ddid = (String)request.getSession().getAttribute("orderid");
+        }
+        if(null != request.getSession().getAttribute("setbupitype_num"))
+        {
+              type_num = (String)request.getSession().getAttribute("setbupitype_num");
+        }
+
+        map.put("order_id", ddid);
+        map.put("type_num", type_num);
+        setSearchPage(map);
+        int totalRows = xSGLService.getXSGLDDBupisCount(map);
+        List rows = xSGLService.getXSGLDDBupis(page, rp, map);
+
+        log.info("totalRows"+totalRows);
+       // float totalnum = xSGLService.getXSGLDingDanTotalNum(ddid);
+      //  float totalprice = xSGLService.getXSGLDingDanTotalPrice(ddid);
+       // request.getSession().setAttribute("totalnum", totalnum);
+       // request.getSession().setAttribute("totalprice", totalprice);
+       result.setTotal(totalRows);
+        result.setPage(page);
+        result.setRows(JsonUtil.getDDBupisJSON(rows));
+        return result;
     }
 
     /**

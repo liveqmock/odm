@@ -278,14 +278,14 @@
 		select
 		id,bupi_id,ckname,bptype,num,KJ_num,KY_num,type_num,inck_time,inck_man,
 		zhiliangdengji,pinji,dengji,mudidanhao,ruku_leixing,weizhi,beizhu,rukdan_id
-		from [cangku]  where ckname=#ckname#
+		from [cangku]  where state = 0 and ckname=#ckname#
 	</select>
 	<!-- 得到布匹通过ID -->
 	<select id="findChangKuById" resultMap="ckcxResult" parameterClass="Integer">
 		select
 		id,bupi_id,ckname,bptype,num,KJ_num,KY_num,type_num,inck_time,inck_man,
 		zhiliangdengji,pinji,dengji,mudidanhao,ruku_leixing,weizhi,beizhu,rukdan_id
-		from [cangku]  where id=#id#
+		from [cangku]   where state = 0 and   id=#id#
 	</select>
     <update id="setKJFinish" parameterClass="Integer">
         update cangku set num -= KJ_num,  KJ_num=0 from cangku as a, BCPKJ_apply as b where b.id=#id# and a.bupi_id=b.bupi_id

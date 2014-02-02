@@ -1,5 +1,6 @@
 package com.jiang.service.impl;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ import com.jiang.dao.XSGLDao;
 import com.jiang.service.XSGLService;
 
 @Component("xSGLService")
-public class XSGLServiceImpl implements XSGLService {
+class XSGLServiceImpl implements XSGLService {
 
 	@Autowired
 	private XSGLDao xSGLDao;
@@ -192,6 +193,18 @@ public class XSGLServiceImpl implements XSGLService {
 
     public void updateDDZT(Map<String, Object> map) {
         xSGLDao.updateDDZT(map);
+    }
+
+    public BigDecimal getXSGLDingDanReadyBupiNums(String order_id, String type_num) {
+        return  xSGLDao.getXSGLDingDanReadyBupiNums(order_id, type_num);
+    }
+
+    public int getXSGLDDBupisCount(Map<String, Object> map) {
+        return xSGLDao.getXSGLDDBupisCount(map);
+    }
+
+    public List getXSGLDDBupis(int page, int rp, Map<String, Object> map) {
+        return xSGLDao.getXSGLDDBupis(page, rp,map);
     }
 
 

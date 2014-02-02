@@ -767,7 +767,7 @@
 
 
     <select id="getCangKuCount" resultClass="java.lang.Integer">
-        select count(*) from
+        select count(*) from   where state= 0
         [cangku]
     </select>
 

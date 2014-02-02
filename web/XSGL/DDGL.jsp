@@ -232,7 +232,7 @@ function gridFlash(){
 		} else if (com == '详细') {
 			hidden.value = "modify";
 			if ($(".trSelected").length == 1) {
-				window.location.href = "DisPatch_getUrl?i=4&j=9"
+				window.location.href = "DisPatch_getUrl?i=4&j=10"
 						+ "&ddid="
 						+ $('.trSelected', grid).find("td").eq(1).text()
                         + "&kehuid="

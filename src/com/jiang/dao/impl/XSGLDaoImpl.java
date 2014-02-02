@@ -1,5 +1,6 @@
 package com.jiang.dao.impl;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -294,6 +295,33 @@ public class XSGLDaoImpl extends SqlMapClientDaoSupport implements XSGLDao {
 
     public void updateDDZT(Map<String, Object> map) {
         getSqlMapClientTemplate().update("XSGL.updateDDZT", map);
+    }
+
+    public BigDecimal getXSGLDingDanReadyBupiNums(String order_id, String type_num) {
+        BigDecimal count ;
+        Map<String, Object> map= new HashMap<String, Object>();
+        map.put("order_id", order_id);
+        map.put("type_num",type_num);
+        count = (BigDecimal)getSqlMapClientTemplate().queryForObject(
+                "XSGL.getXSGLDingDanReadyBupiNums", map);
+        return count;
+    }
+
+    public int getXSGLDDBupisCount(Map<String, Object> map) {
+        int count = 0;
+        count = (Integer) getSqlMapClientTemplate().queryForObject(
+                "XSGL.getXSGLDDBupisCount", map);
+        return count;
+    }
+
+    public List getXSGLDDBupis(int startRow, int pageSize, Map<String, Object> map) {
+        if (startRow == 0) {
+            return null;
+        }
+        map.put("pstart", pageSize * (startRow - 1));
+        map.put("pend", pageSize * startRow);
+
+        return getSqlMapClientTemplate().queryForList("XSGL.getXSGLDDBupis", map);
     }
 
 
