@@ -162,10 +162,14 @@
 
 
             <result name="ddgl_detail">/XSGL/ZHDDGL_Detail.jsp</result>
+            <result name="sendorderpreview">/XSGL/SendOrderPreView.jsp</result>
+            <result name="cpfh">/XSGL/DDGL_FH.jsp</result>
+            <result name="cpfh_detail">/XSGL/SendOrderFH.jsp</result>
+
 
             <result name="rkqr_cg">/CKGL/RKSQ_CG.jsp</result>
 
-			
+
 		</action>
 
 	</package>
@@ -299,6 +303,7 @@
             <result name="addshouhuoaddress">/XSGL/addshouhuoaddress.jsp</result>
             <result name="zhddgl">/XSGL/ZHDDGL.jsp</result>
             <result name="yddgl">/XSGL/YDDGL.jsp</result>
+            <result name="cpfh">/XSGL/DDGL_FH.jsp</result>
 
 		</action>
 		<action name="XTGL_dolist*" class="com.jiang.action.XTGLAction"

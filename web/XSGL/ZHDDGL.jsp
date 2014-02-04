@@ -152,18 +152,24 @@ function gridFlash(){
 			sortable : false,
 			align : 'center'
 		}, {
-			display : '状态 ',
-			name : 'finish_or_not',
-			width : 100,
-			sortable : false,
-			align : 'center'
-		}, {
-			display : '备注',
-			name : 'ckname',
-			width : 350,
-			sortable : false,
-			align : 'center'
-		} ],
+            display : '备货状态',
+            name : 'ckname',
+            width : 120,
+            sortable : false,
+            align : 'center'
+        },{
+            display : '订单状态',
+            name : 'ckname',
+            width : 100,
+            sortable : false,
+            align : 'center'
+        } ,{
+            display : '备注',
+            name : 'ckname',
+            width : 190,
+            sortable : false,
+            align : 'center'
+        }],
 		buttons : [ {
 			name : '明细',
 			bclass : 'add',
@@ -175,7 +181,7 @@ function gridFlash(){
 		}, {
 			separator : true
 		}, {
-            name : '修改收获地址',
+            name : '修改收货地址',
             bclass : 'edit',
             onpress:  button
         }, {
@@ -236,7 +242,7 @@ function gridFlash(){
 											.eq(i).text() + "&";
 						}
 					}
-					var url = "CGGL_dolist?hidden=delete&" + id;
+                    var url = "XSGL_dolist?hidden=delete&type=DDGL&" + id;
 					del(url);
 				}
 			}
@@ -252,10 +258,10 @@ function gridFlash(){
             } else if ($(".trSelected").length == 0) {
                 alert("请选择一个您要修改的信息");
             }
-		} else if (com == '修改收获地址') {
+		} else if (com == '修改收货地址') {
 			hidden.value = "modify";
 			if ($(".trSelected").length == 1) {
-                JqueryDialog.Open1('收获地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
+                JqueryDialog.Open1('收货地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
                         + $('.trSelected', grid).find("td").eq(1).text(), 800, 330, false, false, false);
 			} else if ($(".trSelected").length > 1) {
 				alert("请选择一个修改,不能同时修改多个");
@@ -269,7 +275,7 @@ function gridFlash(){
                 if(text.length < 2)
                 {
                     alert("请先填写发货方式");
-                    JqueryDialog.Open1('收获地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
+                    JqueryDialog.Open1('收货地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
                             + $('.trSelected', grid).find("td").eq(1).text(), 800, 330, false, false, false);
                 }
                 else

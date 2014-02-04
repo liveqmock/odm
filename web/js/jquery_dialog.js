@@ -56,11 +56,14 @@
 	/// <param name="isCancelButton">是否呈现“取消”按钮</param>
 	/// <param name="isDrag">是否支持拖拽</param>
 	init:function(dialogTitle, iframeSrc, iframeWidth, iframeHeight, isSubmitButton, isCancelButton, isDrag){
+        if(dialogTitle == "发货清单")
+             JqueryDialog.cSubmitText = "发货";
 		
 		//获取客户端页面宽高
 		var _client_width = document.body.clientWidth;
 		var _client_height = document.documentElement.scrollHeight;
-		
+
+
 		//create shadow
 		if(typeof($("#jd_shadow")[0]) == "undefined"){
 			//前置
@@ -147,8 +150,12 @@
 	
 	/// <summary>关闭模态窗口</summary>
 	Close:function(){
-		$("#jd_shadow").remove();
-		$("#jd_dialog").remove();
+        var frm = $("#jd_iframe");
+        if (frm[0].contentWindow.Close()){
+            JqueryDialog.Close() ;
+        }
+        $("#jd_shadow").remove();
+        $("#jd_dialog").remove();
 	},
 	
 	/// <summary>提交</summary>

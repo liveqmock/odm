@@ -388,4 +388,8 @@ public class CGGLServiceImpl implements CGGLService {
         cGGLDao.resetFPBPstate(map);
     }
 
+    public void timerResetFPBPstate() {
+        cGGLDao.timerResetFPBPstate();
+    }
+
 }

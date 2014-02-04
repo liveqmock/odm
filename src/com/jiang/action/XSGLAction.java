@@ -24,7 +24,6 @@ import java.util.Map;
 public class XSGLAction extends BaseAction {
 
     Logger log = Logger.getLogger(XSGLAction.class);
-
     @Autowired
     private XSGLService xSGLService;
 
@@ -94,6 +93,36 @@ public class XSGLAction extends BaseAction {
         if (PublicFunc.unEmpty(type) && type.equals("DDZT")) {
             return modify_DDZT();
         }
+        if (PublicFunc.unEmpty(type) && type.equals("SQFHSTATE")) {
+            return modify_SQFHSTATE();
+        }
+        if (PublicFunc.unEmpty(type) && type.equals("DDGLFHState")) {
+            return modify_DDGLFHState();
+        }
+
+        return SUCCESS;
+    }
+
+    private String modify_DDGLFHState() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        String ddid = "";
+        if(null != request.getSession().getAttribute("ddid"))
+        {
+            ddid = (String) request.getSession().getAttribute("ddid");
+        }
+        map.put("dingdan_id", ddid);
+        xSGLService.updateDDGLFHState(map);
+        return "cpfh";
+    }
+    private String modify_SQFHSTATE() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        String ddid = "";
+        if(null != request.getSession().getAttribute("ddid"))
+        {
+            ddid = (String) request.getSession().getAttribute("ddid");
+        }
+        map.put("dingdan_id", ddid);
+        xSGLService.updateOrderStateFH(map);
         return SUCCESS;
     }
 
@@ -437,6 +466,7 @@ public class XSGLAction extends BaseAction {
                 ydd.setFinish_or_not(PublicFunc.SALE_TYPE_ZH);
             }
                ydd.setZhuangtai(PublicFunc.SALE_STATE_INIT);
+              ydd.setOrder_state(PublicFunc.SALE_STATE_WFH);
                xSGLService.insertDDToSale(ydd);
             return "ordersuccess";
         }
@@ -501,6 +531,7 @@ public class XSGLAction extends BaseAction {
                 {
                     yl.setColor(cp.getColor());
                     yl.setFinish_or_not(PublicFunc.SALEDTAIL_STATE_INIT);
+                    yl.setOrder_state(PublicFunc.SALE_STATE_WFH);
                     xSGLService.insertDDMX(yl);
                     float totalnum = xSGLService.getXSGLDingDanTotalNum(orderid);
                     float totalprice = xSGLService.getXSGLDingDanTotalPrice(orderid);
@@ -698,6 +729,9 @@ public class XSGLAction extends BaseAction {
         if (PublicFunc.unEmpty(type) && type.equals("KHGL_FH")) {
             xSGLService.deleteKHGLFHById(Arrays.asList(id));
         }
+        if (PublicFunc.unEmpty(type) && type.equals("DDGL")) {
+            xSGLService.deleteDDGLById(Arrays.asList(id));
+        }
 
     }
     private void query(String type){
@@ -756,6 +790,8 @@ public class XSGLAction extends BaseAction {
 
         map.put("order_id", ddid);
         map.put("type_num", type_num);
+        log.info("ddid" + ddid);
+        log.info("type_num"+ type_num);
         setSearchPage(map);
         int totalRows = xSGLService.getXSGLDDBupisCount(map);
         List rows = xSGLService.getXSGLDDBupis(page, rp, map);
@@ -820,25 +856,33 @@ public class XSGLAction extends BaseAction {
             ddid = (String)request.getSession().getAttribute("orderid");
         }
         map.put("dingdan_id", ddid);
-        String zhuangtai = null;
         String huohao = null;
+        String finish_or_not= null;
         if(null != request.getParameter("huohao") )
         {
             huohao= request.getParameter("huohao") ;
         }
-        if(null != request.getParameter("zhuangtai") )
-        {
-            zhuangtai= request.getParameter("zhuangtai");
 
+        if(null != request.getParameter("finish_or_not") )
+        {
+            finish_or_not= request.getParameter("finish_or_not");
+            try {
+                finish_or_not = new String(finish_or_not.getBytes("ISO8859-1"), "GB2312");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
         }
-        log.info("zhuangtai:"+zhuangtai);
         log.info("type_num:"+huohao);
+        log.info("finish_or_not:"+finish_or_not);
         if (PublicFunc.unEmpty(huohao)) {
             map.put("type_num", huohao);
         }
-        if (PublicFunc.unEmpty(zhuangtai) && !zhuangtai.equals("--请选择--")) {
-            map.put("finish_or_not", zhuangtai);
+        if (PublicFunc.unEmpty(finish_or_not)) {
+            map.put("finish_or_not", finish_or_not);
         }
+
+
+
 
         setSearchPage(map);
         int totalRows = xSGLService.getXSGLDingDanmingxiCount_ddgl(map);
@@ -912,7 +956,7 @@ public class XSGLAction extends BaseAction {
            kehu_id = (String) request.getSession().getAttribute("ddid");
        }
         List rows = xSGLService.findKHGL_FHByDDID(kehu_id);
-        System.out.println("findKHGL_FHByDDID:"+rows);
+        System.out.println("findKHGL_FHByDDID:"+rows+kehu_id);
         result.setTotal(rows.size());
         result.setPage(page);
         result.setRows(JsonUtil.getKHGL_FHInfoJSON(rows));
@@ -959,6 +1003,7 @@ public class XSGLAction extends BaseAction {
         String dateStartText = request.getParameter("dateStartText");
         String dateEndText = request.getParameter("dateEndText");
         String zhuangtai = request.getParameter("zhuangtai");
+        String order_state = request.getParameter("order_state");
         if (PublicFunc.unEmpty(kehuname)) {
             map.put("kehuname", kehuname);
         }
@@ -971,6 +1016,9 @@ public class XSGLAction extends BaseAction {
         if(PublicFunc.unEmpty(finish_or_not))
         {
             map.put("finish_or_not", finish_or_not);
+        }
+        if (PublicFunc.unEmpty(order_state) && !order_state.equals("--请选择--")) {
+            map.put("order_state", order_state);
         }
         if (PublicFunc.unEmpty(dateStartText)) {
             map.put("dateStartText", PublicFunc.paseStringToDate(dateStartText));

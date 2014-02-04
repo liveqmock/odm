@@ -567,11 +567,19 @@ public class CGGLDaoImpl extends SqlMapClientDaoSupport implements CGGLDao {
 
     public void setFPBPstate(Map<String, Object> map) {
         getSqlMapClientTemplate().update("CGGL.setFPBPstate", map);
+        getSqlMapClientTemplate().update("CGGL.updateBPstateAndOrderState");
+
 
     }
     public void resetFPBPstate(Map<String, Object> map) {
         getSqlMapClientTemplate().update("CGGL.resetFPBPstate", map);
+        getSqlMapClientTemplate().update("CGGL.updateBPstateAndOrderState");
 
+    }
+
+    public void timerResetFPBPstate() {
+        getSqlMapClientTemplate().update("CGGL.timerResetFPBPstate");
+        getSqlMapClientTemplate().update("CGGL.updateBPstateAndOrderState");
     }
 
 }

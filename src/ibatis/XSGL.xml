@@ -20,6 +20,7 @@
 		<result property="beizhu" column="beizhu" />
 		<result property="zhuangtai" column="zhuangtai" />
         <result property="fahuoaddressid" column="fahuoaddressid" />
+        <result property="order_state" column="order_state" />
 	</resultMap>
 	<typeAlias alias="XSDGL" type="com.jiang.bean.XSDGL" />
 	<resultMap id="xsdglResult" class="XSDGL">
@@ -57,7 +58,7 @@
 		<result property="beizhu" column="beizhu" />
 	</resultMap>
 
-    <!--客户收获地址-->
+    <!--客户收货地址-->
     <typeAlias alias="KHGL_FH" type="com.jiang.bean.KHGL_FH" />
     <resultMap id="khgl_fhResult" class="KHGL_FH">
         <result property="id" column="id" />
@@ -86,6 +87,7 @@
         <result property="liuhuo_time" column="liuhuo_time" />
         <result property="beizhu" column="beizhu" />
         <result property="guige" column="guige" />
+        <result property="order_state" column="order_state" />
     </resultMap>
 
 
@@ -108,7 +110,7 @@
 		parameterClass="HashMap">
 		SELECT
          TEMP1.id,dingdan_id,KeHuname,pay_way,fh_address_1,fh_way_1,
-		finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,yewuyuan,beizhu,zhuangtai,fahuoaddressid
+		finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,yewuyuan,beizhu,zhuangtai,fahuoaddressid,order_state
          FROM(
          SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
          kaidan_time DESC) AS ROWID,f.*,b.KeHuname as KeHuname,c.fahuofangshi as fh_way_1,c.dizhi
@@ -140,6 +142,10 @@
             <isNotEmpty property="finish_or_not" prepend="and">
                 f.finish_or_not =  #finish_or_not#
             </isNotEmpty>
+             <isNotEmpty property="order_state" prepend="and">
+                 f.order_state =  #order_state#
+             </isNotEmpty>
+
 		</dynamic>
 		
 		) AS TEMP1
@@ -150,7 +156,7 @@
         SELECT
         f.id,dingdan_id,dingdan_name,pay_way,c.dizhi
         as fh_address_1,c.fahuofangshi as fh_way_1,
-        finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,f.yewuyuan,f.beizhu,zhuangtai, fahuoaddressid
+        finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,f.yewuyuan,f.beizhu,zhuangtai, fahuoaddressid,order_state
         FROM [sale_dingdan] as f
         left join kehuziliao as b on b.kehu_id=f.dingdan_name
         left join  fahuoaddress as c on  f.fahuoaddressid=c.id
@@ -187,6 +193,9 @@
 			<isNotEmpty property="zhuangtai" prepend="and">
 				f.zhuangtai =  #zhuangtai#
 			</isNotEmpty>
+            <isNotEmpty property="order_state" prepend="and">
+                f.order_state =  #order_state#
+            </isNotEmpty>
 		</dynamic>
 	</select>
 	<delete id="deleteYDDGLById" parameterClass="java.util.List">
@@ -413,7 +422,7 @@
             </isNotEmpty>
         </dynamic>
     </select>
-    <!--查询当前客户的所有收获地址 -->
+    <!--查询当前客户的所有收货地址 -->
     <select id="getKHGLFHsByKehuname" resultMap="khgl_fhResult"
             parameterClass="String">
         SELECT
@@ -421,7 +430,7 @@
         FROM [fahuoaddress] as f, [sale_dingdan] as b
         where f.kehu_id=b.dingdan_name and b.dingdan_id=#kehu_id#
     </select>
-    <!--通过订单ID查询收获地址-->
+    <!--通过订单ID查询收货地址-->
     <select id="findKHGL_FHByDDID" resultMap="khgl_fhResult"
             parameterClass="String">
         SELECT
@@ -433,7 +442,7 @@
     <!--订单明细表Dingdan_mingxi_tmp -->
     <select id="findXSGLDingDanmingxi" resultMap="DingDanresult" parameterClass="map">
         SELECT
-        id, dingdan_id ,type_num,color,num,danjia,jine,fahuo_time,finish_or_not,jiaohuo_time,jiageleixing,liuhuo_time,beizhu,guige
+        id, dingdan_id ,type_num,color,num,danjia,jine,fahuo_time,finish_or_not,jiaohuo_time,jiageleixing,liuhuo_time,beizhu,guige,order_state
         FROM(
         SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
         fahuo_time DESC) AS ROWID,*
@@ -454,10 +463,10 @@
          insert into
         Dingdan_mingxi_tmp
         (dingdan_id ,type_num,color,num,danjia,jine,fahuo_time,
-        finish_or_not,jiaohuo_time,jiageleixing,liuhuo_time,beizhu,guige)
+        finish_or_not,jiaohuo_time,jiageleixing,liuhuo_time,beizhu,guige,order_state)
         values
         (#dingdan_id# ,#type_num#,#color#,#num#,#danjia#,#jine#,#fahuo_time#,#finish_or_not#,
-        #jiaohuo_time#,#jiageleixing#,#liuhuo_time#,#beizhu#,#guige#)
+        #jiaohuo_time#,#jiageleixing#,#liuhuo_time#,#beizhu#,#guige#,#order_state#)
 
     </insert>
     <select id="getXSGLDingDanmingxiCount" resultClass="java.lang.Integer"
@@ -474,8 +483,18 @@
         </dynamic>
     </select>
     <select id="getXSGLDingDanTotalNum" resultClass="java.lang.Float"
+                       parameterClass="String">
+    select  sum(num) from Dingdan_mingxi_tmp where dingdan_id=#dingdan_id#
+</select>
+
+    <select id="getXSGLDDTotalNum" resultClass="java.lang.Float"
             parameterClass="String">
-        select  sum(num) from Dingdan_mingxi_tmp where dingdan_id=#dingdan_id#
+        select  sum(num) from Dingdan_mingxi where dingdan_id=#dingdan_id#
+    </select>
+
+    <select id="getXSGLDingDanFPNum" resultClass="java.lang.Float"
+            parameterClass="String">
+        select  sum(num) from Dingdan_mingxi where finish_or_not = '全部备货完成' and dingdan_id=#dingdan_id#
     </select>
     <select id="getXSGLDingDanTotalPrice" resultClass="java.lang.Float"
             parameterClass="String">
@@ -499,28 +518,28 @@
     <insert id="insertDDToSale"  parameterClass="YDDGL">
         insert into  sale_dingdan
        (dingdan_id,dingdan_name,pay_way,fh_address,fh_way,
-        finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,yewuyuan,beizhu,zhuangtai,fahuoaddressid)
+        finish_or_not,zongjine,kaidan_time,kaidanren,dingjin,yewuyuan,beizhu,zhuangtai,fahuoaddressid,order_state)
         values
         (
         #dingdan_id#,#dingdan_name#,#pay_way#,#fh_address#,#fh_way#,
         #finish_or_not#,#zongjine#,#kaidan_time#,#kaidanren#,#dingjin#,#yewuyuan#,#beizhu#,
-        #zhuangtai#,#fahuoaddressid#
+        #zhuangtai#,#fahuoaddressid#,#order_state#
         )
     </insert>
     <insert id="insertDDTempToDD"  parameterClass="YDDGL">
         insert into Dingdan_mingxi (
         [dingdan_id],[type_num] ,[color],[num],[danjia]
         ,[jine] ,[fahuo_time],[finish_or_not] ,[jiaohuo_time]
-        ,[jiageleixing],[liuhuo_time],[beizhu] ,[guige])  (select [dingdan_id],[type_num] ,[color],[num],[danjia]
+        ,[jiageleixing],[liuhuo_time],[beizhu] ,[guige],[order_state])  (select [dingdan_id],[type_num] ,[color],[num],[danjia]
         ,[jine] ,[fahuo_time],[finish_or_not] ,[jiaohuo_time]
-        ,[jiageleixing],[liuhuo_time],[beizhu] ,[guige] from Dingdan_mingxi_tmp
+        ,[jiageleixing],[liuhuo_time],[beizhu] ,[guige],[order_state] from Dingdan_mingxi_tmp
         where Dingdan_mingxi_tmp.dingdan_id=#dingdan_id#)
      </insert>
 
     <!--订单明细表Dingdan_mingxi -->
     <select id="findXSGLDingDanmingxi_ddgl" resultMap="DingDanresult" parameterClass="map">
         SELECT
-        id, dingdan_id ,type_num,color,num,danjia,jine,fahuo_time,finish_or_not,jiaohuo_time,jiageleixing,liuhuo_time,beizhu,guige
+        id, dingdan_id ,type_num,color,num,danjia,jine,fahuo_time,finish_or_not,jiaohuo_time,jiageleixing,liuhuo_time,beizhu,guige,order_state
         FROM(
         SELECT TOP $pend$ ROW_NUMBER() OVER(ORDER BY
         fahuo_time DESC) AS ROWID,*
@@ -531,6 +550,12 @@
             </isNotEmpty>
             <isNotEmpty property="dingdan_id" prepend="and">
                 dingdan_id =  #dingdan_id#
+            </isNotEmpty>
+            <isNotEmpty property="order_state" prepend="and">
+                order_state =  #order_state#
+            </isNotEmpty>
+            <isNotEmpty property="finish_or_not" prepend="and">
+                finish_or_not =  #finish_or_not#
             </isNotEmpty>
         </dynamic>
 
@@ -554,9 +579,21 @@
             <isNotEmpty property="finish_or_not" prepend="and">
                 finish_or_not =  #finish_or_not#
             </isNotEmpty>
+            <isNotEmpty property="order_state" prepend="and">
+                order_state =  #order_state#
+            </isNotEmpty>
         </dynamic>
     </select>
 
+
+    <delete id="deleteDDGLById" parameterClass="java.util.List">
+        delete
+        from
+        [sale_dingdan]     where    zhuangtai='备货中' and order_state='未发货'
+        <iterate prepend="and" open="(" close=")" conjunction="or">
+            id=#ids[]#
+        </iterate>
+    </delete>
     <!--更新订单状态为订单 -->
     <update  id="updateDDZT" parameterClass="Map">
         update sale_dingdan set finish_or_not=#newstate#  where dingdan_id=#dingdan_id#  and finish_or_not=#oldstate#
@@ -569,10 +606,10 @@
         select sum(mishu) from
         [Dingdan_bupis]
         <dynamic prepend="where">
-            <isNotEmpty property="id" prepend="and">
+            <isNotEmpty property="type_num" prepend="and">
                 type_num = #type_num#
             </isNotEmpty>
-            <isNotEmpty property="dingdan_id" prepend="and">
+            <isNotEmpty property="order_id" prepend="and">
                 order_id =  #order_id#
             </isNotEmpty>
         </dynamic>
@@ -589,7 +626,7 @@
             <isNotEmpty property="id" prepend="and">
                 id = #id#
             </isNotEmpty>
-            <isNotEmpty property="dingdan_id" prepend="and">
+            <isNotEmpty property="order_id" prepend="and">
                 order_id =  #order_id#
             </isNotEmpty>
             <isNotEmpty property="type_num" prepend="and">
@@ -615,6 +652,31 @@
             </isNotEmpty>
         </dynamic>
     </select>
+    <update  id="updateOrderStateFH" parameterClass="HashMap">
+    update sale_dingdan set order_state='已申请发货' where dingdan_id=#dingdan_id#   and order_state='未发货'
+    and EXISTS(SELECT * FROM Dingdan_mingxi where dingdan_id=#dingdan_id#  and finish_or_not='全部备货完成'    and order_state='未发货')
+
+    update Dingdan_mingxi set order_state='已申请发货' where dingdan_id=#dingdan_id# and finish_or_not='全部备货完成'    and order_state='未发货'
+   </update>
+
+    <update  id="updateDDGLFHState" parameterClass="HashMap">
+
+        update Dingdan_mingxi set order_state='发货完成' where dingdan_id=#dingdan_id# and finish_or_not='全部备货完成'    and order_state='已申请发货'
+
+        update sale_dingdan set order_state='部分发货完成'
+        from sale_dingdan A
+        left join (select dingdan_id , count(1) as state_count from Dingdan_mingxi where order_state = '发货完成' GROUP BY dingdan_id) B
+        ON B.dingdan_id = A.dingdan_id
+        WHERE  B.state_count > 0
+
+        update sale_dingdan  set order_state='发货完成'
+        from sale_dingdan a
+        WHERE (select isnull(count(1), 0)  from Dingdan_mingxi b where b.dingdan_id = a.dingdan_id and ( b.order_state = '已申请发货' or b.order_state = '未发货' )) = 0
+
+
+    </update>
+
+
 
 </sqlMap>
 

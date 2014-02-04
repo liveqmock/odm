@@ -142,18 +142,24 @@ function gridFlash(){
 			sortable : false,
 			align : 'center'
 		}, {
-			display : '状态',
-			name : 'ckname',
-			width : 120,
-			sortable : false,
-			align : 'center'
-		} ,{
-			display : '备注',
-			name : 'ckname',
-			width : 290,
-			sortable : false,
-			align : 'center'
-		} ],
+            display : '备货状态',
+            name : 'ckname',
+            width : 120,
+            sortable : false,
+            align : 'center'
+        },{
+            display : '订单状态',
+            name : 'ckname',
+            width : 100,
+            sortable : false,
+            align : 'center'
+        } ,{
+            display : '备注',
+            name : 'ckname',
+            width : 190,
+            sortable : false,
+            align : 'center'
+        } ],
 		buttons : [/*  {
 			name : '发货',
 			bclass : 'add',

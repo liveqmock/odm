@@ -1336,8 +1336,10 @@ public class CGGLAction extends BaseAction {
         if (PublicFunc.unEmpty(type) && type.equals("ResetCKFPBP")) {
             return modify_ResetCKFPBP();
         }
+
         return SUCCESS;
     }
+
 
     private String modify_CKFPBP() {
         String[] id = request.getParameterValues("id");
@@ -1395,7 +1397,6 @@ public class CGGLAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String,Object>();
         map.put("ids", ids);
-        cgglService.resetFPBPstate(map);
 
         String ddid = "";
         String type_num = "";
@@ -1408,6 +1409,9 @@ public class CGGLAction extends BaseAction {
             type_num = (String)request.getSession().getAttribute("setbupitype_num");
         }
 
+        map.put("order_id", ddid);
+        map.put("type_num", type_num);
+        cgglService.resetFPBPstate(map);
 
         BigDecimal  fenpeimishu = xsglService.getXSGLDingDanReadyBupiNums(ddid, type_num);
         if(fenpeimishu == null)

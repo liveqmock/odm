@@ -1,5 +1,6 @@
 package com.jiang.timertask;
 
+
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
@@ -8,6 +9,7 @@ package com.jiang.timertask;
  * To change this template use File | Settings | File Templates.
  */
 public class StartUpTimerTask {
+
     public void execute(){
         System.out.println("StartUpTimerTask is executed.");
     }

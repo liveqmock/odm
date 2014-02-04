@@ -104,4 +104,14 @@ public interface XSGLDao {
     int getXSGLDDBupisCount(Map<String,Object> map);
 
     List getXSGLDDBupis(int startRow, int pageSize,Map<String,Object> map);
+
+    void deleteDDGLById(List<String> ids);
+
+    float getXSGLDingDanFPNum(String ddid);
+
+    float getXSGLDDTotalNum(String ddid);
+
+    void updateOrderStateFH(Map<String,Object> map);
+
+    void updateDDGLFHState(Map<String,Object> map);
 }

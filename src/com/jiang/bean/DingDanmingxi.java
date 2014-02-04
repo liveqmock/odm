@@ -26,6 +26,15 @@ public class DingDanmingxi   implements Serializable {
     private Date liuhuo_time ;
     private String beizhu ;
     private String guige ;
+    private String order_state;
+
+    public String getOrder_state() {
+        return order_state;
+    }
+
+    public void setOrder_state(String order_state) {
+        this.order_state = order_state;
+    }
 
     public int getId() {
         return id;

@@ -551,12 +551,15 @@
     <update id="setFPBPstate" parameterClass="HashMap">
         insert into Dingdan_bupis (bupi_id,mishu,type_num,order_id,beizhu, create_time)
         (select  bupi_id,num,type_num,#order_id#,beizhu,GETDATE()  from cangku where type_num=#type_num# and state=0
+        and EXISTS(select * from Dingdan_mingxi where dingdan_id=#order_id# and type_num=#type_num# and order_state='未发货')
         <iterate property="ids" prepend="and" open="(" close=")" conjunction="or">
             id=$ids[]$
         </iterate>
         );
-        update cangku set state=1
-        <iterate property="ids"  prepend="where" open="(" close=")" conjunction="or">
+
+        update cangku set state=1   where
+         EXISTS(select * from Dingdan_mingxi where dingdan_id=#order_id# and type_num=#type_num# and order_state='未发货')
+        <iterate property="ids"  prepend="and" open="(" close=")" conjunction="or">
             id=$ids[]$
         </iterate>
     </update>
@@ -568,14 +571,66 @@
             id=$ids[]$
         </iterate>
         )
-        delete  from Dingdan_bupis
-        <iterate property="ids" prepend="where" open="(" close=")" conjunction="or">
+        delete  from Dingdan_bupis   where
+        EXISTS(select * from Dingdan_mingxi where dingdan_id=#order_id# and type_num=#type_num# and order_state='未发货')
+        <iterate property="ids" prepend="and" open="(" close=")" conjunction="or">
             id=$ids[]$
         </iterate>
     </update>
 
+    <update id="timerResetFPBPstate">
+        update cangku set state=0  where bupi_id in
+        (select bupi_id from Dingdan_bupis
+        where create_time&lt;(SELECT DATEADD(hour, 12, CONVERT(varchar(100), GETDATE(), 23)))
+        )
+        and EXISTS(select * from Dingdan_mingxi where dingdan_id=#order_id# and type_num=#type_num# and order_state='未发货')
 
-	<!-- 供应商管理 -->
+        delete  from Dingdan_bupis
+        where create_time&lt;(SELECT DATEADD(hour, 12, CONVERT(varchar(100), GETDATE(), 23)))
+        and EXISTS(select * from Dingdan_mingxi where dingdan_id=#order_id# and type_num=#type_num# and order_state='未发货')
+    </update>
+
+    <update id="updateBPstateAndOrderState">
+
+        update Dingdan_mingxi  set finish_or_not='部分备货完成'
+        from Dingdan_mingxi A
+        left join (select order_id , type_num ,isnull (sum(mishu), 0) as b_mishu from Dingdan_bupis GROUP BY order_id ,type_num ) B
+        ON B.order_id = A.dingdan_id and B.type_num = A.type_num
+        WHERE  A.num != B.b_mishu AND B.b_mishu > 0
+
+        update Dingdan_mingxi  set finish_or_not='全部备货完成'
+        from Dingdan_mingxi A
+        left join (select order_id , type_num ,isnull (sum(mishu), 0) as b_mishu from Dingdan_bupis GROUP BY order_id ,type_num ) B
+        ON B.order_id = A.dingdan_id and B.type_num = A.type_num
+        WHERE  A.num = B.b_mishu
+
+        update Dingdan_mingxi  set finish_or_not='备货中'
+        from Dingdan_mingxi A
+        left join (select order_id , type_num ,isnull (sum(mishu), 0) as b_mishu from Dingdan_bupis GROUP BY order_id ,type_num ) B
+        ON B.order_id = A.dingdan_id and B.type_num = A.type_num
+        WHERE  B.b_mishu  IS NULL
+
+
+        update sale_dingdan set zhuangtai='部分备货完成'
+        from sale_dingdan A
+        left join (select dingdan_id , count(1) as state_count from Dingdan_mingxi where finish_or_not = '全部备货完成' GROUP BY dingdan_id) B
+        ON B.dingdan_id = A.dingdan_id
+        WHERE  B.state_count > 0
+
+        update sale_dingdan  set zhuangtai='全部备货完成'
+        from sale_dingdan a
+        WHERE (select isnull(count(1), 0)  from Dingdan_mingxi b where b.dingdan_id = a.dingdan_id and ( b.finish_or_not = '部分备货完成' or b.finish_or_not = '备货中')) = 0
+
+        update sale_dingdan  set zhuangtai='备货中'
+        from sale_dingdan a
+        WHERE (select isnull(count(1), 0)  from Dingdan_mingxi b where b.dingdan_id = a.dingdan_id and ( b.finish_or_not = '部分备货完成' or b.finish_or_not = '全部备货完成')) = 0
+
+
+
+    </update>
+
+
+    <!-- 供应商管理 -->
 	<select id="getGYSGLBypage" resultMap="gysglResult"
 		parameterClass="HashMap">
 		SELECT

@@ -103,4 +103,6 @@ public interface CGGLService {
     public  void setFPBPstate(Map<String,Object> map);
 
     public void resetFPBPstate(Map<String,Object> map);
+
+    public void timerResetFPBPstate();
 }

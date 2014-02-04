@@ -1,5 +1,8 @@
 package com.jiang.timertask;
 
+import com.jiang.service.CGGLService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Administrator
@@ -7,9 +10,14 @@ package com.jiang.timertask;
  * Time: 下午6:34
  * 定时处理未处理的订单
  */
-public class OrderTimerTask {
-    public void execute(){
-        System.out.println("Task is executed.");
-    }
 
+@SuppressWarnings("serial")
+public class OrderTimerTask {
+    @Autowired
+    private CGGLService cgglService;
+
+    public void execute(){
+        System.out.println("StartUpTimerTask is executed.");
+        cgglService.timerResetFPBPstate();
+    }
 }

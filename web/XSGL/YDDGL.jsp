@@ -51,7 +51,7 @@
 				<td width="140" class="td2"><input type="text" name="kehuname" id="kehuname"/>
 				</td>
 				<td></td>
-				<td></td>
+                <td></td>
 				<td width="132" align="center" class="td1">订单号</td>
 				<td width="140" class=""><input type="text" name="dingdanhao" id="dingdanhao"/></td>
 			</tr>
@@ -64,16 +64,8 @@
 				<td><input name="dateEndText" type="text" id="dateEndText"
 					class="Wdate" onclick="WdatePicker()"
 					style="width: 160px; position: relative" /></td>
-				<td width="132" align="center" class="td1">状态</td>
-
-				<td width="140" class=""><select name="zhuangtai"
-					id="zhuangtai" class="a2" style="position: relative">
-						<option selected="selected" value="--请选择--">--请选择--</option>
-						<option value="完成">完成</option>
-						<option value="预订单">预订单</option>
-						<option value="订单">订单</option>
-						<option value="销售单">销售单</option>
-				</select></td>
+                <td  class="td1"></td>
+                <td></td>
 
 				<td width="80" class="td2"><input type="image"
 					name="imgBtnSearch" id="imgBtnSearch"
@@ -151,16 +143,22 @@ function gridFlash(){
             width : 100,
             sortable : false,
             align : 'center'
-        }, {
-            display : '状态 ',
+        },{
+            display : '备货状态 ',
             name : 'finish_or_not',
+            width : 100,
+            sortable : false,
+            align : 'center'
+        },{
+            display : '订单状态',
+            name : 'ckname',
             width : 100,
             sortable : false,
             align : 'center'
         }, {
             display : '备注',
             name : 'ckname',
-            width : 350,
+            width : 250,
             sortable : false,
             align : 'center'
         } ],
@@ -179,7 +177,7 @@ function gridFlash(){
         }, {
             separator : true
         }, {
-            name : '修改收获地址',
+            name : '修改收货地址',
             bclass : 'edit',
             onpress:  button
         }, {
@@ -329,7 +327,7 @@ function gridFlash(){
 											.eq(i).text() + "&";
 						}
 					}
-					var url = "CGGL_dolist?hidden=delete&" + id;
+                    var url = "XSGL_dolist?hidden=delete&type=DDGL&" + id;
 					del(url);
 				}
 			}
@@ -348,10 +346,10 @@ function gridFlash(){
             } else if ($(".trSelected").length == 0) {
                 alert("请选择一个您要修改的信息");
             }
-        } else if (com == '修改收获地址') {
+        } else if (com == '修改收货地址') {
             hidden.value = "modify";
             if ($(".trSelected").length == 1) {
-                JqueryDialog.Open1('收获地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
+                JqueryDialog.Open1('收货地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
                         + $('.trSelected', grid).find("td").eq(1).text(), 800, 330, false, false, false);
             } else if ($(".trSelected").length > 1) {
                 alert("请选择一个修改,不能同时修改多个");
@@ -365,7 +363,7 @@ function gridFlash(){
                 if(text.length < 2)
                 {
                     alert("请先填写发货方式");
-                    JqueryDialog.Open1('收获地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
+                    JqueryDialog.Open1('收货地址', 'DisPatch_getAddJsp?a=5&b=6&dingdanid='
                             + $('.trSelected', grid).find("td").eq(1).text(), 800, 330, false, false, false);
                 }
                 else

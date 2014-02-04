@@ -1,4 +1,8 @@
 <%@ page import="java.math.BigDecimal" %>
+<%@ page import="java.util.Random" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="com.jiang.bean.KHGL" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -26,12 +30,6 @@
 <body>
 	<div>
         <script language="JavaScript" type="text/javascript">
-			function secBoard(n) {
-				for (i = 0; i < tabs.cells.length; i++) {
-					tabs.cells[i].className = "tabs";
-				}
-				tabs.cells[2 * n - 1].className = "cur";
-			}
 
 			function secBoard1(n) {
 
@@ -43,76 +41,96 @@
             }
             function Ok(){
                 //回调函数
-                window.parent.$('#flex1').flexReload();
-                window.parent.JqueryDialog.SubmitCompleted("", true, false);
+                if (confirm('备货完成的布匹进行发货')) {
+                      window.parent.del("XSGL_dolist?hidden=modify&type=SQFHSTATE");
+                      window.parent.JqueryDialog.SubmitCompleted("", true, false);
+                }
                 return false;
             }
-            $(".ui-dialog-buttonpane button").hide();
 		</script>
 
 	</div>
-<%
+    <%
+        KHGL tmp = (KHGL)request.getSession().getAttribute
+                ("orderDetail");
+        String orderId ="";
+
+        if(null != request.getSession().getAttribute("orderid"))
+        {
+            orderId = (String)request.getSession().getAttribute
+                    ("orderid");
+        }
+        else
+        {
+            Random rdm = new Random(System.currentTimeMillis());
+            int intRd = Math.abs(rdm.nextInt())%9999+1;
+            SimpleDateFormat formater = new SimpleDateFormat("yyMMdd");
+            orderId =  "DD"+formater.format(new Date())+String.format
+                    ("%04d", intRd);
+            request.getSession().setAttribute("orderid",orderId);
+        }
+    %>
+
+    <%
     String type_num = "";
     String mishu = "";
-    BigDecimal fenpeimishu =  new BigDecimal("0.0");;
+    String zhuangtai = "";
+    String order_state = "";
+    Float fenpeimishu =  0.0f;;
     BigDecimal weifenpeimishu =  new BigDecimal("0.0");;
+    if(null != request.getAttribute("zhuangtai"))
+    {
+        zhuangtai = (String)request.getAttribute ("zhuangtai");
+    }
+    if(null != request.getAttribute("order_state"))
+    {
+        order_state = (String)request.getAttribute ("order_state");
+    }
+    if(null != request.getAttribute("fenpeinum"))
+    {
+        fenpeimishu = (Float)request.getAttribute ("fenpeinum");
+    }
+     if(session.getAttribute("totalnum") != null)
+    {
+        mishu = String.valueOf((Float)session.getAttribute("totalnum"));
+    }
 
-    if( null != request.getAttribute("type_num")   )
-    {
-        type_num = (String) request.getAttribute("type_num");
-    }
-    if( null != request.getAttribute("mishu")  )
-    {
-        mishu = (String) request.getAttribute("mishu");
-    }
-    if( null != request.getAttribute("fenpeimishu")  )
-    {
-        fenpeimishu = (BigDecimal) request.getAttribute("fenpeimishu");
-
-    }
-    if( null != request.getAttribute("weifenpeimishu") )
-    {
-        weifenpeimishu = (BigDecimal) request.getAttribute("weifenpeimishu");
-    }
 %>
 	<div>
          <input  type='hidden' name='type_num' value="<%=type_num%>"/>
 		<table cellpadding="0" cellspacing="0" width="100%" align="center"
 			style="border: #b9c2d3 solid 1px; top: 4px">
 			<tr>
-				<td width="132" align="center" class="td1">型号</td>
-				<td width="140" class="td2">   <%=type_num%>
-				</td>
-				<td width="132" align="center" class="td1">总米数</td>
-                <td width="140" class="td2">  <input readonly="readonly" id="zongmishu" value="<%=mishu%>"      />
-				</tr>
-			</tr>
-            <tr>
-                <td width="132" align="center" class="td1">已分配米数</td>
-                <td width="140" class="td2"> <input readonly="readonly"  id="fenpeimishu" value="<%=fenpeimishu%>"      />
-                </td>
-                <td width="132" align="center" class="td1">还需米数</td>
-                <td width="140" class="td2"> <input readonly="readonly"  id="weifenpeimishu" value="<%=weifenpeimishu%>"      />
+                <td width="132" align="center" class="td1">订单编号</td>
+                <td width="140" class="td2"><%=orderId %></td>
+                <td width="132" align="center" class="td1">客户编号</td>
+                <td width="140" class="td2"><%=tmp.getKehu_id()%></td>
+                <td width="132" align="center" class="td1">订单状态</td>
+                <td width="140" class="td2"><font color="red" ><%=order_state%> </font> </td>
             </tr>
+            <tr>
+                <td width="132" align="center" class="td1">配货米数/总米数</td>
+                <td width="140" class="td2"> <%=fenpeimishu%> 米 / <%=mishu%>米  </td>
+                <td width="132" align="center" class="td1">配货状态</td>
+                <td width="140" class="td2"><font color="red" ><%=zhuangtai%></font></td>
             </tr>
 		</table>
 
 	</div>
 
 	<div>
-		<table id="flex1" style="display: none; font-size: 12px;"
+		<table id="flex0" style="display: none; font-size: 12px;"
 			style="top:7px"></table>
 		<input id="hidden" type="hidden" name="hidden" value="manage" />
 	</div>
 
     <div>
-        <table id="flex2" style="display: none; font-size: 12px;"
+        <table id="flex1" style="display: none; font-size: 12px;"
                style="top:7px"></table>
         <input id="hidden" type="hidden" name="hidden" value="manage" />
     </div>
 
 </body>
-
 
 
 <script>
@@ -124,73 +142,9 @@ function gridFlash(){
 	                                  {name:'mudidanhao', value:$("#mudidanhao").val()},
 	                                  {name:'bptype',value:$("#bptype").val()}
 	                                  ]}).flexReload();
-}  
-	$("#flex1").flexigrid({
-
-		url : 'XSGL_dolist?hidden=manage&type=CXBupis',
-		dataType : 'json',
-		colModel : [ {
-			display : 'id',
-			name : 'id',
-			width : 10,
-			sortable : true,
-			align : 'center',
-			hide : true
-		},  {
-			display : '型号',
-			name : 'bptype',
-			width : 160,
-			sortable : false,
-			align : 'center'
-		},{
-            display : '条形码',
-            name : 'tiaoxingma',
-            width : 160,
-            sortable : false,
-            align : 'center',
-            hide : false
-        }, {
-			display : '米数',
-			name : 'num',
-			width : 160,
-			sortable : false,
-			align : 'center'
-		},{
-            display : '备注',
-            name : 'zhiliangdengji',
-            width : 200,
-            sortable : false,
-            align : 'center'
-        } ],
-	 	buttons : [ {
-			name : '取消分配',
-			bclass : 'delete',
-			onpress : button
-		} ],
-		sortname : "id",
-		sortorder : "desc",
-		usepager : true,
-		resizable : false,
-		title : '已分配布匹列表',
-        pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',
-        pagetext : '第',
-        outof : '共',
-        findtext : 'Find',
-        procmsg : '正在查询, 请等待 ...',
-        query : '',
-        qtype : '',
-        nomsg : '没有符合要求的数据',
-		useRp : true,
-		rp : 4,
-		rpOptions : [ 4, 5, 10, 20, 30 ],
-		width : 'auto',
-		height : 90,
-		showToggleBtn : false,
-		checkbox : true
-	});
-$("#flex2").flexigrid({
-
-    url : 'CGGL_dolist?hidden=manage&type=CKCX',
+}
+$("#flex0").flexigrid({
+    url : 'XSGL_dolist?hidden=manage&type=KHGL_FH_CHECK',
     dataType : 'json',
     colModel : [ {
         display : 'id',
@@ -200,64 +154,49 @@ $("#flex2").flexigrid({
         align : 'center',
         hide : true
     }, {
-        display : '条形码',
-        name : 'tiaoxingma',
-        width : 130,
-        sortable : false,
+        display : '编号',
+        name : 'xiaoshoudan_id',
+        width : 135,
+        sortable : true,
         align : 'center',
-        hide : false
+        hide : true
     }, {
-        display : '型号',
-        name : 'bptype',
-        width : 130,
+        display : '发货方式',
+        name : 'dingdan_id',
+        width : 80,
         sortable : false,
         align : 'center'
     }, {
-        display : '仓库类型',
-        hide : true
-    }, {
-        display : '仓库类型',
-        hide : true
-    }, {
-        display : '可用米数 ',
-        name : 'KY_num',
+        display : '联系人',
+        name : 'dingdan_id',
         width : 100,
         sortable : false,
         align : 'center'
-    },{
-        display : '开剪米数 ',
-        name : 'KY_num',
-        width : 80,
+    }, {
+        display : '电话',
+        name : 'type_num',
+        width : 100,
         sortable : false,
         align : 'center'
     }, {
-        display : '总米数',
-        name : 'num',
-        width : 80,
+        display : '手机',
+        name : 'mishu',
+        width : 100,
         sortable : false,
         align : 'center'
     }, {
-        display : '仓库类型',
-        hide : true
-    },{
-        display : '备注',
-        name : 'zhiliangdengji',
-        width : 150,
+        display : '地址',
+        name : 'finish_or_not',
+        width : 350,
         sortable : false,
         align : 'center'
-    } ],
-    buttons : [ {
-     name : '分配',
-     bclass : 'add',
-     onpress : button
-     }, {
-     separator : true
-     } ],
+    } ] ,
+    buttons : [],
     sortname : "id",
     sortorder : "desc",
-    usepager : true,
+    usepager : false,
     resizable : false,
-    title : '可用布匹列表',
+    title : '发货地址:',
     pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',
     pagetext : '第',
     outof : '共',
@@ -267,12 +206,102 @@ $("#flex2").flexigrid({
     qtype : '',
     nomsg : '没有符合要求的数据',
     useRp : true,
-    rp : 4,
-    rpOptions : [ 4, 5, 10, 20, 30 ],
+    rp : 1,
+    rpOptions : [ 1 ],
     width : 'auto',
-    height : 100,
+    height : 37,
     showToggleBtn : false,
-    checkbox : true
+    checkbox : false
+});
+$("#flex1").flexigrid({
+    url : 'XSGL_dolist?hidden=manage&type=ZHXDDETAIL_DDGL&finish_or_not=全部备货完成',
+    dataType : 'json',
+    colModel : [ {
+        display : 'id',
+        name : 'id',
+        width : 10,
+        sortable : true,
+        align : 'center',
+        hide : true
+    }, {
+        display : '商品名',
+        name : 'TuiHuo_Id',
+        width : 100,
+        sortable : false,
+        align : 'center',
+        hide : true
+    }, {
+        display : '货号',
+        name : 'CaiGou_Id',
+        width : 100,
+        sortable : false,
+        align : 'center'
+    }, {
+        display : '规格',
+        name : 'TuiHuoDanJia',
+        width :100,
+        sortable : false,
+        align : 'center',
+        hide : true
+    }, {
+        display : '数量',
+        name : 'Apply_Man',
+        width : 100,
+        sortable : false,
+        align : 'center'
+    }, {
+        display : '单价',
+        name : 'Apply_Time',
+        width : 100,
+        sortable : false,
+        align : 'center'
+    }, {
+        display : '金额',
+        name : 'Queren_Man',
+        width : 100,
+        sortable : false,
+        align : 'center'
+    }, {
+        display : '备货状态',
+        name : 'Queren_Time',
+        width : 100,
+        sortable : false,
+        align : 'center'
+    }, {
+        display : '发货状态',
+        name : 'Queren_Time',
+        width : 100,
+        sortable : false,
+        align : 'center'
+    }, {
+        display : '备注',
+        name : 'Queren_Time',
+        width : 80,
+        sortable : false,
+        align : 'center'
+    }],
+    buttons : [
+      ],
+    sortname : "id",
+    sortorder : "desc",
+    usepager : true,
+    resizable : false,
+    title : '备货完成列表 ',
+    pagestat : '显示 {from} 到 {to} 条 共 {total} 条数据',
+    pagetext : '第',
+    outof : '共',
+    findtext : 'Find',
+    procmsg : '正在查询, 请等待 ...',
+    query : '',
+    qtype : '',
+    nomsg : '没有符合要求的数据',
+    useRp : true,
+    rp : 9,
+    rpOptions : [ 9, 15, 20, 30, 50 ],
+    width : 'auto',
+    height : 250,
+    showToggleBtn : false,
+    checkbox : false
 });
 
 function button(com, grid) {

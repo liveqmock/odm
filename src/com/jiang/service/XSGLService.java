@@ -85,4 +85,14 @@ public interface XSGLService {
     int getXSGLDDBupisCount(Map<String,Object> map);
 
     List getXSGLDDBupis(int page, int rp, Map<String,Object> map);
+
+    void deleteDDGLById(List<String> ids);
+
+    float getXSGLDingDanFPNum(String ddid);
+
+    float getXSGLDDTotalNum(String ddid);
+
+    void updateOrderStateFH(Map<String,Object> map);
+
+    void updateDDGLFHState(Map<String,Object> map);
 }

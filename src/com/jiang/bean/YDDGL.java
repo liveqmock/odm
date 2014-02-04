@@ -19,7 +19,16 @@ public class YDDGL   implements Serializable {
 	private String yewuyuan;
 	private String beizhu;
 	private String zhuangtai;
+    private String order_state;
     private Integer fahuoaddressid;
+
+    public String getOrder_state() {
+        return order_state;
+    }
+
+    public void setOrder_state(String order_state) {
+        this.order_state = order_state;
+    }
 
     public Integer getFahuoaddressid() {
         return fahuoaddressid;

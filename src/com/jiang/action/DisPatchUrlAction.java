@@ -123,7 +123,7 @@ public class DisPatchUrlAction extends ActionSupport {
             initKHGLList(request);
             request.getSession().removeAttribute("orderid");
         }
-        if(ii == 4 && jj ==3)//初始化展会下单界面
+        if((ii == 4 && jj ==1) ||(ii == 4 && jj ==3) )//初始化展会下单界面
         {
             //初始化展会下单界面 客户名称
             PublicFunc.ORDER_TYPE = PublicFunc.ORDER_ZHXD;//展会单
@@ -144,7 +144,8 @@ public class DisPatchUrlAction extends ActionSupport {
             request.getSession().setAttribute("totalnum", totalnum);
             request.getSession().setAttribute("totalprice", totalprice);
         }
-        if((ii == 4 && jj ==9) ||(ii == 4 && jj ==10)) //查看订单明细
+        if((ii == 4 && jj ==9)
+                ||(ii == 4 && jj ==10)) //查看订单明细
         {
             PublicFunc.STATE_ORDER_DETAIL = PublicFunc.STATE_ORDER_ZHXDMODIFY;
             String ddid = null;
@@ -154,24 +155,17 @@ public class DisPatchUrlAction extends ActionSupport {
                 ddid = (String)request.getParameter("ddid");
                 kehuid = (String) request.getParameter("kehuid");
                 request.getSession().setAttribute("orderid", ddid);
-                log.info("kehuid:"+kehuid);
                 try {
                     kehuid = new String(kehuid.getBytes("ISO8859-1"), "UTF-8");
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-
                 KHGL tmp = xsglService.getKHGLByName(kehuid);
-                //得到订单ID放到SESSION里面去
-                //将客户信息放到session里面去。
                 request.getSession().setAttribute("orderDetail", tmp);
                 float totalnum = xsglService.getXSGLDingDanTotalNum(ddid);
                 float totalprice = xsglService.getXSGLDingDanTotalPrice(ddid);
                 request.getSession().setAttribute("totalnum", totalnum);
                 request.getSession().setAttribute("totalprice", totalprice);
-                log.info("ddid:"+ddid);
-                log.info("kehuid:"+ kehuid);
-                log.info("tmp:"+tmp.getKeHuname());
             }
 
         }
@@ -184,6 +178,7 @@ public class DisPatchUrlAction extends ActionSupport {
             request.getSession().setAttribute("historystrs", strs);
             //数据库
         }
+
 
 		return retstrs[ii][jj];
 
@@ -706,11 +701,11 @@ public class DisPatchUrlAction extends ActionSupport {
 				{ "addXTCS" },//仓库
 				{ "addXTCS" },//商品
 				{ "addKHGL_BASE", "addKHGL_FH", "addtypenums","editmishu","addCPKJAPPLY_CKCX", "addCPKJAPPLY",
-                "addshouhuoaddress", "addKHGL_FH_2", "YDD_ADD", "addBupi", "setBupi"},//销售管理
+                "addshouhuoaddress", "addKHGL_FH_2", "YDD_ADD", "addBupi", "setBupi", "sendorderpreview"},//销售管理
 				{ "addXTCS" },//财务
 				{ "addXTCS" },//发货
 				{ "addXTCS" },
-				{ "addXTCS", "addYHGL" } };
+				{ "addXTCS", "addYHGL", "cpfh_detail" } };
     if("1".equals(a) && "1".equals(b) || "1".equals(a) && "2".equals(b) )
     {
         initGYS(request);
@@ -729,56 +724,7 @@ public class DisPatchUrlAction extends ActionSupport {
             }
         }
     }
-    if("5".equals(a) && "5".equals(b))//成品开剪申请
-    {
-        String id = request.getParameter("id");
-        if(id != null)
-        {
-            CangKu  bcp = ckglService.findChangKuById(Integer.valueOf(id));
-            request.getSession().setAttribute("bcpbupi", bcp);
-            if(bcp!=null && bcp.getKJ_num() != null && bcp.getKJ_num().intValue() > 0)
-            {
-                request.setAttribute("bcpkjckcxerror", "此布匹处于被开剪状态");
-                return "addCPKJAPPLY_CKCX";
-            }
-        }
-    }
-    if("5".equals(a) && "6".equals(b))//设置收货地址
-    {
-        //通过订单ID获取客户ID。
-        String id = request.getParameter("dingdanid");
-        System.out.println("id:"+id);
-        YDDGL ydd = xsglService.findYDDGLByDDID(id);
-        System.out.println("YDDGL:"+ydd);
-        if(ydd != null)
-        {
-            String kehuid= ydd.getDingdan_name();
-            System.out.println("kehuid:"+kehuid);
-            if(PublicFunc.unEmpty(kehuid))
-                request.getSession().setAttribute("kehuid",kehuid);
-        }
-        System.out.println("over:");
-        if(PublicFunc.unEmpty(id))
-            request.getSession().setAttribute("ddid",id);
-    }
-    if("5".equals(a) && "10".equals(b))//分配布匹
-    {
-       String order_id =  (String)request.getSession().getAttribute("orderid");
-        //通过订单ID获取客户ID。
-        String type_num = request.getParameter("type_num");
-        String mishu = request.getParameter("mishu");
-        BigDecimal  fenpeimishu = xsglService.getXSGLDingDanReadyBupiNums(order_id, type_num);
-        if(fenpeimishu == null)
-        {
-            fenpeimishu = new  BigDecimal("0");
-        }
-        BigDecimal weifenpeimishu = new BigDecimal(mishu) .subtract(fenpeimishu);
-        request.setAttribute("type_num", type_num);
-        request.getSession().setAttribute("setbupitype_num", type_num);
-        request.setAttribute("mishu", mishu);
-        request.setAttribute("fenpeimishu", fenpeimishu);
-        request.setAttribute("weifenpeimishu", weifenpeimishu);
-    }
+
 
     if("2".equals(a) && "5".equals(b))//采购质检
     {
@@ -877,7 +823,125 @@ public class DisPatchUrlAction extends ActionSupport {
         if("5".equals(a) && "3".equals(b))
         {
         }
+        if("5".equals(a) && "5".equals(b))//成品开剪申请
+        {
+            String id = request.getParameter("id");
+            if(id != null)
+            {
+                CangKu  bcp = ckglService.findChangKuById(Integer.valueOf(id));
+                request.getSession().setAttribute("bcpbupi", bcp);
+                if(bcp!=null && bcp.getKJ_num() != null && bcp.getKJ_num().intValue() > 0)
+                {
+                    request.setAttribute("bcpkjckcxerror", "此布匹处于被开剪状态");
+                    return "addCPKJAPPLY_CKCX";
+                }
+            }
+        }
+        if("5".equals(a) && "6".equals(b))//设置收货地址
+        {
+            //通过订单ID获取客户ID。
+            String id = request.getParameter("dingdanid");
+            System.out.println("id:"+id);
+            YDDGL ydd = xsglService.findYDDGLByDDID(id);
+            System.out.println("YDDGL:"+ydd);
+            if(ydd != null)
+            {
+                String kehuid= ydd.getDingdan_name();
+                System.out.println("kehuid:"+kehuid);
+                if(PublicFunc.unEmpty(kehuid))
+                    request.getSession().setAttribute("kehuid",kehuid);
+            }
+            System.out.println("over:");
+            if(PublicFunc.unEmpty(id))
+                request.getSession().setAttribute("ddid",id);
+        }
+        if("5".equals(a) && "10".equals(b))//分配布匹
+        {
+            String order_id =  (String)request.getSession().getAttribute("orderid");
+            //通过订单ID获取客户ID。
+            String type_num = request.getParameter("type_num");
+            String mishu = request.getParameter("mishu");
+            BigDecimal  fenpeimishu = xsglService.getXSGLDingDanReadyBupiNums(order_id, type_num);
+            if(fenpeimishu == null)
+            {
+                fenpeimishu = new  BigDecimal("0");
+            }
+            BigDecimal weifenpeimishu = new BigDecimal(mishu) .subtract(fenpeimishu);
+            request.setAttribute("type_num", type_num);
+            request.getSession().setAttribute("setbupitype_num", type_num);
+            request.setAttribute("mishu", mishu);
+            request.setAttribute("fenpeimishu", fenpeimishu);
+            request.setAttribute("weifenpeimishu", weifenpeimishu);
+        }
+        if("5".equals(a) && "10".equals(b))
+        {
+            PublicFunc.STATE_ORDER_DETAIL = PublicFunc.STATE_ORDER_ZHXDMODIFY;
+            String ddid = null;
+            String kehuid = null;
+            if(null != request.getParameter("ddid"))
+            {
+                ddid = (String)request.getParameter("ddid");
+                kehuid = (String) request.getParameter("kehuid");
+                request.getSession().setAttribute("orderid", ddid);
+                try {
+                    kehuid = new String(kehuid.getBytes("ISO8859-1"), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                KHGL tmp = xsglService.getKHGLByName(kehuid);
+                request.getSession().setAttribute("orderDetail", tmp);
+                float totalnum = xsglService.getXSGLDingDanTotalNum(ddid);
+                float totalprice = xsglService.getXSGLDingDanTotalPrice(ddid);
+                request.getSession().setAttribute("totalnum", totalnum);
+                request.getSession().setAttribute("totalprice", totalprice);
+             }
+        }
+        if(("5".equals(a) && "11".equals(b)) || ("9".equals(a) && "2".equals(b)) )   //发货按钮
+        {
+            String ddid = null;
+            String kehuid = null;
+            String zhuangtai = null;
+            String order_state = null;
+            if(null != request.getParameter("ddid"))
+            {
+                ddid = (String)request.getParameter("ddid");
+                kehuid = (String) request.getParameter("kehuid");
+                request.getSession().setAttribute("orderid", ddid);
+                request.getSession().setAttribute("ddid", ddid);
+                try {
+                    kehuid = new String(kehuid.getBytes("ISO8859-1"), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                KHGL tmp = xsglService.getKHGLByName(kehuid);
+                request.getSession().setAttribute("orderDetail", tmp);
+                float totalnum = xsglService.getXSGLDDTotalNum(ddid);
+                float fenpeinum = xsglService.getXSGLDingDanFPNum(ddid);
+                request.getSession().setAttribute("totalnum", totalnum);
+                request.setAttribute("fenpeinum", fenpeinum);
+            }
 
+            if(null != request.getParameter("zhuangtai"))
+            {
+                zhuangtai = (String)request.getParameter("zhuangtai");
+                try {
+                    zhuangtai = new String(zhuangtai.getBytes("ISO8859-1"), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(null != request.getParameter("order_state"))
+            {
+                order_state = (String)request.getParameter("order_state");
+                try {
+                    order_state = new String(order_state.getBytes("ISO8859-1"), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+            }
+            request.setAttribute("zhuangtai", zhuangtai);
+            request.setAttribute("order_state", order_state);
+        }
         int i = Integer.valueOf(a);
         int j = Integer.valueOf(b);
         return retstrs[i][j];

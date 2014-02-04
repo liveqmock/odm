@@ -168,4 +168,6 @@ public interface CGGLDao {
     void setFPBPstate(Map<String,Object> map);
 
     void resetFPBPstate(Map<String,Object> map);
+
+    void timerResetFPBPstate();
 }

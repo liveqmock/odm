@@ -45,7 +45,10 @@ test in company
       {
 
       }
-
+      function Close(){
+          //回调函数
+          window.parent.$('#flex1').flexReload();
+      }
       function showtable()
       {
           var ui1 = document.getElementById("hidetable");
@@ -309,14 +312,14 @@ test in company
             hidden.value = "modify";
             hidetable();
             if ($(".trSelected").length == 1) {
-                if (confirm('是否确认修改此地址为收获地址?')) {
+                if (confirm('是否确认修改此地址为收货地址?')) {
                     checkoldcommit($('.trSelected', grid).find("td").eq(0).text());
                 }
                 //window.location.href =  "XSGL_dolist?hidden=premodify&type=KHGL_FH&id="+$('.trSelected', grid).find("td").eq(0).text();
             } else if ($(".trSelected").length > 1) {
                 alert("不能同时选中多个");
             } else if ($(".trSelected").length == 0) {
-                alert("请选择一个收获地址");
+                alert("请选择一个收货地址");
             }
         }
     }

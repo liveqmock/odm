@@ -209,7 +209,7 @@ function gridFlash(){
 	                                  ]}).flexReload();
 }
 $("#flex1").flexigrid({
-    url : 'XSGL_dolist?hidden=manage&type=ZHXDDETAIL',
+    url : 'XSGL_dolist?hidden=manage&type=ZHXDDETAIL_DDGL',
     dataType : 'json',
     colModel : [ {
         display : 'id',
@@ -246,25 +246,37 @@ $("#flex1").flexigrid({
     }, {
         display : '单价',
         name : 'Apply_Time',
-        width : 110,
+        width : 100,
         sortable : false,
         align : 'center'
     }, {
         display : '金额',
         name : 'Queren_Man',
-        width : 120,
+        width : 100,
         sortable : false,
         align : 'center'
     }, {
+        display : '备货状态',
+        name : 'Queren_Time',
+        width : 100,
+        sortable : false,
+        align : 'center'
+    }, {
+        display : '发货状态',
+        name : 'Queren_Time',
+        width : 100,
+        sortable : false,
+        align : 'center'
+    },  {
         display : '备注',
         name : 'Queren_Time',
-        width : 300,
+        width : 100,
         sortable : false,
         align : 'center'
     }],
     buttons : [
         {
-            name : '指定布匹',
+            name : '布匹分配明细',
             bclass : 'add',
             onpress:  button
         }, {
@@ -336,11 +348,11 @@ $("#flex1").flexigrid({
 			}
 		} else if (com == '添加货号') {
             JqueryDialog.Open('订单明细', 'DisPatch_getAddJsp?a=5&b=2', 500, 430);
-		} else if (com == '指定布匹') {
+		} else if (com == '布匹分配明细') {
             if ($('.trSelected', grid).length == 1) {
                 var id=$('.trSelected', grid).find("td").eq(1).text();
                 var mishu=$('.trSelected', grid).find("td").eq(4).text();
-              JqueryDialog.Open('布匹分配明细', 'DisPatch_getAddJsp?a=5&b=10&type_num='+id+"&mishu="+mishu, 800, 480);
+              JqueryDialog.Open1('布匹分配明细', 'DisPatch_getAddJsp?a=5&b=10&type_num='+id+"&mishu="+mishu, 800, 480, true, true, false);
             }
         }  else if(com == '修改米数') {
             if ($(".trSelected").length == 1) {
@@ -355,6 +367,7 @@ $("#flex1").flexigrid({
             }
         }
 	}
+
     /**
      * 删除记录
      */

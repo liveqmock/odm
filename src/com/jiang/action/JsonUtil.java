@@ -718,7 +718,7 @@ public class JsonUtil {
                     .getKaidan_time());
             cellMap.put("cell", new Object[]{cg.getId(), cg.getDingdan_id(),
                     cg.getDingdan_name(), cg.getPay_way(), cg.getFh_way(),
-                    xiadantime, cg.getZhuangtai(), cg.getBeizhu()});
+                    xiadantime, cg.getZhuangtai(), cg.getOrder_state(),cg.getBeizhu()});
             mapList.add(cellMap);
         }
         return mapList;
@@ -1332,7 +1332,7 @@ public class JsonUtil {
             cellMap.put("id", cg.getId());
             cellMap.put("cell",
                     new Object[]{cg.getId(), cg.getType_num(), cg.getType_num(), cg.getGuige(), cg.getNum()+"",
-                            cg.getDanjia(),b1.multiply(b2).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue()+"", cg.getFinish_or_not(),cg.getBeizhu()});
+                            cg.getDanjia(),b1.multiply(b2).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue()+"", cg.getFinish_or_not(),cg.getOrder_state(), cg.getBeizhu()});
             mapList.add(cellMap);
         }
         return mapList;
@@ -1346,7 +1346,7 @@ public class JsonUtil {
             BigDecimal b1 =  cg.getMishu();
             cellMap.put("id", cg.getId());
             cellMap.put("cell",
-                    new Object[]{cg.getId(), cg.getBupi_id(), cg.getType_num(), b1, cg.getBeizhu()});
+                    new Object[]{cg.getId(),  cg.getType_num(),cg.getBupi_id(), b1, cg.getBeizhu()});
             mapList.add(cellMap);
         }
         return mapList;

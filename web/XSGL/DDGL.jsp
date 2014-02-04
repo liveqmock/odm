@@ -7,20 +7,21 @@
 <title>客户</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<script type="text/javascript" language="javascript"
-	src="js/jquery-fn-tab.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery-fn-tab.js"></script>
 <script type="text/javascript" src="js/jquery-1.3.2.js"></script>
 <script type="text/javascript" src="js/jquery.corners.min.js"></script>
 <script type="text/javascript" src="js/flexigrid.js"></script>
-<script language="javascript" type="text/javascript"
-	src="My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/jquery_dialog.js"></script>
+<script language="javascript" type="text/javascript"  src="My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="js/ChangeImageJS.js"></script>
 <link rel="stylesheet" href="CSS/flexigrid.css" type="text/css"/>
 <link rel="stylesheet" href="CSS/flexigrid.pack.css" type="text/css"/>
+<link rel="stylesheet" href="CSS/jquery_dialog.css" type="text/css"/>
 <link rel="stylesheet" href="skin/WdatePicker.css" type="text/css"/>
-
 <link type="text/css" rel="stylesheet" href="CSS/table.css" />
 <link type="text/css" rel="stylesheet" href="CSS/Menu_Right.css" />
+
+
 </head>
 <body>
 	<div>
@@ -60,20 +61,28 @@
 				<td><input name="dateEndText" type="text" id="dateEndText"
 					class="Wdate" onclick="WdatePicker()"
 					style="width: 160px; position: relative" /></td>
-				<td width="132" align="center" class="td1">状态</td>
+				<td width="132" align="center" class="td1">备货状态</td>
 
 				<td width="140" class=""><select name="zhuangtai"
 					id="zhuangtai" class="a2" style="position: relative">
 						<option selected="selected" value="--请选择--">--请选择--</option>
 						<option >备货中</option>
-                        <option >部分备货</option>
-                        <option >部分发货</option>
-                        <option >部分发货，有新的备货</option>
-                        <option >全部备货</option>
-                        <option >已发货</option>
+                        <option >部分备货完成</option>
+                        <option >全部备货完成</option>
 				</select></td>
+                <td width="132" align="center" class="td1">订单状态</td>
 
-				<td width="80" class="td2"><input type="image"
+                <td width="140" class=""><select name="order_state"
+                                                 id="order_state" class="a2" style="position: relative">
+                    <option selected="selected" value="--请选择--">--请选择--</option>
+                    <option >未发货</option>
+                    <option >已申请发货</option>
+                    <option >部分发货完成</option>
+                    <option >发货完成</option>
+                </select></td>
+
+
+                <td width="80" class="td2"><input type="image"
 					name="imgBtnSearch" id="imgBtnSearch"
 					onmouseover="ChangeImage(this,'images/Search2.gif')"
 					onmouseout="ChangeImage(this,'images/Search1.gif')"
@@ -101,6 +110,7 @@ function gridFlash(){
 	                                  {name:'dingdanhao', value:$("#dingdanhao").val()},
 	                                  {name:'dateStartText', value:$("#dateStartText").val()},
 	                                  {name:'dateEndText', value:$("#dateEndText").val()},
+                                      {name:'order_state', value:$("#order_state").val()},
 	                                  {name:'zhuangtai',value:$("#zhuangtai").val()}
 	                                  ]}).flexReload();
 }  
@@ -145,15 +155,21 @@ function gridFlash(){
 			sortable : false,
 			align : 'center'
 		}, {
-			display : '状态',
+			display : '备货状态',
 			name : 'ckname',
 			width : 120,
 			sortable : false,
 			align : 'center'
-		} ,{
+		},{
+            display : '订单状态',
+            name : 'ckname',
+            width : 100,
+            sortable : false,
+            align : 'center'
+        } ,{
 			display : '备注',
 			name : 'ckname',
-			width : 290,
+			width : 190,
 			sortable : false,
 			align : 'center'
 		} ],
@@ -201,11 +217,7 @@ function gridFlash(){
 	});
 
 	function button(com, grid) {
-		var hidden = document.getElementById("hidden");
-
 		if (com == '删除') {
-			hidden.value = "delete";
-
 			if ($('.trSelected', grid).length == 0) {
 				alert("请选择要删除的数据");
 			} else {
@@ -222,15 +234,11 @@ function gridFlash(){
 											.eq(i).text() + "&";
 						}
 					}
-					var url = "CGGL_dolist?hidden=delete&" + id;
+					var url = "XSGL_dolist?hidden=delete&type=DDGL&" + id;
 					del(url);
 				}
 			}
-		} else if (com == '添加') {
-			hidden.value = "add";
-			location.href = "DisPatch_getUrl?i=1&j=1";
 		} else if (com == '详细') {
-			hidden.value = "modify";
 			if ($(".trSelected").length == 1) {
 				window.location.href = "DisPatch_getUrl?i=4&j=10"
 						+ "&ddid="
@@ -243,6 +251,21 @@ function gridFlash(){
 				alert("请选择一个订单进行查看！");
 			}
 		}
+        else if(com == '发货')
+        {
+            if ($('.trSelected', grid).length == 1) {
+               var urlstr =  'DisPatch_getAddJsp?a=5&b=11'
+                        + "&ddid="
+                        + $('.trSelected', grid).find("td").eq(1).text()
+                        + "&kehuid="
+                       + $('.trSelected', grid).find("td").eq(2).text()
+                        + "&zhuangtai="
+                        + $('.trSelected', grid).find("td").eq(6).text()
+                        + "&order_state="
+                        + $('.trSelected', grid).find("td").eq(7).text();
+                JqueryDialog.Open1('发货清单', urlstr , 800, 480, true, true, false);
+            }
+        }
 	}
 
 	/** 

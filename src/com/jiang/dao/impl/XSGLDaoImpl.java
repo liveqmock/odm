@@ -324,5 +324,38 @@ public class XSGLDaoImpl extends SqlMapClientDaoSupport implements XSGLDao {
         return getSqlMapClientTemplate().queryForList("XSGL.getXSGLDDBupis", map);
     }
 
+    public void deleteDDGLById(List<String> ids) {
+        getSqlMapClientTemplate().delete("XSGL.deleteDDGLById", ids);
+    }
+
+    public float getXSGLDingDanFPNum(String dingdan_id) {
+        Float count = null;
+        count = (Float) getSqlMapClientTemplate().queryForObject(
+                "XSGL.getXSGLDingDanFPNum", dingdan_id);
+        if(count == null)
+        {
+            count = 0.0f;
+        }
+        return count;
+    }
+
+    public float getXSGLDDTotalNum(String dingdan_id) {
+        Float count = null;
+        count = (Float) getSqlMapClientTemplate().queryForObject(
+                "XSGL.getXSGLDDTotalNum", dingdan_id);
+        if(count == null)
+        {
+            count = 0.0f;
+        }
+        return count;
+    }
+
+    public void updateOrderStateFH(Map<String, Object> map) {
+        getSqlMapClientTemplate().update("XSGL.updateOrderStateFH", map);
+    }
+
+    public void updateDDGLFHState(Map<String, Object> map) {
+        getSqlMapClientTemplate().update("XSGL.updateDDGLFHState", map);
+    }
 
 }

@@ -75,10 +75,10 @@
         <property name="targetMethod" value="execute"/>
     </bean>
 
-    <!-- 定义时间表 -->
+    <!-- 定义时间表   每天23：55 定时清理未处理的订单，将布匹恢复-->
     <bean id="cronTriggerBean" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="jobDetailBean"/>
-        <property name="cronExpression" value="0 30 23 * * ?"/>
+        <property name="cronExpression" value="0 55 23 * * ?"/>
     </bean>
 
     <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">

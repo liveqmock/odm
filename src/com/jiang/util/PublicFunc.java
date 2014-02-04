@@ -66,16 +66,19 @@ public class PublicFunc {
 
 
     public static final String SALE_STATE_INIT= "备货中";
-    public static final String SALE_STATE_BFBH= "部分备货";
-    public static final String SALE_STATE_BFFH= "部分发货";
-    public static final String SALE_STATE_BFBHFH = "部分发货，有新备货";
-    public static final String SALE_STATE_QBBH= "全部备货";
-    public static final String SALE_STATE_FH= "已发货";
+    public static final String SALE_STATE_BFBH= "部分备货完成";
+    public static final String SALE_STATE_QBBH= "全部备货完成";
+
+    public static final String SALE_STATE_WFH= "未发货";
+    public static final String SALE_STATE_SQFH= "已申请发货";
+    public static final String SALE_STATE_BFBHFH = "部分发货完成";
+    public static final String SALE_STATE_FH= "发货完成";
 
 
     public static final String SALEDTAIL_STATE_INIT= "备货中";
-    public static final String SALEDTAIL_STATE_BH= "备货完成";
-    public static final String SALEDTAIL_STATE_FH= "已发货";
+    public static final String SALEDTAIL_STATE_BFBH= "部分备货完成";
+    public static final String SALEDTAIL_STATE_BHWC= "全部备货完成";
+    public static final String SALEDTAIL_STATE_FH= "发货完成";
 
     public static final String STATE_ORDER_ZHXD = "展会下单";
     public static final String STATE_ORDER_ZHXDMODIFY = "修改展会下单";

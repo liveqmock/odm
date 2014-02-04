@@ -207,5 +207,25 @@ class XSGLServiceImpl implements XSGLService {
         return xSGLDao.getXSGLDDBupis(page, rp,map);
     }
 
+    public void deleteDDGLById(List<String> ids) {
+         xSGLDao.deleteDDGLById(ids);
+    }
+
+    public float getXSGLDingDanFPNum(String ddid) {
+        return xSGLDao.getXSGLDingDanFPNum(ddid);
+    }
+
+    public float getXSGLDDTotalNum(String ddid) {
+        return xSGLDao.getXSGLDDTotalNum(ddid);
+    }
+
+    public void updateOrderStateFH(Map<String, Object> map) {
+        xSGLDao.updateOrderStateFH(map);
+    }
+
+    public void updateDDGLFHState(Map<String, Object> map) {
+        xSGLDao.updateDDGLFHState(map);
+    }
+
 
 }
